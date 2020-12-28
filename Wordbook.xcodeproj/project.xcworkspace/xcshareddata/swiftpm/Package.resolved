@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftUIPager",
+        "repositoryURL": "https://github.com/fermoya/SwiftUIPager.git",
+        "state": {
+          "branch": null,
+          "revision": "6ccc32c01e421406d71097d99e2aa4609762dd5b",
+          "version": "1.11.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

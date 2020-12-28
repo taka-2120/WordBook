@@ -3,23 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0D8559253ADC8B00875FA0 /* SwiftUIPager */; };
+		3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780D92529C9290002897A /* AddingWordbookView.swift */; };
+		3B1780DC2529F3D20002897A /* AddingWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780DB2529F3D20002897A /* AddingWordView.swift */; };
 		3B3EBE982524727400152662 /* WordbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBE972524727400152662 /* WordbookApp.swift */; };
 		3B3EBE9A2524727400152662 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBE992524727400152662 /* ContentView.swift */; };
 		3B3EBE9C2524727500152662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3EBE9B2524727500152662 /* Assets.xcassets */; };
 		3B3EBE9F2524727500152662 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3EBE9E2524727500152662 /* Preview Assets.xcassets */; };
+		3B3EBEC22529C20600152662 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBEC12529C20600152662 /* WordsView.swift */; };
+		3B3EBEC42529C4F300152662 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBEC32529C4F200152662 /* EditingView.swift */; };
+		3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41BDA22531A9CE006D3A66 /* CardMode.swift */; };
+		3BB00596254567F1006F0276 /* DetecterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB00595254567F1006F0276 /* DetecterView.swift */; };
+		3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE99F6F2559619D005106D9 /* ImportMethodView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B1780D92529C9290002897A /* AddingWordbookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingWordbookView.swift; sourceTree = "<group>"; };
+		3B1780DB2529F3D20002897A /* AddingWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingWordView.swift; sourceTree = "<group>"; };
 		3B3EBE942524727400152662 /* Wordbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3EBE972524727400152662 /* WordbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookApp.swift; sourceTree = "<group>"; };
 		3B3EBE992524727400152662 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3B3EBE9B2524727500152662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B3EBE9E2524727500152662 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B3EBEA02524727500152662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B3EBEC12529C20600152662 /* WordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsView.swift; sourceTree = "<group>"; };
+		3B3EBEC32529C4F200152662 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
+		3B41BDA22531A9CE006D3A66 /* CardMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMode.swift; sourceTree = "<group>"; };
+		3B71AE61252B2509001DD25B /* Wordbooks.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Wordbooks.geojson; sourceTree = "<group>"; };
+		3BB00595254567F1006F0276 /* DetecterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetecterView.swift; sourceTree = "<group>"; };
+		3BE99F6F2559619D005106D9 /* ImportMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMethodView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +69,15 @@
 		3B3EBE962524727400152662 /* Wordbook */ = {
 			isa = PBXGroup;
 			children = (
+				3BE99F6E2559616C005106D9 /* TextDetect */,
+				3B71AE5B252B2291001DD25B /* Data */,
 				3B3EBE972524727400152662 /* WordbookApp.swift */,
 				3B3EBE992524727400152662 /* ContentView.swift */,
+				3B3EBEC12529C20600152662 /* WordsView.swift */,
+				3B41BDA22531A9CE006D3A66 /* CardMode.swift */,
+				3B1780D92529C9290002897A /* AddingWordbookView.swift */,
+				3B1780DB2529F3D20002897A /* AddingWordView.swift */,
+				3B3EBEC32529C4F200152662 /* EditingView.swift */,
 				3B3EBE9B2524727500152662 /* Assets.xcassets */,
 				3B3EBEA02524727500152662 /* Info.plist */,
 				3B3EBE9D2524727500152662 /* Preview Content */,
@@ -67,6 +91,23 @@
 				3B3EBE9E2524727500152662 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B71AE5B252B2291001DD25B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3B71AE61252B2509001DD25B /* Wordbooks.geojson */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3BE99F6E2559616C005106D9 /* TextDetect */ = {
+			isa = PBXGroup;
+			children = (
+				3BB00595254567F1006F0276 /* DetecterView.swift */,
+				3BE99F6F2559619D005106D9 /* ImportMethodView.swift */,
+			);
+			path = TextDetect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +126,9 @@
 			dependencies = (
 			);
 			name = Wordbook;
+			packageProductDependencies = (
+				3B0D8559253ADC8B00875FA0 /* SwiftUIPager */,
+			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* Wordbook.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 3B3EBE8B2524727400152662;
+			packageReferences = (
+				3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +186,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3EBE9A2524727400152662 /* ContentView.swift in Sources */,
+				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
+				3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */,
+				3BB00596254567F1006F0276 /* DetecterView.swift in Sources */,
 				3B3EBE982524727400152662 /* WordbookApp.swift in Sources */,
+				3B3EBEC22529C20600152662 /* WordsView.swift in Sources */,
+				3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */,
+				3B3EBEC42529C4F300152662 /* EditingView.swift in Sources */,
+				3B1780DC2529F3D20002897A /* AddingWordView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B0D8559253ADC8B00875FA0 /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B3EBE8C2524727400152662 /* Project object */;
 }
