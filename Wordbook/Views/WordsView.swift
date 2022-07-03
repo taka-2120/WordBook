@@ -11,7 +11,7 @@ import Vision
 
 struct WordsView: View {
     
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var isNavBarHidden: Bool
     var wordbookId: UUID
     
@@ -27,99 +27,68 @@ struct WordsView: View {
     @State var detectorIsShown = false
     
     var body: some View {
-        
-        ZStack {
+        ZStack(alignment: .top) {
             NavigationLink("", destination: CardMode(wordbooks: $wordbooks, wordbookIndex: $wordbookIndex, words: $words, isNavBarHidden: $isNavBarHidden), isActive: $cardViewShown)
                 .hidden()
             
-            List {
-                Section {
-                    HStack {
-                        HStack {
-                            Spacer()
-                            Image(systemName: "plus")
-                                .onTapGesture {
-                                    detectorIsShown = true
-                                }
-                                .sheet(isPresented: $detectorIsShown, content: {
-                                    ImportMethodView(wordbooks: $wordbooks, words: $words, wordbookIndex: $wordbookIndex)
-                                })
-                            Spacer()
-                        }
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            Image(systemName: "arrowtriangle.right.fill")
-                                .onTapGesture {
-                                    shown = true
-                                    isNavBarHidden = true
-                                    cardViewShown = true
-                                }
-                            Spacer()
-                        }
-                    }
-                    Text("\(words.count) word\(countWord())")
-                }
-                
+            ScrollView {
                 ForEach(words, id: \.id) { word in
-                    Button(action: {
-                        shown = true
-                        editingViewShown = true
-                    }, label: {
-                        HStack {
-                            Circle()
-                                .fill(priorityDetector(priority: word.priority))
-                                .frame(maxWidth: 10, maxHeight: 10)
-                            Text(word.originalWord)
-                                .foregroundColor(Color(.label))
-                            Spacer()
-                            Text(word.translatedWord)
-                                .foregroundColor(Color(.secondaryLabel))
-                        }
-                    })
-                    .contextMenu {
-                        Button(action: {
-                            editingViewShown = true
-                        }) {
-                            Text("Edit")
-                            Image(systemName: "square.and.pencil")
-                        }
-
-                        Button(action: {
-                            for i in 0 ... words.count {
-                                if words[i].id == word.id {
-                                    words.remove(at: i)
-                                    wordbooks[wordbookIndex].words.remove(at: i)
-                                    return
-                                }
-                            }
-                        }) {
-                            Text("Delete")
-                            Image(systemName: "trash")
-                        }
-                        .foregroundColor(Color(.systemRed))
-                    }
-                    .sheet(isPresented: $editingViewShown) {
-                        EditingView(originalWord: word.originalWord, translatedWord: word.translatedWord, priority: word.priority, missed: word.missed, wordId: word.id, wordbookIndex: $wordbookIndex, wordbooks: $wordbooks, words: $words)
-                    }
+                    WordItem(word: word, wordbookIndex: wordbookIndex, words: $words, wordbooks: $wordbooks)
                 }
-                .onMove(perform: { indices, newOffset in
-                    words.move(fromOffsets: indices, toOffset: newOffset)
-                    wordbooks[wordbookIndex].words.move(fromOffsets: indices, toOffset: newOffset)
-                })
-                .onDelete(perform: { indexSet in
-                    words.remove(atOffsets: indexSet)
-                    wordbooks[wordbookIndex].words.remove(atOffsets: indexSet)
-                })
+                .padding(.top, 20)
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle(Text("Words"))
-            .navigationBarItems(trailing: EditButton().foregroundColor(Color(.label)))
-            .environment(\.editMode, $editMode)
+            .padding(.top, 90)
             
+            VStack(spacing: 0) {
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.backward")
+                            .font(.title2)
+                            .foregroundColor(Color(.label))
+                    })
+                    Spacer()
+                    Text(wordbooks[wordbookIndex].name)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    Spacer()
+                    Button(action: {
+                        if words.count != 0 {
+                            shown = true
+                            isNavBarHidden = true
+                            cardViewShown = true
+                        }
+                    }, label: {
+                        Image(systemName: "arrowtriangle.right.fill")
+                            .font(.title2)
+                            .foregroundColor(Color(.label))
+                    })
+                }
+                .padding()
+                
+                
+                Text("\(words.count) Word\(countWord())")
+            }
+            .frame(maxWidth: .infinity)
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    CircleNavigationButton(
+                        isShown: $detectorIsShown,
+                        icon: "plus",
+                        detents: [.large],
+                        destination: AnyView(ImportMethodView(wordbooks: $wordbooks, words: $words, wordbookIndex: $wordbookIndex))
+                    )
+                }
+            }
+            .padding()
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarHidden(isNavBarHidden)
+        .background(Color(defaultBackground))
+        .navigationBarBackButtonHidden(true)
         .onAppear() {
             if shown == false {
                 for i in 0 ... wordbooks.count - 1 {
@@ -139,14 +108,12 @@ struct WordsView: View {
             return "s"
         }
     }
-    
-    func priorityDetector(priority: Int) -> Color {
-        switch priority {
-        case 0: return Color.clear
-        case 1: return Color(.systemBlue)
-        case 2: return Color(.systemOrange)
-        case 3: return Color(.systemRed)
-        default: return Color.clear
-        }
+}
+
+
+
+struct WordsView_Previews: PreviewProvider {
+    static var previews: some View {
+        WordsView(wordbooks: .constant([WordBooks(name: "System English Words", words: [], modifiedDate: Date())]), isNavBarHidden: .constant(false), wordbookId: UUID())
     }
 }

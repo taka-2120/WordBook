@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView {
+                SettingsItem(kinds: .link, leftLabel: "Notification")
+                SettingsItem(kinds: .normal, leftLabel: "Varsion", rightLabel: "1.0.0 Beta")
+            }
+            .background(Color(defaultBackground))
+            .navigationBarTitle("Settings")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                            .fontWeight(.bold)
+                    }
+                }
+            }
+        }
     }
 }
 

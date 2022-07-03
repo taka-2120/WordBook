@@ -25,7 +25,7 @@ struct SelectedWords {
 struct DetectorView: View {
     
     @Binding var image: UIImage?
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var words: [Words]
     @Binding var wordbookIndex: Int
     @State var points: [Points] = []
@@ -267,7 +267,7 @@ struct DetectedWordsList: View {
     
     @Binding var detectedWords: [String]
     @Environment(\.presentationMode) var presentationMode
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var words: [Words]
     @Binding var wordbookIndex: Int
     

@@ -10,13 +10,9 @@ import SwiftUI
 struct EditingView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    var originalWord: String
-    var translatedWord: String
-    var priority: Int
-    var missed: Int
-    var wordId: UUID
-    @Binding var wordbookIndex: Int
-    @Binding var wordbooks: [Wordbooks]
+    var word: Words
+    var wordbookIndex: Int
+    @Binding var wordbooks: [WordBooks]
     @Binding var words: [Words]
     
     @State var originalWord_in = ""
@@ -36,7 +32,7 @@ struct EditingView: View {
                     HStack {
                         Text("Missed")
                         Spacer()
-                        Text(String(missed))
+                        Text("\(word.missed)")
                     }
                 }
                 
@@ -64,7 +60,7 @@ struct EditingView: View {
                 Text("Cancel")
                     .fontWeight(.regular)
             }), trailing: Button(action: {
-                let index = wordIndexDetector(words: words, id: wordId)
+                let index = wordIndexDetector(words: words, id: word.id)
                 wordbooks[wordbookIndex].words[index].originalWord = originalWord_in
                 wordbooks[wordbookIndex].words[index].translatedWord = translatedWord_in
                 wordbooks[wordbookIndex].words[index].priority = priority_in
@@ -76,25 +72,20 @@ struct EditingView: View {
                 Text("Save")
             }))
             .onAppear() {
-                originalWord_in = originalWord
-                translatedWord_in = translatedWord
-                priority_in = priority
-                missed_in = missed
+                originalWord_in = word.originalWord
+                translatedWord_in = word.translatedWord
+                priority_in = word.priority
+                missed_in = word.missed
             }
         }
     }
     
     func priorityDetector() -> (priority: String, foreground: Color) {
-        if priority_in == 1 {
-            return ("Low", Color(.systemBlue))
-        } else if priority_in == 2 {
-            return ("Mid", Color(.systemOrange))
-        } else if priority_in == 3 {
-            return ("High", Color(.systemRed))
-        } else {
-            return ("None", Color(.label))
+        switch priority_in {
+        case 1: return ("Low", Color(.systemBlue))
+        case 2: return ("Mid", Color(.systemOrange))
+        case 3: return ("High", Color(.systemRed))
+        default: return ("None", Color(.label))
         }
     }
 }
-
-

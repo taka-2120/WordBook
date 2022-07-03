@@ -11,7 +11,7 @@ struct AddingWordView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var words: [Words]
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var wordbookIndex: Int
     @State var originalWord = ""
     @State var translatedWord = ""

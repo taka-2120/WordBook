@@ -22,8 +22,15 @@ struct ImportMethodView: View {
                                       LanguageCodes(name: "German", code: "de-DE", tag: 3),
                                       LanguageCodes(name: "Spanish", code: "es-ES", tag: 4),
                                       LanguageCodes(name: "Portuguese(Brazil)", code: "pt-BR", tag: 5),
-                                      LanguageCodes(name: "Chinese(Simplified)", code: "zh-Hans", tag: 6),
-                                      LanguageCodes(name: "Chinese(Traditional)", code: "zh-Hant", tag: 7)]
+                                      LanguageCodes(name: "Chinese (Simplified)", code: "zh-Hans", tag: 6),
+                                      LanguageCodes(name: "Chinese (Traditional)", code: "zh-Hant", tag: 7),
+                                      LanguageCodes(name: "Cantonese (Simplified, China)", code: "yue-Hans", tag: 8),
+                                      LanguageCodes(name: "Cantonese (Traditional, China)", code: "yue-Hant", tag: 9),
+                                      LanguageCodes(name: "Korean", code: "ko-KR", tag: 10),
+                                      LanguageCodes(name: "Japanese", code: "ja-JP", tag: 11),
+                                      LanguageCodes(name: "Ukrainian", code: "uk-UA", tag: 12),
+                                      LanguageCodes(name: "Russian", code: "ru-RU", tag: 13)]
+    
     @State var selectedLanguage = 0
     @State var imagePickerIsShown = false
     @State var camaraIsShown = false
@@ -33,7 +40,7 @@ struct ImportMethodView: View {
     @State var translatedWord = ""
     @State var originalWords: [String] = []
     @State var image: UIImage? = nil
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var words: [Words]
     @Binding var wordbookIndex: Int
     @Environment(\.presentationMode) var presentationMode
@@ -42,27 +49,38 @@ struct ImportMethodView: View {
     let closeNotif = NotificationCenter.default.publisher(for: .init(rawValue: "closeNotif"))
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                    })
+                    Spacer()
+                    Text("Add Word")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    Spacer()
+                    Rectangle()
+                        .opacity(0)
+                        .frame(width: 25, height: 0)
+                }
                 //By Text
                 DisclosureGroup("Text", isExpanded: $expantionDetector.byText) {
-                    //Original
-                    ZStack {
-                        TextField("Original", text: $originalWord)
-                            .padding()
-                    }
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(7)
-                    .padding()
+                    TextField("Original", text: $originalWord)
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(15)
+                        .padding()
                     
-                    //Translated
-                    ZStack {
-                        TextField("Translated", text: $translatedWord)
-                            .padding()
-                    }
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(7)
-                    .padding()
+                    TextField("Translated", text: $translatedWord)
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(15)
+                        .padding()
                     
                     //Add Button
                     Button(action: {
@@ -75,13 +93,13 @@ struct ImportMethodView: View {
                         NotificationCenter.default.post(name: .init(rawValue: "closeNotif"), object: nil)
                     }, label: {
                         Text("Add")
-                            .frame(maxWidth: 300)
+                            .foregroundColor(Color(.systemBackground))
+                            .frame(maxWidth: 250)
                             .padding(.vertical)
                             .font(.system(size: 16))
                     })
-                    .foregroundColor(.white)
-                    .background(Color(.systemBlue))
-                    .cornerRadius(7)
+                    .background(Color(.label))
+                    .cornerRadius(10)
                     .padding()
                     .alert(isPresented: $error_text) {
                         Alert(title: Text("Error"), message: Text("You can't empty these textfield."), dismissButton: .default(Text("OK")))
@@ -115,13 +133,13 @@ struct ImportMethodView: View {
                                 Image(systemName: "camera")
                                 Text("Take a Photo")
                             }
-                            .foregroundColor(.white)
-                            .frame(maxWidth: 300)
+                            .foregroundColor(Color(.systemBackground))
+                            .frame(maxWidth: 250)
                             .padding(.vertical)
                             .font(.system(size: 16))
                         })
-                        .background(Color(.systemBlue))
-                        .cornerRadius(7)
+                        .background(Color(.label))
+                        .cornerRadius(10)
                         .padding()
                         
                         //Import from Library
@@ -133,13 +151,13 @@ struct ImportMethodView: View {
                                 Image(systemName: "photo")
                                 Text("Import from Library")
                             }
-                            .foregroundColor(.white)
-                            .frame(maxWidth: 300)
+                            .foregroundColor(Color(.systemBackground))
+                            .frame(maxWidth: 250)
                             .padding(.vertical)
                             .font(.system(size: 16))
                         })
-                        .background(Color(.systemBlue))
-                        .cornerRadius(7)
+                        .background(Color(.label))
+                        .cornerRadius(10)
                         .padding()
                     }
                 }
@@ -147,15 +165,6 @@ struct ImportMethodView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarTitle("Original Word")
-            .navigationBarItems(leading:
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Cancel")
-                        .fontWeight(.regular)
-                })
-            )
             .sheet(isPresented: $imagePickerIsShown, onDismiss: {
                 if continuing == true {
                     detectorIsShown = true
@@ -163,6 +172,7 @@ struct ImportMethodView: View {
             }, content: {
                 SUImagePickerView(sourceType: camaraIsShown ? UIImagePickerController.SourceType.camera : UIImagePickerController.SourceType.photoLibrary, image: $image, isPresented: $imagePickerIsShown, continuing: $continuing)
             })
+            .toolbar(.hidden, in: .navigationBar)
         }
         .sheet(isPresented: $detectorIsShown, onDismiss: {
             presentationMode.wrappedValue.dismiss()

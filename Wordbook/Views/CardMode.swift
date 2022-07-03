@@ -12,7 +12,7 @@ struct CardMode: View {
     
     @Environment(\.presentationMode) var presentationMode
     let tapped = NotificationCenter.default.publisher(for: .init(rawValue: "tapped"))
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var wordbookIndex: Int
     @Binding var words: [Words]
     @Binding var isNavBarHidden: Bool
@@ -64,7 +64,7 @@ struct PageItem: View {
     var missed: Int
     var priority: Int
     var count: Int
-    @Binding var wordbooks: [Wordbooks]
+    @Binding var wordbooks: [WordBooks]
     @Binding var wordbookIndex: Int
     @Binding var words: [Words]
     @Binding var currentPage: Int
