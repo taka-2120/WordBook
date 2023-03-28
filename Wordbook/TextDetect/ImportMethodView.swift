@@ -172,7 +172,7 @@ struct ImportMethodView: View {
             }, content: {
                 SUImagePickerView(sourceType: camaraIsShown ? UIImagePickerController.SourceType.camera : UIImagePickerController.SourceType.photoLibrary, image: $image, isPresented: $imagePickerIsShown, continuing: $continuing)
             })
-            .toolbar(.hidden, in: .navigationBar)
+            .toolbar(.hidden, for: .navigationBar)
         }
         .sheet(isPresented: $detectorIsShown, onDismiss: {
             presentationMode.wrappedValue.dismiss()
