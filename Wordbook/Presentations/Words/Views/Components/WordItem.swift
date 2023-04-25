@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct WordItem: View {
-    var word: Words
-    var wordbookIndex: Int
-    @Binding var words: [Words]
-    @Binding var wordbooks: [WordBooks]
+    let word: Word
     @State var isInfoShown = false
     
     var body: some View {
@@ -22,11 +19,11 @@ struct WordItem: View {
                 Circle()
                     .fill(getPriorityColor(priority: word.priority))
                     .frame(maxWidth: 10, maxHeight: 10)
-                Text(word.originalWord)
+                Text(word.original)
                     .foregroundColor(Color(.label))
                     .fontWeight(.semibold)
                 Spacer()
-                Text(word.translatedWord)
+                Text(word.translated)
                     .foregroundColor(Color(.secondaryLabel))
             }
         })
@@ -42,13 +39,7 @@ struct WordItem: View {
             }
 
             Button(action: {
-                for i in 0 ... words.count {
-                    if words[i].id == word.id {
-                        words.remove(at: i)
-                        wordbooks[wordbookIndex].words.remove(at: i)
-                        return
-                    }
-                }
+                // TODO: Remove Action
             }) {
                 Text("Delete")
                 Image(systemName: "trash")
@@ -58,8 +49,5 @@ struct WordItem: View {
         .shadow(color: Color(.systemGray5), radius: 10)
         .padding(.horizontal)
         .padding(.vertical, 5)
-        .sheet(isPresented: $isInfoShown) {
-            EditingView(word: word, wordbookIndex: wordbookIndex, wordbooks: $wordbooks, words: $words)
-        }
     }
 }

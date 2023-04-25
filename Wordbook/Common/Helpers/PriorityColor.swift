@@ -16,3 +16,12 @@ func getPriorityColor(priority: Int) -> Color {
     default: return Color.clear
     }
 }
+
+func priorityDetector(priority: Int) -> (priority: String, foreground: Color) {
+    switch priority {
+    case 1: return ("Low", Color(.systemBlue))
+    case 2: return ("Mid", Color(.systemOrange))
+    case 3: return ("High", Color(.systemRed))
+    default: return ("None", Color(.label))
+    }
+}

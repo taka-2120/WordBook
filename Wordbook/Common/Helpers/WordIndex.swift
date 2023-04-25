@@ -7,7 +7,7 @@
 
 import Foundation
 
-func getWordIndex(words: [Words], id: UUID) -> Int {
+func getWordIndex(words: [Word], id: UUID) -> Int {
     for i in 0 ... words.count - 1 {
         if words[i].id == id {
             return i

@@ -12,10 +12,8 @@ struct CardMode: View {
     
     @Environment(\.presentationMode) var presentationMode
     let tapped = NotificationCenter.default.publisher(for: .init(rawValue: "tapped"))
-    @Binding var wordbooks: [WordBooks]
     @Binding var wordbookIndex: Int
-    @Binding var words: [Words]
-    @Binding var isNavBarHidden: Bool
+    @Binding var words: [Word]
     @State var currentPage = 0
     @State var isPrevDisabled = true
     @State var isNextDisabled = true
@@ -28,7 +26,7 @@ struct CardMode: View {
         GeometryReader { geo in
             Pager(page: $currentPage, data: words, id: \.id, content: { word in
                 
-                PageItem(id: word.id, originalWord: word.originalWord, translatedWord: word.translatedWord, geoSize: geo.size, missed: word.missed, priority: word.priority, count: words.count, wordbooks: $wordbooks, wordbookIndex: $wordbookIndex, words: $words, currentPage: $currentPage, isPrevDisabled: $isPrevDisabled, isNextDisabled: $isNextDisabled, isNavBarHidden: $isNavBarHidden, presentationMode: presentationMode, pageAnimation: $pageAnimation)
+                PageItem(id: word.id, originalWord: word.original, translatedWord: word.translated, geoSize: geo.size, missed: word.missed, priority: word.priority, count: words.count, wordbooks: .constant([]), wordbookIndex: $wordbookIndex, words: $words, currentPage: $currentPage, isPrevDisabled: $isPrevDisabled, isNextDisabled: $isNextDisabled, isNavBarHidden: .constant(false), presentationMode: presentationMode, pageAnimation: $pageAnimation)
             })
             .itemSpacing(20)
             .interactive(0.8)
@@ -64,9 +62,9 @@ struct PageItem: View {
     var missed: Int
     var priority: Int
     var count: Int
-    @Binding var wordbooks: [WordBooks]
+    @Binding var wordbooks: [Wordbook]
     @Binding var wordbookIndex: Int
-    @Binding var words: [Words]
+    @Binding var words: [Word]
     @Binding var currentPage: Int
     @Binding var isPrevDisabled: Bool
     @Binding var isNextDisabled: Bool
@@ -296,7 +294,7 @@ struct PageItem: View {
     }
     
     func updateMissCount() {
-        let wordIndex = wordIndexDetector(words: words, id: id)
+        let wordIndex = getWordIndex(words: words, id: id)
         wordbooks[wordbookIndex].words[wordIndex].missed = missed + 1
         words[wordIndex].missed = missed + 1
     }
@@ -329,7 +327,7 @@ struct PageItem: View {
     
     func saveAction() {
         if priority != priorityIndex {
-            let wordIndex = wordIndexDetector(words: words, id: id)
+            let wordIndex = getWordIndex(words: words, id: id)
             wordbooks[wordbookIndex].words[wordIndex].priority = priorityIndex
             words[wordIndex].priority = priorityIndex
         }

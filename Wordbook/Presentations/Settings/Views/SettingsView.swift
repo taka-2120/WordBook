@@ -12,19 +12,40 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                SettingsItem(kinds: .link, leftLabel: "Notification")
-                SettingsItem(kinds: .normal, leftLabel: "Varsion", rightLabel: "1.0.0 Beta")
+            Form {
+                Section(header: Text("Account")) {
+                    NavigationLink(destination: ChangeEmailView()) {
+                        Text("Change Email")
+                    }
+                    NavigationLink(destination: ChangeUsernameView()) {
+                        Text("Change Username")
+                    }
+                    NavigationLink(destination: ChangePasswordView()) {
+                        Text("Change Password")
+                    }
+                }
+
+                Section(header: Text("Info")) {
+                    HStack {
+                        Text("Version")
+                        Spacer()
+                        Text("1.0")
+                    }
+                    NavigationLink(destination: PrivacyPolicyView()) {
+                        Text("Privacy Policy")
+                    }
+                    NavigationLink(destination: CreditsView()) {
+                        Text("Credits")
+                    }
+                }
             }
-            .background(Color(defaultBackground))
-            .navigationBarTitle("Settings")
+            .navigationBarTitle(Text("Settings"))
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         presentationMode.wrappedValue.dismiss()
-                    }) {
+                    } label: {
                         Image(systemName: "xmark")
-                            .fontWeight(.bold)
                     }
                 }
             }

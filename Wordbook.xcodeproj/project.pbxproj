@@ -9,26 +9,39 @@
 /* Begin PBXBuildFile section */
 		3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0D8559253ADC8B00875FA0 /* SwiftUIPager */; };
 		3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780D92529C9290002897A /* AddingWordbookView.swift */; };
-		3B1780DC2529F3D20002897A /* AddingWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780DB2529F3D20002897A /* AddingWordView.swift */; };
+		3B1780DC2529F3D20002897A /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780DB2529F3D20002897A /* AddWordView.swift */; };
 		3B3EBE982524727400152662 /* WordbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBE972524727400152662 /* WordbookApp.swift */; };
-		3B3EBE9A2524727400152662 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBE992524727400152662 /* ContentView.swift */; };
+		3B3EBE9A2524727400152662 /* WordbooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBE992524727400152662 /* WordbooksView.swift */; };
 		3B3EBE9C2524727500152662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3EBE9B2524727500152662 /* Assets.xcassets */; };
 		3B3EBE9F2524727500152662 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3EBE9E2524727500152662 /* Preview Assets.xcassets */; };
 		3B3EBEC22529C20600152662 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBEC12529C20600152662 /* WordsView.swift */; };
-		3B3EBEC42529C4F300152662 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBEC32529C4F200152662 /* EditingView.swift */; };
+		3B3EBEC42529C4F300152662 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBEC32529C4F200152662 /* DetailsView.swift */; };
 		3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41BDA22531A9CE006D3A66 /* CardMode.swift */; };
 		3BB00596254567F1006F0276 /* DetecterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB00595254567F1006F0276 /* DetecterView.swift */; };
 		3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE99F6F2559619D005106D9 /* ImportMethodView.swift */; };
+		9A001E9E29D3FCDA00C6EC66 /* ChangeEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */; };
+		9A001EA229D3FCF500C6EC66 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */; };
+		9A001EA429D3FD0700C6EC66 /* ChangeUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EA329D3FD0700C6EC66 /* ChangeUsernameView.swift */; };
+		9A001EA629D3FD1700C6EC66 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */; };
+		9A001EA829D3FD2300C6EC66 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EA729D3FD2300C6EC66 /* CreditsView.swift */; };
+		9A001EAA29D7108C00C6EC66 /* ChatGPTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EA929D7108C00C6EC66 /* ChatGPTAPI.swift */; };
+		9A001EB229D9BCCE00C6EC66 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EB129D9BCCE00C6EC66 /* CustomField.swift */; };
+		9A001EB429D9BF3000C6EC66 /* AddWordbookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EB329D9BF3000C6EC66 /* AddWordbookController.swift */; };
+		9A001EB629D9C76A00C6EC66 /* AddWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EB529D9C76A00C6EC66 /* AddWordController.swift */; };
+		9A001EB829D9C77900C6EC66 /* DetailsWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A001EB729D9C77900C6EC66 /* DetailsWordController.swift */; };
 		9A28104329D2849D0056C855 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28104229D2849D0056C855 /* Color+Custom.swift */; };
 		9A28104529D285130056C855 /* WordIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28104429D285130056C855 /* WordIndex.swift */; };
 		9A28104729D285220056C855 /* PriorityColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28104629D285220056C855 /* PriorityColor.swift */; };
-		9A54D58428715DE2002EC02B /* WordBookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58328715DE2002EC02B /* WordBookEntity.swift */; };
+		9A28105629D2948F0056C855 /* WordbooksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105529D2948F0056C855 /* WordbooksController.swift */; };
+		9A28105829D295EF0056C855 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105729D295EF0056C855 /* MockData.swift */; };
+		9A28105A29D297750056C855 /* WordbooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105929D297750056C855 /* WordbooksService.swift */; };
+		9A28105C29D29A420056C855 /* WordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105B29D29A420056C855 /* WordsController.swift */; };
+		9A54D58428715DE2002EC02B /* WordbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58328715DE2002EC02B /* WordbookEntity.swift */; };
 		9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58528715DF0002EC02B /* WordEntity.swift */; };
 		9A54D58928715E24002EC02B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58828715E24002EC02B /* Color+Hex.swift */; };
 		9A54D58B28715E6A002EC02B /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58A28715E6A002EC02B /* View+Hidden.swift */; };
 		9A54D58E28715EA6002EC02B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58D28715EA6002EC02B /* SettingsView.swift */; };
 		9A54D593287164CF002EC02B /* CircleNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D592287164CF002EC02B /* CircleNavigationButton.swift */; };
-		9A54D59528716803002EC02B /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D59428716803002EC02B /* Dashboard.swift */; };
 		9A54D59928716AEC002EC02B /* WordBookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D59828716AEC002EC02B /* WordBookItem.swift */; };
 		9A54D59B28718226002EC02B /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D59A28718226002EC02B /* Date+Format.swift */; };
 		9A54D59D2871898B002EC02B /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D59C2871898B002EC02B /* SettingsItem.swift */; };
@@ -43,6 +56,24 @@
 		9A55C18B29A075C10012F828 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 9A55C18A29A075C10012F828 /* popup.css */; };
 		9A55C18D29A075C10012F828 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 9A55C18C29A075C10012F828 /* popup.js */; };
 		9A55C19129A075C10012F828 /* WordBookForSafari.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A55C17929A075C10012F828 /* WordBookForSafari.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
+		9A85014E29F5FF3E0033FD05 /* WordbookRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85014D29F5FF3E0033FD05 /* WordbookRepo.swift */; };
+		9A85015129F5FF6D0033FD05 /* WordbookRepoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015029F5FF6D0033FD05 /* WordbookRepoInterface.swift */; };
+		9A85015329F6026F0033FD05 /* ProcessInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015229F6026F0033FD05 /* ProcessInfoKey.swift */; };
+		9A85015529F603C10033FD05 /* SupabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015429F603C10033FD05 /* SupabaseClient.swift */; };
+		9A85015829F603EB0033FD05 /* SupabaseAuthRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015729F603EB0033FD05 /* SupabaseAuthRepo.swift */; };
+		9A85015B29F605B60033FD05 /* UserDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015A29F605B60033FD05 /* UserDataRepo.swift */; };
+		9A85015D29F605DD0033FD05 /* UserDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015C29F605DD0033FD05 /* UserDataEntity.swift */; };
+		9A85015F29F6073B0033FD05 /* TableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015E29F6073B0033FD05 /* TableName.swift */; };
+		9AAB3B3C29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B3B29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift */; };
+		9AAB3B3E29F60CB300AD6F6C /* UserDataRepoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B3D29F60CB300AD6F6C /* UserDataRepoInterface.swift */; };
+		9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4129F60CEC00AD6F6C /* AuthService.swift */; };
+		9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4429F619EE00AD6F6C /* WelcomeView.swift */; };
+		9AAB3B4929F63B7C00AD6F6C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4829F63B7C00AD6F6C /* SignUpView.swift */; };
+		9AAB3B4B29F63B8500AD6F6C /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4A29F63B8500AD6F6C /* SignInView.swift */; };
+		9AAB3B4E29F6513000AD6F6C /* AuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */; };
+		9AAB3B5029F67C5D00AD6F6C /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */; };
+		9AAB3B5329F6CC9A00AD6F6C /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5229F6CC9A00AD6F6C /* AuthServiceInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,28 +102,41 @@
 
 /* Begin PBXFileReference section */
 		3B1780D92529C9290002897A /* AddingWordbookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingWordbookView.swift; sourceTree = "<group>"; };
-		3B1780DB2529F3D20002897A /* AddingWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingWordView.swift; sourceTree = "<group>"; };
+		3B1780DB2529F3D20002897A /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
 		3B3EBE942524727400152662 /* WordBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3EBE972524727400152662 /* WordbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookApp.swift; sourceTree = "<group>"; };
-		3B3EBE992524727400152662 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B3EBE992524727400152662 /* WordbooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbooksView.swift; sourceTree = "<group>"; };
 		3B3EBE9B2524727500152662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B3EBE9E2524727500152662 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B3EBEA02524727500152662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3EBEC12529C20600152662 /* WordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsView.swift; sourceTree = "<group>"; };
-		3B3EBEC32529C4F200152662 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
+		3B3EBEC32529C4F200152662 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		3B41BDA22531A9CE006D3A66 /* CardMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMode.swift; sourceTree = "<group>"; };
 		3BB00595254567F1006F0276 /* DetecterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetecterView.swift; sourceTree = "<group>"; };
 		3BE99F6F2559619D005106D9 /* ImportMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMethodView.swift; sourceTree = "<group>"; };
+		9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailView.swift; sourceTree = "<group>"; };
+		9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		9A001EA329D3FD0700C6EC66 /* ChangeUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameView.swift; sourceTree = "<group>"; };
+		9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		9A001EA729D3FD2300C6EC66 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		9A001EA929D7108C00C6EC66 /* ChatGPTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPI.swift; sourceTree = "<group>"; };
+		9A001EB129D9BCCE00C6EC66 /* CustomField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomField.swift; sourceTree = "<group>"; };
+		9A001EB329D9BF3000C6EC66 /* AddWordbookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordbookController.swift; sourceTree = "<group>"; };
+		9A001EB529D9C76A00C6EC66 /* AddWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordController.swift; sourceTree = "<group>"; };
+		9A001EB729D9C77900C6EC66 /* DetailsWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWordController.swift; sourceTree = "<group>"; };
 		9A28104229D2849D0056C855 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
 		9A28104429D285130056C855 /* WordIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordIndex.swift; sourceTree = "<group>"; };
 		9A28104629D285220056C855 /* PriorityColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityColor.swift; sourceTree = "<group>"; };
-		9A54D58328715DE2002EC02B /* WordBookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookEntity.swift; sourceTree = "<group>"; };
+		9A28105529D2948F0056C855 /* WordbooksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbooksController.swift; sourceTree = "<group>"; };
+		9A28105729D295EF0056C855 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		9A28105929D297750056C855 /* WordbooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbooksService.swift; sourceTree = "<group>"; };
+		9A28105B29D29A420056C855 /* WordsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsController.swift; sourceTree = "<group>"; };
+		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
 		9A54D58528715DF0002EC02B /* WordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordEntity.swift; sourceTree = "<group>"; };
 		9A54D58828715E24002EC02B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		9A54D58A28715E6A002EC02B /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
 		9A54D58D28715EA6002EC02B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9A54D592287164CF002EC02B /* CircleNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleNavigationButton.swift; sourceTree = "<group>"; };
-		9A54D59428716803002EC02B /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		9A54D59828716AEC002EC02B /* WordBookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookItem.swift; sourceTree = "<group>"; };
 		9A54D59A28718226002EC02B /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		9A54D59C2871898B002EC02B /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
@@ -109,6 +153,23 @@
 		9A55C18C29A075C10012F828 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		9A55C18E29A075C10012F828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A55C19629A076030012F828 /* WordBookForSafari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordBookForSafari.entitlements; sourceTree = "<group>"; };
+		9A85014D29F5FF3E0033FD05 /* WordbookRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookRepo.swift; sourceTree = "<group>"; };
+		9A85015029F5FF6D0033FD05 /* WordbookRepoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookRepoInterface.swift; sourceTree = "<group>"; };
+		9A85015229F6026F0033FD05 /* ProcessInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoKey.swift; sourceTree = "<group>"; };
+		9A85015429F603C10033FD05 /* SupabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseClient.swift; sourceTree = "<group>"; };
+		9A85015729F603EB0033FD05 /* SupabaseAuthRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthRepo.swift; sourceTree = "<group>"; };
+		9A85015A29F605B60033FD05 /* UserDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepo.swift; sourceTree = "<group>"; };
+		9A85015C29F605DD0033FD05 /* UserDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataEntity.swift; sourceTree = "<group>"; };
+		9A85015E29F6073B0033FD05 /* TableName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableName.swift; sourceTree = "<group>"; };
+		9AAB3B3B29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthRepoInterface.swift; sourceTree = "<group>"; };
+		9AAB3B3D29F60CB300AD6F6C /* UserDataRepoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepoInterface.swift; sourceTree = "<group>"; };
+		9AAB3B4129F60CEC00AD6F6C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9AAB3B4429F619EE00AD6F6C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		9AAB3B4829F63B7C00AD6F6C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		9AAB3B4A29F63B8500AD6F6C /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMethod.swift; sourceTree = "<group>"; };
+		9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		9AAB3B5229F6CC9A00AD6F6C /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
 				3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				9A28103F29D283960056C855 /* Common */,
-				9A54D58228715DD6002EC02B /* Domains */,
+				9A54D58228715DD6002EC02B /* Entities */,
 				9A28103D29D2836C0056C855 /* Repositories */,
 				9A28103E29D283750056C855 /* Services */,
 				9A54D58028715D78002EC02B /* Presentations */,
@@ -182,9 +244,21 @@
 			path = TextDetect;
 			sourceTree = "<group>";
 		};
+		9A001EB029D9BCA100C6EC66 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9A001EB129D9BCCE00C6EC66 /* CustomField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9A28103D29D2836C0056C855 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				9A85015929F605A70033FD05 /* UserDataRepo */,
+				9A85015629F603D90033FD05 /* SupabaseAuthRepo */,
+				9A85014F29F5FF5B0033FD05 /* WordbookRepo */,
+				9A001EA929D7108C00C6EC66 /* ChatGPTAPI.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -192,6 +266,8 @@
 		9A28103E29D283750056C855 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9AAB3B4029F60CD800AD6F6C /* AuthService */,
+				9AAB3B3F29F60CC700AD6F6C /* WordbookService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +275,7 @@
 		9A28103F29D283960056C855 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9AAB3B4C29F650A600AD6F6C /* Enums */,
 				9A28105429D287760056C855 /* Components */,
 				9A28104129D283A80056C855 /* Constants */,
 				9A28104029D283A20056C855 /* Helpers */,
@@ -219,6 +296,10 @@
 		9A28104129D283A80056C855 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				9A28105729D295EF0056C855 /* MockData.swift */,
+				9A85015229F6026F0033FD05 /* ProcessInfoKey.swift */,
+				9A85015429F603C10033FD05 /* SupabaseClient.swift */,
+				9A85015E29F6073B0033FD05 /* TableName.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -243,6 +324,7 @@
 		9A28104A29D286F20056C855 /* Words */ = {
 			isa = PBXGroup;
 			children = (
+				9A28104D29D287260056C855 /* Controllers */,
 				9A28104B29D287100056C855 /* Views */,
 			);
 			path = Words;
@@ -251,11 +333,10 @@
 		9A28104B29D287100056C855 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A28104D29D287260056C855 /* Controllers */,
 				9A28104C29D2871D0056C855 /* Components */,
 				3B3EBEC12529C20600152662 /* WordsView.swift */,
-				3B1780DB2529F3D20002897A /* AddingWordView.swift */,
-				3B3EBEC32529C4F200152662 /* EditingView.swift */,
+				3B1780DB2529F3D20002897A /* AddWordView.swift */,
+				3B3EBEC32529C4F200152662 /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +352,9 @@
 		9A28104D29D287260056C855 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A28105B29D29A420056C855 /* WordsController.swift */,
+				9A001EB529D9C76A00C6EC66 /* AddWordController.swift */,
+				9A001EB729D9C77900C6EC66 /* DetailsWordController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,8 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				9A28104F29D287360056C855 /* Components */,
-				9A54D59428716803002EC02B /* Dashboard.swift */,
-				3B3EBE992524727400152662 /* ContentView.swift */,
+				3B3EBE992524727400152662 /* WordbooksView.swift */,
 				3B1780D92529C9290002897A /* AddingWordbookView.swift */,
 			);
 			path = Views;
@@ -297,6 +380,8 @@
 		9A28105029D287470056C855 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A28105529D2948F0056C855 /* WordbooksController.swift */,
+				9A001EB329D9BF3000C6EC66 /* AddWordbookController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +391,11 @@
 			children = (
 				9A28104829D286420056C855 /* Components */,
 				9A54D58D28715EA6002EC02B /* SettingsView.swift */,
+				9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */,
+				9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */,
+				9A001EA329D3FD0700C6EC66 /* ChangeUsernameView.swift */,
+				9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */,
+				9A001EA729D3FD2300C6EC66 /* CreditsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,6 +426,8 @@
 		9A54D58028715D78002EC02B /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				9AAB3B4329F616D400AD6F6C /* Auth */,
+				9A001EB029D9BCA100C6EC66 /* Components */,
 				9A28104929D2865A0056C855 /* Wordbooks */,
 				9A28104A29D286F20056C855 /* Words */,
 				9A28105329D287620056C855 /* Card */,
@@ -344,13 +436,14 @@
 			path = Presentations;
 			sourceTree = "<group>";
 		};
-		9A54D58228715DD6002EC02B /* Domains */ = {
+		9A54D58228715DD6002EC02B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9A54D58328715DE2002EC02B /* WordBookEntity.swift */,
+				9A54D58328715DE2002EC02B /* WordbookEntity.swift */,
 				9A54D58528715DF0002EC02B /* WordEntity.swift */,
+				9A85015C29F605DD0033FD05 /* UserDataEntity.swift */,
 			);
-			path = Domains;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		9A54D58728715E18002EC02B /* Extensions */ = {
@@ -399,6 +492,77 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9A85014F29F5FF5B0033FD05 /* WordbookRepo */ = {
+			isa = PBXGroup;
+			children = (
+				9A85014D29F5FF3E0033FD05 /* WordbookRepo.swift */,
+				9A85015029F5FF6D0033FD05 /* WordbookRepoInterface.swift */,
+			);
+			path = WordbookRepo;
+			sourceTree = "<group>";
+		};
+		9A85015629F603D90033FD05 /* SupabaseAuthRepo */ = {
+			isa = PBXGroup;
+			children = (
+				9A85015729F603EB0033FD05 /* SupabaseAuthRepo.swift */,
+				9AAB3B3B29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift */,
+			);
+			path = SupabaseAuthRepo;
+			sourceTree = "<group>";
+		};
+		9A85015929F605A70033FD05 /* UserDataRepo */ = {
+			isa = PBXGroup;
+			children = (
+				9A85015A29F605B60033FD05 /* UserDataRepo.swift */,
+				9AAB3B3D29F60CB300AD6F6C /* UserDataRepoInterface.swift */,
+			);
+			path = UserDataRepo;
+			sourceTree = "<group>";
+		};
+		9AAB3B3F29F60CC700AD6F6C /* WordbookService */ = {
+			isa = PBXGroup;
+			children = (
+				9A28105929D297750056C855 /* WordbooksService.swift */,
+			);
+			path = WordbookService;
+			sourceTree = "<group>";
+		};
+		9AAB3B4029F60CD800AD6F6C /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B4129F60CEC00AD6F6C /* AuthService.swift */,
+				9AAB3B5229F6CC9A00AD6F6C /* AuthServiceInterface.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		9AAB3B4329F616D400AD6F6C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B5129F6CC2100AD6F6C /* Views */,
+				9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9AAB3B4C29F650A600AD6F6C /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		9AAB3B5129F6CC2100AD6F6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B4429F619EE00AD6F6C /* WelcomeView.swift */,
+				9AAB3B4829F63B7C00AD6F6C /* SignUpView.swift */,
+				9AAB3B4A29F63B8500AD6F6C /* SignInView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,6 +583,7 @@
 			name = WordBook;
 			packageProductDependencies = (
 				3B0D8559253ADC8B00875FA0 /* SwiftUIPager */,
+				9A85014B29F5FE860033FD05 /* Supabase */,
 			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* WordBook.app */;
@@ -470,6 +635,8 @@
 			mainGroup = 3B3EBE8B2524727400152662;
 			packageReferences = (
 				3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				9A001EAB29D7111900C6EC66 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
 			projectDirPath = "";
@@ -513,28 +680,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B3EBE9A2524727400152662 /* ContentView.swift in Sources */,
+				9A001EA229D3FCF500C6EC66 /* ChangePasswordView.swift in Sources */,
+				3B3EBE9A2524727400152662 /* WordbooksView.swift in Sources */,
 				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
 				3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */,
 				3BB00596254567F1006F0276 /* DetecterView.swift in Sources */,
-				9A54D58428715DE2002EC02B /* WordBookEntity.swift in Sources */,
+				9A001EB829D9C77900C6EC66 /* DetailsWordController.swift in Sources */,
+				9AAB3B5329F6CC9A00AD6F6C /* AuthServiceInterface.swift in Sources */,
+				9A54D58428715DE2002EC02B /* WordbookEntity.swift in Sources */,
+				9A85015F29F6073B0033FD05 /* TableName.swift in Sources */,
 				9A28104529D285130056C855 /* WordIndex.swift in Sources */,
+				9A001EB629D9C76A00C6EC66 /* AddWordController.swift in Sources */,
+				9AAB3B4929F63B7C00AD6F6C /* SignUpView.swift in Sources */,
 				9A54D59928716AEC002EC02B /* WordBookItem.swift in Sources */,
 				9A54D593287164CF002EC02B /* CircleNavigationButton.swift in Sources */,
 				9A54D58928715E24002EC02B /* Color+Hex.swift in Sources */,
 				3B3EBE982524727400152662 /* WordbookApp.swift in Sources */,
+				9A28105629D2948F0056C855 /* WordbooksController.swift in Sources */,
 				9A54D59D2871898B002EC02B /* SettingsItem.swift in Sources */,
+				9AAB3B5029F67C5D00AD6F6C /* AuthController.swift in Sources */,
+				9A28105A29D297750056C855 /* WordbooksService.swift in Sources */,
 				9A54D58E28715EA6002EC02B /* SettingsView.swift in Sources */,
+				9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */,
+				9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */,
+				9A85015D29F605DD0033FD05 /* UserDataEntity.swift in Sources */,
 				3B3EBEC22529C20600152662 /* WordsView.swift in Sources */,
+				9A85015529F603C10033FD05 /* SupabaseClient.swift in Sources */,
+				9AAB3B3C29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift in Sources */,
+				9AAB3B4E29F6513000AD6F6C /* AuthMethod.swift in Sources */,
+				9A85015329F6026F0033FD05 /* ProcessInfoKey.swift in Sources */,
+				9A001EAA29D7108C00C6EC66 /* ChatGPTAPI.swift in Sources */,
+				9A001EA429D3FD0700C6EC66 /* ChangeUsernameView.swift in Sources */,
+				9A001EB229D9BCCE00C6EC66 /* CustomField.swift in Sources */,
+				9AAB3B3E29F60CB300AD6F6C /* UserDataRepoInterface.swift in Sources */,
+				9A28105829D295EF0056C855 /* MockData.swift in Sources */,
 				9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */,
+				9A85014E29F5FF3E0033FD05 /* WordbookRepo.swift in Sources */,
+				9A85015B29F605B60033FD05 /* UserDataRepo.swift in Sources */,
+				9AAB3B4B29F63B8500AD6F6C /* SignInView.swift in Sources */,
 				9A28104729D285220056C855 /* PriorityColor.swift in Sources */,
 				9A54D58B28715E6A002EC02B /* View+Hidden.swift in Sources */,
+				9A001EA829D3FD2300C6EC66 /* CreditsView.swift in Sources */,
+				9A85015129F5FF6D0033FD05 /* WordbookRepoInterface.swift in Sources */,
+				9A28105C29D29A420056C855 /* WordsController.swift in Sources */,
 				3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */,
+				9A85015829F603EB0033FD05 /* SupabaseAuthRepo.swift in Sources */,
+				9A001E9E29D3FCDA00C6EC66 /* ChangeEmailView.swift in Sources */,
 				9A54D59F28719144002EC02B /* WordItem.swift in Sources */,
-				3B3EBEC42529C4F300152662 /* EditingView.swift in Sources */,
-				3B1780DC2529F3D20002897A /* AddingWordView.swift in Sources */,
+				9A001EA629D3FD1700C6EC66 /* PrivacyPolicyView.swift in Sources */,
+				3B3EBEC42529C4F300152662 /* DetailsView.swift in Sources */,
+				9A001EB429D9BF3000C6EC66 /* AddWordbookController.swift in Sources */,
+				3B1780DC2529F3D20002897A /* AddWordView.swift in Sources */,
 				9A28104329D2849D0056C855 /* Color+Custom.swift in Sources */,
-				9A54D59528716803002EC02B /* Dashboard.swift in Sources */,
 				9A54D59B28718226002EC02B /* Date+Format.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,7 +955,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yu-takahashi.WordBook.WordBookForSafari";
+				PRODUCT_BUNDLE_IDENTIFIER = yutakahashi.WordBook.dev.WordBookForSafari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -794,7 +991,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yu-takahashi.WordBook.WordBookForSafari";
+				PRODUCT_BUNDLE_IDENTIFIER = yutakahashi.WordBook.WordBookForSafari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -846,6 +1043,22 @@
 				minimumVersion = 1.11.1;
 			};
 		};
+		9A001EAB29D7111900C6EC66 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -853,6 +1066,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
+		};
+		9A85014B29F5FE860033FD05 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
