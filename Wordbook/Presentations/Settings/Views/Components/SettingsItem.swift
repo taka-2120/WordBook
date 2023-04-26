@@ -12,80 +12,76 @@ enum SettingsItemKinds {
 }
 
 struct SettingsItem: View {
+    @EnvironmentObject private var controller: SettingsController
+    
     var kinds: SettingsItemKinds
-    var leftLabel: String
+    var leftLabel: LocalizedStringKey
     var leftIconName: String?
-    var rightLabel: String?
+    var rightLabel: LocalizedStringKey?
     var rightIconName: String?
-    var destination: AnyView?
+    var destination: SettingsNavStack?
     var function: (() -> ())?
     
     var body: some View {
         switch kinds {
         case .normal:
             HStack {
-                (leftIconName != nil) ? Image(systemName: leftIconName!) : nil
+                if let leftIconName = leftIconName {
+                    Image(systemName: leftIconName)
+                        .frame(width: 30)
+                        .foregroundColor(Color(.label))
+                }
+                
                 Text(leftLabel)
                     .foregroundColor(Color(.label))
-                    .fontWeight(.semibold)
                 Spacer()
-                (rightLabel != nil) ? AnyView(Text(rightLabel!)) : AnyView(Image(systemName: rightIconName!))
+                
+                (rightLabel != nil) ? AnyView(Text(rightLabel!).foregroundColor(.gray)) : AnyView(Image(systemName: rightIconName!))
             }
-            .padding()
-            .background()
-            .cornerRadius(15)
-            .shadow(color: Color(.systemGray5), radius: 10)
-            .padding(.horizontal)
-            .padding(.vertical, 5)
         case .button:
             Button(action: function ?? {
                 //Error
             }, label: {
                 HStack {
+                    if let leftIconName = leftIconName {
+                        Image(systemName: leftIconName)
+                            .frame(width: 30)
+                            .foregroundColor(Color(.label))
+                    }
+                    
                     Text(leftLabel)
                         .foregroundColor(Color(.label))
-                        .fontWeight(.semibold)
+                    
                     Spacer()
-                    if rightLabel != nil {
-                        Text(rightLabel!)
-                    } else if rightIconName != nil {
-                        Image(systemName: rightIconName!)
+                    if let rightLabel = rightLabel {
+                        Text(rightLabel)
+                            .foregroundColor(.gray)
+                    } else if let rightIconName = rightIconName {
+                        Image(systemName: rightIconName)
                     }
                 }
             })
-            .padding()
-            .background()
-            .cornerRadius(15)
-            .shadow(color: Color(.systemGray5), radius: 10)
-            .padding(.horizontal)
-            .padding(.vertical, 5)
         case .link:
-            NavigationLink(destination: destination) {
+            Button {
+                controller.settingsPathes = [destination!]
+            } label: {
                 HStack {
+                    if let leftIconName = leftIconName {
+                        Image(systemName: leftIconName)
+                            .frame(width: 30)
+                            .foregroundColor(Color(.label))
+                    }
+                    
                     Text(leftLabel)
                         .foregroundColor(Color(.label))
-                        .fontWeight(.semibold)
+                    
                     Spacer()
                     Image(systemName: rightIconName ?? "chevron.forward")
+                        .foregroundColor(.gray)
+                        .imageScale(.small)
                 }
             }
-            .padding()
-            .background()
-            .cornerRadius(15)
-            .shadow(color: Color(.systemGray5), radius: 10)
-            .padding(.horizontal)
-            .padding(.vertical, 5)
         }
         
-    }
-}
-
-struct SettingsItem_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsItem(kinds: .normal, leftLabel: "Version", rightLabel: "1.0.0 Beta")
-        SettingsItem(kinds: .button, leftLabel: "Sign Out", function: {
-            print("done")
-        })
-        SettingsItem(kinds: .link, leftLabel: "Notifications", destination: AnyView(EmptyView()))
     }
 }

@@ -59,7 +59,6 @@
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9A85014E29F5FF3E0033FD05 /* WordbookRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85014D29F5FF3E0033FD05 /* WordbookRepo.swift */; };
 		9A85015129F5FF6D0033FD05 /* WordbookRepoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015029F5FF6D0033FD05 /* WordbookRepoInterface.swift */; };
-		9A85015329F6026F0033FD05 /* ProcessInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015229F6026F0033FD05 /* ProcessInfoKey.swift */; };
 		9A85015529F603C10033FD05 /* SupabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015429F603C10033FD05 /* SupabaseClient.swift */; };
 		9A85015829F603EB0033FD05 /* SupabaseAuthRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015729F603EB0033FD05 /* SupabaseAuthRepo.swift */; };
 		9A85015B29F605B60033FD05 /* UserDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85015A29F605B60033FD05 /* UserDataRepo.swift */; };
@@ -74,6 +73,14 @@
 		9AAB3B4E29F6513000AD6F6C /* AuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */; };
 		9AAB3B5029F67C5D00AD6F6C /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */; };
 		9AAB3B5329F6CC9A00AD6F6C /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5229F6CC9A00AD6F6C /* AuthServiceInterface.swift */; };
+		9AAB3B5629F7917E00AD6F6C /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5529F7917E00AD6F6C /* ScreenController.swift */; };
+		9AAB3B5929F7AA4E00AD6F6C /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5829F7AA4E00AD6F6C /* LoadingController.swift */; };
+		9AAB3B5B29F7AA5A00AD6F6C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5A29F7AA5A00AD6F6C /* LoadingView.swift */; };
+		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
+		9AAB3B6029F7AEF400AD6F6C /* BookStack.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5F29F7AEF400AD6F6C /* BookStack.gif */; };
+		9AAB3B6329F7B58A00AD6F6C /* SettingsNavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */; };
+		9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */; };
+		9AAB3B6729F7E9D900AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6629F7E9D900AD6F6C /* env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +162,6 @@
 		9A55C19629A076030012F828 /* WordBookForSafari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordBookForSafari.entitlements; sourceTree = "<group>"; };
 		9A85014D29F5FF3E0033FD05 /* WordbookRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookRepo.swift; sourceTree = "<group>"; };
 		9A85015029F5FF6D0033FD05 /* WordbookRepoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookRepoInterface.swift; sourceTree = "<group>"; };
-		9A85015229F6026F0033FD05 /* ProcessInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoKey.swift; sourceTree = "<group>"; };
 		9A85015429F603C10033FD05 /* SupabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseClient.swift; sourceTree = "<group>"; };
 		9A85015729F603EB0033FD05 /* SupabaseAuthRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthRepo.swift; sourceTree = "<group>"; };
 		9A85015A29F605B60033FD05 /* UserDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepo.swift; sourceTree = "<group>"; };
@@ -170,6 +176,13 @@
 		9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMethod.swift; sourceTree = "<group>"; };
 		9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		9AAB3B5229F6CC9A00AD6F6C /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
+		9AAB3B5529F7917E00AD6F6C /* ScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenController.swift; sourceTree = "<group>"; };
+		9AAB3B5829F7AA4E00AD6F6C /* LoadingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
+		9AAB3B5A29F7AA5A00AD6F6C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9AAB3B5F29F7AEF400AD6F6C /* BookStack.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BookStack.gif; sourceTree = "<group>"; };
+		9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavStack.swift; sourceTree = "<group>"; };
+		9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		9AAB3B6629F7E9D900AD6F6C /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
+				9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */,
 				3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +234,9 @@
 				9A54D58028715D78002EC02B /* Presentations */,
 				3BE99F6E2559616C005106D9 /* TextDetect */,
 				3B3EBE972524727400152662 /* WordbookApp.swift */,
+				9AAB3B6629F7E9D900AD6F6C /* env.swift */,
 				3B3EBE9B2524727500152662 /* Assets.xcassets */,
+				9AAB3B6129F7AF9700AD6F6C /* Resources */,
 				3B3EBEA02524727500152662 /* Info.plist */,
 				3B3EBE9D2524727500152662 /* Preview Content */,
 			);
@@ -275,7 +291,7 @@
 		9A28103F29D283960056C855 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9AAB3B4C29F650A600AD6F6C /* Enums */,
+				9AAB3B4C29F650A600AD6F6C /* NavigationStacks */,
 				9A28105429D287760056C855 /* Components */,
 				9A28104129D283A80056C855 /* Constants */,
 				9A28104029D283A20056C855 /* Helpers */,
@@ -297,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				9A28105729D295EF0056C855 /* MockData.swift */,
-				9A85015229F6026F0033FD05 /* ProcessInfoKey.swift */,
 				9A85015429F603C10033FD05 /* SupabaseClient.swift */,
 				9A85015E29F6073B0033FD05 /* TableName.swift */,
 			);
@@ -403,6 +418,7 @@
 		9A28105229D287550056C855 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -426,6 +442,8 @@
 		9A54D58028715D78002EC02B /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				9AAB3B5529F7917E00AD6F6C /* ScreenController.swift */,
+				9AAB3B5729F7AA4300AD6F6C /* Loading */,
 				9AAB3B4329F616D400AD6F6C /* Auth */,
 				9A001EB029D9BCA100C6EC66 /* Components */,
 				9A28104929D2865A0056C855 /* Wordbooks */,
@@ -545,12 +563,13 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		9AAB3B4C29F650A600AD6F6C /* Enums */ = {
+		9AAB3B4C29F650A600AD6F6C /* NavigationStacks */ = {
 			isa = PBXGroup;
 			children = (
 				9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */,
+				9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */,
 			);
-			path = Enums;
+			path = NavigationStacks;
 			sourceTree = "<group>";
 		};
 		9AAB3B5129F6CC2100AD6F6C /* Views */ = {
@@ -561,6 +580,23 @@
 				9AAB3B4A29F63B8500AD6F6C /* SignInView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9AAB3B5729F7AA4300AD6F6C /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B5A29F7AA5A00AD6F6C /* LoadingView.swift */,
+				9AAB3B5829F7AA4E00AD6F6C /* LoadingController.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		9AAB3B6129F7AF9700AD6F6C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B5F29F7AEF400AD6F6C /* BookStack.gif */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,6 +620,7 @@
 			packageProductDependencies = (
 				3B0D8559253ADC8B00875FA0 /* SwiftUIPager */,
 				9A85014B29F5FE860033FD05 /* Supabase */,
+				9AAB3B5D29F7AE6400AD6F6C /* GIFImage */,
 			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* WordBook.app */;
@@ -637,6 +674,7 @@
 				3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 				9A001EAB29D7111900C6EC66 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
 			projectDirPath = "";
@@ -653,6 +691,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AAB3B6029F7AEF400AD6F6C /* BookStack.gif in Resources */,
 				3B3EBE9F2524727500152662 /* Preview Assets.xcassets in Resources */,
 				3B3EBE9C2524727500152662 /* Assets.xcassets in Resources */,
 			);
@@ -685,6 +724,7 @@
 				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
 				3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */,
 				3BB00596254567F1006F0276 /* DetecterView.swift in Sources */,
+				9AAB3B5B29F7AA5A00AD6F6C /* LoadingView.swift in Sources */,
 				9A001EB829D9C77900C6EC66 /* DetailsWordController.swift in Sources */,
 				9AAB3B5329F6CC9A00AD6F6C /* AuthServiceInterface.swift in Sources */,
 				9A54D58428715DE2002EC02B /* WordbookEntity.swift in Sources */,
@@ -693,7 +733,9 @@
 				9A001EB629D9C76A00C6EC66 /* AddWordController.swift in Sources */,
 				9AAB3B4929F63B7C00AD6F6C /* SignUpView.swift in Sources */,
 				9A54D59928716AEC002EC02B /* WordBookItem.swift in Sources */,
+				9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */,
 				9A54D593287164CF002EC02B /* CircleNavigationButton.swift in Sources */,
+				9AAB3B5929F7AA4E00AD6F6C /* LoadingController.swift in Sources */,
 				9A54D58928715E24002EC02B /* Color+Hex.swift in Sources */,
 				3B3EBE982524727400152662 /* WordbookApp.swift in Sources */,
 				9A28105629D2948F0056C855 /* WordbooksController.swift in Sources */,
@@ -703,16 +745,17 @@
 				9A54D58E28715EA6002EC02B /* SettingsView.swift in Sources */,
 				9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */,
 				9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */,
+				9AAB3B6729F7E9D900AD6F6C /* env.swift in Sources */,
 				9A85015D29F605DD0033FD05 /* UserDataEntity.swift in Sources */,
 				3B3EBEC22529C20600152662 /* WordsView.swift in Sources */,
 				9A85015529F603C10033FD05 /* SupabaseClient.swift in Sources */,
 				9AAB3B3C29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift in Sources */,
 				9AAB3B4E29F6513000AD6F6C /* AuthMethod.swift in Sources */,
-				9A85015329F6026F0033FD05 /* ProcessInfoKey.swift in Sources */,
 				9A001EAA29D7108C00C6EC66 /* ChatGPTAPI.swift in Sources */,
 				9A001EA429D3FD0700C6EC66 /* ChangeUsernameView.swift in Sources */,
 				9A001EB229D9BCCE00C6EC66 /* CustomField.swift in Sources */,
 				9AAB3B3E29F60CB300AD6F6C /* UserDataRepoInterface.swift in Sources */,
+				9AAB3B6329F7B58A00AD6F6C /* SettingsNavStack.swift in Sources */,
 				9A28105829D295EF0056C855 /* MockData.swift in Sources */,
 				9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */,
 				9A85014E29F5FF3E0033FD05 /* WordbookRepo.swift in Sources */,
@@ -733,6 +776,7 @@
 				3B1780DC2529F3D20002897A /* AddWordView.swift in Sources */,
 				9A28104329D2849D0056C855 /* Color+Custom.swift in Sources */,
 				9A54D59B28718226002EC02B /* Date+Format.swift in Sources */,
+				9AAB3B5629F7917E00AD6F6C /* ScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,6 +1103,14 @@
 				minimumVersion = 0.2.1;
 			};
 		};
+		9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/igorcferreira/GIFImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1071,6 +1123,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
+		};
+		9AAB3B5D29F7AE6400AD6F6C /* GIFImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */;
+			productName = GIFImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

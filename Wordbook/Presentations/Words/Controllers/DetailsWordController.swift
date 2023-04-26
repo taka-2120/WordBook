@@ -8,7 +8,7 @@
 import Foundation
 
 class DetailsWordController: ObservableObject {
-    private let wordbooksService = WordbookService.shared
+    private let wordbooksService = WordbookService()
     let wordbook: Wordbook
     let word: Word
     

@@ -8,27 +8,23 @@
 import Foundation
 
 class WordbooksController: ObservableObject {
-    private let wordbooksService = WordbookService.shared
+    private let wordbookService = WordbookService()
     @Published var wordbooks: [Wordbook] = []
     
     @Published var isAddShown = false {
         willSet {
             if newValue == false {
-                fetchWordbook()
+                getWordbooks()
             }
         }
     }
     @Published var isSettingsShown = false
     
     init() {
-        fetchWordbook()
+        getWordbooks()
     }
     
-    func addWordbook(newWordbook: Wordbook) {
-        wordbooksService.addWordbook(newWordbook: newWordbook)
-    }
-    
-    func fetchWordbook() {
-        wordbooks = wordbooksService.wordbooks
+    func getWordbooks() {
+        self.wordbooks = wordbookService.getWordbooks()
     }
 }

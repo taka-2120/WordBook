@@ -8,13 +8,14 @@
 import SwiftUI
 
 class AddWordbookController: ObservableObject {
-    private let wordbooksService = WordbookService.shared
+    private let wordbookService = WordbookService()
     
     @Published var title = ""
     @Published var color = Color.blue
     
     func addWordbook() {
-        let newWordbook = Wordbook(userId: UUID(), name: title, color: color.toHex(), words: [], modifiedDate: Date().ISO8601Format())
-        wordbooksService.addWordbook(newWordbook: newWordbook)
+        Task { @MainActor in
+            try await wordbookService.addWordbook(name: title, color: color.toHex())
+        }
     }
 }

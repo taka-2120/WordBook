@@ -8,7 +8,7 @@
 import Foundation
 
 class AddWordController: ObservableObject {
-    private let wordbooksService = WordbookService.shared
+    private let wordbookService = WordbookService()
     let wordbook: Wordbook
     
     @Published var originalWord = ""
@@ -22,18 +22,20 @@ class AddWordController: ObservableObject {
     }
     
     func addWord() {
-        var word = Word(
-            bookId: UUID(),
-            original: originalWord,
-            translated: translatedWord,
-            priority: 0,
-            missed: 0,
-            synonyms: synonyms,
-            antonyms: antonyms,
-            examples: examples)
-        word.original = originalWord
-        word.translated = translatedWord
-        wordbooksService.updateWord(word: word, in: wordbook)
+        Task { @MainActor in
+            do {
+                try await wordbookService.addWord(
+                    original: originalWord,
+                    translated: translatedWord,
+                    priority: 0,
+                    missed: 0,
+                    synonyms: synonyms,
+                    antonyms: antonyms,
+                    examples: examples, to: wordbook)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     func generateAll() {

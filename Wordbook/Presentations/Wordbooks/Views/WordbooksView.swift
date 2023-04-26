@@ -18,7 +18,6 @@ struct WordbooksView: View {
                     WordbookItem(wordbook: wordbook)
                 }
             }
-            .onAppear(perform: controller.fetchWordbook)
             .navigationTitle("Wordbooks")
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: Wordbook.self) { wordbook in

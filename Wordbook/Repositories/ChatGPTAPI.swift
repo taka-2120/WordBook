@@ -19,7 +19,7 @@ func fetchGPTResult(for word: String, mode: PromptMode) async throws -> [String]
     var request = URLRequest(url: apiUrl)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.setValue("Bearer \(ProcessInfo.openaiApiKey)", forHTTPHeaderField: "Authorization")
+    request.setValue("Bearer \(ENV().openAIApiKey)", forHTTPHeaderField: "Authorization")
 
     let parameters: [String : Any] = [
         "model": "text-davinci-002",

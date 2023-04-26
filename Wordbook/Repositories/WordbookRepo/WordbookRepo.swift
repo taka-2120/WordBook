@@ -18,28 +18,39 @@ class WordbookRepo: WordbookRepoInterface {
     @MainActor
     func insertWordbook(userId: UUID, name: String, color: String) async throws {
         let wordbook = WordbookAPIModel(userId: userId, name: name, color: color, modifiedDate: Date().ISO8601Format())
-        let query = client.database
+        
+        let _ = try await client.database
                     .from(wordbooksTable)
-                    .insert(values: wordbook, returning: .representation)
+                    .insert(values: wordbook, returning: .none)
+                    .execute()
         
-        let response: [Wordbook] = try await query.execute().value
-        
-        wordbooks = response
+        try await fetchWordbook(userId: userId)
     }
     
     @MainActor
-    func insertWord() async throws {
+    func insertWord(userId: UUID, bookId: UUID, original: String, translated: String, priority: Int,
+                    missed: Int, synonyms: [String], antonyms: [String], examples: [String]) async throws {
         
+        let word = WordAPIModel(userId: userId, bookId: bookId, original: original, translated: translated, priority: priority, missed: missed, synonyms: synonyms, antonyms: antonyms, examples: examples)
+        
+        let _ = try await client.database
+                .from(wordsTable)
+                .insert(values: word, returning: .representation)
+                .execute()
+        
+        try await fetchWordbook(userId: userId)
     }
     
     @MainActor
-    func fetchWordbook(id: UUID) async throws {
+    func fetchWordbook(userId: UUID) async throws {
         let query = client.database
                     .from(wordbooksTable)
                     .select()
-                    .eq(column: "userId", value: id)
+                    .eq(column: "userId", value: userId)
         
         let response: [WordbookAPIModel] = try await query.execute().value
+        
+        print(response)
         
         wordbooks = try await composeWordbooks(for: response)
     }
@@ -50,7 +61,8 @@ class WordbookRepo: WordbookRepoInterface {
         
         for wordbook in response {
             let words = try await fetchWords(bookId: wordbook.bookId)
-            wordbooks.append(Wordbook(userId: wordbook.userId,
+            wordbooks.append(Wordbook(bookId: wordbook.bookId,
+                                      userId: wordbook.userId,
                                       name: wordbook.name,
                                       color: wordbook.color,
                                       words: words,

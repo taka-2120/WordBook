@@ -12,69 +12,64 @@ struct SignInView: View {
     @ObservedObject private var controller = AuthController()
     
     var body: some View {
-        VStack(spacing: 15) {
-            Text("Welcome Back!")
-                .font(.title)
-                .bold()
-            
-            Spacer()
-            
-            Image("SignIn")
-                .resizable()
-                .scaledToFit()
-            
-            Spacer()
-            
-            HStack(spacing: 15) {
-                Image(systemName: "at")
-                    .font(.system(size: 18))
-                    .frame(width: 30)
-                VStack(spacing: 0) {
-                    TextField("Email", text: $controller.email)
-                        .padding(.vertical)
-                        .keyboardType(.emailAddress)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                        .controlSize(.large)
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.gray)
-                        .frame(height: 2)
-                }
-            }
-            .padding(.horizontal)
-            
-            HStack(spacing: 15) {
-                Image(systemName: "key.horizontal")
-                    .font(.system(size: 18))
-                    .frame(width: 30)
-                VStack(spacing: 0) {
-                    SecureField("Password", text: $controller.password)
-                        .padding(.vertical)
-                        .keyboardType(.emailAddress)
-                        .controlSize(.large)
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.gray)
-                        .frame(height: 2)
-                }
-            }
-            .padding(.horizontal)
-            
-            Spacer()
-            
-            Button {
-                controller.signIn()
-            } label: {
-                Text("Sign In")
-                    .foregroundColor(.white)
-                    .font(.title3)
+        ScrollView {
+            VStack(spacing: 15) {
+                Text("Welcome Back!")
+                    .font(.title)
                     .bold()
-                    .padding()
+                
+                Image("SignIn")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.horizontal, 50)
+                
+                HStack(spacing: 15) {
+                    Image(systemName: "at")
+                        .font(.system(size: 18))
+                        .frame(width: 30)
+                    VStack(spacing: 0) {
+                        TextField("Email", text: $controller.email)
+                            .padding(.vertical)
+                            .controlSize(.large)
+                            .textInputAutocapitalization(.never)
+                            .keyboardType(.emailAddress)
+                            .autocorrectionDisabled()
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.gray)
+                            .frame(height: 2)
+                    }
+                }
+                .padding(.horizontal)
+                
+                HStack(spacing: 15) {
+                    Image(systemName: "key.horizontal")
+                        .font(.system(size: 18))
+                        .frame(width: 30)
+                    VStack(spacing: 0) {
+                        SecureField("Password", text: $controller.password)
+                            .padding(.vertical)
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.gray)
+                            .frame(height: 2)
+                    }
+                }
+                .padding(.horizontal)
+                
+                Button {
+                    controller.signIn()
+                } label: {
+                    Text("Sign In")
+                        .foregroundColor(.white)
+                        .font(.title3)
+                        .bold()
+                        .padding()
+                }
+                .frame(maxWidth: 250)
+                .background(Color.black)
+                .cornerRadius(10)
             }
-            .frame(maxWidth: 250)
-            .background(Color.black)
-            .cornerRadius(10)
+            .padding()
         }
-        .padding()
         .navigationBarTitleDisplayMode(.inline)
     }
 }

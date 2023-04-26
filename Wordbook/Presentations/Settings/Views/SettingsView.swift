@@ -8,45 +8,78 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var controller = SettingsController()
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Account")) {
-                    NavigationLink(destination: ChangeEmailView()) {
-                        Text("Change Email")
-                    }
-                    NavigationLink(destination: ChangeUsernameView()) {
-                        Text("Change Username")
-                    }
-                    NavigationLink(destination: ChangePasswordView()) {
-                        Text("Change Password")
-                    }
+        NavigationStack(path: $controller.settingsPathes) {
+            List {
+                Section("Account") {
+                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "User", destination: .changeUsername)
+                    SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail)
+                    SettingsItem(kinds: .link, leftLabel: "Verify Email", leftIconName: "envelope", destination: .privacyPolicy)
+                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "key", destination: .changePassword)
                 }
 
-                Section(header: Text("Info")) {
-                    HStack {
-                        Text("Version")
-                        Spacer()
-                        Text("1.0")
+                Section("Info") {
+                    SettingsItem(kinds: .normal, leftLabel: "Version", leftIconName: "info", rightLabel: "1.0.0 Beta 1")
+                    SettingsItem(kinds: .link, leftLabel: "Privacy Policy", leftIconName: "lock.fill", destination: .privacyPolicy)
+                    SettingsItem(kinds: .link, leftLabel: "Credits", leftIconName: "quote.opening", destination: .credits)
+                }
+                
+                Section("Denger Zone") {
+                    Button {
+                        controller.signOut()
+                    } label: {
+                        HStack {
+                            Image(systemName: "door.left.hand.open")
+                            Text("Sign Out")
+                        }
+                        .foregroundColor(.orange)
                     }
-                    NavigationLink(destination: PrivacyPolicyView()) {
-                        Text("Privacy Policy")
-                    }
-                    NavigationLink(destination: CreditsView()) {
-                        Text("Credits")
+                    
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            Image(systemName: "trash")
+                            Text("Delete Account")
+                        }
+                        .foregroundColor(.red)
                     }
                 }
+                
+                Button(action: {}) {
+                    Image("BuyMeACoffee")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 50)
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .buttonStyle(PlainButtonStyle())
+                .listRowInsets(EdgeInsets())
+                .background(Color(.systemGroupedBackground))
             }
-            .navigationBarTitle(Text("Settings"))
+            .environmentObject(controller)
+            .navigationBarTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     } label: {
                         Image(systemName: "xmark")
                     }
+                }
+            }
+            .navigationDestination(for: SettingsNavStack.self) { path in
+                switch path {
+                case .changeUsername: ChangeUsernameView()
+                case .changeEmail: ChangeEmailView()
+                case .changePassword: ChangePasswordView()
+                case .privacyPolicy: PrivacyPolicyView()
+                case .credits: CreditsView()
+                case .donate: EmptyView()
+                case .deleteAccount: EmptyView()
                 }
             }
         }

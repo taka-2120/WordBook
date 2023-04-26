@@ -28,7 +28,7 @@ class AuthService: AuthServiceInterface {
         try await userDataRepo.fetchUserData(userId: user.id)
         print("Success Sign In")
         print(userDataRepo.userData)
-        try await wordbookRepo.fetchWordbook(id: user.id)
+        try await wordbookRepo.fetchWordbook(userId: user.id)
         print(wordbookRepo.wordbooks)
     }
     

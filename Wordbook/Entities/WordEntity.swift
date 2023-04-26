@@ -25,8 +25,8 @@ struct Word: Equatable, Identifiable, Hashable, Codable {
 }
 
 struct WordAPIModel: Equatable, Hashable, Codable {
-    var userId = UUID()
     var wordId = UUID()
+    var userId: UUID
     var bookId: UUID
     var original: String
     var translated: String

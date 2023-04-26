@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "gifimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/igorcferreira/GIFImage.git",
+      "state" : {
+        "revision" : "1b3bb8976ddcd8f5c7a5565f29110a4d2db34c7f",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "gotrue-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/supabase-community/gotrue-swift",

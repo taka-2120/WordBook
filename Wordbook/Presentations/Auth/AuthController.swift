@@ -8,6 +8,8 @@
 import Foundation
 
 class AuthController: ObservableObject {
+    
+    private var screenController = ScreenController.shared
     private let authService = AuthService()
     
     @Published var username = ""
@@ -18,6 +20,7 @@ class AuthController: ObservableObject {
         Task { @MainActor in
             do {
                 try await authService.signIn(email: email, password: password)
+                screenController.state = .main
             } catch {
                 print(error)
             }
@@ -28,6 +31,7 @@ class AuthController: ObservableObject {
         Task { @MainActor in
             do {
                 try await authService.signUp(username: username, email: email, password: password)
+                screenController.state = .main
             } catch {
                 print(error)
             }

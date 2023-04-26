@@ -9,21 +9,18 @@ import SwiftUI
 
 @main
 struct WordbookApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @ObservedObject private var screenController = ScreenController.shared
     
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            Group {
+                switch screenController.state {
+                case .auth: WelcomeView()
+                case .main: WordbooksView()
+                case .loading: LoadingView()
+                }
+            }
+            .animation(.easeInOut, value: screenController.state)
         }
-    }
-}
-
-class AppDelegate: NSObject {
-    static var orientationLock = UIInterfaceOrientationMask.allButUpsideDown
-}
-
-extension AppDelegate: UIApplicationDelegate {
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return AppDelegate.orientationLock
     }
 }

@@ -89,7 +89,7 @@ struct WelcomeView: View {
             .navigationDestination(for: AuthMethod.self) { method in
                 switch method {
                 case .signUp: SignUpView()
-                default: SignInView()
+                case .signIn: SignInView()
                 }
             }
         }

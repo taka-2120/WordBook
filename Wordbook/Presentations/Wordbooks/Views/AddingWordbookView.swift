@@ -9,12 +9,24 @@ import SwiftUI
 
 struct AddWordbookView: View {
     @ObservedObject private var controller = AddWordbookController()
+    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                CustomField("Title", placeHolder: "Enter a title...", text: $controller.title)
+                Text("Title")
+                VStack(spacing: 0) {
+                    TextField("Title", text: $controller.title)
+                        .padding(.vertical)
+                        .controlSize(.large)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.gray)
+                        .frame(height: 2)
+                }
                 
                 ColorPicker("Color", selection: $controller.color, supportsOpacity: false)
                 

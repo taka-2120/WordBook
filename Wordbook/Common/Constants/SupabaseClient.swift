@@ -8,4 +8,4 @@
 import Foundation
 import Supabase
 
-let client = SupabaseClient(supabaseURL: URL(string: ProcessInfo.databaseUrl)!, supabaseKey: ProcessInfo.supabaseApiKey)
+let client = SupabaseClient(supabaseURL: URL(string: ENV().databaseUrl)!, supabaseKey: ENV().supabaseApiKey)

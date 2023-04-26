@@ -11,7 +11,7 @@ struct Wordbook: Identifiable, Hashable, Codable {
     var id: UUID {
         self.bookId
     }
-    var bookId = UUID()
+    var bookId: UUID
     var userId: UUID
     var name: String
     var color: String
