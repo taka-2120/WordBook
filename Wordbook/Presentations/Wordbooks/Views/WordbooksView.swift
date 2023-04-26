@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 struct WordbooksView: View {
     @ObservedObject private var controller = WordbooksController()
@@ -13,9 +14,11 @@ struct WordbooksView: View {
     
     var body: some View {
         NavigationStack(path: $wordbookPathes) {
-            List {
-                ForEach(controller.wordbooks, id: \.id) { wordbook in
-                    WordbookItem(wordbook: wordbook)
+            ScrollView {
+                SwipeViewGroup {
+                    ForEach(controller.wordbooks, id: \.id) { wordbook in
+                        WordbookItem(wordbook: wordbook)
+                    }
                 }
             }
             .navigationTitle("Wordbooks")
@@ -48,6 +51,7 @@ struct WordbooksView: View {
             }
             .animation(.easeInOut, value: controller.wordbooks)
         }
+        .environmentObject(controller)
     }
 }
 

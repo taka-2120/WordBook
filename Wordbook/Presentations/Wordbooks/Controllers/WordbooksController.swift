@@ -27,4 +27,12 @@ class WordbooksController: ObservableObject {
     func getWordbooks() {
         self.wordbooks = wordbookService.getWordbooks()
     }
+    
+    func pinWordbook() {
+        
+    }
+    
+    func removeWordbook() {
+        
+    }
 }
