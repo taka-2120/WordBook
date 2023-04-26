@@ -75,8 +75,7 @@ struct AddWordView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        controller.addWord()
-                        dismiss()
+                        controller.addWord(dismiss)
                     } label: {
                         Text("Save")
                             .bold()

@@ -13,9 +13,14 @@ class AddWordbookController: ObservableObject {
     @Published var title = ""
     @Published var color = Color.blue
     
-    func addWordbook() {
+    func addWordbook(_ dismiss: DismissAction) {
         Task { @MainActor in
-            try await wordbookService.addWordbook(name: title, color: color.toHex())
+            do {
+                try await wordbookService.addWordbook(name: title, color: color.toHex())
+                dismiss()
+            } catch {
+                print(error)
+            }
         }
     }
 }

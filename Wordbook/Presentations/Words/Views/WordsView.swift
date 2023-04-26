@@ -46,6 +46,7 @@ struct WordsView: View {
             }
         }
         .sheet(isPresented: $controller.isAddShown, content: { AddWordView(wordbook: controller.wordbook) })
+        .animation(.easeInOut, value: controller.wordbook)
     }
 }
 

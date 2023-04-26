@@ -48,6 +48,10 @@ class WordbookService {
     
     func addWord(original: String, translated: String, priority: Int,
                  missed: Int, synonyms: [String], antonyms: [String], examples: [String], to wordbook: Wordbook) async throws {
+//        guard let wordbook = wordbookRepo.wordbooks.index(1, offsetBy: index) else {
+//            return
+//        }
+        
         if let id = authRepo.session?.user.id {
             try await wordbookRepo.insertWord(userId: id, bookId: wordbook.bookId , original: original, translated: translated, priority: priority, missed: missed, synonyms: synonyms, antonyms: antonyms, examples: examples)
         } else {

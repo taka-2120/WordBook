@@ -44,8 +44,7 @@ struct AddWordbookView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        controller.addWordbook()
-                        dismiss()
+                        controller.addWordbook(dismiss)
                     } label: {
                         Image(systemName: "checkmark")
                             .bold()

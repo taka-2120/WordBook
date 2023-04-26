@@ -41,6 +41,12 @@ struct WordbooksView: View {
             }
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
             .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
+            .onChange(of: wordbookPathes) { newValue in
+                if newValue == [] {
+                    controller.getWordbooks()
+                }
+            }
+            .animation(.easeInOut, value: controller.wordbooks)
         }
     }
 }

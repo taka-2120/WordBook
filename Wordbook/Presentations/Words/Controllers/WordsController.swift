@@ -12,7 +12,13 @@ class WordsController: ObservableObject {
     @Published var wordbook: Wordbook
     
     @Published var editMode = EditMode.inactive
-    @Published var isAddShown = false
+    @Published var isAddShown = false {
+        willSet {
+            if newValue == false && wordbookIndex != nil {
+                wordbook = wordbookService.getWordbooks()[wordbookIndex!]
+            }
+        }
+    }
     @Published var isDetailsShown = false {
         willSet {
             if newValue == false {
@@ -21,9 +27,10 @@ class WordsController: ObservableObject {
         }
     }
     @Published var cardViewShown = false
-    @Published var wordbookIndex = 0
+    @Published var wordbookIndex: Int? = nil
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
+        self.wordbookIndex = wordbookService.getWordbooks().firstIndex(of: wordbook)
     }
 }

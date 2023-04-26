@@ -5,7 +5,7 @@
 //  Created by Yu Takahashi on 4/2/23.
 //
 
-import Foundation
+import SwiftUI
 
 class AddWordController: ObservableObject {
     private let wordbookService = WordbookService()
@@ -21,7 +21,7 @@ class AddWordController: ObservableObject {
         self.wordbook = wordbook
     }
     
-    func addWord() {
+    func addWord(_ dismiss: DismissAction) {
         Task { @MainActor in
             do {
                 try await wordbookService.addWord(
@@ -32,6 +32,7 @@ class AddWordController: ObservableObject {
                     synonyms: synonyms,
                     antonyms: antonyms,
                     examples: examples, to: wordbook)
+                dismiss()
             } catch {
                 print(error)
             }
