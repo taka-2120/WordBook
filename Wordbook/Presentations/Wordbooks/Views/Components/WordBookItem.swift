@@ -27,16 +27,22 @@ struct WordbookItem: View {
                         .foregroundColor(.gray)
                         .imageScale(.small)
                 }
+                .padding(.horizontal)
                 .padding(.vertical, 20)
             }
             .background(.regularMaterial)
             .cornerRadius(15)
+            .overlay {
+                RoundedRectangle(cornerRadius: 15)
+                    .strokeBorder(Color(hex: wordbook.color), lineWidth: 2)
+            }
+            .shadow(color: Color(hex: wordbook.color).opacity(0.3), radius: 15, y: 3)
         } trailingActions: { _ in
             SwipeAction(systemImage: "pin") {
                 controller.pinWordbook()
             }
             .background(.orange)
-            .cornerRadius(15)
+            .foregroundColor(.white)
             
             SwipeAction(systemImage: "trash") {
                 controller.removeWordbook()

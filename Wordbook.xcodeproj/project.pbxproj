@@ -82,6 +82,7 @@
 		9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */; };
 		9AAB3B6729F7E9D900AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6629F7E9D900AD6F6C /* env.swift */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
+		9AAB3B6D29FABA6700AD6F6C /* PresentableColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
+				9AAB3B6D29FABA6700AD6F6C /* PresentableColorPicker in Frameworks */,
 				9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */,
 				9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */,
 				3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */,
@@ -624,6 +626,7 @@
 				9A85014B29F5FE860033FD05 /* Supabase */,
 				9AAB3B5D29F7AE6400AD6F6C /* GIFImage */,
 				9AAB3B6929F8C8B900AD6F6C /* SwipeActions */,
+				9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */,
 			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* WordBook.app */;
@@ -679,6 +682,7 @@
 				9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */,
 				9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */,
+				9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
 			projectDirPath = "";
@@ -1123,6 +1127,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/franklynw/PresentableColorPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1145,6 +1157,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
+		};
+		9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */;
+			productName = PresentableColorPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

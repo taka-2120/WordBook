@@ -55,6 +55,15 @@
       }
     },
     {
+      "identity" : "halfasheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/franklynw/HalfASheet.git",
+      "state" : {
+        "revision" : "4f43296b3722082dd5735521ee0fbf25e61cd21c",
+        "version" : "1.0.2"
+      }
+    },
+    {
       "identity" : "keychainaccess",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
@@ -70,6 +79,15 @@
       "state" : {
         "revision" : "a3c2d6a2ede94d2529edf063b056b1a66fd9cdc2",
         "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "presentablecolorpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/franklynw/PresentableColorPicker.git",
+      "state" : {
+        "revision" : "389ce59fb8074ab5b67cd76f380f20c2ebcd47c7",
+        "version" : "1.0.5"
       }
     },
     {

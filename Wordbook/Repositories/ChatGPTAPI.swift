@@ -11,6 +11,14 @@ enum PromptMode: String {
     case synonyms = "synonyms"
     case antonyms = "antonyms"
     case examples = "short example sentences"
+    
+    var format: String {
+        switch self {
+        case .synonyms: return "xxx, xxx, xxx, xxx: xxx is the synonym"
+        case .antonyms: return "xxx, xxx, xxx, xxx: xxx is the antonym"
+        case .examples: return "xxx\nxxx\nxxx\nxxx: xxx is the example sentence without prefix"
+        }
+    }
 }
 
 func fetchGPTResult(for word: String, mode: PromptMode) async throws -> [String]? {
@@ -23,7 +31,7 @@ func fetchGPTResult(for word: String, mode: PromptMode) async throws -> [String]
 
     let parameters: [String : Any] = [
         "model": "text-davinci-002",
-        "prompt": "four English \(mode.rawValue) for \(word.lowercased())",
+        "prompt": "generate four English \(mode.rawValue) for \(word.lowercased()) using the following format \(mode.format)",
         "max_tokens": 50,
         "temperature": 0.5,
         "n": 1,
@@ -41,9 +49,9 @@ func fetchGPTResult(for word: String, mode: PromptMode) async throws -> [String]
     print(json)
     if let choices = json["choices"] as? [[String: Any]],
        let text = choices.first?["text"] as? String {
-        let synonyms = text.replacingOccurrences(of: "\n\n", with: "\n").components(separatedBy: mode == .examples ? "\n" : ", ")
-        print(synonyms)
-        return synonyms
+        let result = text.replacingOccurrences(of: "\n\n", with: "").components(separatedBy: mode == .examples ? "\n" : ", ")
+        print(result)
+        return result
     }
     return nil
 }

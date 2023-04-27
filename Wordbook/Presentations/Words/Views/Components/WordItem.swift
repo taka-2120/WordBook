@@ -6,48 +6,52 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 struct WordItem: View {
+    @EnvironmentObject private var controller: WordsController
+    
     let word: Word
-    @State var isInfoShown = false
     
     var body: some View {
-        Button(action: {
-            isInfoShown.toggle()
-        }, label: {
-            HStack {
-                Circle()
-                    .fill(getPriorityColor(priority: word.priority))
-                    .frame(maxWidth: 10, maxHeight: 10)
-                Text(word.original)
-                    .foregroundColor(Color(.label))
-                    .fontWeight(.semibold)
-                Spacer()
-                Text(word.translated)
-                    .foregroundColor(Color(.secondaryLabel))
+        SwipeView {
+            Button {
+                controller.selectWord(for: word)
+                controller.isDetailsShown.toggle()
+            } label: {
+                HStack {
+                    Text(word.original)
+                        .font(.headline)
+                        .foregroundColor(Color(.label))
+                    Spacer()
+                    Text("\(word.translated)")
+                        .font(.subheadline)
+                        .foregroundColor(Color(.secondaryLabel))
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 20)
+                .background(.regularMaterial)
+                .cornerRadius(15)
             }
-        })
-        .padding()
-        .background()
-        .cornerRadius(15)
-        .contextMenu {
-            Button(action: {
-                isInfoShown = true
-            }) {
-                Text("Edit")
-                Image(systemName: "square.and.pencil")
+        } trailingActions: { _ in
+            SwipeAction(systemImage: "square.and.pencil") {
+                controller.isDetailsShown.toggle()
             }
-
-            Button(action: {
-                // TODO: Remove Action
-            }) {
-                Text("Delete")
-                Image(systemName: "trash")
+            .background(.blue)
+            .foregroundColor(.white)
+            .cornerRadius(15)
+            
+            SwipeAction(systemImage: "trash") {
+                controller.removeWord()
             }
-            .foregroundColor(Color(.systemRed))
+            .allowSwipeToTrigger()
+            .background(.red)
+            .foregroundColor(.white)
         }
-        .shadow(color: Color(.systemGray5), radius: 10)
+        .swipeActionWidth(80)
+        .swipeActionCornerRadius(15)
+        .swipeActionsMaskCornerRadius(15)
+        .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
-        .padding(.vertical, 5)
     }
 }

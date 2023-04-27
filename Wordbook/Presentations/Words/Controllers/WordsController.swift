@@ -10,6 +10,7 @@ import SwiftUI
 class WordsController: ObservableObject {
     private let wordbookService = WordbookService()
     @Published var wordbook: Wordbook
+    @Published var selectedWord: Word? = nil
     
     @Published var editMode = EditMode.inactive
     @Published var isAddShown = false {
@@ -32,5 +33,13 @@ class WordsController: ObservableObject {
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
         self.wordbookIndex = wordbookService.getWordbooks().firstIndex(of: wordbook)
+    }
+    
+    func selectWord(for word: Word) {
+        selectedWord = word
+    }
+    
+    func removeWord() {
+        
     }
 }
