@@ -10,13 +10,13 @@ import Foundation
 enum PromptMode: String {
     case synonyms = "synonyms"
     case antonyms = "antonyms"
-    case examples = "short example sentences"
+    case examples = "short example sentences without number at the front of each sentence"
     
     var format: String {
         switch self {
-        case .synonyms: return "xxx, xxx, xxx, xxx: xxx is the synonym"
-        case .antonyms: return "xxx, xxx, xxx, xxx: xxx is the antonym"
-        case .examples: return "xxx\nxxx\nxxx\nxxx: xxx is the example sentence without prefix"
+        case .synonyms: return "xxx, xxx, xxx, xxx(xxx is the synonym)"
+        case .antonyms: return "xxx, xxx, xxx, xxx(xxx is the antonym)"
+        case .examples: return "xxx\nxxx\nxxx\nxxx(xxx is the example sentence)"
         }
     }
 }
@@ -31,7 +31,7 @@ func fetchGPTResult(for word: String, mode: PromptMode) async throws -> [String]
 
     let parameters: [String : Any] = [
         "model": "text-davinci-002",
-        "prompt": "generate four English \(mode.rawValue) for \(word.lowercased()) using the following format \(mode.format)",
+        "prompt": "generate four English \(mode.rawValue) for \(word.lowercased()) using the following format: \(mode.format)",
         "max_tokens": 50,
         "temperature": 0.5,
         "n": 1,
