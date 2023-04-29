@@ -41,13 +41,13 @@ struct AddWordView: View {
                     VStack(alignment: .leading) {
                         Text("Synonyms")
                             .font(.headline)
-                            .padding(.vertical, 10)
+                            .padding(.top, 10)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(Array(controller.synonyms.enumerated()), id: \.offset) { index, word in
                                     HStack {
                                         Button {
-                                            
+                                            controller.synonyms.remove(at: index)
                                         } label: {
                                             Image(systemName: "xmark.circle.fill")
                                                 .foregroundColor(Color(.systemGray))
@@ -65,13 +65,13 @@ struct AddWordView: View {
                         
                         Text("Antonyms")
                             .font(.headline)
-                            .padding(.vertical, 10)
+                            .padding(.top, 10)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(Array(controller.antonyms.enumerated()), id: \.offset) { index, word in
                                     HStack {
                                         Button {
-                                            
+                                            controller.antonyms.remove(at: index)
                                         } label: {
                                             Image(systemName: "xmark.circle.fill")
                                                 .foregroundColor(Color(.systemGray))
@@ -89,9 +89,23 @@ struct AddWordView: View {
                         
                         Text("Examples")
                             .font(.headline)
-                            .padding(.vertical, 10)
+                            .padding(.top, 10)
                         ForEach(Array(controller.examples.enumerated()), id: \.offset) { index, sentence in
-                            Text("\(index + 1). \(sentence)")
+                            HStack {
+                                Text("\(index + 1).")
+                                    .frame(minWidth: 0, maxWidth: 20)
+                                TextField("Example \(index + 1)", text: $controller.examples[index])
+                                    .padding(8)
+                                    .background(Color(.systemGray6))
+                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                    .cornerRadius(10)
+                                Button {
+                                    controller.examples.remove(at: index)
+                                } label: {
+                                    Image(systemName: "minus")
+                                        .foregroundColor(.gray)
+                                }
+                            }
                         }
                     }
                     
@@ -99,6 +113,9 @@ struct AddWordView: View {
                 }
                 .padding()
             }
+            .animation(.spring(), value: controller.synonyms)
+            .animation(.spring(), value: controller.antonyms)
+            .animation(.spring(), value: controller.examples)
             .navigationBarTitle("New Word", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
