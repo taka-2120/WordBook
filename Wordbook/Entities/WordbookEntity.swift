@@ -20,7 +20,7 @@ struct Wordbook: Identifiable, Hashable, Codable {
 }
 
 struct WordbookAPIModel: Hashable, Codable {
-    var bookId = UUID()
+    var bookId: UUID
     var userId: UUID
     var name: String
     var color: String

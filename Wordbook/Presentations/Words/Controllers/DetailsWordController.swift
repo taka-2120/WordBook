@@ -26,6 +26,6 @@ class DetailsWordController: ObservableObject {
         var word = word
         word.original = originalWord
         word.translated = translatedWord
-        wordbooksService.updateWord(word: word, in: wordbook)
+//        wordbooksService.updateWord(word: word, in: wordbook)
     }
 }

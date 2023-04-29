@@ -32,7 +32,17 @@ class WordbooksController: ObservableObject {
         
     }
     
-    func removeWordbook() {
-        
+    func removeWordbook(at index: Int) {
+        Task { @MainActor in
+            let cache = wordbooks[index]
+            do {
+                wordbooks.remove(at: index)
+                try await wordbookService.removeWordbook(at: index)
+                getWordbooks()
+            } catch {
+                print(error)
+                wordbooks.insert(cache, at: index)
+            }
+        }
     }
 }

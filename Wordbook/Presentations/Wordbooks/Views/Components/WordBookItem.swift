@@ -11,6 +11,7 @@ import SwipeActions
 struct WordbookItem: View {
     @EnvironmentObject private var controller: WordbooksController
     let wordbook: Wordbook
+    let index: Int
     
     var body: some View {
         SwipeView {
@@ -34,7 +35,7 @@ struct WordbookItem: View {
             .cornerRadius(15)
             .overlay {
                 RoundedRectangle(cornerRadius: 15)
-                    .strokeBorder(Color(hex: wordbook.color), lineWidth: 2)
+                    .strokeBorder(Color(hex: wordbook.color).opacity(0.8), lineWidth: 2)
             }
             .shadow(color: Color(hex: wordbook.color).opacity(0.3), radius: 15, y: 3)
         } trailingActions: { _ in
@@ -45,7 +46,7 @@ struct WordbookItem: View {
             .foregroundColor(.white)
             
             SwipeAction(systemImage: "trash") {
-                controller.removeWordbook()
+                controller.removeWordbook(at: index)
             }
             .allowSwipeToTrigger()
             .background(.red)
@@ -56,11 +57,12 @@ struct WordbookItem: View {
         .swipeActionsMaskCornerRadius(15)
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
+        .padding(.vertical, 5)
     }
 }
 
 struct WordBookItem_Previews: PreviewProvider {
     static var previews: some View {
-        WordbookItem(wordbook: wordbooksMock[0])
+        WordbookItem(wordbook: wordbooksMock[0], index: 0)
     }
 }

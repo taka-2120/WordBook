@@ -26,11 +26,20 @@ struct WordsView: View {
         ZStack {
             ScrollView {
                 SwipeViewGroup {
-                    ForEach(controller.wordbook.words, id: \.id) { word in
-                        WordItem(word: word)
+                    ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
+                        WordItem(word: word, index: index)
                     }
                 }
                 .padding(.top, 30)
+            }
+            
+            if isEditing {
+                Rectangle()
+                    .fill(Color(.systemBackground).opacity(0.1))
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .onTapGesture {
+                        isEditing = false
+                    }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -41,7 +50,7 @@ struct WordsView: View {
                     Circle()
                         .fill(Color(hex: controller.wordbook.color))
                         .frame(width: 10, height: 10)
-                    TextField("Wordbook Title", text: $controller.wordbook.name)
+                    TextField("Wordbook Title", text: $controller.wordbookTitle)
                         .padding(8)
                         .background(isEditing ? Color(.secondarySystemBackground) : .clear)
                         .cornerRadius(10)
@@ -53,6 +62,7 @@ struct WordsView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if isEditing {
                     Button {
+                        controller.updateTitle()
                         isEditing = false
                     } label: {
                         Text("Done")
@@ -78,7 +88,7 @@ struct WordsView: View {
                     Button {
                         isColorPickerShown = true
                     } label: {
-                        Label("Change Color", systemImage: "palette")
+                        Label("Change Color", systemImage: "paintpalette")
                     }
                     .disabled(true)
                 }

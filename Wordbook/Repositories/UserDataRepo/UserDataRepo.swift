@@ -13,7 +13,7 @@ class UserDataRepo: UserDataRepoInterface {
     static let shared = UserDataRepo()
     private init() {}
     
-    var userData = UserData(username: "")
+    var userData = UserData(userId: UUID(), username: "")
     
     @MainActor
     func insertUserData(userId: UUID, username: String) async throws {

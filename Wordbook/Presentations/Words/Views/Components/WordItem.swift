@@ -12,6 +12,7 @@ struct WordItem: View {
     @EnvironmentObject private var controller: WordsController
     
     let word: Word
+    let index: Int
     
     var body: some View {
         SwipeView {
@@ -42,7 +43,7 @@ struct WordItem: View {
             .cornerRadius(15)
             
             SwipeAction(systemImage: "trash") {
-                controller.removeWord()
+                controller.removeWord(at: index)
             }
             .allowSwipeToTrigger()
             .background(.red)

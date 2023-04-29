@@ -8,6 +8,6 @@
 import Foundation
 
 struct UserData: Codable {
-    var userId = UUID()
+    var userId: UUID
     let username: String
 }

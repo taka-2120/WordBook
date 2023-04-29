@@ -16,8 +16,8 @@ struct WordbooksView: View {
         NavigationStack(path: $wordbookPathes) {
             ScrollView {
                 SwipeViewGroup {
-                    ForEach(controller.wordbooks, id: \.id) { wordbook in
-                        WordbookItem(wordbook: wordbook)
+                    ForEach(Array(controller.wordbooks.enumerated()), id: \.offset) { index, wordbook in
+                        WordbookItem(wordbook: wordbook, index: index)
                     }
                 }
             }

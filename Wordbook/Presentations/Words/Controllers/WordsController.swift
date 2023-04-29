@@ -29,17 +29,35 @@ class WordsController: ObservableObject {
     }
     @Published var cardViewShown = false
     @Published var wordbookIndex: Int? = nil
+    @Published var wordbookTitle = ""
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
         self.wordbookIndex = wordbookService.getWordbooks().firstIndex(of: wordbook)
+        self.wordbookTitle = wordbook.name
+    }
+    
+    func updateTitle() {
+        Task { @MainActor in
+            do {
+                try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbook.color)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     func selectWord(for word: Word) {
         selectedWord = word
     }
     
-    func removeWord() {
-        
+    func removeWord(at index: Int) {
+        Task { @MainActor in
+            do {
+                try await wordbookService.removeWord(for: wordbook, at: index)
+            } catch {
+                print(error)
+            }
+        }
     }
 }

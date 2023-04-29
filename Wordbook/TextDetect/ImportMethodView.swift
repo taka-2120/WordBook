@@ -88,7 +88,7 @@ struct ImportMethodView: View {
                             error_text = true
                             return
                         }
-                        words.append(Word(bookId: UUID(), original: originalWord, translated: translatedWord, priority: 0, missed: 0, synonyms: [], antonyms: [], examples: []))
+//                        words.append(Word(bookId: UUID(), original: originalWord, translated: translatedWord, priority: 0, missed: 0, synonyms: [], antonyms: [], examples: []))
                         wordbooks[wordbookIndex].words = words
                         NotificationCenter.default.post(name: .init(rawValue: "closeNotif"), object: nil)
                     }, label: {
