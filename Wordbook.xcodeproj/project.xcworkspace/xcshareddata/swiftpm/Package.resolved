@@ -1,16 +1,149 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "SwiftUIPager",
-        "repositoryURL": "https://github.com/fermoya/SwiftUIPager.git",
-        "state": {
-          "branch": null,
-          "revision": "6ccc32c01e421406d71097d99e2aa4609762dd5b",
-          "version": "1.11.1"
-        }
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
+        "version" : "5.6.4"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "functions-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase-community/functions-swift",
+      "state" : {
+        "revision" : "c680cdfc53399376bdece299b1387b4fb3da514e",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "get",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Get",
+      "state" : {
+        "revision" : "12830cc64f31789ae6f4352d2d51d03a25fc3741",
+        "version" : "2.1.6"
+      }
+    },
+    {
+      "identity" : "getextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/binaryscraping/GetExtensions",
+      "state" : {
+        "revision" : "aa20f38721142eb6592b2c8f11179d32d7d70ae3",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "gifimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/igorcferreira/GIFImage.git",
+      "state" : {
+        "revision" : "1b3bb8976ddcd8f5c7a5565f29110a4d2db34c7f",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "gotrue-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase-community/gotrue-swift",
+      "state" : {
+        "revision" : "e36a47af2dd45acd7f891be3f5574e8ee66eee95",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "halfasheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/franklynw/HalfASheet.git",
+      "state" : {
+        "revision" : "4f43296b3722082dd5735521ee0fbf25e61cd21c",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
+      "state" : {
+        "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
+        "version" : "4.2.2"
+      }
+    },
+    {
+      "identity" : "postgrest-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase-community/postgrest-swift",
+      "state" : {
+        "revision" : "a3c2d6a2ede94d2529edf063b056b1a66fd9cdc2",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "presentablecolorpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/franklynw/PresentableColorPicker.git",
+      "state" : {
+        "revision" : "389ce59fb8074ab5b67cd76f380f20c2ebcd47c7",
+        "version" : "1.0.5"
+      }
+    },
+    {
+      "identity" : "realtime-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase-community/realtime-swift.git",
+      "state" : {
+        "revision" : "0b985c687fe963f6bd818ff77a35c27247b98bb4",
+        "version" : "0.0.2"
+      }
+    },
+    {
+      "identity" : "storage-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase-community/storage-swift.git",
+      "state" : {
+        "revision" : "c3d812b9680cd9872afa40863bb993ffc5c7fdd6",
+        "version" : "0.1.2"
+      }
+    },
+    {
+      "identity" : "supabase-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase/supabase-swift.git",
+      "state" : {
+        "revision" : "c5d5e3eb7b8db485494949ecdfa9eef126cfa947",
+        "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "swiftuipager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fermoya/SwiftUIPager.git",
+      "state" : {
+        "revision" : "6ccc32c01e421406d71097d99e2aa4609762dd5b",
+        "version" : "1.11.1"
+      }
+    },
+    {
+      "identity" : "swipeactions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aheze/SwipeActions",
+      "state" : {
+        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "urlqueryencoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/URLQueryEncoder",
+      "state" : {
+        "revision" : "4ce950479707ea109f229d7230ec074a133b15d7",
+        "version" : "0.2.1"
+      }
+    }
+  ],
+  "version" : 2
 }

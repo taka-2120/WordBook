@@ -6,45 +6,63 @@
 //
 
 import SwiftUI
+import SwipeActions
 
-struct WordBookItem: View {
-    var name: String
-    var date: String
-    @Binding var isNavBarHidden: Bool
-    @Binding var wordbooks: [WordBooks]
-    var selectedId: UUID
+struct WordbookItem: View {
+    @EnvironmentObject private var controller: WordbooksController
+    let wordbook: Wordbook
+    let index: Int
     
     var body: some View {
-        NavigationLink(destination: WordsView(wordbooks: $wordbooks, isNavBarHidden: $isNavBarHidden, wordbookId: selectedId)) {
-            VStack(alignment: .trailing) {
+        SwipeView {
+            NavigationLink(value: wordbook) {
                 HStack {
-                    Text(name)
+                    Text(wordbook.name)
+                        .font(.headline)
                         .foregroundColor(Color(.label))
-                        .fontWeight(.semibold)
                     Spacer()
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(systemName: "info.circle")
-                            .foregroundColor(Color(.secondaryLabel))
-                    })
+                    Text("\(wordbook.words.count)")
+                        .font(.subheadline)
+                        .foregroundColor(Color(.secondaryLabel))
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.gray)
+                        .imageScale(.small)
                 }
-                Text("Last Modified: \(date)")
-                    .padding(.top, 5)
-                    .foregroundColor(Color(.secondaryLabel).opacity(0.7))
+                .padding(.horizontal)
+                .padding(.vertical, 20)
             }
-            .padding()
-            .background()
+            .background(.regularMaterial)
             .cornerRadius(15)
-            .shadow(color: Color(.systemGray5), radius: 10)
-            .padding(.horizontal)
-            .padding(.vertical, 5)
+            .overlay {
+                RoundedRectangle(cornerRadius: 15)
+                    .strokeBorder(Color(hex: wordbook.color).opacity(0.8), lineWidth: 2)
+            }
+            .shadow(color: Color(hex: wordbook.color).opacity(0.3), radius: 15, y: 3)
+        } trailingActions: { _ in
+            SwipeAction(systemImage: "pin") {
+                controller.pinWordbook()
+            }
+            .background(.orange)
+            .foregroundColor(.white)
+            
+            SwipeAction(systemImage: "trash") {
+                controller.removeWordbook(at: index)
+            }
+            .allowSwipeToTrigger()
+            .background(.red)
+            .foregroundColor(.white)
         }
+        .swipeActionWidth(80)
+        .swipeActionCornerRadius(15)
+        .swipeActionsMaskCornerRadius(15)
+        .swipeEnableTriggerHaptics(true)
+        .padding(.horizontal)
+        .padding(.vertical, 5)
     }
 }
 
 struct WordBookItem_Previews: PreviewProvider {
     static var previews: some View {
-        WordBookItem(name: "Test", date: "2022/07/03", isNavBarHidden: .constant(false), wordbooks: .constant([WordBooks]()), selectedId: UUID())
+        WordbookItem(wordbook: wordbooksMock[0], index: 0)
     }
 }

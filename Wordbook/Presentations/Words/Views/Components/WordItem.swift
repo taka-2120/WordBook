@@ -6,60 +6,54 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 struct WordItem: View {
-    var word: Words
-    var wordbookIndex: Int
-    @Binding var words: [Words]
-    @Binding var wordbooks: [WordBooks]
-    @State var isInfoShown = false
+    @EnvironmentObject private var controller: WordsController
+    
+    let word: Word
+    let index: Int
     
     var body: some View {
-        Button(action: {
-            isInfoShown.toggle()
-        }, label: {
-            HStack {
-                Circle()
-                    .fill(getPriorityColor(priority: word.priority))
-                    .frame(maxWidth: 10, maxHeight: 10)
-                Text(word.originalWord)
-                    .foregroundColor(Color(.label))
-                    .fontWeight(.semibold)
-                Spacer()
-                Text(word.translatedWord)
-                    .foregroundColor(Color(.secondaryLabel))
-            }
-        })
-        .padding()
-        .background()
-        .cornerRadius(15)
-        .contextMenu {
-            Button(action: {
-                isInfoShown = true
-            }) {
-                Text("Edit")
-                Image(systemName: "square.and.pencil")
-            }
-
-            Button(action: {
-                for i in 0 ... words.count {
-                    if words[i].id == word.id {
-                        words.remove(at: i)
-                        wordbooks[wordbookIndex].words.remove(at: i)
-                        return
-                    }
+        SwipeView {
+            Button {
+                controller.selectWord(for: word)
+                controller.isDetailsShown.toggle()
+            } label: {
+                HStack {
+                    Text(word.original)
+                        .font(.headline)
+                        .foregroundColor(Color(.label))
+                    Spacer()
+                    Text("\(word.translated)")
+                        .font(.subheadline)
+                        .foregroundColor(Color(.secondaryLabel))
                 }
-            }) {
-                Text("Delete")
-                Image(systemName: "trash")
+                .padding(.horizontal)
+                .padding(.vertical, 20)
+                .background(.regularMaterial)
+                .cornerRadius(15)
             }
-            .foregroundColor(Color(.systemRed))
+        } trailingActions: { _ in
+            SwipeAction(systemImage: "square.and.pencil") {
+                controller.selectWord(for: word)
+                controller.isDetailsShown.toggle()
+            }
+            .background(.blue)
+            .foregroundColor(.white)
+            .cornerRadius(15)
+            
+            SwipeAction(systemImage: "trash") {
+                controller.removeWord(at: index)
+            }
+            .allowSwipeToTrigger()
+            .background(.red)
+            .foregroundColor(.white)
         }
-        .shadow(color: Color(.systemGray5), radius: 10)
+        .swipeActionWidth(80)
+        .swipeActionCornerRadius(15)
+        .swipeActionsMaskCornerRadius(15)
+        .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
-        .padding(.vertical, 5)
-        .sheet(isPresented: $isInfoShown) {
-            EditingView(word: word, wordbookIndex: wordbookIndex, wordbooks: $wordbooks, words: $words)
-        }
     }
 }

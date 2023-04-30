@@ -40,8 +40,8 @@ struct ImportMethodView: View {
     @State var translatedWord = ""
     @State var originalWords: [String] = []
     @State var image: UIImage? = nil
-    @Binding var wordbooks: [WordBooks]
-    @Binding var words: [Words]
+    @Binding var wordbooks: [Wordbook]
+    @Binding var words: [Word]
     @Binding var wordbookIndex: Int
     @Environment(\.presentationMode) var presentationMode
     @State var error_photo = false
@@ -88,7 +88,7 @@ struct ImportMethodView: View {
                             error_text = true
                             return
                         }
-                        words.append(Words(originalWord: originalWord, translatedWord: translatedWord, priority: 0, missed: 0))
+//                        words.append(Word(bookId: UUID(), original: originalWord, translated: translatedWord, priority: 0, missed: 0, synonyms: [], antonyms: [], examples: []))
                         wordbooks[wordbookIndex].words = words
                         NotificationCenter.default.post(name: .init(rawValue: "closeNotif"), object: nil)
                     }, label: {

@@ -7,73 +7,51 @@
 
 import SwiftUI
 
-struct AddingWordbookView: View {
+struct AddWordbookView: View {
+    @ObservedObject private var controller = AddWordbookController()
     
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var wordsViewShown: Bool
-    @Binding var wordbooks: [WordBooks]
-    @Binding var indexOfWordbook: Int
-    
-    @State var title = ""
-    @State var error = false
-    @State var empty = true
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "xmark")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                })
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("Title")
+                VStack(spacing: 0) {
+                    TextField("Title", text: $controller.title)
+                        .padding(.vertical)
+                        .controlSize(.large)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.gray)
+                        .frame(height: 2)
+                }
+                
+                ColorPicker("Color", selection: $controller.color, supportsOpacity: false)
+                
                 Spacer()
-                Text("Create New WordBook")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Spacer()
-                Button(action: {
-                    if title != "" {
-                        for i in 0 ... wordbooks.count - 1 {
-                            if wordbooks[i].name == title {
-                                error = true
-                                empty = false
-                                return
-                            }
-                        }
-                        wordbooks.append(WordBooks(name: title, words: [], modifiedDate: Date()))
-                        for i in 0 ... wordbooks.count - 1 {
-                            if wordbooks[i].name == title {
-                                indexOfWordbook = i
-                                wordsViewShown = true
-                                presentationMode.wrappedValue.dismiss()
-                                return
-                            }
-                        }
-                    } else {
-                        error = true
-                        empty = true
-                    }
-                }, label: {
-                    Image(systemName: "checkmark")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                })
             }
-            
-            TextField("Enter Title...", text: $title)
-                .padding()
-                .background(Color(.secondarySystemBackground))
-                .cornerRadius(15)
-                .padding(.top, 50)
-            
-            Spacer()
+            .padding()
+            .navigationBarTitle(Text("New Wordbook"), displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        controller.addWordbook(dismiss)
+                    } label: {
+                        Image(systemName: "checkmark")
+                            .bold()
+                    }
+                    .disabled(controller.title.isEmpty)
+                }
+            }
         }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .alert(isPresented: $error, content: {
-            Alert(title: Text("Error"), message: Text(empty ? "You can't empty the title." : "The wordbook named this title is aleady exists."), dismissButton: .destructive(Text("OK")))
-        })
     }
 }

@@ -8,112 +8,117 @@
 import SwiftUI
 import VisionKit
 import Vision
+import SwipeActions
+import PresentableColorPicker
 
 struct WordsView: View {
+    @ObservedObject private var controller: WordsController
+    @State private var isEditing = false
+    @State private var color = Color.clear
+    @State private var isColorPickerShown = false
     
-    @Binding var wordbooks: [WordBooks]
-    @Binding var isNavBarHidden: Bool
-    var wordbookId: UUID
-    
-    @Environment(\.presentationMode) var presentationMode
-    @State var editMode = EditMode.inactive
-    @State var addViewShown = false
-    @State var cardViewShown = false
-    @State var editingViewShown = false
-    @State var words: [Words] = []
-    @State var wordbookIndex = 0
-    @State var orientation: UIDeviceOrientation = UIDevice.current.orientation
-    @State var shown = false
-    @State var detectorIsShown = false
+    init(wordbook: Wordbook) {
+        self.controller = WordsController(wordbook: wordbook)
+        self.color = Color(hex: controller.wordbook.color)
+    }
     
     var body: some View {
-        ZStack(alignment: .top) {
-            NavigationLink("", destination: CardMode(wordbooks: $wordbooks, wordbookIndex: $wordbookIndex, words: $words, isNavBarHidden: $isNavBarHidden), isActive: $cardViewShown)
-                .hidden()
-            
-            ScrollView {
-                ForEach(words, id: \.id) { word in
-                    WordItem(word: word, wordbookIndex: wordbookIndex, words: $words, wordbooks: $wordbooks)
+        ZStack {
+            if controller.wordbook.words.isEmpty {
+                VStack {
+                    Image(systemName: "rectangle.portrait.on.rectangle.portrait.slash")
+                        .symbolRenderingMode(.hierarchical)
+                        .font(.system(size: 64))
+                        .padding()
+                    Text("No Words")
+                        .font(.title3)
+                        .bold()
                 }
-                .padding(.top, 20)
-            }
-            .padding(.top, 90)
-            
-            VStack(spacing: 0) {
-                HStack {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.backward")
-                            .font(.title2)
-                            .foregroundColor(Color(.label))
-                    })
-                    Spacer()
-                    Text(wordbooks[wordbookIndex].name)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    Spacer()
-                    Button(action: {
-                        if words.count != 0 {
-                            shown = true
-                            isNavBarHidden = true
-                            cardViewShown = true
+            } else {
+                ScrollView {
+                    SwipeViewGroup {
+                        ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
+                            WordItem(word: word, index: index)
                         }
-                    }, label: {
-                        Image(systemName: "arrowtriangle.right.fill")
-                            .font(.title2)
-                            .foregroundColor(Color(.label))
-                    })
+                    }
+                    .padding(.top, 30)
                 }
-                .padding()
-                
-                
-                Text("\(words.count) Word\(countWord())")
             }
-            .frame(maxWidth: .infinity)
             
-            VStack {
-                Spacer()
-                
+            if isEditing {
+                Rectangle()
+                    .fill(Color(.systemBackground).opacity(0.1))
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .onTapGesture {
+                        isEditing = false
+                    }
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarRole(.browser)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
                 HStack {
-                    Spacer()
-                    CircleNavigationButton(
-                        isShown: $detectorIsShown,
-                        icon: "plus",
-                        detents: [.large],
-                        destination: AnyView(ImportMethodView(wordbooks: $wordbooks, words: $words, wordbookIndex: $wordbookIndex))
-                    )
+                    Circle()
+                        .fill(Color(hex: controller.wordbook.color))
+                        .frame(width: 10, height: 10)
+                    TextField("Wordbook Title", text: $controller.wordbookTitle)
+                        .padding(8)
+                        .background(isEditing ? Color(.secondarySystemBackground) : .clear)
+                        .cornerRadius(10)
+                        .frame(minWidth: 0, maxWidth: 150, alignment: .center)
+                        .disabled(!isEditing)
                 }
             }
-            .padding()
-        }
-        .background(Color(defaultBackground))
-        .navigationBarBackButtonHidden(true)
-        .onAppear() {
-            if shown == false {
-                for i in 0 ... wordbooks.count - 1 {
-                    if wordbooks[i].id == wordbookId {
-                        words = wordbooks[i].words
-                        wordbookIndex = i
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if isEditing {
+                    Button {
+                        controller.updateTitle()
+                        isEditing = false
+                    } label: {
+                        Text("Done")
+                    }
+                } else {
+                    Button {
+                        controller.isAddShown.toggle()
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
             }
+            
+            ToolbarTitleMenu {
+                if !isEditing {
+                    Button {
+                        isEditing = true
+                    } label: {
+                        Label("Rename", systemImage: "pencil")
+                    }
+                    
+                    // TODO: Enable CHanging Color
+                    Button {
+                        isColorPickerShown = true
+                    } label: {
+                        Label("Change Color", systemImage: "paintpalette")
+                    }
+                    .disabled(true)
+                }
+            }
         }
-    }
-    
-    func countWord() -> String {
-        if words.count == 1 {
-            return ""
-        } else {
-            return "s"
+        .animation(.easeInOut, value: controller.wordbook)
+        .animation(.easeInOut, value: isEditing)
+        .sheet(isPresented: $controller.isAddShown, content: { AddWordView(wordbook: controller.wordbook) })
+        .sheet(isPresented: $controller.isDetailsShown) {
+            DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
         }
+        .presentableColorPicker(isPresented: $isColorPickerShown, selection: $color)
+        .environmentObject(controller)
     }
 }
 
-
-
-struct WordsView_Previews: PreviewProvider {
-    static var previews: some View {
-        WordsView(wordbooks: .constant([WordBooks(name: "System English Words", words: [], modifiedDate: Date())]), isNavBarHidden: .constant(false), wordbookId: UUID())
-    }
-}
+//struct WordsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WordsView(wordbooks: .constant([WordBooks(name: "System English Words", words: [], modifiedDate: Date())]), isNavBarHidden: .constant(false), wordbookId: UUID())
+//    }
+//}
