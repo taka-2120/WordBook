@@ -42,4 +42,20 @@ class SupabaseAuthRepo: SupabaseAuthRepoInterface {
         self.session = session
         return session
     }
+    
+    @MainActor
+    func updatePassword(newPassword: String) async throws {
+        try await client.auth.update(user: UserAttributes(password: newPassword))
+    }
+    
+    @MainActor
+    func updateEmail(newEmail: String) async throws {
+        try await client.auth.update(user: UserAttributes(email: newEmail))
+    }
+    
+    @MainActor
+    func sendVerifyEmail(to email: String) async throws {
+        let randomToken = Int.random(in: 100000...999999)
+        try await client.auth.verifyOTP(email: email, token: "\(randomToken)", type: .signup)
+    }
 }

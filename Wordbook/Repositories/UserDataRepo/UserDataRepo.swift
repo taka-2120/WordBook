@@ -29,6 +29,19 @@ class UserDataRepo: UserDataRepoInterface {
     }
     
     @MainActor
+    func updateUsername(userId: UUID, newUsername: String) async throws {
+        let userdata = UserData(userId: userId, username: newUsername)
+        let query = client.database
+                    .from(usersTable)
+                    .update(values: userdata)
+                    .single()
+        
+        let response: UserData = try await query.execute().value
+        
+        userData = response
+    }
+    
+    @MainActor
     func fetchUserData(userId: UUID) async throws {
         let query = client.database
                     .from(usersTable)
