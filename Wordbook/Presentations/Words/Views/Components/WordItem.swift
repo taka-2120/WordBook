@@ -36,6 +36,7 @@ struct WordItem: View {
             }
         } trailingActions: { _ in
             SwipeAction(systemImage: "square.and.pencil") {
+                controller.selectWord(for: word)
                 controller.isDetailsShown.toggle()
             }
             .background(.blue)

@@ -18,44 +18,31 @@ struct DetailsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(spacing: 15) {
                     CustomField("Original", text: $controller.originalWord)
                     CustomField("Translated", text: $controller.translatedWord)
                     
-                    Text("Synonyms")
-                        .font(.headline)
-                        .padding(.vertical, 10)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(controller.word.synonyms, id: \.self) { word in
-                                Text(word)
-                                    .padding(10)
-                                    .background(Color(.systemGray6))
-                                    .cornerRadius(10)
-                            }
-                        }
+                    Group {
+                        Button("Generate", action: controller.generateAll)
+                            .padding(.vertical)
+                            .padding(.horizontal, 30)
+                            .background(.blue)
+                            .opacity(controller.originalWord == "" ? 0.7 : 1.0)
+                            .cornerRadius(20)
+                            .foregroundColor(.white)
+                            .disabled(controller.originalWord == "")
+                        
+                        Text("Open AI will generate following these fields")
+                            .font(.callout)
+                            .foregroundColor(Color(.secondaryLabel))
+                            .padding(.bottom)
                     }
                     
-                    Text("Antonyms")
-                        .font(.headline)
-                        .padding(.vertical, 10)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(controller.word.antonyms, id: \.self) { word in
-                                Text(word)
-                                    .padding(10)
-                                    .background(Color(.systemGray6))
-                                    .cornerRadius(10)
-                            }
-                        }
-                    }
+                    SmallFieldItem("Synonyms", array: $controller.synonyms)
                     
-                    Text("Examples")
-                        .font(.headline)
-                        .padding(.vertical, 10)
-                    ForEach(controller.word.examples, id: \.self) { sentence in
-                        Text(sentence)
-                    }
+                    SmallFieldItem("Antonyms", array: $controller.antonyms)
+                    
+                    FieldItem("Examples", array: $controller.examples)
                     
                     Spacer()
                 }
@@ -73,8 +60,7 @@ struct DetailsView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        controller.updateWord()
-                        dismiss()
+                        controller.updateWord(dismiss: dismiss)
                     } label: {
                         Text("Save")
                             .bold()

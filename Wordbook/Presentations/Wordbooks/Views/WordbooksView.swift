@@ -15,9 +15,21 @@ struct WordbooksView: View {
     var body: some View {
         NavigationStack(path: $wordbookPathes) {
             ScrollView {
-                SwipeViewGroup {
-                    ForEach(Array(controller.wordbooks.enumerated()), id: \.offset) { index, wordbook in
-                        WordbookItem(wordbook: wordbook, index: index)
+                if controller.wordbooks.isEmpty {
+                    VStack {
+                        Image(systemName: "square.stack.3d.up.slash")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.system(size: 64))
+                            .padding()
+                        Text("No Wordbooks")
+                            .font(.title3)
+                            .bold()
+                    }
+                } else {
+                    SwipeViewGroup {
+                        ForEach(Array(controller.wordbooks.enumerated()), id: \.offset) { index, wordbook in
+                            WordbookItem(wordbook: wordbook, index: index)
+                        }
                     }
                 }
             }

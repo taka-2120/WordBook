@@ -83,6 +83,8 @@
 		9AAB3B6729F7E9D900AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6629F7E9D900AD6F6C /* env.swift */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
 		9AAB3B6D29FABA6700AD6F6C /* PresentableColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */; };
+		9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */; };
+		9AAB3B7129FE1D6700AD6F6C /* FieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,8 @@
 		9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavStack.swift; sourceTree = "<group>"; };
 		9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		9AAB3B6629F7E9D900AD6F6C /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
+		9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallFieldItem.swift; sourceTree = "<group>"; };
+		9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				9A54D59E28719144002EC02B /* WordItem.swift */,
+				9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */,
+				9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -740,6 +746,7 @@
 				9A28104529D285130056C855 /* WordIndex.swift in Sources */,
 				9A001EB629D9C76A00C6EC66 /* AddWordController.swift in Sources */,
 				9AAB3B4929F63B7C00AD6F6C /* SignUpView.swift in Sources */,
+				9AAB3B7129FE1D6700AD6F6C /* FieldItem.swift in Sources */,
 				9A54D59928716AEC002EC02B /* WordBookItem.swift in Sources */,
 				9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */,
 				9A54D593287164CF002EC02B /* CircleNavigationButton.swift in Sources */,
@@ -778,6 +785,7 @@
 				9A85015829F603EB0033FD05 /* SupabaseAuthRepo.swift in Sources */,
 				9A001E9E29D3FCDA00C6EC66 /* ChangeEmailView.swift in Sources */,
 				9A54D59F28719144002EC02B /* WordItem.swift in Sources */,
+				9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */,
 				9A001EA629D3FD1700C6EC66 /* PrivacyPolicyView.swift in Sources */,
 				3B3EBEC42529C4F300152662 /* DetailsView.swift in Sources */,
 				9A001EB429D9BF3000C6EC66 /* AddWordbookController.swift in Sources */,

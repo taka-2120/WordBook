@@ -38,76 +38,11 @@ struct AddWordView: View {
                             .padding(.bottom)
                     }
                     
-                    VStack(alignment: .leading) {
-                        Text("Synonyms")
-                            .font(.headline)
-                            .padding(.top, 10)
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(Array(controller.synonyms.enumerated()), id: \.offset) { index, word in
-                                    HStack {
-                                        Button {
-                                            controller.synonyms.remove(at: index)
-                                        } label: {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .foregroundColor(Color(.systemGray))
-                                                .imageScale(.small)
-                                        }
-
-                                        TextField("Synonyms", text: $controller.synonyms[index])
-                                    }
-                                    .padding(10)
-                                    .background(Color(.systemGray6))
-                                    .cornerRadius(100)
-                                }
-                            }
-                        }
-                        
-                        Text("Antonyms")
-                            .font(.headline)
-                            .padding(.top, 10)
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(Array(controller.antonyms.enumerated()), id: \.offset) { index, word in
-                                    HStack {
-                                        Button {
-                                            controller.antonyms.remove(at: index)
-                                        } label: {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .foregroundColor(Color(.systemGray))
-                                                .imageScale(.small)
-                                        }
-
-                                        TextField("Antonyms", text: $controller.antonyms[index])
-                                    }
-                                    .padding(10)
-                                    .background(Color(.systemGray6))
-                                    .cornerRadius(100)
-                                }
-                            }
-                        }
-                        
-                        Text("Examples")
-                            .font(.headline)
-                            .padding(.top, 10)
-                        ForEach(Array(controller.examples.enumerated()), id: \.offset) { index, sentence in
-                            HStack {
-                                Text("\(index + 1).")
-                                    .frame(minWidth: 0, maxWidth: 20)
-                                TextField("Example \(index + 1)", text: $controller.examples[index])
-                                    .padding(8)
-                                    .background(Color(.systemGray6))
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                    .cornerRadius(10)
-                                Button {
-                                    controller.examples.remove(at: index)
-                                } label: {
-                                    Image(systemName: "minus")
-                                        .foregroundColor(.gray)
-                                }
-                            }
-                        }
-                    }
+                    SmallFieldItem("Synonyms", array: $controller.synonyms)
+                    
+                    SmallFieldItem("Antonyms", array: $controller.antonyms)
+                    
+                    FieldItem("Examples", array: $controller.examples)
                     
                     Spacer()
                 }

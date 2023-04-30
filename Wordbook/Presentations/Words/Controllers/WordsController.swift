@@ -22,8 +22,8 @@ class WordsController: ObservableObject {
     }
     @Published var isDetailsShown = false {
         willSet {
-            if newValue == false {
-//                wordbook = wordbooksService.getSameWordbook(current: wordbook)
+            if newValue == false && wordbookIndex != nil {
+                wordbook = wordbookService.getWordbooks()[wordbookIndex!]
             }
         }
     }

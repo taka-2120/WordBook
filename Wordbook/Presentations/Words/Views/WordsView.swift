@@ -24,13 +24,25 @@ struct WordsView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
-                SwipeViewGroup {
-                    ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
-                        WordItem(word: word, index: index)
-                    }
+            if controller.wordbook.words.isEmpty {
+                VStack {
+                    Image(systemName: "rectangle.portrait.on.rectangle.portrait.slash")
+                        .symbolRenderingMode(.hierarchical)
+                        .font(.system(size: 64))
+                        .padding()
+                    Text("No Words")
+                        .font(.title3)
+                        .bold()
                 }
-                .padding(.top, 30)
+            } else {
+                ScrollView {
+                    SwipeViewGroup {
+                        ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
+                            WordItem(word: word, index: index)
+                        }
+                    }
+                    .padding(.top, 30)
+                }
             }
             
             if isEditing {

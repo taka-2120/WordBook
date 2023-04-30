@@ -111,7 +111,7 @@ class WordbookRepo: WordbookRepoInterface {
         let _ = try await client.database
                 .from(wordsTable)
                 .update(values: word)
-                .eq(column: "bookId", value: bookId)
+                .eq(column: "wordId", value: wordId)
                 .execute()
         
         try await fetchWordbook(userId: userId)
