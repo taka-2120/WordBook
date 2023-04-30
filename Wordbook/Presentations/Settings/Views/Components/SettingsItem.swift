@@ -56,6 +56,7 @@ struct SettingsItem: View {
                     if let rightLabel = rightLabel {
                         Text(rightLabel)
                             .foregroundColor(.gray)
+                            .font(.callout)
                     } else if let rightIconName = rightIconName {
                         Image(systemName: rightIconName)
                     }
@@ -76,6 +77,11 @@ struct SettingsItem: View {
                         .foregroundColor(Color(.label))
                     
                     Spacer()
+                    if let rightLabel = rightLabel {
+                        Text(rightLabel)
+                            .foregroundColor(.gray)
+                            .font(.callout)
+                    }
                     Image(systemName: rightIconName ?? "chevron.forward")
                         .foregroundColor(.gray)
                         .imageScale(.small)

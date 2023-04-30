@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct ChangeUsernameView: View {
+    
+    @State private var username = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 15) {
+            Text("Change Username")
+                .font(.title)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 10)
+            
+            CustomField("New Username", text: $username)
+            
+            Spacer()
+            
+            Button {
+                
+            } label: {
+                Text("Update")
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .padding()
+            }
+            .frame(maxWidth: 250)
+            .background(Color.black)
+            .cornerRadius(15)
+        }
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -17,8 +17,8 @@ struct SettingsView: View {
                 Section("Account") {
                     SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "User", destination: .changeUsername)
                     SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail)
-                    SettingsItem(kinds: .link, leftLabel: "Verify Email", leftIconName: "envelope", destination: .privacyPolicy)
-                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "key", destination: .changePassword)
+                    SettingsItem(kinds: .link, leftLabel: "Verify Email", leftIconName: "envelope", rightLabel: "Not Verified", destination: .privacyPolicy)
+                    SettingsItem(kinds: .link, leftLabel: "Change Password", leftIconName: "key", destination: .verifyEmail)
                 }
 
                 Section("Info") {
@@ -49,7 +49,7 @@ struct SettingsView: View {
                     }
                 }
                 
-                Button(action: {}) {
+                Link(destination: URL(string: "https://www.buymeacoffee.com/yutakahashi")!) {
                     Image("BuyMeACoffee")
                         .resizable()
                         .scaledToFit()
@@ -75,10 +75,10 @@ struct SettingsView: View {
                 switch path {
                 case .changeUsername: ChangeUsernameView()
                 case .changeEmail: ChangeEmailView()
+                case .verifyEmail: VerifyEmailView()
                 case .changePassword: ChangePasswordView()
                 case .privacyPolicy: PrivacyPolicyView()
                 case .credits: CreditsView()
-                case .donate: EmptyView()
                 case .deleteAccount: EmptyView()
                 }
             }

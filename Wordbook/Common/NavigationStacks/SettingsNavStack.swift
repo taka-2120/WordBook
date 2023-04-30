@@ -8,11 +8,11 @@
 import Foundation
 
 enum SettingsNavStack {
-    case changeEmail
-    case changePassword
     case changeUsername
+    case changeEmail
+    case verifyEmail
+    case changePassword
     case privacyPolicy
     case credits
-    case donate
     case deleteAccount
 }

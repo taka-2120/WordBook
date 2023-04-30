@@ -9,7 +9,20 @@ import SwiftUI
 
 struct PrivacyPolicyView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 15) {
+            Text("Privacy Policy")
+                .font(.title)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 10)
+            
+            ScrollView {
+                Text("Our Privacy Policy Here...")
+            }
+
+        }
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

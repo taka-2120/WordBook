@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct ChangeEmailView: View {
+    
+    @State private var email = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 15) {
+            Text("Change Email")
+                .font(.title)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 10)
+            
+            CustomField("New Email", text: $email)
+            
+            Spacer()
+            
+            Button {
+                
+            } label: {
+                Text("Update")
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .padding()
+            }
+            .frame(maxWidth: 250)
+            .background(Color.black)
+            .cornerRadius(15)
+
+        }
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

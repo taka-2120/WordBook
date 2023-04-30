@@ -1,36 +1,29 @@
 //
-//  ChangePasswordView.swift
+//  VerifyEmailView.swift
 //  WordBook
 //
-//  Created by Yu Takahashi on 3/29/23.
+//  Created by Yu Takahashi on 4/30/23.
 //
 
 import SwiftUI
 
-struct ChangePasswordView: View {
-    
-    @State private var oldPassword = ""
-    @State private var newPassword = ""
-    @State private var reNewassword = ""
-    
+struct VerifyEmailView: View {
     var body: some View {
         VStack(spacing: 15) {
-            Text("Change Password")
+            Text("Verify Email")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("Old Password", isSecured: true, text: $oldPassword)
-            CustomField("New Password", isSecured: true, text: $newPassword)
-            CustomField("Re-enter New Password", isSecured: true, text: $reNewassword)
+            Text("We'll send a verification email to \("{address}").")
             
             Spacer()
             
             Button {
                 
             } label: {
-                Text("Update")
+                Text("Send")
                     .foregroundColor(.white)
                     .font(.title3)
                     .padding()
@@ -38,15 +31,14 @@ struct ChangePasswordView: View {
             .frame(maxWidth: 250)
             .background(Color.black)
             .cornerRadius(15)
-
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct ChangePasswordView_Previews: PreviewProvider {
+struct VerifyEmailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChangePasswordView()
+        VerifyEmailView()
     }
 }
