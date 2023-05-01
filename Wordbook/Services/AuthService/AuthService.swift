@@ -74,8 +74,4 @@ class AuthService: AuthServiceInterface {
     func getUsername() -> String {
         userDataRepo.userData.username
     }
-    
-    func isVerified() -> Bool {
-        return false
-    }
 }

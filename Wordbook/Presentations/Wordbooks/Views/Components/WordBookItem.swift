@@ -5,11 +5,15 @@
 //  Created by Yu Takahashi on 2022/07/03.
 //
 
+import Combine
 import SwiftUI
 import SwipeActions
 
 struct WordbookItem: View {
     @EnvironmentObject private var controller: WordbooksController
+    @State var close = PassthroughSubject<Void, Never>()
+    @State private var isDeletePromptShown = false
+    
     let wordbook: Wordbook
     let index: Int
     
@@ -38,7 +42,7 @@ struct WordbookItem: View {
                     .strokeBorder(Color(hex: wordbook.color).opacity(0.8), lineWidth: 2)
             }
             .shadow(color: Color(hex: wordbook.color).opacity(0.3), radius: 15, y: 3)
-        } trailingActions: { _ in
+        } trailingActions: { context in
             SwipeAction(systemImage: "pin") {
                 controller.pinWordbook()
             }
@@ -46,11 +50,14 @@ struct WordbookItem: View {
             .foregroundColor(.white)
             
             SwipeAction(systemImage: "trash") {
-                controller.removeWordbook(at: index)
+                isDeletePromptShown.toggle()
             }
             .allowSwipeToTrigger()
             .background(.red)
             .foregroundColor(.white)
+            .onReceive(close) { _ in /// Receive the `PassthroughSubject`.
+                context.state.wrappedValue = .closed
+            }
         }
         .swipeActionWidth(80)
         .swipeActionCornerRadius(15)
@@ -58,6 +65,19 @@ struct WordbookItem: View {
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
         .padding(.vertical, 5)
+        .alert("Do you really want to delete this wordbook?", isPresented: $isDeletePromptShown) {
+            Button(role: .destructive) {
+                controller.removeWordbook(at: index)
+                close.send()
+            } label: {
+                Text("Delete")
+            }
+            Button(role: .cancel) {
+                close.send()
+            } label: {
+                Text("Cancel")
+            }
+        }
     }
 }
 
