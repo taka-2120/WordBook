@@ -80,11 +80,12 @@
 		9AAB3B6029F7AEF400AD6F6C /* BookStack.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AAB3B5F29F7AEF400AD6F6C /* BookStack.gif */; };
 		9AAB3B6329F7B58A00AD6F6C /* SettingsNavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */; };
 		9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */; };
-		9AAB3B6729F7E9D900AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6629F7E9D900AD6F6C /* env.swift */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
 		9AAB3B6D29FABA6700AD6F6C /* PresentableColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */; };
 		9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */; };
 		9AAB3B7129FE1D6700AD6F6C /* FieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */; };
+		9AAB3B7329FE384600AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7229FE384600AD6F6C /* env.swift */; };
+		9AAB3B7729FE3F4B00AD6F6C /* VerifyEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7629FE3F4B00AD6F6C /* VerifyEmailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,9 +187,10 @@
 		9AAB3B5F29F7AEF400AD6F6C /* BookStack.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BookStack.gif; sourceTree = "<group>"; };
 		9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavStack.swift; sourceTree = "<group>"; };
 		9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		9AAB3B6629F7E9D900AD6F6C /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
 		9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallFieldItem.swift; sourceTree = "<group>"; };
 		9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldItem.swift; sourceTree = "<group>"; };
+		9AAB3B7229FE384600AD6F6C /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
+		9AAB3B7629FE3F4B00AD6F6C /* VerifyEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,7 +244,7 @@
 				9A54D58028715D78002EC02B /* Presentations */,
 				3BE99F6E2559616C005106D9 /* TextDetect */,
 				3B3EBE972524727400152662 /* WordbookApp.swift */,
-				9AAB3B6629F7E9D900AD6F6C /* env.swift */,
+				9AAB3B7229FE384600AD6F6C /* env.swift */,
 				3B3EBE9B2524727500152662 /* Assets.xcassets */,
 				9AAB3B6129F7AF9700AD6F6C /* Resources */,
 				3B3EBEA02524727500152662 /* Info.plist */,
@@ -416,11 +418,12 @@
 			children = (
 				9A28104829D286420056C855 /* Components */,
 				9A54D58D28715EA6002EC02B /* SettingsView.swift */,
-				9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */,
-				9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */,
 				9A001EA329D3FD0700C6EC66 /* ChangeUsernameView.swift */,
-				9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */,
+				9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */,
+				9AAB3B7629FE3F4B00AD6F6C /* VerifyEmailView.swift */,
+				9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */,
 				9A001EA729D3FD2300C6EC66 /* CreditsView.swift */,
+				9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 			files = (
 				9A001EA229D3FCF500C6EC66 /* ChangePasswordView.swift in Sources */,
 				3B3EBE9A2524727400152662 /* WordbooksView.swift in Sources */,
+				9AAB3B7729FE3F4B00AD6F6C /* VerifyEmailView.swift in Sources */,
 				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
 				3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */,
 				3BB00596254567F1006F0276 /* DetecterView.swift in Sources */,
@@ -760,7 +764,6 @@
 				9A54D58E28715EA6002EC02B /* SettingsView.swift in Sources */,
 				9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */,
 				9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */,
-				9AAB3B6729F7E9D900AD6F6C /* env.swift in Sources */,
 				9A85015D29F605DD0033FD05 /* UserDataEntity.swift in Sources */,
 				3B3EBEC22529C20600152662 /* WordsView.swift in Sources */,
 				9A85015529F603C10033FD05 /* SupabaseClient.swift in Sources */,
@@ -787,6 +790,7 @@
 				9A54D59F28719144002EC02B /* WordItem.swift in Sources */,
 				9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */,
 				9A001EA629D3FD1700C6EC66 /* PrivacyPolicyView.swift in Sources */,
+				9AAB3B7329FE384600AD6F6C /* env.swift in Sources */,
 				3B3EBEC42529C4F300152662 /* DetailsView.swift in Sources */,
 				9A001EB429D9BF3000C6EC66 /* AddWordbookController.swift in Sources */,
 				3B1780DC2529F3D20002897A /* AddWordView.swift in Sources */,

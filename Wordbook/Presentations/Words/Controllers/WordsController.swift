@@ -47,16 +47,24 @@ class WordsController: ObservableObject {
         }
     }
     
+    private func getWordbook() {
+        wordbook = wordbookService.getWordbooks()[wordbookIndex!]
+    }
+    
     func selectWord(for word: Word) {
         selectedWord = word
     }
     
     func removeWord(at index: Int) {
         Task { @MainActor in
+            let cache = wordbook.words[index]
             do {
+                wordbook.words.remove(at: index)
                 try await wordbookService.removeWord(for: wordbook, at: index)
+                getWordbook()
             } catch {
                 print(error)
+                wordbook.words.insert(cache, at: index)
             }
         }
     }

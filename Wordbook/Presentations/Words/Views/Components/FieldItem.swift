@@ -40,6 +40,6 @@ struct FieldItem: View {
                 }
             }
         }
-        .frame(minWidth: 0, maxWidth: .infinity)
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
     }
 }

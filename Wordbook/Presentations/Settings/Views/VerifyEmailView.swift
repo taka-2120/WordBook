@@ -1,35 +1,32 @@
 //
-//  ChangeEmailView.swift
+//  VerifyEmailView.swift
 //  WordBook
 //
-//  Created by Yu Takahashi on 3/29/23.
+//  Created by Yu Takahashi on 4/30/23.
 //
 
 import SwiftUI
 
-struct ChangeEmailView: View {
+struct VerifyEmailView: View {
     
-    @Environment(\.dismiss) private var dismiss
     @ObservedObject private var controller = SettingsController()
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("Change Email")
+            Text("Verify Email")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("New Email", text: $controller.newEmail)
-            
-            CustomField("Password", isSecured: true, text: $controller.password)
+            Text("We'll send a verification email to \(controller.email).")
             
             Spacer()
             
             Button {
-                controller.updateEmail(dismiss)
+//                controller.verifyEmail()
             } label: {
-                Text("Update")
+                Text("Send")
                     .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
@@ -43,8 +40,8 @@ struct ChangeEmailView: View {
     }
 }
 
-struct ChangeEmailView_Previews: PreviewProvider {
+struct VerifyEmailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChangeEmailView()
+        VerifyEmailView()
     }
 }

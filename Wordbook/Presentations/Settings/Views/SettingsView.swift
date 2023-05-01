@@ -15,10 +15,10 @@ struct SettingsView: View {
         NavigationStack(path: $controller.settingsPathes) {
             List {
                 Section("Account") {
-                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "User", destination: .changeUsername)
+                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername)
                     SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail)
-                    SettingsItem(kinds: .link, leftLabel: "Verify Email", leftIconName: "envelope", destination: .privacyPolicy)
-                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "key", destination: .changePassword)
+//                    SettingsItem(kinds: .link, leftLabel: "Verify Email", leftIconName: "envelope", rightLabel: "Not Verified", destination: .verifyEmail)
+                    SettingsItem(kinds: .link, leftLabel: "Change Password", leftIconName: "key", destination: .changePassword)
                 }
 
                 Section("Info") {
@@ -29,7 +29,7 @@ struct SettingsView: View {
                 
                 Section("Denger Zone") {
                     Button {
-                        controller.signOut()
+                        controller.isSignOutPromptShown.toggle()
                     } label: {
                         HStack {
                             Image(systemName: "door.left.hand.open")
@@ -49,7 +49,7 @@ struct SettingsView: View {
                     }
                 }
                 
-                Button(action: {}) {
+                Link(destination: URL(string: "https://www.buymeacoffee.com/yutakahashi")!) {
                     Image("BuyMeACoffee")
                         .resizable()
                         .scaledToFit()
@@ -75,12 +75,21 @@ struct SettingsView: View {
                 switch path {
                 case .changeUsername: ChangeUsernameView()
                 case .changeEmail: ChangeEmailView()
+                case .verifyEmail: VerifyEmailView()
                 case .changePassword: ChangePasswordView()
                 case .privacyPolicy: PrivacyPolicyView()
                 case .credits: CreditsView()
-                case .donate: EmptyView()
                 case .deleteAccount: EmptyView()
                 }
+            }
+            .alert("Do you really want to sign out?", isPresented: $controller.isSignOutPromptShown) {
+                Button(role: .destructive) {
+                    controller.signOut()
+                } label: {
+                    Text("OK")
+                }
+            } message: {
+                Text("Your data will be kept on the database.")
             }
         }
     }
