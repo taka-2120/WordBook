@@ -1,10 +1,13 @@
 ## macOS
 .DS_Store
+
+## Secured
 env.swift
 
 ## Xcode build files
 build/
 DerivedData/
+xcuserdata/
 
 ## Xcode settings
 *.pbxuser
