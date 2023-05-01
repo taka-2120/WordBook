@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ChangeEmailView: View {
     
-    @State private var email = ""
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var controller = SettingsController()
     
     var body: some View {
         VStack(spacing: 15) {
@@ -19,22 +20,23 @@ struct ChangeEmailView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("New Email", text: $email)
+            CustomField("New Email", text: $controller.newEmail)
+            
+            CustomField("Password", isSecured: true, text: $controller.password)
             
             Spacer()
             
             Button {
-                
+                controller.updateEmail(dismiss)
             } label: {
                 Text("Update")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
             }
             .frame(maxWidth: 250)
-            .background(Color.black)
+            .background(Color(.label))
             .cornerRadius(15)
-
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)

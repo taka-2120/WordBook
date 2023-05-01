@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ChangePasswordView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var controller = SettingsController()
+    
     @State private var oldPassword = ""
     @State private var newPassword = ""
     @State private var reNewassword = ""
@@ -21,14 +24,14 @@ struct ChangePasswordView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("Old Password", isSecured: true, text: $oldPassword)
-            CustomField("New Password", isSecured: true, text: $newPassword)
-            CustomField("Re-enter New Password", isSecured: true, text: $reNewassword)
+            CustomField("Old Password", isSecured: true, text: $controller.password)
+            CustomField("New Password", isSecured: true, text: $controller.newPassword)
+            CustomField("Re-enter New Password", isSecured: true, text: $controller.reNewPassword)
             
             Spacer()
             
             Button {
-                
+                controller.updatePassword(dismiss)
             } label: {
                 Text("Update")
                     .foregroundColor(.white)

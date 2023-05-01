@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct VerifyEmailView: View {
+    
+    @ObservedObject private var controller = SettingsController()
+    
     var body: some View {
         VStack(spacing: 15) {
             Text("Verify Email")
@@ -16,20 +19,20 @@ struct VerifyEmailView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            Text("We'll send a verification email to \("{address}").")
+            Text("We'll send a verification email to \(controller.email).")
             
             Spacer()
             
             Button {
-                
+//                controller.verifyEmail()
             } label: {
                 Text("Send")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
             }
             .frame(maxWidth: 250)
-            .background(Color.black)
+            .background(Color(.label))
             .cornerRadius(15)
         }
         .padding()

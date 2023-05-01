@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ChangeUsernameView: View {
     
-    @State private var username = ""
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var controller = SettingsController()
     
     var body: some View {
         VStack(spacing: 15) {
@@ -19,20 +20,20 @@ struct ChangeUsernameView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("New Username", text: $username)
+            CustomField("New Username", text: $controller.username)
             
             Spacer()
             
             Button {
-                
+                controller.updateUsername(dismiss)
             } label: {
                 Text("Update")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
             }
             .frame(maxWidth: 250)
-            .background(Color.black)
+            .background(Color(.label))
             .cornerRadius(15)
         }
         .padding()

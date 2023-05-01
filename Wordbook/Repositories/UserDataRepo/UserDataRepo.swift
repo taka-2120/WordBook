@@ -34,6 +34,7 @@ class UserDataRepo: UserDataRepoInterface {
         let query = client.database
                     .from(usersTable)
                     .update(values: userdata)
+                    .eq(column: "userId", value: userId)
                     .single()
         
         let response: UserData = try await query.execute().value
@@ -52,5 +53,14 @@ class UserDataRepo: UserDataRepoInterface {
         let response: UserData = try await query.execute().value
         
         userData = response
+    }
+    
+    @MainActor
+    func deleteUserData(userId: UUID) async throws {
+        let _ = try await client.database
+                    .from(usersTable)
+                    .delete()
+                    .eq(column: "userId", value: userId)
+                    .execute()
     }
 }
