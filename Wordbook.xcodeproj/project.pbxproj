@@ -36,6 +36,8 @@
 		9A28105829D295EF0056C855 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105729D295EF0056C855 /* MockData.swift */; };
 		9A28105A29D297750056C855 /* WordbooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105929D297750056C855 /* WordbooksService.swift */; };
 		9A28105C29D29A420056C855 /* WordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105B29D29A420056C855 /* WordsController.swift */; };
+		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
+		9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB12A00ADF100178B5F /* View+Loading.swift */; };
 		9A54D58428715DE2002EC02B /* WordbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58328715DE2002EC02B /* WordbookEntity.swift */; };
 		9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58528715DF0002EC02B /* WordEntity.swift */; };
 		9A54D58928715E24002EC02B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58828715E24002EC02B /* Color+Hex.swift */; };
@@ -143,6 +145,7 @@
 		9A28105729D295EF0056C855 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		9A28105929D297750056C855 /* WordbooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbooksService.swift; sourceTree = "<group>"; };
 		9A28105B29D29A420056C855 /* WordsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsController.swift; sourceTree = "<group>"; };
+		9A4A0CB12A00ADF100178B5F /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
 		9A54D58528715DF0002EC02B /* WordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordEntity.swift; sourceTree = "<group>"; };
 		9A54D58828715E24002EC02B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -203,6 +206,7 @@
 				9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */,
 				9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */,
 				3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */,
+				9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +456,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9A4A0CB02A00ADE400178B5F /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				9A4A0CB12A00ADF100178B5F /* View+Loading.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		9A54D58028715D78002EC02B /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +492,7 @@
 		9A54D58728715E18002EC02B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9A4A0CB02A00ADE400178B5F /* Modifiers */,
 				9A54D58828715E24002EC02B /* Color+Hex.swift */,
 				9A28104229D2849D0056C855 /* Color+Custom.swift */,
 				9A54D58A28715E6A002EC02B /* View+Hidden.swift */,
@@ -636,6 +649,7 @@
 				9AAB3B5D29F7AE6400AD6F6C /* GIFImage */,
 				9AAB3B6929F8C8B900AD6F6C /* SwipeActions */,
 				9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */,
+				9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */,
 			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* WordBook.app */;
@@ -692,6 +706,7 @@
 				9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */,
 				9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */,
+				9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
 			projectDirPath = "";
@@ -787,6 +802,7 @@
 				3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */,
 				9A85015829F603EB0033FD05 /* SupabaseAuthRepo.swift in Sources */,
 				9A001E9E29D3FCDA00C6EC66 /* ChangeEmailView.swift in Sources */,
+				9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */,
 				9A54D59F28719144002EC02B /* WordItem.swift in Sources */,
 				9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */,
 				9A001EA629D3FD1700C6EC66 /* PrivacyPolicyView.swift in Sources */,
@@ -1115,6 +1131,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 		9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase/supabase-swift.git";
@@ -1154,6 +1178,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
+		};
+		9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
+			productName = SwiftfulLoadingIndicators;
 		};
 		9A85014B29F5FE860033FD05 /* Supabase */ = {
 			isa = XCSwiftPackageProductDependency;

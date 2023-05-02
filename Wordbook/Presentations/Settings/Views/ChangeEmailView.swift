@@ -40,6 +40,7 @@ struct ChangeEmailView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
+        .loading($controller.isLoading)
     }
 }
 

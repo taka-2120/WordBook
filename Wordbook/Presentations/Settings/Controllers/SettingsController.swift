@@ -21,6 +21,7 @@ class SettingsController: ObservableObject {
     @Published var reNewPassword = ""
     @Published var newEmail = ""
     @Published var isSignOutPromptShown = false
+    @Published var isLoading = false
     
     init() {
         self.username = authService.getUsername()
@@ -29,6 +30,11 @@ class SettingsController: ObservableObject {
     
     func updateUsername(_ dismiss: DismissAction) {
         Task{ @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.updateUsername(newUsername: username)
                 dismiss()
@@ -40,6 +46,11 @@ class SettingsController: ObservableObject {
     
     func updateEmail(_ dismiss: DismissAction) {
         Task{ @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.signIn(email: email, password: password)
                 try await authService.updateEmail(newEmail: newEmail)
@@ -52,6 +63,11 @@ class SettingsController: ObservableObject {
     
     func updatePassword(_ dismiss: DismissAction) {
         Task{ @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.signIn(email: email, password: password)
                 if newPassword == reNewPassword {
@@ -76,6 +92,11 @@ class SettingsController: ObservableObject {
     
     func signOut() {
         Task{ @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.signOut()
                 screenController.state = .auth

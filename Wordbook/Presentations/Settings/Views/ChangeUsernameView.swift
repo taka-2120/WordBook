@@ -38,6 +38,7 @@ struct ChangeUsernameView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
+        .loading($controller.isLoading)
     }
 }
 

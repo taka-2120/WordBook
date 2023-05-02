@@ -16,6 +16,7 @@ class AddWordController: ObservableObject {
     @Published var synonyms = [String]()
     @Published var antonyms = [String]()
     @Published var examples = [String]()
+    @Published var isLoading = false
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
@@ -23,6 +24,11 @@ class AddWordController: ObservableObject {
     
     func addWord(_ dismiss: DismissAction) {
         Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await wordbookService.addWord(
                     original: originalWord,

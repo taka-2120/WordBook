@@ -71,6 +71,7 @@ struct SignInView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .loading($controller.isLoading)
     }
 }
 

@@ -45,6 +45,7 @@ struct ChangePasswordView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
+        .loading($controller.isLoading)
     }
 }
 

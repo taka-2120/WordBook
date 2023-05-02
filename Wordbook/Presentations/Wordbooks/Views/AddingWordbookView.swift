@@ -32,6 +32,7 @@ struct AddWordbookView: View {
                 
                 Spacer()
             }
+            .loading($controller.isLoading)
             .padding()
             .navigationBarTitle(Text("New Wordbook"), displayMode: .inline)
             .toolbar {

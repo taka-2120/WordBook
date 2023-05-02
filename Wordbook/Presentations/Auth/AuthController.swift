@@ -15,9 +15,15 @@ class AuthController: ObservableObject {
     @Published var username = ""
     @Published var email = ""
     @Published var password = ""
+    @Published var isLoading = false
     
     func signIn() {
         Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.signIn(email: email, password: password)
                 screenController.state = .main
@@ -29,12 +35,18 @@ class AuthController: ObservableObject {
     
     func signUp() {
         Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.signUp(username: username, email: email, password: password)
                 screenController.state = .main
             } catch {
                 print(error)
             }
+            
         }
     }
 }

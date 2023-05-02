@@ -48,6 +48,7 @@ struct AddWordView: View {
                 }
                 .padding()
             }
+            .loading($controller.isLoading)
             .animation(.spring(), value: controller.synonyms)
             .animation(.spring(), value: controller.antonyms)
             .animation(.spring(), value: controller.examples)

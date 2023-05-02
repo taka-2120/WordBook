@@ -12,9 +12,15 @@ class AddWordbookController: ObservableObject {
     
     @Published var title = ""
     @Published var color = Color.blue
+    @Published var isLoading = false
     
     func addWordbook(_ dismiss: DismissAction) {
         Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await wordbookService.addWordbook(name: title, color: color.toHex())
                 dismiss()

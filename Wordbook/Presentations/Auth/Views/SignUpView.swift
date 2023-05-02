@@ -93,6 +93,7 @@ struct SignUpView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .loading($controller.isLoading)
     }
 }
 
