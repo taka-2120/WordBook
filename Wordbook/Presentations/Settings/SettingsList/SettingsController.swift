@@ -12,14 +12,6 @@ class SettingsController: ObservableObject {
     private var screenController = ScreenController.shared
     private let authService = AuthService()
     
-    @Published var settingsPathes: [SettingsNavStack] = [] {
-        willSet {
-            if newValue == [] {
-                fetchInformation()
-            }
-        }
-    }
-    
     @Published var username = ""
     @Published var email = ""
     @Published var isSignOutPromptShown = false

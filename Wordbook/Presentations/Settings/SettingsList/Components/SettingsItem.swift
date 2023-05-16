@@ -20,6 +20,7 @@ struct SettingsItem: View {
     var rightLabel: LocalizedStringKey?
     var rightIconName: String?
     var destination: SettingsNavStack?
+    @Binding var pathes: [SettingsNavStack]
     var function: (() -> ())?
     
     var body: some View {
@@ -64,7 +65,7 @@ struct SettingsItem: View {
             })
         case .link:
             Button {
-                controller.settingsPathes = [destination!]
+                pathes = [destination!]
             } label: {
                 HStack {
                     if let leftIconName = leftIconName {

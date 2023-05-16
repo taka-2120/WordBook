@@ -14,12 +14,9 @@ import PresentableColorPicker
 struct WordsView: View {
     @ObservedObject private var controller: WordsController
     @State private var isEditing = false
-    @State private var color = Color.clear
-    @State private var isColorPickerShown = false
     
     init(wordbook: Wordbook) {
         self.controller = WordsController(wordbook: wordbook)
-        self.color = Color(hex: controller.wordbook.color)
     }
     
     var body: some View {
@@ -35,13 +32,43 @@ struct WordsView: View {
                         .bold()
                 }
             } else {
-                ScrollView {
-                    SwipeViewGroup {
-                        ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
-                            WordItem(word: word, index: index)
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "play.fill")
+                                .padding()
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "plus")
+                                .padding()
+                        }
+                        
+                        Spacer()
+                    }
+                    .background(Color(.systemBackground))
+                    .cornerRadius(15)
+                    .shadow(color: .black.opacity(0.1), radius: 15, y: 3)
+                    .padding()
+                    .zIndex(100)
+                    
+                    ScrollView {
+                        SwipeViewGroup {
+                            ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
+                                WordItem(word: word, index: index)
+                            }
+                            .padding(.top, 30)
                         }
                     }
-                    .padding(.top, 30)
+                    .padding(.top, -25)
                 }
             }
             
@@ -80,11 +107,8 @@ struct WordsView: View {
                         Text("Done")
                     }
                 } else {
-                    Button {
-                        controller.isAddShown.toggle()
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+                    ColorPicker("", selection: $controller.wordbookColor)
+                        .scaleEffect(0.8)
                 }
             }
             
@@ -95,14 +119,6 @@ struct WordsView: View {
                     } label: {
                         Label("Rename", systemImage: "pencil")
                     }
-                    
-                    // TODO: Enable CHanging Color
-                    Button {
-                        isColorPickerShown = true
-                    } label: {
-                        Label("Change Color", systemImage: "paintpalette")
-                    }
-                    .disabled(true)
                 }
             }
         }
@@ -112,7 +128,6 @@ struct WordsView: View {
         .sheet(isPresented: $controller.isDetailsShown) {
             DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
         }
-        .presentableColorPicker(isPresented: $isColorPickerShown, selection: $color)
         .environmentObject(controller)
     }
 }

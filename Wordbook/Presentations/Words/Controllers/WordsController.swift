@@ -30,17 +30,27 @@ class WordsController: ObservableObject {
     @Published var cardViewShown = false
     @Published var wordbookIndex: Int? = nil
     @Published var wordbookTitle = ""
+    @Published var wordbookColor = Color.blue {
+        willSet {
+            updateWordbook()
+        }
+    }
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
         self.wordbookIndex = wordbookService.getWordbooks().firstIndex(of: wordbook)
         self.wordbookTitle = wordbook.name
+        self.wordbookColor = Color(hex: wordbook.color)
     }
     
     func updateTitle() {
+        updateWordbook()
+    }
+    
+    private func updateWordbook() {
         Task { @MainActor in
             do {
-                try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbook.color)
+                try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex())
             } catch {
                 print(error)
             }

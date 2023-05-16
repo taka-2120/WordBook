@@ -10,20 +10,21 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var controller = SettingsController()
+    @State private var settingsPathes: [SettingsNavStack] = []
     
     var body: some View {
-        NavigationStack(path: $controller.settingsPathes) {
+        NavigationStack(path: $settingsPathes) {
             List {
                 Section("Account") {
-                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername)
-                    SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail)
-                    SettingsItem(kinds: .link, leftLabel: "Change Password", leftIconName: "key", destination: .changePassword)
+                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "Change Password", leftIconName: "key", destination: .changePassword, pathes: $settingsPathes)
                 }
 
                 Section("Info") {
-                    SettingsItem(kinds: .normal, leftLabel: "Version", leftIconName: "info", rightLabel: "1.0.0 Beta 1")
-                    SettingsItem(kinds: .link, leftLabel: "Privacy Policy", leftIconName: "lock.fill", destination: .privacyPolicy)
-                    SettingsItem(kinds: .link, leftLabel: "Credits", leftIconName: "quote.opening", destination: .credits)
+                    SettingsItem(kinds: .normal, leftLabel: "Version", leftIconName: "info", rightLabel: "1.0.0 Beta 1", pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "Privacy Policy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "Credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
                 }
                 
                 Section("Denger Zone") {
@@ -78,6 +79,11 @@ struct SettingsView: View {
                 case .privacyPolicy: PrivacyPolicyView()
                 case .credits: CreditsView()
                 case .deleteAccount: EmptyView()
+                }
+            }
+            .onChange(of: settingsPathes) { newValue in
+                if newValue == [] {
+                    controller.fetchInformation()
                 }
             }
             .alert("Do you really want to sign out?", isPresented: $controller.isSignOutPromptShown) {
