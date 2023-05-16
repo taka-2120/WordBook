@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var controller = SettingsController()
+    @StateObject private var controller = SettingsController()
     
     var body: some View {
         NavigationStack(path: $controller.settingsPathes) {
@@ -17,7 +17,6 @@ struct SettingsView: View {
                 Section("Account") {
                     SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername)
                     SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail)
-//                    SettingsItem(kinds: .link, leftLabel: "Verify Email", leftIconName: "envelope", rightLabel: "Not Verified", destination: .verifyEmail)
                     SettingsItem(kinds: .link, leftLabel: "Change Password", leftIconName: "key", destination: .changePassword)
                 }
 
@@ -75,7 +74,6 @@ struct SettingsView: View {
                 switch path {
                 case .changeUsername: ChangeUsernameView()
                 case .changeEmail: ChangeEmailView()
-                case .verifyEmail: VerifyEmailView()
                 case .changePassword: ChangePasswordView()
                 case .privacyPolicy: PrivacyPolicyView()
                 case .credits: CreditsView()
@@ -91,6 +89,7 @@ struct SettingsView: View {
             } message: {
                 Text("Your data will be kept on the database.")
             }
+            .loading($controller.isLoading)
         }
     }
 }

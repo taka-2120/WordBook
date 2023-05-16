@@ -36,8 +36,13 @@
 		9A28105829D295EF0056C855 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105729D295EF0056C855 /* MockData.swift */; };
 		9A28105A29D297750056C855 /* WordbooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105929D297750056C855 /* WordbooksService.swift */; };
 		9A28105C29D29A420056C855 /* WordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28105B29D29A420056C855 /* WordsController.swift */; };
+		9A2F835C2A131EE50093CC7B /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F835B2A131EE50093CC7B /* NotificationCenter.swift */; };
+		9A2F83602A131F4E0093CC7B /* ChangeUsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F835F2A131F4E0093CC7B /* ChangeUsernameController.swift */; };
+		9A2F83632A1322160093CC7B /* ChangeEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83622A1322160093CC7B /* ChangeEmailController.swift */; };
+		9A2F83662A1323040093CC7B /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83652A1323040093CC7B /* ChangePasswordController.swift */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
 		9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB12A00ADF100178B5F /* View+Loading.swift */; };
+		9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB32A00B47B00178B5F /* Enums.swift */; };
 		9A54D58428715DE2002EC02B /* WordbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58328715DE2002EC02B /* WordbookEntity.swift */; };
 		9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58528715DF0002EC02B /* WordEntity.swift */; };
 		9A54D58928715E24002EC02B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58828715E24002EC02B /* Color+Hex.swift */; };
@@ -87,7 +92,6 @@
 		9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */; };
 		9AAB3B7129FE1D6700AD6F6C /* FieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */; };
 		9AAB3B7329FE384600AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7229FE384600AD6F6C /* env.swift */; };
-		9AAB3B7729FE3F4B00AD6F6C /* VerifyEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7629FE3F4B00AD6F6C /* VerifyEmailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,7 +149,12 @@
 		9A28105729D295EF0056C855 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		9A28105929D297750056C855 /* WordbooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbooksService.swift; sourceTree = "<group>"; };
 		9A28105B29D29A420056C855 /* WordsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsController.swift; sourceTree = "<group>"; };
+		9A2F835B2A131EE50093CC7B /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		9A2F835F2A131F4E0093CC7B /* ChangeUsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameController.swift; sourceTree = "<group>"; };
+		9A2F83622A1322160093CC7B /* ChangeEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailController.swift; sourceTree = "<group>"; };
+		9A2F83652A1323040093CC7B /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		9A4A0CB12A00ADF100178B5F /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
+		9A4A0CB32A00B47B00178B5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
 		9A54D58528715DF0002EC02B /* WordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordEntity.swift; sourceTree = "<group>"; };
 		9A54D58828715E24002EC02B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -193,7 +202,6 @@
 		9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallFieldItem.swift; sourceTree = "<group>"; };
 		9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldItem.swift; sourceTree = "<group>"; };
 		9AAB3B7229FE384600AD6F6C /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
-		9AAB3B7629FE3F4B00AD6F6C /* VerifyEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +318,7 @@
 				9A28104129D283A80056C855 /* Constants */,
 				9A28104029D283A20056C855 /* Helpers */,
 				9A54D58728715E18002EC02B /* Extensions */,
+				9A4A0CB32A00B47B00178B5F /* Enums.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -417,29 +426,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		9A28105129D2874D0056C855 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9A28104829D286420056C855 /* Components */,
-				9A54D58D28715EA6002EC02B /* SettingsView.swift */,
-				9A001EA329D3FD0700C6EC66 /* ChangeUsernameView.swift */,
-				9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */,
-				9AAB3B7629FE3F4B00AD6F6C /* VerifyEmailView.swift */,
-				9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */,
-				9A001EA729D3FD2300C6EC66 /* CreditsView.swift */,
-				9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9A28105229D287550056C855 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		9A28105329D287620056C855 /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +442,67 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9A2F835D2A131F270093CC7B /* SettingsList */ = {
+			isa = PBXGroup;
+			children = (
+				9A28104829D286420056C855 /* Components */,
+				9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */,
+				9A54D58D28715EA6002EC02B /* SettingsView.swift */,
+			);
+			path = SettingsList;
+			sourceTree = "<group>";
+		};
+		9A2F835E2A131F360093CC7B /* ChangeUsername */ = {
+			isa = PBXGroup;
+			children = (
+				9A001EA329D3FD0700C6EC66 /* ChangeUsernameView.swift */,
+				9A2F835F2A131F4E0093CC7B /* ChangeUsernameController.swift */,
+			);
+			path = ChangeUsername;
+			sourceTree = "<group>";
+		};
+		9A2F83612A1321FE0093CC7B /* ChangeEmail */ = {
+			isa = PBXGroup;
+			children = (
+				9A001E9D29D3FCD900C6EC66 /* ChangeEmailView.swift */,
+				9A2F83622A1322160093CC7B /* ChangeEmailController.swift */,
+			);
+			path = ChangeEmail;
+			sourceTree = "<group>";
+		};
+		9A2F83642A1322DB0093CC7B /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				9A001EA129D3FCF500C6EC66 /* ChangePasswordView.swift */,
+				9A2F83652A1323040093CC7B /* ChangePasswordController.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		9A2F83672A1326430093CC7B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9A2F83682A1326E10093CC7B /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				9A001EA729D3FD2300C6EC66 /* CreditsView.swift */,
+			);
+			path = Credits;
+			sourceTree = "<group>";
+		};
+		9A2F83692A1326E80093CC7B /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				9A001EA529D3FD1700C6EC66 /* PrivacyPolicyView.swift */,
+			);
+			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
 		9A4A0CB02A00ADE400178B5F /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,11 +517,11 @@
 				9AAB3B5529F7917E00AD6F6C /* ScreenController.swift */,
 				9AAB3B5729F7AA4300AD6F6C /* Loading */,
 				9AAB3B4329F616D400AD6F6C /* Auth */,
-				9A001EB029D9BCA100C6EC66 /* Components */,
 				9A28104929D2865A0056C855 /* Wordbooks */,
 				9A28104A29D286F20056C855 /* Words */,
-				9A28105329D287620056C855 /* Card */,
 				9A54D58C28715E99002EC02B /* Settings */,
+				9A28105329D287620056C855 /* Card */,
+				9A001EB029D9BCA100C6EC66 /* Components */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -497,6 +544,7 @@
 				9A28104229D2849D0056C855 /* Color+Custom.swift */,
 				9A54D58A28715E6A002EC02B /* View+Hidden.swift */,
 				9A54D59A28718226002EC02B /* Date+Format.swift */,
+				9A2F835B2A131EE50093CC7B /* NotificationCenter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,8 +552,12 @@
 		9A54D58C28715E99002EC02B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				9A28105229D287550056C855 /* Controllers */,
-				9A28105129D2874D0056C855 /* Views */,
+				9A2F835D2A131F270093CC7B /* SettingsList */,
+				9A2F835E2A131F360093CC7B /* ChangeUsername */,
+				9A2F83612A1321FE0093CC7B /* ChangeEmail */,
+				9A2F83642A1322DB0093CC7B /* ChangePassword */,
+				9A2F83682A1326E10093CC7B /* Credits */,
+				9A2F83692A1326E80093CC7B /* PrivacyPolicy */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -584,7 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				9AAB3B5129F6CC2100AD6F6C /* Views */,
-				9AAB3B4F29F67C5D00AD6F6C /* AuthController.swift */,
+				9A2F83672A1326430093CC7B /* Controllers */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -753,7 +805,6 @@
 			files = (
 				9A001EA229D3FCF500C6EC66 /* ChangePasswordView.swift in Sources */,
 				3B3EBE9A2524727400152662 /* WordbooksView.swift in Sources */,
-				9AAB3B7729FE3F4B00AD6F6C /* VerifyEmailView.swift in Sources */,
 				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
 				3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */,
 				3BB00596254567F1006F0276 /* DetecterView.swift in Sources */,
@@ -765,6 +816,7 @@
 				9A28104529D285130056C855 /* WordIndex.swift in Sources */,
 				9A001EB629D9C76A00C6EC66 /* AddWordController.swift in Sources */,
 				9AAB3B4929F63B7C00AD6F6C /* SignUpView.swift in Sources */,
+				9A2F83632A1322160093CC7B /* ChangeEmailController.swift in Sources */,
 				9AAB3B7129FE1D6700AD6F6C /* FieldItem.swift in Sources */,
 				9A54D59928716AEC002EC02B /* WordBookItem.swift in Sources */,
 				9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */,
@@ -776,6 +828,7 @@
 				9A54D59D2871898B002EC02B /* SettingsItem.swift in Sources */,
 				9AAB3B5029F67C5D00AD6F6C /* AuthController.swift in Sources */,
 				9A28105A29D297750056C855 /* WordbooksService.swift in Sources */,
+				9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */,
 				9A54D58E28715EA6002EC02B /* SettingsView.swift in Sources */,
 				9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */,
 				9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */,
@@ -790,9 +843,11 @@
 				9AAB3B3E29F60CB300AD6F6C /* UserDataRepoInterface.swift in Sources */,
 				9AAB3B6329F7B58A00AD6F6C /* SettingsNavStack.swift in Sources */,
 				9A28105829D295EF0056C855 /* MockData.swift in Sources */,
+				9A2F83602A131F4E0093CC7B /* ChangeUsernameController.swift in Sources */,
 				9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */,
 				9A85014E29F5FF3E0033FD05 /* WordbookRepo.swift in Sources */,
 				9A85015B29F605B60033FD05 /* UserDataRepo.swift in Sources */,
+				9A2F83662A1323040093CC7B /* ChangePasswordController.swift in Sources */,
 				9AAB3B4B29F63B8500AD6F6C /* SignInView.swift in Sources */,
 				9A28104729D285220056C855 /* PriorityColor.swift in Sources */,
 				9A54D58B28715E6A002EC02B /* View+Hidden.swift in Sources */,
@@ -809,6 +864,7 @@
 				9AAB3B7329FE384600AD6F6C /* env.swift in Sources */,
 				3B3EBEC42529C4F300152662 /* DetailsView.swift in Sources */,
 				9A001EB429D9BF3000C6EC66 /* AddWordbookController.swift in Sources */,
+				9A2F835C2A131EE50093CC7B /* NotificationCenter.swift in Sources */,
 				3B1780DC2529F3D20002897A /* AddWordView.swift in Sources */,
 				9A28104329D2849D0056C855 /* Color+Custom.swift in Sources */,
 				9A54D59B28718226002EC02B /* Date+Format.swift in Sources */,

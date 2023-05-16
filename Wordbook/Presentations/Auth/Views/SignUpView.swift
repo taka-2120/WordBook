@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @ObservedObject private var controller = AuthController()
+    @StateObject private var controller = AuthController()
     
     var body: some View {
         ScrollView {

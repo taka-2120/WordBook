@@ -10,7 +10,7 @@ import SwiftUI
 struct ChangePasswordView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var controller = SettingsController()
+    @StateObject private var controller = ChangePasswordController()
     
     @State private var oldPassword = ""
     @State private var newPassword = ""
@@ -37,8 +37,8 @@ struct ChangePasswordView: View {
                     .foregroundColor(.white)
                     .font(.title3)
                     .padding()
+                    .frame(maxWidth: 250)
             }
-            .frame(maxWidth: 250)
             .background(Color.black)
             .cornerRadius(15)
 

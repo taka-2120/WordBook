@@ -15,18 +15,7 @@ struct AddWordbookView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                Text("Title")
-                VStack(spacing: 0) {
-                    TextField("Title", text: $controller.title)
-                        .padding(.vertical)
-                        .controlSize(.large)
-                        .textInputAutocapitalization(.never)
-                        .keyboardType(.emailAddress)
-                        .autocorrectionDisabled()
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.gray)
-                        .frame(height: 2)
-                }
+                CustomField("Title", text: $controller.title)
                 
                 ColorPicker("Color", selection: $controller.color, supportsOpacity: false)
                 

@@ -10,7 +10,7 @@ import SwiftUI
 struct ChangeUsernameView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var controller = SettingsController()
+    @StateObject private var controller = ChangeUsernameController()
     
     var body: some View {
         VStack(spacing: 15) {
@@ -31,13 +31,18 @@ struct ChangeUsernameView: View {
                     .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
+                    .frame(maxWidth: 250)
             }
-            .frame(maxWidth: 250)
             .background(Color(.label))
             .cornerRadius(15)
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Error", isPresented: $controller.isErrorShown) {
+            Text("OK")
+        } message: {
+            Text(controller.errorType.rawValue)
+        }
         .loading($controller.isLoading)
     }
 }

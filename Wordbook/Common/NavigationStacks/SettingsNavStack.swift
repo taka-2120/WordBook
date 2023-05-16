@@ -10,7 +10,6 @@ import Foundation
 enum SettingsNavStack {
     case changeUsername
     case changeEmail
-    case verifyEmail
     case changePassword
     case privacyPolicy
     case credits
