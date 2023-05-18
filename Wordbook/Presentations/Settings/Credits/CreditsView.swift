@@ -4,20 +4,22 @@
 //
 //  Created by Yu Takahashi on 3/29/23.
 //
+// https://lottiefiles.com/24291-stack-of-books
+// https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#&position=1&from_view=collections
 
 import SwiftUI
 
 struct CreditsView: View {
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(alignment: .leading, spacing: 15) {
             Text("Credits")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            Text("Icons are provided by ...")
-            Text("Images are provided by ...")
+            Text("[Launch image](https://lottiefiles.com/24291-stack-of-books) is created by Scott A on LottieFiles")
+            Text("[Sign in](https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#&position=1&from_view=collections) and [sign up](https://www.freepik.com/free-vector/high-five-concept-illustration_7010860.htm#&position=0&from_view=collections) images are created by storyset on Freepik")
             
             Spacer()
 
