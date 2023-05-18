@@ -41,6 +41,8 @@
 		9A2F83662A1323040093CC7B /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83652A1323040093CC7B /* ChangePasswordController.swift */; };
 		9A2F836B2A138B740093CC7B /* MainPathes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F836A2A138B740093CC7B /* MainPathes.swift */; };
 		9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2F836D2A138F030093CC7B /* SwiftUIPager */; };
+		9A2F83702A15F4180093CC7B /* CardIntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F836F2A15F4180093CC7B /* CardIntroductionView.swift */; };
+		9A2F83722A15F79A0093CC7B /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
 		9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB12A00ADF100178B5F /* View+Loading.swift */; };
 		9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB32A00B47B00178B5F /* Enums.swift */; };
@@ -154,6 +156,8 @@
 		9A2F83622A1322160093CC7B /* ChangeEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailController.swift; sourceTree = "<group>"; };
 		9A2F83652A1323040093CC7B /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		9A2F836A2A138B740093CC7B /* MainPathes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPathes.swift; sourceTree = "<group>"; };
+		9A2F836F2A15F4180093CC7B /* CardIntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIntroductionView.swift; sourceTree = "<group>"; };
+		9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		9A4A0CB12A00ADF100178B5F /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 		9A4A0CB32A00B47B00178B5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
@@ -339,6 +343,7 @@
 				9A28105729D295EF0056C855 /* MockData.swift */,
 				9A85015429F603C10033FD05 /* SupabaseClient.swift */,
 				9A85015E29F6073B0033FD05 /* TableName.swift */,
+				9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				3B41BDA22531A9CE006D3A66 /* CardMode.swift */,
+				9A2F836F2A15F4180093CC7B /* CardIntroductionView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -860,11 +866,13 @@
 				9A54D58B28715E6A002EC02B /* View+Hidden.swift in Sources */,
 				9A001EA829D3FD2300C6EC66 /* CreditsView.swift in Sources */,
 				9A85015129F5FF6D0033FD05 /* WordbookRepoInterface.swift in Sources */,
+				9A2F83722A15F79A0093CC7B /* UserDefaultsKey.swift in Sources */,
 				9A28105C29D29A420056C855 /* WordsController.swift in Sources */,
 				3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */,
 				9A85015829F603EB0033FD05 /* SupabaseAuthRepo.swift in Sources */,
 				9A001E9E29D3FCDA00C6EC66 /* ChangeEmailView.swift in Sources */,
 				9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */,
+				9A2F83702A15F4180093CC7B /* CardIntroductionView.swift in Sources */,
 				9A54D59F28719144002EC02B /* WordItem.swift in Sources */,
 				9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */,
 				9A001EA629D3FD1700C6EC66 /* PrivacyPolicyView.swift in Sources */,

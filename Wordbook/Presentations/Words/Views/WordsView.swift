@@ -102,7 +102,7 @@ struct WordsView: View {
             ToolbarItem(placement: .principal) {
                 HStack {
                     Circle()
-                        .fill(Color(hex: controller.wordbook.color))
+                        .fill(controller.wordbookColor)
                         .frame(width: 10, height: 10)
                     TextField("Wordbook Title", text: $controller.wordbookTitle)
                         .padding(8)
@@ -116,7 +116,7 @@ struct WordsView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if isEditing {
                     Button {
-                        controller.updateTitle()
+                        controller.updateWordbook()
                         isEditing = false
                     } label: {
                         Text("Done")

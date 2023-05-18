@@ -23,6 +23,9 @@ struct SettingsView: View {
 
                 Section("Info") {
                     SettingsItem(kinds: .normal, leftLabel: "Version", leftIconName: "info", rightLabel: "1.0.0 Beta 1", pathes: $settingsPathes)
+                        .onTapGesture(count: 7) {
+                            UserDefaults.standard.set(false, forKey: isCardModeOpenedKey)
+                        }
                     SettingsItem(kinds: .link, leftLabel: "Privacy Policy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "Credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
                 }

@@ -38,16 +38,12 @@ class WordsController: ObservableObject {
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
-        self.wordbookIndex = wordbookService.getWordbooks().firstIndex(of: wordbook)
+        self.wordbookIndex = wordbookService.getWordbooks().firstIndex(where: { $0.bookId == wordbook.bookId})
         self.wordbookTitle = wordbook.name
         self.wordbookColor = Color(hex: wordbook.color)
     }
     
-    func updateTitle() {
-        updateWordbook()
-    }
-    
-    private func updateWordbook() {
+    func updateWordbook() {
         Task { @MainActor in
             do {
                 try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex())

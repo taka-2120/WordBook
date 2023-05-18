@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardMode: View {
     @EnvironmentObject private var controller: WordsController
+    @State private var isCardModeShown = false
     
     var body: some View {
         TabView {
@@ -21,6 +22,17 @@ struct CardMode: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
+        .sheet(isPresented: $isCardModeShown) {
+            CardIntroductionView()
+        }
+        .onAppear {
+            let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
+            
+            if !isCardModeOpened {
+                isCardModeShown = true
+                UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
+            }
+        }
     }
 }
 
