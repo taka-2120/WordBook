@@ -38,7 +38,7 @@ struct SmallFieldItem: View {
                                 .fixedSize(horizontal: false, vertical: true)
                         }
                         .padding(10)
-                        .background(Color(.systemGray6))
+                        .background(Color(.tertiarySystemGroupedBackground))
                         .cornerRadius(100)
                     }
                 }

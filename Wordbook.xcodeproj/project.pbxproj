@@ -47,7 +47,7 @@
 		9A2F83762A160B420093CC7B /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83752A160B420093CC7B /* String+Regex.swift */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
 		9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB12A00ADF100178B5F /* View+Loading.swift */; };
-		9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB32A00B47B00178B5F /* Enums.swift */; };
+		9A4A0CB42A00B47B00178B5F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB32A00B47B00178B5F /* Errors.swift */; };
 		9A54D58428715DE2002EC02B /* WordbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58328715DE2002EC02B /* WordbookEntity.swift */; };
 		9A54D58628715DF0002EC02B /* WordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58528715DF0002EC02B /* WordEntity.swift */; };
 		9A54D58928715E24002EC02B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54D58828715E24002EC02B /* Color+Hex.swift */; };
@@ -163,7 +163,7 @@
 		9A2F83732A1602030093CC7B /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9A2F83752A160B420093CC7B /* String+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		9A4A0CB12A00ADF100178B5F /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
-		9A4A0CB32A00B47B00178B5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		9A4A0CB32A00B47B00178B5F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
 		9A54D58528715DF0002EC02B /* WordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordEntity.swift; sourceTree = "<group>"; };
 		9A54D58828715E24002EC02B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -322,12 +322,12 @@
 		9A28103F29D283960056C855 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9A2F83772A160D930093CC7B /* Enums */,
 				9AAB3B4C29F650A600AD6F6C /* NavigationStacks */,
 				9A28105429D287760056C855 /* Components */,
 				9A28104129D283A80056C855 /* Constants */,
 				9A28104029D283A20056C855 /* Helpers */,
 				9A54D58728715E18002EC02B /* Extensions */,
-				9A4A0CB32A00B47B00178B5F /* Enums.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -348,7 +348,6 @@
 				9A85015429F603C10033FD05 /* SupabaseClient.swift */,
 				9A85015E29F6073B0033FD05 /* TableName.swift */,
 				9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */,
-				9A2F83732A1602030093CC7B /* Regex.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -520,6 +519,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A2F83772A160D930093CC7B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9A2F83732A1602030093CC7B /* Regex.swift */,
+				9A4A0CB32A00B47B00178B5F /* Errors.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		9A4A0CB02A00ADE400178B5F /* Modifiers */ = {
@@ -848,7 +856,7 @@
 				9A54D59D2871898B002EC02B /* SettingsItem.swift in Sources */,
 				9AAB3B5029F67C5D00AD6F6C /* AuthController.swift in Sources */,
 				9A28105A29D297750056C855 /* WordbooksService.swift in Sources */,
-				9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */,
+				9A4A0CB42A00B47B00178B5F /* Errors.swift in Sources */,
 				9A54D58E28715EA6002EC02B /* SettingsView.swift in Sources */,
 				9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */,
 				9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */,

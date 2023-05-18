@@ -62,7 +62,7 @@ struct WordsView: View {
                         
                         Spacer()
                     }
-                    .background(Color(.systemBackground))
+                    .background(.regularMaterial)
                     .cornerRadius(15)
                     .shadow(color: .black.opacity(0.1), radius: 15, y: 3)
                     .padding()

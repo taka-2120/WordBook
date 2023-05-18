@@ -67,6 +67,7 @@ struct WordItem: View {
         .swipeActionsMaskCornerRadius(15)
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
+        .padding(.vertical, 5)
         .alert("Do you really want to delete this word?", isPresented: $isDeletePromptShown) {
             Button(role: .destructive) {
                 controller.removeWord(at: index)

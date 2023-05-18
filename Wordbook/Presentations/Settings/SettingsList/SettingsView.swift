@@ -44,12 +44,19 @@ struct SettingsView: View {
                     Button {
                         
                     } label: {
-                        HStack {
-                            Image(systemName: "trash")
-                            Text("Delete Account")
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack {
+                                Image(systemName: "trash")
+                                Text("Delete Account")
+                            }
+                            .foregroundColor(.gray)
+                            
+                            Text("Account deletion is currently disabled. This will be enabled in future update.")
+                                .font(.caption)
+                                .foregroundColor(Color(.secondaryLabel))
                         }
-                        .foregroundColor(.red)
                     }
+                    .disabled(true)
                 }
                 
                 Link(destination: URL(string: "https://www.buymeacoffee.com/yutakahashi")!) {

@@ -6,42 +6,89 @@
 //
 
 import SwiftUI
+import SwiftUIPager
 
 struct CardMode: View {
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) var colorScheme
+    
     @EnvironmentObject private var controller: WordsController
+    
+    @StateObject var page: Page = .first()
     @State private var isCardModeShown = false
     
     var body: some View {
-        TabView {
-            ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
-                Text(word.original)
-                    .cardFlip {
-                        Text(word.translated)
+        ZStack {
+            GeometryReader { geo in
+                Pager(page: page,
+                      data: controller.wordbook.words,
+                      id: \.id) { word in
+                    Text(word.original)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .cardFlip(insets: geo.safeAreaInsets) {
+                            Text(word.translated)
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                }
+                .interactive(scale: 0.8)
+                .edgesIgnoringSafeArea(.all)
+                .background(Color(.systemGroupedBackground))
+                .onAppear {
+                    print(geo.safeAreaInsets)
+                    let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
+                    
+                    if !isCardModeOpened {
+                        isCardModeShown = true
+                        UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
                     }
-                    .tag(index)
+                }
             }
+            
+            VStack(alignment: .trailing) {
+                Button {
+                    dismiss()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color(white: colorScheme == .light ? 0.19 : 0.93))
+                        Image(systemName: "xmark").resizable()
+                            .scaledToFit()
+                            .font(Font.body.weight(.bold))
+                            .scaleEffect(0.416)
+                            .foregroundColor(Color(white: colorScheme == .light ? 0.62 : 0.51))
+                    }
+                    .frame(width: 30, height: 30)
+                }
+                .padding(.trailing)
+
+                Spacer()
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
         }
-        .tabViewStyle(.page(indexDisplayMode: .always))
-        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .navigationBar)
         .sheet(isPresented: $isCardModeShown) {
             CardIntroductionView()
         }
-        .onAppear {
-            let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
-            
-            if !isCardModeOpened {
-                isCardModeShown = true
-                UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
-            }
-        }
+//        .onAppear {
+//            let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
+//
+//            if !isCardModeOpened {
+//                isCardModeShown = true
+//                UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
+//            }
+//        }
     }
 }
 
 struct CardFlip: ViewModifier {
     @State var flipped = false
+    var insets: EdgeInsets
     var back: any View
     
-    init(@ViewBuilder back: () -> any View) {
+    init(insets: EdgeInsets, @ViewBuilder back: () -> any View) {
+        self.insets = insets
         self.back = back()
     }
     
@@ -50,15 +97,15 @@ struct CardFlip: ViewModifier {
         
         ZStack {
             content
-                .placedOnCard()
+                .placedOnCard(insets: insets)
                 .flipRotate(flipDegrees)
                 .opacity(flipped ? 0.0 : 1.0)
             AnyView(back)
-                .placedOnCard()
+                .placedOnCard(insets: insets)
                 .flipRotate(-180 + flipDegrees)
                 .opacity(flipped ? 1.0 : 0.0)
         }
-        .animation(.easeInOut(duration: 0.8), value: flipped)
+        .animation(.spring(response: 0.8, dampingFraction: 0.6), value: flipped)
         .onTapGesture {
             flipped.toggle()
         }
@@ -66,8 +113,8 @@ struct CardFlip: ViewModifier {
 }
 
 extension View {
-    func cardFlip(@ViewBuilder back: () -> any View) -> some View {
-        modifier(CardFlip(back: back))
+    func cardFlip(insets: EdgeInsets, @ViewBuilder back: () -> any View) -> some View {
+        modifier(CardFlip(insets: insets, back: back))
     }
     
     func flipRotate(_ degrees : Double) -> some View {
@@ -75,13 +122,16 @@ extension View {
             .rotation3DEffect(Angle(degrees: degrees), axis: (x: 0.0, y: 1.0, z: 0.0))
     }
     
-    func placedOnCard() -> some View {
+    func placedOnCard(insets: EdgeInsets) -> some View {
         return self
             .padding(5)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .background(Color(.systemBackground))
+            .background(Color(.systemFill))
             .cornerRadius(20)
-            .padding(30)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 25)
             .shadow(color: .black.opacity(0.2), radius: 15)
+            .padding(.top, insets.top + 30)
+            .padding(.bottom, insets.bottom)
     }
 }

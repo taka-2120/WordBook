@@ -17,11 +17,12 @@ struct PrivacyPolicyView: View {
                 .padding(.bottom, 10)
             
             ScrollView {
-                Text("Our Privacy Policy Here...")
+                VStack {
+                    Text("Our Privacy Policy Here...")
+                }
+                .frame(minWidth: 0, maxWidth: .infinity)
             }
-
         }
-        .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
         .navigationBarTitleDisplayMode(.inline)
     }
