@@ -42,13 +42,13 @@ struct WordbookItem: View {
                     .strokeBorder(Color(hex: wordbook.color).opacity(0.8), lineWidth: 2)
             }
             .shadow(color: Color(hex: wordbook.color).opacity(0.3), radius: 15, y: 3)
-        } trailingActions: { context in
+        } leadingActions: { context in
             SwipeAction(systemImage: "pin") {
                 controller.pinWordbook()
             }
             .background(.orange)
             .foregroundColor(.white)
-            
+        } trailingActions: { context in
             SwipeAction(systemImage: "trash") {
                 isDeletePromptShown.toggle()
             }

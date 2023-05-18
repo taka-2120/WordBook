@@ -10,7 +10,7 @@ import SwipeActions
 
 struct WordbooksView: View {
     @ObservedObject private var controller = WordbooksController()
-    @State private var wordbookPathes: [Wordbook] = []
+    @State private var wordbookPathes = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $wordbookPathes) {
@@ -57,7 +57,7 @@ struct WordbooksView: View {
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
             .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
             .onChange(of: wordbookPathes) { newValue in
-                if newValue == [] {
+                if newValue.isEmpty {
                     controller.getWordbooks()
                 }
             }

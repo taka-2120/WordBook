@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0D8559253ADC8B00875FA0 /* SwiftUIPager */; };
 		3B1780DA2529C9290002897A /* AddingWordbookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780D92529C9290002897A /* AddingWordbookView.swift */; };
 		3B1780DC2529F3D20002897A /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1780DB2529F3D20002897A /* AddWordView.swift */; };
 		3B3EBE982524727400152662 /* WordbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EBE972524727400152662 /* WordbookApp.swift */; };
@@ -40,6 +39,8 @@
 		9A2F83602A131F4E0093CC7B /* ChangeUsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F835F2A131F4E0093CC7B /* ChangeUsernameController.swift */; };
 		9A2F83632A1322160093CC7B /* ChangeEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83622A1322160093CC7B /* ChangeEmailController.swift */; };
 		9A2F83662A1323040093CC7B /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83652A1323040093CC7B /* ChangePasswordController.swift */; };
+		9A2F836B2A138B740093CC7B /* MainPathes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F836A2A138B740093CC7B /* MainPathes.swift */; };
+		9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2F836D2A138F030093CC7B /* SwiftUIPager */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
 		9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB12A00ADF100178B5F /* View+Loading.swift */; };
 		9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB32A00B47B00178B5F /* Enums.swift */; };
@@ -88,7 +89,6 @@
 		9AAB3B6329F7B58A00AD6F6C /* SettingsNavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */; };
 		9AAB3B6529F7BD1700AD6F6C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6429F7BD1700AD6F6C /* SettingsController.swift */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
-		9AAB3B6D29FABA6700AD6F6C /* PresentableColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */; };
 		9AAB3B6F29FE1C1600AD6F6C /* SmallFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B6E29FE1C1600AD6F6C /* SmallFieldItem.swift */; };
 		9AAB3B7129FE1D6700AD6F6C /* FieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7029FE1D6700AD6F6C /* FieldItem.swift */; };
 		9AAB3B7329FE384600AD6F6C /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB3B7229FE384600AD6F6C /* env.swift */; };
@@ -153,6 +153,7 @@
 		9A2F835F2A131F4E0093CC7B /* ChangeUsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameController.swift; sourceTree = "<group>"; };
 		9A2F83622A1322160093CC7B /* ChangeEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailController.swift; sourceTree = "<group>"; };
 		9A2F83652A1323040093CC7B /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
+		9A2F836A2A138B740093CC7B /* MainPathes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPathes.swift; sourceTree = "<group>"; };
 		9A4A0CB12A00ADF100178B5F /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 		9A4A0CB32A00B47B00178B5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
@@ -210,10 +211,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
-				9AAB3B6D29FABA6700AD6F6C /* PresentableColorPicker in Frameworks */,
+				9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */,
 				9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */,
 				9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */,
-				3B0D855A253ADC8B00875FA0 /* SwiftUIPager in Frameworks */,
 				9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +234,7 @@
 				3B3EBE962524727400152662 /* Wordbook */,
 				9A55C17A29A075C10012F828 /* WordBookForSafari */,
 				3B3EBE952524727400152662 /* Products */,
+				9A2F836C2A138F030093CC7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -503,6 +504,13 @@
 			path = PrivacyPolicy;
 			sourceTree = "<group>";
 		};
+		9A2F836C2A138F030093CC7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A4A0CB02A00ADE400178B5F /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +654,7 @@
 			children = (
 				9AAB3B4D29F6513000AD6F6C /* AuthMethod.swift */,
 				9AAB3B6229F7B58A00AD6F6C /* SettingsNavStack.swift */,
+				9A2F836A2A138B740093CC7B /* MainPathes.swift */,
 			);
 			path = NavigationStacks;
 			sourceTree = "<group>";
@@ -696,12 +705,11 @@
 			);
 			name = WordBook;
 			packageProductDependencies = (
-				3B0D8559253ADC8B00875FA0 /* SwiftUIPager */,
 				9A85014B29F5FE860033FD05 /* Supabase */,
 				9AAB3B5D29F7AE6400AD6F6C /* GIFImage */,
 				9AAB3B6929F8C8B900AD6F6C /* SwipeActions */,
-				9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */,
 				9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */,
+				9A2F836D2A138F030093CC7B /* SwiftUIPager */,
 			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* WordBook.app */;
@@ -753,11 +761,9 @@
 			mainGroup = 3B3EBE8B2524727400152662;
 			packageReferences = (
 				3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
-				9A001EAB29D7111900C6EC66 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */,
 				9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */,
-				9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */,
 				9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
@@ -803,6 +809,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2F836B2A138B740093CC7B /* MainPathes.swift in Sources */,
 				9A001EA229D3FCF500C6EC66 /* ChangePasswordView.swift in Sources */,
 				3B3EBE9A2524727400152662 /* WordbooksView.swift in Sources */,
 				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
@@ -1176,15 +1183,7 @@
 			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.1;
-			};
-		};
-		9A001EAB29D7111900C6EC66 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
@@ -1219,18 +1218,10 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/franklynw/PresentableColorPicker.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3B0D8559253ADC8B00875FA0 /* SwiftUIPager */ = {
+		9A2F836D2A138F030093CC7B /* SwiftUIPager */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3B0D8558253ADC8B00875FA0 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
@@ -1254,11 +1245,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
-		};
-		9AAB3B6C29FABA6700AD6F6C /* PresentableColorPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9AAB3B6B29FABA6700AD6F6C /* XCRemoteSwiftPackageReference "PresentableColorPicker" */;
-			productName = PresentableColorPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

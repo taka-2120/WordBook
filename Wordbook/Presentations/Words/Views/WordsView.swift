@@ -9,7 +9,6 @@ import SwiftUI
 import VisionKit
 import Vision
 import SwipeActions
-import PresentableColorPicker
 
 struct WordsView: View {
     @ObservedObject private var controller: WordsController
@@ -36,17 +35,26 @@ struct WordsView: View {
                     HStack {
                         Spacer()
                         
-                        Button {
-                            
+                        NavigationLink {
+                            CardMode()
+                                .environmentObject(controller)
                         } label: {
                             Image(systemName: "play.fill")
                                 .padding()
                         }
+                        .id(UUID())
+
+
+//                        NavigationLink(value: MainPathes.cardMode) {
+//                            Image(systemName: "play.fill")
+//                                .padding()
+//                        }
+//                        .id(UUID())
                         
                         Spacer()
                         
                         Button {
-                            
+                            controller.isAddShown = true
                         } label: {
                             Image(systemName: "plus")
                                 .padding()
@@ -83,6 +91,13 @@ struct WordsView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.browser)
+//        .navigationDestination(for: MainPathes.self) { path in
+//            switch path {
+//            case .cardMode: CardMode()
+//                    .environmentObject(controller)
+//                    .id(UUID())
+//            }
+//        }
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {

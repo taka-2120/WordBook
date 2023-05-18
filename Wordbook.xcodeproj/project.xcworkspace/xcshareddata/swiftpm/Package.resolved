@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire.git",
-      "state" : {
-        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
-        "version" : "5.6.4"
-      }
-    },
-    {
       "identity" : "functions-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/supabase-community/functions-swift",
@@ -50,17 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/supabase-community/gotrue-swift",
       "state" : {
-        "revision" : "e36a47af2dd45acd7f891be3f5574e8ee66eee95",
-        "version" : "1.1.0"
-      }
-    },
-    {
-      "identity" : "halfasheet",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/franklynw/HalfASheet.git",
-      "state" : {
-        "revision" : "4f43296b3722082dd5735521ee0fbf25e61cd21c",
-        "version" : "1.0.2"
+        "revision" : "a972c99bf0ed745047ec7bc6231460f6738d004e",
+        "version" : "1.1.1"
       }
     },
     {
@@ -79,15 +61,6 @@
       "state" : {
         "revision" : "a3c2d6a2ede94d2529edf063b056b1a66fd9cdc2",
         "version" : "1.0.0"
-      }
-    },
-    {
-      "identity" : "presentablecolorpicker",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/franklynw/PresentableColorPicker.git",
-      "state" : {
-        "revision" : "389ce59fb8074ab5b67cd76f380f20c2ebcd47c7",
-        "version" : "1.0.5"
       }
     },
     {
@@ -131,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fermoya/SwiftUIPager.git",
       "state" : {
-        "revision" : "6ccc32c01e421406d71097d99e2aa4609762dd5b",
-        "version" : "1.11.1"
+        "revision" : "4ddc04c801aac143090bb14cf26603a3bf9c74cb",
+        "version" : "2.5.0"
       }
     },
     {
