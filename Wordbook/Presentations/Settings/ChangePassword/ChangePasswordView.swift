@@ -45,6 +45,11 @@ struct ChangePasswordView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Error", isPresented: $controller.isErrorShown) {
+            Text("OK")
+        } message: {
+            Text(controller.errorType.rawValue)
+        }
         .loading($controller.isLoading)
     }
 }

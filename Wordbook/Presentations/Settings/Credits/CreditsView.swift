@@ -22,6 +22,7 @@ struct CreditsView: View {
             Spacer()
 
         }
+        .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
         .navigationBarTitleDisplayMode(.inline)
     }

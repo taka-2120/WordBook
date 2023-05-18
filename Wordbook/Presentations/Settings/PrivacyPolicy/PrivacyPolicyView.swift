@@ -21,6 +21,7 @@ struct PrivacyPolicyView: View {
             }
 
         }
+        .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
         .navigationBarTitleDisplayMode(.inline)
     }
