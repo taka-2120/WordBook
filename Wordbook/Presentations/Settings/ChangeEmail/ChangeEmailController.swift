@@ -30,6 +30,12 @@ class ChangeEmailController: ObservableObject {
             return
         }
         
+        if !newEmail.isVailed(type: .emailRegex) {
+            errorType = .invaildEmailFormat
+            isErrorShown.toggle()
+            return
+        }
+        
         isEmailConfirmationPromptShown = true
     }
     

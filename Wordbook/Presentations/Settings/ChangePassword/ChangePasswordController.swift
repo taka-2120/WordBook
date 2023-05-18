@@ -31,6 +31,18 @@ class ChangePasswordController: ObservableObject {
             return
         }
         
+        if newPassword != reNewPassword {
+            errorType = .newPasswordNotMatched
+            isErrorShown.toggle()
+            return
+        }
+        
+        if !newPassword.isVailed(type: .passwordRegex) {
+            errorType = .weakPassword
+            isErrorShown.toggle()
+            return
+        }
+        
         Task{ @MainActor in
             isLoading = true
             defer {

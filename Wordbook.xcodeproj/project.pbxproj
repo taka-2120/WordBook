@@ -43,6 +43,8 @@
 		9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2F836D2A138F030093CC7B /* SwiftUIPager */; };
 		9A2F83702A15F4180093CC7B /* CardIntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F836F2A15F4180093CC7B /* CardIntroductionView.swift */; };
 		9A2F83722A15F79A0093CC7B /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */; };
+		9A2F83742A1602030093CC7B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83732A1602030093CC7B /* Regex.swift */; };
+		9A2F83762A160B420093CC7B /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F83752A160B420093CC7B /* String+Regex.swift */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
 		9A4A0CB22A00ADF100178B5F /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB12A00ADF100178B5F /* View+Loading.swift */; };
 		9A4A0CB42A00B47B00178B5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0CB32A00B47B00178B5F /* Enums.swift */; };
@@ -158,6 +160,8 @@
 		9A2F836A2A138B740093CC7B /* MainPathes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPathes.swift; sourceTree = "<group>"; };
 		9A2F836F2A15F4180093CC7B /* CardIntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIntroductionView.swift; sourceTree = "<group>"; };
 		9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		9A2F83732A1602030093CC7B /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		9A2F83752A160B420093CC7B /* String+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		9A4A0CB12A00ADF100178B5F /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 		9A4A0CB32A00B47B00178B5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9A54D58328715DE2002EC02B /* WordbookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 				9A85015429F603C10033FD05 /* SupabaseClient.swift */,
 				9A85015E29F6073B0033FD05 /* TableName.swift */,
 				9A2F83712A15F79A0093CC7B /* UserDefaultsKey.swift */,
+				9A2F83732A1602030093CC7B /* Regex.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 				9A54D58A28715E6A002EC02B /* View+Hidden.swift */,
 				9A54D59A28718226002EC02B /* Date+Format.swift */,
 				9A2F835B2A131EE50093CC7B /* NotificationCenter.swift */,
+				9A2F83752A160B420093CC7B /* String+Regex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -818,6 +824,7 @@
 				9A2F836B2A138B740093CC7B /* MainPathes.swift in Sources */,
 				9A001EA229D3FCF500C6EC66 /* ChangePasswordView.swift in Sources */,
 				3B3EBE9A2524727400152662 /* WordbooksView.swift in Sources */,
+				9A2F83762A160B420093CC7B /* String+Regex.swift in Sources */,
 				3B41BDA32531A9CE006D3A66 /* CardMode.swift in Sources */,
 				3BE99F702559619D005106D9 /* ImportMethodView.swift in Sources */,
 				3BB00596254567F1006F0276 /* DetecterView.swift in Sources */,
@@ -846,6 +853,7 @@
 				9AAB3B4229F60CEC00AD6F6C /* AuthService.swift in Sources */,
 				9AAB3B4529F619EE00AD6F6C /* WelcomeView.swift in Sources */,
 				9A85015D29F605DD0033FD05 /* UserDataEntity.swift in Sources */,
+				9A2F83742A1602030093CC7B /* Regex.swift in Sources */,
 				3B3EBEC22529C20600152662 /* WordsView.swift in Sources */,
 				9A85015529F603C10033FD05 /* SupabaseClient.swift in Sources */,
 				9AAB3B3C29F60C9200AD6F6C /* SupabaseAuthRepoInterface.swift in Sources */,

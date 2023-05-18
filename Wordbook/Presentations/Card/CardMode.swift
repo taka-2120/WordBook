@@ -21,7 +21,8 @@ struct CardMode: View {
                     .tag(index)
             }
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
+        .tabViewStyle(.page(indexDisplayMode: .always))
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isCardModeShown) {
             CardIntroductionView()
         }
@@ -49,11 +50,11 @@ struct CardFlip: ViewModifier {
         
         ZStack {
             content
-                .placedOnCard(Color.yellow)
+                .placedOnCard()
                 .flipRotate(flipDegrees)
                 .opacity(flipped ? 0.0 : 1.0)
             AnyView(back)
-                .placedOnCard(Color.blue)
+                .placedOnCard()
                 .flipRotate(-180 + flipDegrees)
                 .opacity(flipped ? 1.0 : 0.0)
         }
@@ -74,10 +75,13 @@ extension View {
             .rotation3DEffect(Angle(degrees: degrees), axis: (x: 0.0, y: 1.0, z: 0.0))
     }
     
-    func placedOnCard(_ color: Color) -> some View {
+    func placedOnCard() -> some View {
         return self
             .padding(5)
-            .frame(width: 250, height: 150, alignment: .center)
-            .background(color)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .background(Color(.systemBackground))
+            .cornerRadius(20)
+            .padding(30)
+            .shadow(color: .black.opacity(0.2), radius: 15)
     }
 }

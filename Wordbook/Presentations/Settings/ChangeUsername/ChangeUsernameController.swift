@@ -27,6 +27,12 @@ class ChangeUsernameController: ObservableObject {
             return
         }
         
+        if !username.isVailed(type: .usernameRegex) {
+            errorType = .longUsername
+            isErrorShown.toggle()
+            return
+        }
+        
         Task{ @MainActor in
             isLoading = true
             defer {
