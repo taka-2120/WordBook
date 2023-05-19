@@ -21,8 +21,8 @@ struct TranslatedView: View {
                                       LanguageCodes(name: "Chinese(Traditional)", code: "zh-Hant", tag: 7)]
     @Binding var originalWord: String
     @Binding var originalWords: [String]
-    @Binding var wordbooks: [Wordbooks]
-    @Binding var words: [Words]
+    @Binding var wordbooks: [Wordbook]
+    @Binding var words: [Word]
     @Binding var wordbookIndex: Int
     var single: Bool
     @State var selectedLanguage = 0
@@ -51,7 +51,7 @@ struct TranslatedView: View {
                                 error = true
                                 return
                             }
-                            words.append(Words(originalWord: originalWord, translatedWord: translatedWord, priority: 0, missed: 0))
+                            words.append(Word(originalWord: originalWord, translatedWord: translatedWord, priority: 0, missed: 0))
                             wordbooks[wordbookIndex].words = words
                             NotificationCenter.default.post(name: .init(rawValue: "closeNotif"), object: nil)
                         }, label: {

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3B3EBE932524727400152662"
-               BuildableName = "WordBook.app"
-               BlueprintName = "WordBook"
-               ReferencedContainer = "container:Wordbook.xcodeproj">
+               BuildableName = "WordVenture.app"
+               BlueprintName = "WordVenture"
+               ReferencedContainer = "container:WordVenture.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B3EBE932524727400152662"
-            BuildableName = "WordBook.app"
-            BlueprintName = "WordBook"
-            ReferencedContainer = "container:Wordbook.xcodeproj">
+            BuildableName = "WordVenture.app"
+            BlueprintName = "WordVenture"
+            ReferencedContainer = "container:WordVenture.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -78,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B3EBE932524727400152662"
-            BuildableName = "WordBook.app"
-            BlueprintName = "WordBook"
-            ReferencedContainer = "container:Wordbook.xcodeproj">
+            BuildableName = "WordVenture.app"
+            BlueprintName = "WordVenture"
+            ReferencedContainer = "container:WordVenture.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
