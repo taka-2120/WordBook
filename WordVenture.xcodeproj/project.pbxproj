@@ -79,6 +79,10 @@
 		9A24FDF42A171B6500C34508 /* WordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDA82A171B6400C34508 /* WordEntity.swift */; };
 		9A24FDF52A171B6500C34508 /* WordbookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDA92A171B6400C34508 /* WordbookEntity.swift */; };
 		9A24FDF62A171B6500C34508 /* UserDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDAA2A171B6400C34508 /* UserDataEntity.swift */; };
+		9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDF92A17349900C34508 /* String+Language.swift */; };
+		9A24FDFC2A1744EA00C34508 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDFB2A1744EA00C34508 /* Languages.swift */; };
+		9A24FDFE2A1F2D7200C34508 /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDFD2A1F2D7200C34508 /* UnsplashAPI.swift */; };
+		9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FE012A1F8CA200C34508 /* RelatedImage.swift */; };
 		9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2F836D2A138F030093CC7B /* SwiftUIPager */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
@@ -174,6 +178,10 @@
 		9A24FDA82A171B6400C34508 /* WordEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordEntity.swift; sourceTree = "<group>"; };
 		9A24FDA92A171B6400C34508 /* WordbookEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookEntity.swift; sourceTree = "<group>"; };
 		9A24FDAA2A171B6400C34508 /* UserDataEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataEntity.swift; sourceTree = "<group>"; };
+		9A24FDF92A17349900C34508 /* String+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Language.swift"; sourceTree = "<group>"; };
+		9A24FDFB2A1744EA00C34508 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		9A24FDFD2A1F2D7200C34508 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
+		9A24FE012A1F8CA200C34508 /* RelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +248,9 @@
 			children = (
 				9A24FD3A2A171B6400C34508 /* WordbookRepo */,
 				9A24FD3D2A171B6400C34508 /* SupabaseAuthRepo */,
-				9A24FD402A171B6400C34508 /* ChatGPTAPI.swift */,
 				9A24FD412A171B6400C34508 /* UserDataRepo */,
+				9A24FD402A171B6400C34508 /* ChatGPTAPI.swift */,
+				9A24FDFD2A1F2D7200C34508 /* UnsplashAPI.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -327,13 +336,14 @@
 		9A24FD572A171B6400C34508 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD582A171B6400C34508 /* Date+Format.swift */,
 				9A24FD592A171B6400C34508 /* Modifiers */,
+				9A24FD582A171B6400C34508 /* Date+Format.swift */,
 				9A24FD5B2A171B6400C34508 /* View+Hidden.swift */,
 				9A24FD5C2A171B6400C34508 /* Color+Hex.swift */,
 				9A24FD5D2A171B6400C34508 /* NotificationCenter.swift */,
 				9A24FD5E2A171B6400C34508 /* Color+Custom.swift */,
 				9A24FD5F2A171B6400C34508 /* String+Regex.swift */,
+				9A24FDF92A17349900C34508 /* String+Language.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +369,7 @@
 			children = (
 				9A24FD632A171B6400C34508 /* WordIndex.swift */,
 				9A24FD642A171B6400C34508 /* PriorityColor.swift */,
+				9A24FDFB2A1744EA00C34508 /* Languages.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -366,12 +377,12 @@
 		9A24FD652A171B6400C34508 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD662A171B6400C34508 /* Settings */,
-				9A24FD792A171B6400C34508 /* Words */,
-				9A24FD862A171B6400C34508 /* Wordbooks */,
-				9A24FD8F2A171B6400C34508 /* Card */,
 				9A24FD922A171B6400C34508 /* Loading */,
 				9A24FD952A171B6400C34508 /* Auth */,
+				9A24FD862A171B6400C34508 /* Wordbooks */,
+				9A24FD792A171B6400C34508 /* Words */,
+				9A24FD662A171B6400C34508 /* Settings */,
+				9A24FD8F2A171B6400C34508 /* Card */,
 				9A24FD9C2A171B6400C34508 /* Components */,
 				9A24FD9E2A171B6400C34508 /* ScreenController.swift */,
 			);
@@ -403,8 +414,8 @@
 		9A24FD6A2A171B6400C34508 /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD6B2A171B6400C34508 /* ChangePasswordView.swift */,
 				9A24FD6C2A171B6400C34508 /* ChangePasswordController.swift */,
+				9A24FD6B2A171B6400C34508 /* ChangePasswordView.swift */,
 			);
 			path = ChangePassword;
 			sourceTree = "<group>";
@@ -474,10 +485,10 @@
 		9A24FD7E2A171B6400C34508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD7F2A171B6400C34508 /* AddWordView.swift */,
-				9A24FD802A171B6400C34508 /* DetailsView.swift */,
 				9A24FD812A171B6400C34508 /* Components */,
 				9A24FD852A171B6400C34508 /* WordsView.swift */,
+				9A24FD7F2A171B6400C34508 /* AddWordView.swift */,
+				9A24FD802A171B6400C34508 /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,6 +499,7 @@
 				9A24FD822A171B6400C34508 /* SmallFieldItem.swift */,
 				9A24FD832A171B6400C34508 /* FieldItem.swift */,
 				9A24FD842A171B6400C34508 /* WordItem.swift */,
+				9A24FE012A1F8CA200C34508 /* RelatedImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -513,8 +525,8 @@
 		9A24FD8A2A171B6400C34508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD8B2A171B6400C34508 /* WordbooksView.swift */,
 				9A24FD8C2A171B6400C34508 /* Components */,
+				9A24FD8B2A171B6400C34508 /* WordbooksView.swift */,
 				9A24FD8E2A171B6400C34508 /* AddingWordbookView.swift */,
 			);
 			path = Views;
@@ -738,6 +750,7 @@
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
 				9A24FDAE2A171B6500C34508 /* WordbookRepo.swift in Sources */,
 				9A24FDB32A171B6500C34508 /* UserDataRepoInterface.swift in Sources */,
+				9A24FDFE2A1F2D7200C34508 /* UnsplashAPI.swift in Sources */,
 				9A24FDB12A171B6500C34508 /* SupabaseAuthRepoInterface.swift in Sources */,
 				9A24FDBC2A171B6500C34508 /* MockData.swift in Sources */,
 				9A24FDB42A171B6500C34508 /* UserDataRepo.swift in Sources */,
@@ -768,16 +781,19 @@
 				9A24FDBB2A171B6500C34508 /* UserDefaultsKey.swift in Sources */,
 				9A24FDBE2A171B6500C34508 /* Errors.swift in Sources */,
 				9A24FDEC2A171B6500C34508 /* SignUpView.swift in Sources */,
+				9A24FDFC2A1744EA00C34508 /* Languages.swift in Sources */,
 				9A24FDEF2A171B6500C34508 /* WordbookApp.swift in Sources */,
 				9A24FDDB2A171B6500C34508 /* DetailsView.swift in Sources */,
 				9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */,
 				9A24FDC62A171B6500C34508 /* NotificationCenter.swift in Sources */,
 				9A24FDC12A171B6500C34508 /* AuthMethod.swift in Sources */,
+				9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */,
 				9A24FDEA2A171B6500C34508 /* WelcomeView.swift in Sources */,
 				9A24FDE62A171B6500C34508 /* CardMode.swift in Sources */,
 				9A24FDAD2A171B6500C34508 /* env.swift in Sources */,
 				9A24FDF62A171B6500C34508 /* UserDataEntity.swift in Sources */,
 				9A24FDD32A171B6500C34508 /* SettingsView.swift in Sources */,
+				9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */,
 				9A24FDD82A171B6500C34508 /* WordsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

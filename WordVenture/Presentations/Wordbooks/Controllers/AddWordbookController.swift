@@ -14,6 +14,15 @@ class AddWordbookController: ObservableObject {
     @Published var color = Color.blue
     @Published var isLoading = false
     
+    let languages = NSLocale.isoLanguageCodes.sorted()
+    let currentLanguage = NSLocale.current.language.languageCode?.identifier ?? "en"
+    @Published var originalLanguage = ""
+    @Published var translatedLanguage = "en"
+    
+    init() {
+        originalLanguage = currentLanguage
+    }
+    
     func addWordbook(_ dismiss: DismissAction) {
         Task { @MainActor in
             isLoading = true
@@ -22,11 +31,17 @@ class AddWordbookController: ObservableObject {
             }
             
             do {
-                try await wordbookService.addWordbook(name: title, color: color.toHex())
+                try await wordbookService.addWordbook(name: title, color: color.toHex(), original: originalLanguage, translated: translatedLanguage)
                 dismiss()
             } catch {
                 print(error)
             }
         }
+    }
+    
+    func getLanguageName(for language: String) -> String {
+        let locale = NSLocale(localeIdentifier: currentLanguage)
+        let name = locale.displayName(forKey: .languageCode, value: language) ?? ""
+        return name
     }
 }

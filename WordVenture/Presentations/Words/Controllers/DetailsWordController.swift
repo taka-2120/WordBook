@@ -17,6 +17,8 @@ class DetailsWordController: ObservableObject {
     @Published var synonyms = [String]()
     @Published var antonyms = [String]()
     @Published var examples = [String]()
+    @Published var isGenerating = false
+    @Published var imageUrls = [String]()
     
     init(wordbook: Wordbook, word: Word) {
         self.wordbook = wordbook
@@ -26,14 +28,27 @@ class DetailsWordController: ObservableObject {
         self.synonyms = word.synonyms
         self.antonyms = word.antonyms
         self.examples = word.examples
+        self.imageUrls = word.imageUrls
     }
     
     func updateWord(dismiss: DismissAction) {
         Task { @MainActor in
             do {
                 try await
-                wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord, priority: word.priority, missed: word.missed, synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
+                wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
+                                           priority: word.priority, missed: word.missed, thumbnailUrl: "", imageUrls: imageUrls,
+                                           synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
                 dismiss()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func generateImages() {
+        Task { @MainActor in
+            do {
+                imageUrls = try await fetchUnsplashPhotos(for: originalWord)
             } catch {
                 print(error)
             }
@@ -42,6 +57,7 @@ class DetailsWordController: ObservableObject {
     
     func generateAll() {
         Task { @MainActor in
+            isGenerating = true
             do {
                 synonyms = try await fetchGPTResult(for: originalWord, mode: .synonyms) ?? []
                 antonyms = try await fetchGPTResult(for: originalWord, mode: .antonyms) ?? []
@@ -49,6 +65,7 @@ class DetailsWordController: ObservableObject {
             } catch {
                 print(error)
             }
+            isGenerating = false
         }
     }
 }

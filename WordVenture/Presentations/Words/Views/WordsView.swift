@@ -11,11 +11,11 @@ import Vision
 import SwipeActions
 
 struct WordsView: View {
-    @ObservedObject private var controller: WordsController
+    @StateObject private var controller: WordsController
     @State private var isEditing = false
     
     init(wordbook: Wordbook) {
-        self.controller = WordsController(wordbook: wordbook)
+        _controller = StateObject(wrappedValue: WordsController(wordbook: wordbook))
     }
     
     var body: some View {
@@ -31,85 +31,73 @@ struct WordsView: View {
                         .bold()
                 }
             } else {
-                VStack(spacing: 0) {
-                    HStack {
-                        Spacer()
-                        
-                        NavigationLink {
-                            CardMode()
-                                .environmentObject(controller)
-                        } label: {
-                            Image(systemName: "play.fill")
-                                .padding()
+                ScrollView {
+                    SwipeViewGroup {
+                        ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
+                            WordItem(word: word, index: index)
                         }
-                        .id(UUID())
-
-
-//                        NavigationLink(value: MainPathes.cardMode) {
-//                            Image(systemName: "play.fill")
-//                                .padding()
-//                        }
-//                        .id(UUID())
-                        
-                        Spacer()
-                        
-                        Button {
-                            controller.isAddShown = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .padding()
-                        }
-                        
-                        Spacer()
+                        .padding(.top, 30)
                     }
-                    .background(.regularMaterial)
-                    .cornerRadius(15)
-                    .shadow(color: .black.opacity(0.1), radius: 15, y: 3)
-                    .padding()
-                    .zIndex(100)
-                    
-                    ScrollView {
-                        SwipeViewGroup {
-                            ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
-                                WordItem(word: word, index: index)
-                            }
-                            .padding(.top, 30)
-                        }
-                    }
-                    .padding(.top, -25)
                 }
             }
             
             if isEditing {
                 Rectangle()
-                    .fill(Color(.systemBackground).opacity(0.1))
+                    .fill(Color(.systemBackground).opacity(0.2))
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .onTapGesture {
                         isEditing = false
                     }
             }
+            
+            VStack(alignment: .trailing) {
+                Spacer()
+                
+                NavigationLink {
+                    CardMode()
+                        .environmentObject(controller)
+                } label: {
+                    Image(systemName: "play.fill")
+                        .padding()
+                }
+                .id(UUID())
+                .background(.thickMaterial)
+                .cornerRadius(100)
+                .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+            .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.browser)
-//        .navigationDestination(for: MainPathes.self) { path in
-//            switch path {
-//            case .cardMode: CardMode()
-//                    .environmentObject(controller)
-//                    .id(UUID())
-//            }
-//        }
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    Circle()
-                        .fill(controller.wordbookColor)
-                        .frame(width: 10, height: 10)
+                    ColorPicker("", selection: $controller.wordbookColor)
+                        .scaleEffect(0.7)
+                        .frame(width: 25, height: 25)
+                    
                     TextField("Wordbook Title", text: $controller.wordbookTitle)
                         .padding(8)
                         .background(isEditing ? Color(.secondarySystemBackground) : .clear)
                         .cornerRadius(10)
-                        .frame(minWidth: 0, maxWidth: 150, alignment: .center)
                         .disabled(!isEditing)
+                        .frame(minWidth: 0, maxWidth: 130, alignment: .center)
+                    
+                    Menu {
+                        if !isEditing {
+                            Button {
+                                isEditing = true
+                            } label: {
+                                Label("Rename", systemImage: "pencil")
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "chevron.down.circle.fill")
+                            .foregroundColor(Color(.secondaryLabel))
+                            .imageScale(.small)
+                    }
+                    .disabled(isEditing)
                 }
             }
             
@@ -122,17 +110,10 @@ struct WordsView: View {
                         Text("Done")
                     }
                 } else {
-                    ColorPicker("", selection: $controller.wordbookColor)
-                        .scaleEffect(0.8)
-                }
-            }
-            
-            ToolbarTitleMenu {
-                if !isEditing {
                     Button {
-                        isEditing = true
+                        controller.isAddShown = true
                     } label: {
-                        Label("Rename", systemImage: "pencil")
+                        Image(systemName: "plus")
                     }
                 }
             }

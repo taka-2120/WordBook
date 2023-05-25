@@ -34,12 +34,12 @@ struct ChangePasswordView: View {
                 controller.updatePassword(dismiss)
             } label: {
                 Text("Update")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
                     .frame(maxWidth: 250)
             }
-            .background(Color.black)
+            .background(Color(.label))
             .cornerRadius(15)
 
         }

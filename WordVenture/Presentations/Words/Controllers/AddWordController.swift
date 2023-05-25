@@ -17,6 +17,8 @@ class AddWordController: ObservableObject {
     @Published var antonyms = [String]()
     @Published var examples = [String]()
     @Published var isLoading = false
+    @Published var isGenerating = false
+    @Published var imageUrls = [String]()
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
@@ -30,15 +32,20 @@ class AddWordController: ObservableObject {
             }
             
             do {
-                try await wordbookService.addWord(
-                    original: originalWord,
-                    translated: translatedWord,
-                    priority: 0,
-                    missed: 0,
-                    synonyms: synonyms,
-                    antonyms: antonyms,
-                    examples: examples, to: wordbook)
+                try await wordbookService.addWord(original: originalWord, translated: translatedWord,
+                                                  priority: 0, missed: 0, thumbnailUrl: "", imageUrls: imageUrls,
+                                                  synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
                 dismiss()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func generateImages() {
+        Task { @MainActor in
+            do {
+                imageUrls = try await fetchUnsplashPhotos(for: originalWord)
             } catch {
                 print(error)
             }
@@ -47,6 +54,7 @@ class AddWordController: ObservableObject {
     
     func generateAll() {
         Task { @MainActor in
+            isGenerating = true
             do {
                 synonyms = try await fetchGPTResult(for: originalWord, mode: .synonyms) ?? []
                 antonyms = try await fetchGPTResult(for: originalWord, mode: .antonyms) ?? []
@@ -54,6 +62,7 @@ class AddWordController: ObservableObject {
             } catch {
                 print(error)
             }
+            isGenerating = false
         }
     }
 }

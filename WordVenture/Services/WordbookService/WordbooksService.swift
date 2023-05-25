@@ -25,17 +25,17 @@ class WordbookService {
     }
     
     
-    func addWordbook(name: String, color: String) async throws {
+    func addWordbook(name: String, color: String, original: String, translated: String) async throws {
         if let id = authRepo.session?.user.id {
-            try await wordbookRepo.insertWordbook(userId: id, name: name, color: color)
+            try await wordbookRepo.insertWordbook(userId: id, name: name, color: color, original: original, translated: translated)
         } else {
             print("Session Expired")
         }
     }
     
-    func updateWordbook(bookId: UUID, name: String, color: String) async throws {
+    func updateWordbook(bookId: UUID, name: String, color: String, original: String?, translated: String?) async throws {
         if let id = authRepo.session?.user.id {
-            try await wordbookRepo.updateWordbook(bookId: bookId, userId: id, name: name, color: color)
+            try await wordbookRepo.updateWordbook(bookId: bookId, userId: id, name: name, color: color, original: original, translated: translated)
         } else {
             print("Session Expired")
         }
@@ -50,21 +50,25 @@ class WordbookService {
     }
     
     
-    func addWord(original: String, translated: String, priority: Int, missed: Int,
+    func addWord(original: String, translated: String,
+                 priority: Int, missed: Int, thumbnailUrl: String, imageUrls: [String],
                  synonyms: [String], antonyms: [String], examples: [String], to wordbook: Wordbook) async throws {
         if let id = authRepo.session?.user.id {
             try await wordbookRepo.insertWord(userId: id, bookId: wordbook.bookId, original: original, translated: translated,
-                                              priority: priority, missed: missed, synonyms: synonyms, antonyms: antonyms, examples: examples)
+                                              priority: priority, missed: missed, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls,
+                                              synonyms: synonyms, antonyms: antonyms, examples: examples)
         } else {
             print("Session Expired")
         }
     }
     
-    func updateWord(wordId: UUID, original: String, translated: String, priority: Int, missed: Int,
+    func updateWord(wordId: UUID, original: String, translated: String,
+                    priority: Int, missed: Int, thumbnailUrl: String, imageUrls: [String],
                     synonyms: [String], antonyms: [String], examples: [String], to wordbook: Wordbook) async throws {
         if let id = authRepo.session?.user.id {
             try await wordbookRepo.updateWord(wordId: wordId, userId: id, bookId: wordbook.bookId, original: original, translated: translated,
-                                              priority: priority, missed: missed, synonyms: synonyms, antonyms: antonyms, examples: examples)
+                                              priority: priority, missed: missed, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls,
+                                              synonyms: synonyms, antonyms: antonyms, examples: examples)
         } else {
             print("Session Expired")
         }

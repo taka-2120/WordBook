@@ -46,7 +46,7 @@ class WordsController: ObservableObject {
     func updateWordbook() {
         Task { @MainActor in
             do {
-                try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex())
+                try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex(), original: nil, translated: nil)
             } catch {
                 print(error)
             }

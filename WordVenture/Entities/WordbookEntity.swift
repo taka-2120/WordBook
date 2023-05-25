@@ -15,6 +15,8 @@ struct Wordbook: Identifiable, Hashable, Codable {
     var userId: UUID
     var name: String
     var color: String
+    var original: String?    // ISO Language Code
+    var translated: String?  // ISO Language Code
     var words: [Word]
     var modifiedDate: String
 }
@@ -24,5 +26,7 @@ struct WordbookAPIModel: Hashable, Codable {
     var userId: UUID
     var name: String
     var color: String
+    var original: String?    // ISO Language Code
+    var translated: String?  // ISO Language Code
     var modifiedDate: String
 }

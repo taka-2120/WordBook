@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import SwiftfulLoadingIndicators
 
 struct AddWordView: View {
     @ObservedObject private var controller: AddWordController
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     init(wordbook: Wordbook) {
         controller = AddWordController(wordbook: wordbook)
@@ -20,22 +21,102 @@ struct AddWordView: View {
             ScrollView {
                 VStack(spacing: 15) {
                     CustomField("Original", text: $controller.originalWord)
+                    Text("In your studying language")
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                        .font(.callout)
+                        .foregroundColor(Color(.secondaryLabel))
                     CustomField("Translated", text: $controller.translatedWord)
                     
-                    Group {
-                        Button("Generate", action: controller.generateAll)
-                            .padding(.vertical)
-                            .padding(.horizontal, 30)
+                    Divider()
+                        .padding(.vertical, 5)
+                    
+                    VStack {
+                        if controller.imageUrls.isEmpty {
+                            Button {
+                                controller.generateImages()
+                            } label: {
+                                HStack {
+                                    Text("Generate Image")
+                                        .padding(.vertical)
+                                }
+                                .frame(maxWidth: 180)
+                            }
                             .background(.blue)
                             .opacity(controller.originalWord == "" ? 0.7 : 1.0)
                             .cornerRadius(20)
                             .foregroundColor(.white)
                             .disabled(controller.originalWord == "")
-                        
-                        Text("Open AI will generate following these fields")
-                            .font(.callout)
-                            .foregroundColor(Color(.secondaryLabel))
-                            .padding(.bottom)
+                            
+                            Text("Unsplash will generate matched images here")
+                                .font(.callout)
+                                .foregroundColor(Color(.secondaryLabel))
+                                .padding(.bottom)
+                        } else {
+                            HStack(alignment: .top) {
+                                VStack(alignment: .leading) {
+                                    Text("Related Image")
+                                        .font(.headline)
+//                                    Text("Tap to set a thumbnail image")
+//                                        .font(.caption)
+//                                        .foregroundColor(Color(.secondaryLabel))
+                                }
+                                Spacer()
+                                Button {
+                                    controller.generateImages()
+                                } label: {
+                                    Image(systemName: "arrow.counterclockwise")
+                                        .foregroundColor(Color(.secondaryLabel))
+                                }
+                            }
+                            ScrollView(.horizontal, showsIndicators: true) {
+                                HStack {
+                                    ForEach(controller.imageUrls, id: \.self) { imageUrl in
+                                        RelatedImage(url: imageUrl)
+                                    }
+                                }
+                            }
+                            .cornerRadius(15)
+                        }
+                    }
+                    
+                    Divider()
+                        .padding(.vertical, 5)
+                    
+                    VStack {
+                        if controller.antonyms.isEmpty && controller.synonyms.isEmpty && controller.examples.isEmpty {
+                            Button {
+                                controller.generateAll()
+                            } label: {
+                                HStack {
+                                    Text("Generate Text")
+                                        .padding(.vertical)
+                                    LoadingIndicator(animation: .circleBars, color: .white, size: .small)
+                                        .scaleEffect(0.8)
+                                        .isHidden(!controller.isGenerating, remove: true)
+                                }
+                                .frame(maxWidth: 180)
+                            }
+                            .background(.blue)
+                            .opacity(controller.originalWord == "" ? 0.7 : 1.0)
+                            .cornerRadius(20)
+                            .foregroundColor(.white)
+                            .disabled(controller.originalWord == "" || controller.isGenerating)
+                            
+                            Text("Open AI will fill following these fields")
+                                .font(.callout)
+                                .foregroundColor(Color(.secondaryLabel))
+                                .padding(.bottom)
+                        } else {
+                            HStack {
+                                Spacer()
+                                Button {
+                                    controller.generateAll()
+                                } label: {
+                                    Image(systemName: "arrow.counterclockwise")
+                                        .foregroundColor(Color(.secondaryLabel))
+                                }
+                            }
+                        }
                     }
                     
                     SmallFieldItem("Synonyms", array: $controller.synonyms)
@@ -43,8 +124,6 @@ struct AddWordView: View {
                     SmallFieldItem("Antonyms", array: $controller.antonyms)
                     
                     FieldItem("Examples", array: $controller.examples)
-                    
-                    Spacer()
                 }
                 .padding()
             }

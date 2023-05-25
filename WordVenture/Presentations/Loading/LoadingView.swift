@@ -13,8 +13,12 @@ struct LoadingView: View {
     @ObservedObject private var controller = LoadingController()
     
     var body: some View {
-        GIFImage(source: .local(filePath: controller.launchAnimationPath), loop: .constant(false)) { _ in
-            await controller.load()
+        ZStack {
+            Color.white
+                .ignoresSafeArea()
+            GIFImage(source: .local(filePath: controller.launchAnimationPath), loop: .constant(false)) { _ in
+                await controller.load()
+            }
         }
     }
 }

@@ -30,8 +30,8 @@ class WordbookRepo: WordbookRepoInterface {
     }
     
     @MainActor
-    func insertWordbook(userId: UUID, name: String, color: String) async throws {
-        let wordbook = WordbookAPIModel(bookId: UUID(), userId: userId, name: name, color: color, modifiedDate: Date().ISO8601Format())
+    func insertWordbook(userId: UUID, name: String, color: String, original: String, translated: String) async throws {
+        let wordbook = WordbookAPIModel(bookId: UUID(), userId: userId, name: name, color: color, original: original, translated: translated, modifiedDate: Date().ISO8601Format())
         
         let _ = try await client.database
                     .from(wordbooksTable)
@@ -42,9 +42,9 @@ class WordbookRepo: WordbookRepoInterface {
     }
     
     @MainActor
-    func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String) async throws {
+    func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?) async throws {
         
-        let wordbook = WordbookAPIModel(bookId: bookId, userId: userId, name: name, color: color, modifiedDate: Date().ISO8601Format())
+        let wordbook = WordbookAPIModel(bookId: bookId, userId: userId, name: name, color: color, original: original, translated: translated, modifiedDate: Date().ISO8601Format())
         
         print(wordbook)
         
@@ -82,17 +82,40 @@ class WordbookRepo: WordbookRepoInterface {
         
         var words = [Word]()
         for word in response {
-            words.append(Word(userId: userId, wordId: word.wordId, bookId: word.bookId, original: word.original, translated: word.translated, priority: word.priority, missed: word.missed, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples))
+            words.append(Word(userId: userId,
+                              wordId: word.wordId,
+                              bookId: word.bookId,
+                              original: word.original,
+                              translated: word.translated,
+                              priority: word.priority,
+                              missed: word.missed,
+                              thumbnailUrl: word.thumbnailUrl,
+                              imageUrls: word.imageUrls ?? [],
+                              synonyms: word.synonyms,
+                              antonyms: word.antonyms,
+                              examples: word.examples))
         }
         
         return words
     }
     
     @MainActor
-    func insertWord(userId: UUID, bookId: UUID, original: String, translated: String, priority: Int,
-                    missed: Int, synonyms: [String], antonyms: [String], examples: [String]) async throws {
+    func insertWord(userId: UUID, bookId: UUID, original: String, translated: String,
+                    priority: Int, missed: Int, thumbnailUrl: String, imageUrls: [String],
+                    synonyms: [String], antonyms: [String], examples: [String]) async throws {
         
-        let word = WordAPIModel(wordId: UUID(), userId: userId, bookId: bookId, original: original, translated: translated, priority: priority, missed: missed, synonyms: synonyms, antonyms: antonyms, examples: examples)
+        let word = WordAPIModel(wordId: UUID(),
+                                userId: userId,
+                                bookId: bookId,
+                                original: original,
+                                translated: translated,
+                                priority: priority,
+                                missed: missed,
+                                thumbnailUrl: thumbnailUrl,
+                                imageUrls: imageUrls,
+                                synonyms: synonyms,
+                                antonyms: antonyms,
+                                examples: examples)
         
         let _ = try await client.database
                 .from(wordsTable)
@@ -103,10 +126,22 @@ class WordbookRepo: WordbookRepoInterface {
     }
     
     @MainActor
-    func updateWord(wordId: UUID, userId: UUID, bookId: UUID, original: String, translated: String, priority: Int,
-                    missed: Int, synonyms: [String], antonyms: [String], examples: [String]) async throws {
+    func updateWord(wordId: UUID, userId: UUID, bookId: UUID, original: String, translated: String,
+                    priority: Int, missed: Int, thumbnailUrl: String, imageUrls: [String],
+                    synonyms: [String], antonyms: [String], examples: [String]) async throws {
         
-        let word = WordAPIModel(wordId: wordId, userId: userId, bookId: bookId, original: original, translated: translated, priority: priority, missed: missed, synonyms: synonyms, antonyms: antonyms, examples: examples)
+        let word = WordAPIModel(wordId: wordId,
+                                userId: userId,
+                                bookId: bookId,
+                                original: original,
+                                translated: translated,
+                                priority: priority,
+                                missed: missed,
+                                thumbnailUrl: thumbnailUrl,
+                                imageUrls: imageUrls,
+                                synonyms: synonyms,
+                                antonyms: antonyms,
+                                examples: examples)
         
         let _ = try await client.database
                 .from(wordsTable)
@@ -141,6 +176,8 @@ class WordbookRepo: WordbookRepoInterface {
                                       userId: wordbook.userId,
                                       name: wordbook.name,
                                       color: wordbook.color,
+                                      original: wordbook.original,
+                                      translated: wordbook.translated,
                                       words: words,
                                       modifiedDate: wordbook.modifiedDate))
         }

@@ -45,7 +45,7 @@ struct CardIntroductionView: View {
                 .background(Color(.label))
                 .cornerRadius(15)
                 
-                Text("This is beta feature.\nMany feature will be comming soon.")
+                Text("This is a beta feature.\nMany features will be comming soon.")
                     .font(.callout)
                     .foregroundColor(Color(.secondaryLabel))
                     .multilineTextAlignment(.center)
