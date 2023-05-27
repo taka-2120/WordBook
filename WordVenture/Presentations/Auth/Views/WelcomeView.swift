@@ -10,6 +10,11 @@ import SwiftUI
 struct WelcomeView: View {
     @State private var authPathes: [AuthMethod] = []
     
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue.withAlphaComponent(0.8)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+    }
+    
     var body: some View {
         NavigationStack(path: $authPathes) {
             VStack {
@@ -23,7 +28,7 @@ struct WelcomeView: View {
                 
                 HStack {
                     VStack(spacing: 0) {
-                        Text("Wordbook")
+                        Text("WordVenture")
                             .font(.largeTitle)
                             .bold()
                             .padding(12)
@@ -42,13 +47,34 @@ struct WelcomeView: View {
                         Image("BookStack")
                             .resizable()
                             .scaledToFit()
+                            .cornerRadius(30)
                         Text("Fooooo")
                     }
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(30)
                     .tag(0)
+                    
+                    VStack {
+                        Image("Brain")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(30)
+                        Text("Fooooo")
+                    }
+                    .padding()
+                    .tag(1)
+                    
+                    VStack {
+                        Image("CardStack")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(30)
+                        Text("Fooooo")
+                    }
+                    .padding()
+                    .tag(2)
                 }
+                .background(Color.white)
+                .cornerRadius(30)
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .background(Color.clear)
                 .padding()
@@ -58,7 +84,7 @@ struct WelcomeView: View {
                     Button {
                         authPathes = [.signUp]
                     } label: {
-                        Text("Sign Up")
+                        Text("signUp")
                             .foregroundColor(.white)
                             .font(.title3)
                             .bold()
@@ -72,7 +98,7 @@ struct WelcomeView: View {
                     Button {
                         authPathes = [.signIn]
                     } label: {
-                        Text("Sign In")
+                        Text("signIn")
                             .foregroundColor(Color(.label))
                             .font(.title3)
                             .bold()

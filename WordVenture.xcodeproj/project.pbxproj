@@ -88,6 +88,7 @@
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
+		9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF1F2A20822D00229844 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -182,6 +183,8 @@
 		9A24FDFB2A1744EA00C34508 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		9A24FDFD2A1F2D7200C34508 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
 		9A24FE012A1F8CA200C34508 /* RelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedImage.swift; sourceTree = "<group>"; };
+		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,7 @@
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
 				9A24FD442A171B6400C34508 /* Preview Content */,
+				9AD4FF1F2A20822D00229844 /* Localizable.strings */,
 			);
 			path = WordVenture;
 			sourceTree = "<group>";
@@ -392,11 +396,11 @@
 		9A24FD662A171B6400C34508 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9A24FD722A171B6400C34508 /* SettingsList */,
 				9A24FD672A171B6400C34508 /* ChangeUsername */,
 				9A24FD6A2A171B6400C34508 /* ChangePassword */,
 				9A24FD6D2A171B6400C34508 /* ChangeEmail */,
 				9A24FD702A171B6400C34508 /* PrivacyPolicy */,
-				9A24FD722A171B6400C34508 /* SettingsList */,
 				9A24FD772A171B6400C34508 /* Credits */,
 			);
 			path = Settings;
@@ -405,8 +409,8 @@
 		9A24FD672A171B6400C34508 /* ChangeUsername */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD682A171B6400C34508 /* ChangeUsernameController.swift */,
 				9A24FD692A171B6400C34508 /* ChangeUsernameView.swift */,
+				9A24FD682A171B6400C34508 /* ChangeUsernameController.swift */,
 			);
 			path = ChangeUsername;
 			sourceTree = "<group>";
@@ -414,8 +418,8 @@
 		9A24FD6A2A171B6400C34508 /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD6C2A171B6400C34508 /* ChangePasswordController.swift */,
 				9A24FD6B2A171B6400C34508 /* ChangePasswordView.swift */,
+				9A24FD6C2A171B6400C34508 /* ChangePasswordController.swift */,
 			);
 			path = ChangePassword;
 			sourceTree = "<group>";
@@ -686,6 +690,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 3B3EBE8B2524727400152662;
 			packageReferences = (
@@ -710,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A24FDAC2A171B6500C34508 /* Assets.xcassets in Resources */,
+				9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */,
 				9A24FDB52A171B6500C34508 /* Preview Assets.xcassets in Resources */,
 				9A24FDAB2A171B6500C34508 /* BookStack.gif in Resources */,
 			);
@@ -799,6 +805,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9AD4FF1F2A20822D00229844 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AD4FF1E2A20822D00229844 /* en */,
+				9AD4FF202A20823000229844 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3B3EBEA12524727500152662 /* Debug */ = {

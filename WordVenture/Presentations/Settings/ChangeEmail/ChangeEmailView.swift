@@ -14,26 +14,26 @@ struct ChangeEmailView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("Your current email is: ") +
-            Text(controller.email)
-                .bold()
-            
-            Text("Change Email")
+            Text("changeEmail")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("New Email", isEmail: true, text: $controller.newEmail)
+            Text("currentEmail") +
+            Text(controller.email)
+                .bold()
             
-            CustomField("Password", isSecured: true, text: $controller.password)
+            CustomField("newEmail", isEmail: true, text: $controller.newEmail)
+            
+            CustomField("password", isSecured: true, text: $controller.password)
             
             Spacer()
             
             Button {
                 controller.updateEmailConfirmation()
             } label: {
-                Text("Update")
+                Text("update")
                     .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
@@ -44,19 +44,19 @@ struct ChangeEmailView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Confirmation", isPresented: $controller.isEmailConfirmationPromptShown) {
+        .alert("confirmation", isPresented: $controller.isEmailConfirmationPromptShown) {
             Button(role: .destructive) {
                 controller.updateEmail(dismiss)
             } label: {
                 Text("OK")
             }
         } message: {
-            Text("A confirmation email will be sent to your old address. Please check out the email and confirm it to finally update your email.")
+            Text("emailConfirmation")
         }
-        .alert("Error", isPresented: $controller.isErrorShown) {
+        .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
-            Text(controller.errorType.rawValue)
+            Text(LocalizedStringKey(stringLiteral: controller.errorType.rawValue))
         }
         .loading($controller.isLoading)
     }

@@ -15,12 +15,12 @@ struct AddWordbookView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
-                CustomField("Title", text: $controller.title)
+                CustomField("title", text: $controller.title)
                 
                 Divider()
                     .padding(8)
                 
-                ColorPicker("Color", selection: $controller.color, supportsOpacity: false)
+                ColorPicker("color", selection: $controller.color, supportsOpacity: false)
                 
                 Divider()
                     .padding(8)
@@ -60,20 +60,20 @@ struct AddWordbookView: View {
             }
             .loading($controller.isLoading)
             .padding()
-            .navigationBarTitle(Text("New Wordbook"), displayMode: .inline)
+            .navigationBarTitle(Text("newWordbook"), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Cancel")
+                        Text("cancel")
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         controller.addWordbook(dismiss)
                     } label: {
-                        Text("Add")
+                        Text("add")
                             .bold()
                     }
                     .disabled(controller.title.isEmpty)

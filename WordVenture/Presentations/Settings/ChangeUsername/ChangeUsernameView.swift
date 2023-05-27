@@ -14,20 +14,20 @@ struct ChangeUsernameView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("Change Username")
+            Text("changeUsername")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("New Username", text: $controller.username)
+            CustomField("newUsername", text: $controller.username)
             
             Spacer()
             
             Button {
                 controller.updateUsername(dismiss)
             } label: {
-                Text("Update")
+                Text("update")
                     .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
@@ -38,10 +38,10 @@ struct ChangeUsernameView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Error", isPresented: $controller.isErrorShown) {
+        .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
-            Text(controller.errorType.rawValue)
+            Text(LocalizedStringKey(stringLiteral: controller.errorType.rawValue))
         }
         .loading($controller.isLoading)
     }

@@ -14,11 +14,11 @@ struct SignUpView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 15) {
-                Text("Nice to Meet You!")
+                Text("niceToMeetYou")
                     .font(.title)
                     .bold()
                 
-                Image("SignUp")
+                Image("signUp")
                     .resizable()
                     .scaledToFit()
                     .padding(.horizontal, 50)
@@ -28,7 +28,7 @@ struct SignUpView: View {
                         .font(.system(size: 18))
                         .frame(width: 30)
                     VStack(spacing: 0) {
-                        TextField("Username", text: $controller.username)
+                        TextField("username", text: $controller.username)
                             .padding(.vertical)
                             .controlSize(.large)
                             .textInputAutocapitalization(.never)
@@ -46,7 +46,7 @@ struct SignUpView: View {
                         .font(.system(size: 18))
                         .frame(width: 30)
                     VStack(spacing: 0) {
-                        TextField("Email", text: $controller.email)
+                        TextField("email", text: $controller.email)
                             .padding(.vertical)
                             .controlSize(.large)
                             .textInputAutocapitalization(.never)
@@ -64,7 +64,7 @@ struct SignUpView: View {
                         .font(.system(size: 18))
                         .frame(width: 30)
                     VStack(spacing: 0) {
-                        SecureField("Password", text: $controller.password)
+                        SecureField("password", text: $controller.password)
                             .padding(.vertical)
                             .keyboardType(.emailAddress)
                             .controlSize(.large)
@@ -80,7 +80,7 @@ struct SignUpView: View {
                 Button {
                     controller.signUp()
                 } label: {
-                    Text("Sign Up")
+                    Text("signUp")
                         .foregroundColor(.white)
                         .font(.title3)
                         .bold()

@@ -21,7 +21,7 @@ struct WordbooksView: View {
                             .symbolRenderingMode(.hierarchical)
                             .font(.system(size: 64))
                             .padding()
-                        Text("No Wordbooks")
+                        Text("noWordbooks")
                             .font(.title3)
                             .bold()
                     }
@@ -33,7 +33,7 @@ struct WordbooksView: View {
                     }
                 }
             }
-            .navigationTitle("Wordbooks")
+            .navigationTitle("wordbooks")
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: Wordbook.self) { wordbook in
                 WordsView(wordbook: wordbook)

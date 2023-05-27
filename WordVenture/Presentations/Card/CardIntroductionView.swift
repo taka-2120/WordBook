@@ -22,11 +22,11 @@ struct CardIntroductionView: View {
                 
                 Spacer()
                 
-                Text("Welcome to Study Card!")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .padding(10)
-                Text("The front of the card is the original word, and the back is translated word. You can tap to flip the card and easily memorize each word 🙌")
+//                Text("welcomeCard")
+//                    .font(.title3)
+//                    .fontWeight(.medium)
+//                    .padding(10)
+                Text("cardDescription")
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .multilineTextAlignment(.leading)
                     .padding([.bottom, .horizontal])
@@ -36,7 +36,7 @@ struct CardIntroductionView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Text("Let's Dive In!")
+                    Text("diveIn")
                         .foregroundColor(Color(.systemBackground))
                         .font(.title3)
                         .padding()
@@ -45,14 +45,14 @@ struct CardIntroductionView: View {
                 .background(Color(.label))
                 .cornerRadius(15)
                 
-                Text("This is a beta feature.\nMany features will be comming soon.")
+                Text("betaNotes")
                     .font(.callout)
                     .foregroundColor(Color(.secondaryLabel))
                     .multilineTextAlignment(.center)
                     .padding(8)
 
             }
-            .navigationTitle("Meet Study Card (Beta)")
+            .navigationTitle("meetCard")
         }
     }
 }

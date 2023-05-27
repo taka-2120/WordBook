@@ -26,7 +26,7 @@ struct WordsView: View {
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 64))
                         .padding()
-                    Text("No Words")
+                    Text("noWords")
                         .font(.title3)
                         .bold()
                 }
@@ -77,7 +77,7 @@ struct WordsView: View {
                         .scaleEffect(0.7)
                         .frame(width: 25, height: 25)
                     
-                    TextField("Wordbook Title", text: $controller.wordbookTitle)
+                    TextField("wordbookTitle", text: $controller.wordbookTitle)
                         .padding(8)
                         .background(isEditing ? Color(.secondarySystemBackground) : .clear)
                         .cornerRadius(10)
@@ -89,7 +89,7 @@ struct WordsView: View {
                             Button {
                                 isEditing = true
                             } label: {
-                                Label("Rename", systemImage: "pencil")
+                                Label("rename", systemImage: "pencil")
                             }
                         }
                     } label: {
@@ -107,7 +107,7 @@ struct WordsView: View {
                         controller.updateWordbook()
                         isEditing = false
                     } label: {
-                        Text("Done")
+                        Text("done")
                     }
                 } else {
                     Button {

@@ -18,22 +18,22 @@ struct ChangePasswordView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("Change Password")
+            Text("changePassword")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 10)
             
-            CustomField("Old Password", isSecured: true, text: $controller.password)
-            CustomField("New Password", isSecured: true, text: $controller.newPassword)
-            CustomField("Re-enter New Password", isSecured: true, text: $controller.reNewPassword)
+            CustomField("oldPassword", isSecured: true, text: $controller.password)
+            CustomField("newPassword", isSecured: true, text: $controller.newPassword)
+            CustomField("reNewPassword", isSecured: true, text: $controller.reNewPassword)
             
             Spacer()
             
             Button {
                 controller.updatePassword(dismiss)
             } label: {
-                Text("Update")
+                Text("update")
                     .foregroundColor(Color(.systemBackground))
                     .font(.title3)
                     .padding()
@@ -45,10 +45,10 @@ struct ChangePasswordView: View {
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Error", isPresented: $controller.isErrorShown) {
+        .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
-            Text(controller.errorType.rawValue)
+            Text(LocalizedStringKey(stringLiteral: controller.errorType.rawValue))
         }
         .loading($controller.isLoading)
     }

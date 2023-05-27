@@ -14,11 +14,11 @@ struct SignInView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 15) {
-                Text("Welcome Back!")
+                Text("welcomeBack")
                     .font(.title)
                     .bold()
                 
-                Image("SignIn")
+                Image("signIn")
                     .resizable()
                     .scaledToFit()
                     .padding(.horizontal, 50)
@@ -28,7 +28,7 @@ struct SignInView: View {
                         .font(.system(size: 18))
                         .frame(width: 30)
                     VStack(spacing: 0) {
-                        TextField("Email", text: $controller.email)
+                        TextField("email", text: $controller.email)
                             .padding(.vertical)
                             .controlSize(.large)
                             .textInputAutocapitalization(.never)
@@ -46,7 +46,7 @@ struct SignInView: View {
                         .font(.system(size: 18))
                         .frame(width: 30)
                     VStack(spacing: 0) {
-                        SecureField("Password", text: $controller.password)
+                        SecureField("password", text: $controller.password)
                             .padding(.vertical)
                         RoundedRectangle(cornerRadius: 10)
                             .fill(.gray)
@@ -58,7 +58,7 @@ struct SignInView: View {
                 Button {
                     controller.signIn()
                 } label: {
-                    Text("Sign In")
+                    Text("signIn")
                         .foregroundColor(.white)
                         .font(.title3)
                         .bold()

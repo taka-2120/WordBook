@@ -20,12 +20,12 @@ struct AddWordView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 15) {
-                    CustomField("Original", text: $controller.originalWord)
-                    Text("In your studying language")
+                    CustomField("original", text: $controller.originalWord)
+                    Text("wordNotes")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                         .font(.callout)
                         .foregroundColor(Color(.secondaryLabel))
-                    CustomField("Translated", text: $controller.translatedWord)
+                    CustomField("translated", text: $controller.translatedWord)
                     
                     Divider()
                         .padding(.vertical, 5)
@@ -36,7 +36,7 @@ struct AddWordView: View {
                                 controller.generateImages()
                             } label: {
                                 HStack {
-                                    Text("Generate Image")
+                                    Text("generateImage")
                                         .padding(.vertical)
                                 }
                                 .frame(maxWidth: 180)
@@ -47,14 +47,14 @@ struct AddWordView: View {
                             .foregroundColor(.white)
                             .disabled(controller.originalWord == "")
                             
-                            Text("Unsplash will generate matched images here")
+                            Text("imageNotes")
                                 .font(.callout)
                                 .foregroundColor(Color(.secondaryLabel))
                                 .padding(.bottom)
                         } else {
                             HStack(alignment: .top) {
                                 VStack(alignment: .leading) {
-                                    Text("Related Image")
+                                    Text("relatedImage")
                                         .font(.headline)
 //                                    Text("Tap to set a thumbnail image")
 //                                        .font(.caption)
@@ -88,7 +88,7 @@ struct AddWordView: View {
                                 controller.generateAll()
                             } label: {
                                 HStack {
-                                    Text("Generate Text")
+                                    Text("generateText")
                                         .padding(.vertical)
                                     LoadingIndicator(animation: .circleBars, color: .white, size: .small)
                                         .scaleEffect(0.8)
@@ -102,7 +102,7 @@ struct AddWordView: View {
                             .foregroundColor(.white)
                             .disabled(controller.originalWord == "" || controller.isGenerating)
                             
-                            Text("Open AI will fill following these fields")
+                            Text("textNotes")
                                 .font(.callout)
                                 .foregroundColor(Color(.secondaryLabel))
                                 .padding(.bottom)
@@ -119,11 +119,11 @@ struct AddWordView: View {
                         }
                     }
                     
-                    SmallFieldItem("Synonyms", array: $controller.synonyms)
+                    SmallFieldItem("synonyms", array: $controller.synonyms)
                     
-                    SmallFieldItem("Antonyms", array: $controller.antonyms)
+                    SmallFieldItem("antonyms", array: $controller.antonyms)
                     
-                    FieldItem("Examples", array: $controller.examples)
+                    FieldItem("examples", array: $controller.examples)
                 }
                 .padding()
             }
@@ -131,20 +131,20 @@ struct AddWordView: View {
             .animation(.spring(), value: controller.synonyms)
             .animation(.spring(), value: controller.antonyms)
             .animation(.spring(), value: controller.examples)
-            .navigationBarTitle("New Word", displayMode: .inline)
+            .navigationBarTitle("newWord", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Cancel")
+                        Text("cancel")
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         controller.addWord(dismiss)
                     } label: {
-                        Text("Save")
+                        Text("save")
                             .bold()
                     }
                     .disabled(controller.originalWord.isEmpty || controller.translatedWord.isEmpty)

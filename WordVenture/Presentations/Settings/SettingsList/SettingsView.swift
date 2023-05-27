@@ -15,28 +15,28 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack(path: $settingsPathes) {
             List {
-                Section("Account") {
-                    SettingsItem(kinds: .link, leftLabel: "Change Username", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername, pathes: $settingsPathes)
-                    SettingsItem(kinds: .link, leftLabel: "Change Email", leftIconName: "at", destination: .changeEmail, pathes: $settingsPathes)
-                    SettingsItem(kinds: .link, leftLabel: "Change Password", leftIconName: "key", destination: .changePassword, pathes: $settingsPathes)
+                Section("account") {
+                    SettingsItem(kinds: .link, leftLabel: "changeUsername", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "changeEmail", leftIconName: "at", destination: .changeEmail, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "changePassword", leftIconName: "key", destination: .changePassword, pathes: $settingsPathes)
                 }
 
-                Section("Info") {
-                    SettingsItem(kinds: .normal, leftLabel: "Version", leftIconName: "info", rightLabel: "1.0.0 Beta 1", pathes: $settingsPathes)
+                Section("info") {
+                    SettingsItem(kinds: .normal, leftLabel: "version", leftIconName: "info", rightLabel: "1.0.0 Beta 1", pathes: $settingsPathes)
                         .onTapGesture(count: 7) {
                             UserDefaults.standard.set(false, forKey: isCardModeOpenedKey)
                         }
-                    SettingsItem(kinds: .link, leftLabel: "Privacy Policy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
-                    SettingsItem(kinds: .link, leftLabel: "Credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "privacyPolicy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
                 }
                 
-                Section("Denger Zone") {
+                Section("dengerZone") {
                     Button {
                         controller.isSignOutPromptShown.toggle()
                     } label: {
                         HStack {
                             Image(systemName: "door.left.hand.open")
-                            Text("Sign Out")
+                            Text("signOut")
                         }
                         .foregroundColor(.orange)
                     }
@@ -47,11 +47,11 @@ struct SettingsView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
                                 Image(systemName: "trash")
-                                Text("Delete Account")
+                                Text("deleteAccount")
                             }
                             .foregroundColor(.gray)
                             
-                            Text("Account deletion is currently disabled. This will be enabled in future update.")
+                            Text("deleteNotes")
                                 .font(.caption)
                                 .foregroundColor(Color(.secondaryLabel))
                         }
@@ -71,7 +71,7 @@ struct SettingsView: View {
                 .background(Color(.systemGroupedBackground))
             }
             .environmentObject(controller)
-            .navigationBarTitle("Settings")
+            .navigationBarTitle("settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -96,14 +96,14 @@ struct SettingsView: View {
                     controller.fetchInformation()
                 }
             }
-            .alert("Do you really want to sign out?", isPresented: $controller.isSignOutPromptShown) {
+            .alert("signOutConfirmationTitle", isPresented: $controller.isSignOutPromptShown) {
                 Button(role: .destructive) {
                     controller.signOut()
                 } label: {
                     Text("OK")
                 }
             } message: {
-                Text("Your data will be kept on the database.")
+                Text("signOutConfirmationMessage")
             }
             .loading($controller.isLoading)
         }
