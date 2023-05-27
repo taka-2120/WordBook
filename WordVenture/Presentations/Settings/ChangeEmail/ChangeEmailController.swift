@@ -17,26 +17,22 @@ class ChangeEmailController: ObservableObject {
     
     @Published var isErrorShown = false
     @Published var isEmailConfirmationPromptShown = false
-    @Published var errorType: ErrorMessage = .empty
+    @Published var errorMessage = ""
     
     init() {
         self.email = authService.getEmail()
     }
     
     func updateEmailConfirmation() {
-        if newEmail.isEmpty || password.isEmpty {
-            errorType = .empty
+        do {
+            try validation()
+            
+            isEmailConfirmationPromptShown = true
+        } catch {
+            errorMessage = error.localizedDescription
             isErrorShown = true
-            return
+            print(error)
         }
-        
-        if !newEmail.isVailed(type: .emailRegex) {
-            errorType = .invaildEmailFormat
-            isErrorShown.toggle()
-            return
-        }
-        
-        isEmailConfirmationPromptShown = true
     }
     
     func updateEmail(_ dismiss: DismissAction) {
@@ -51,8 +47,20 @@ class ChangeEmailController: ObservableObject {
                 try await authService.updateEmail(newEmail: newEmail)
                 dismiss()
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
+        }
+    }
+    
+    private func validation() throws {
+        if newEmail.isEmpty || password.isEmpty {
+            throw CustomError.empty
+        }
+        
+        if !newEmail.isVailed(type: .emailRegex) {
+            throw CustomError.invaildEmailFormat
         }
     }
 }

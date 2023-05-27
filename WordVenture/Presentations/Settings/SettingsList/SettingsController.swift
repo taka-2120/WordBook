@@ -18,7 +18,6 @@ class SettingsController: ObservableObject {
     @Published var isLoading = false
     @Published var isErrorShown = false
     @Published var isEmailConfirmationPromptShown = false
-    @Published var errorType: ErrorMessage = .empty
     
     init() {
         fetchInformation()

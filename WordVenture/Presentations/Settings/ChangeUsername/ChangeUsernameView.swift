@@ -41,7 +41,7 @@ struct ChangeUsernameView: View {
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
-            Text(LocalizedStringKey(stringLiteral: controller.errorType.rawValue))
+            Text(controller.errorMessage)
         }
         .loading($controller.isLoading)
     }

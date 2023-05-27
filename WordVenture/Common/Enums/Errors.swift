@@ -5,17 +5,28 @@
 //  Created by Yu Takahashi on 5/2/23.
 //
 
-import Foundation
+import SwiftUI
 
-enum ErrorMessage: String {
-    case empty = "emptyError"
-    case longUsername = "longUsername"
-    case invaildEmailFormat = "invaildEmailFormat"
-    case weakPassword = "weakPassword"
-    case newPasswordNotMatched = "newPasswordNotMatched"
-    case unexpectedError = "unexpectedError"
+enum CustomError: Error {
+    case empty
+    case longUsername
+    case invaildEmailFormat
+    case weakPassword
+    case newPasswordNotMatched
+    case unexpectedError
+    case unhandled(msg: String)
 }
 
-enum UnhandledError: Error {
-    case message(msg: String)
+extension CustomError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .empty: return String(localized: .init("emptyError"))
+        case .longUsername: return String(localized: .init("longUsername"))
+        case .invaildEmailFormat: return String(localized: .init("invaildEmailFormat"))
+        case .weakPassword: return String(localized: .init("weakPassword"))
+        case .newPasswordNotMatched: return String(localized: .init("newPasswordNotMatched"))
+        case .unexpectedError: return String(localized: .init("unexpectedError"))
+        case .unhandled: return "UNHANDLED"
+        }
+    }
 }

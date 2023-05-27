@@ -18,31 +18,13 @@ class ChangePasswordController: ObservableObject {
     
     @Published var isErrorShown = false
     @Published var isEmailConfirmationPromptShown = false
-    @Published var errorType: ErrorMessage = .empty
+    @Published var errorMessage = ""
     
     init() {
         self.email = authService.getEmail()
     }
     
     func updatePassword(_ dismiss: DismissAction) {
-        if password.isEmpty || newPassword.isEmpty || reNewPassword.isEmpty {
-            errorType = .empty
-            isErrorShown.toggle()
-            return
-        }
-        
-        if newPassword != reNewPassword {
-            errorType = .newPasswordNotMatched
-            isErrorShown.toggle()
-            return
-        }
-        
-        if !newPassword.isVailed(type: .passwordRegex) {
-            errorType = .weakPassword
-            isErrorShown.toggle()
-            return
-        }
-        
         Task{ @MainActor in
             isLoading = true
             defer {
@@ -50,14 +32,31 @@ class ChangePasswordController: ObservableObject {
             }
             
             do {
+                try validation()
+                
                 try await authService.signIn(email: email, password: password)
-                if newPassword == reNewPassword {
-                    try await authService.updatePassword(newPassword: newPassword)
-                    dismiss()
-                }
+                
+                try await authService.updatePassword(newPassword: newPassword)
+                dismiss()
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
+        }
+    }
+    
+    private func validation() throws {
+        if password.isEmpty || newPassword.isEmpty || reNewPassword.isEmpty {
+            throw CustomError.empty
+        }
+        
+        if newPassword != reNewPassword {
+            throw CustomError.newPasswordNotMatched
+        }
+        
+        if !newPassword.isVailed(type: .passwordRegex) {
+            throw CustomError.weakPassword
         }
     }
 }
