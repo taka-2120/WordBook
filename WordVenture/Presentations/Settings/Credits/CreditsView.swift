@@ -12,7 +12,7 @@ import SwiftUI
 struct CreditsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Text("Credits")
+            Text("credits")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

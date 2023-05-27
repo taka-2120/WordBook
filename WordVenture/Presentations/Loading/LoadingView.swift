@@ -20,6 +20,11 @@ struct LoadingView: View {
                 await controller.load()
             }
         }
+        .alert("error", isPresented: $controller.isErrorShown) {
+            Text("OK")
+        } message: {
+            Text(controller.errorMessage)
+        }
     }
 }
 

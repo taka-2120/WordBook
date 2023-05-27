@@ -14,6 +14,9 @@ class LoadingController: ObservableObject {
     
     let launchAnimationPath = Bundle.main.path(forResource: "BookStack", ofType: "gif")!
     
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
+    
     @MainActor
     func load() async {
         do {
@@ -21,6 +24,8 @@ class LoadingController: ObservableObject {
             try await wordbookService.fetchWordbook()
             screenController.state = .main
         } catch {
+            errorMessage = error.localizedDescription
+            isErrorShown = true
             print(error)
             screenController.state = .auth
         }

@@ -479,8 +479,8 @@
 		9A24FD7A2A171B6400C34508 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD7B2A171B6400C34508 /* AddWordController.swift */,
 				9A24FD7C2A171B6400C34508 /* WordsController.swift */,
+				9A24FD7B2A171B6400C34508 /* AddWordController.swift */,
 				9A24FD7D2A171B6400C34508 /* DetailsWordController.swift */,
 			);
 			path = Controllers;

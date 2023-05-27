@@ -10,7 +10,7 @@ import SwiftUI
 struct PrivacyPolicyView: View {
     var body: some View {
         VStack(spacing: 15) {
-            Text("Privacy Policy")
+            Text("privacyPolicy")
                 .font(.title)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

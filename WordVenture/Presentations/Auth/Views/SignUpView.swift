@@ -93,6 +93,11 @@ struct SignUpView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .alert("error", isPresented: $controller.isErrorShown) {
+            Text("OK")
+        } message: {
+            Text(controller.errorMessage)
+        }
         .loading($controller.isLoading)
     }
 }

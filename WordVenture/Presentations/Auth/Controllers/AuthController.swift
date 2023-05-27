@@ -17,6 +17,9 @@ class AuthController: ObservableObject {
     @Published var password = ""
     @Published var isLoading = false
     
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
+    
     func signIn() {
         Task { @MainActor in
             isLoading = true
@@ -28,6 +31,8 @@ class AuthController: ObservableObject {
                 try await authService.signIn(email: email, password: password)
                 screenController.state = .main
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }
@@ -44,9 +49,10 @@ class AuthController: ObservableObject {
                 try await authService.signUp(username: username, email: email, password: password)
                 screenController.state = .main
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
-            
         }
     }
 }
