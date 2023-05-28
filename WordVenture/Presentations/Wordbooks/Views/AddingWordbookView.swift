@@ -22,39 +22,39 @@ struct AddWordbookView: View {
                 
                 ColorPicker("color", selection: $controller.color, supportsOpacity: false)
                 
-                Divider()
-                    .padding(8)
-                
-                Text("Language")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                
-                HStack {
-                    Picker("", selection: $controller.originalLanguage) {
-                        ForEach(controller.languages, id: \.self) { language in
-                            Text(controller.getLanguageName(for: language))
-                                .tag(language)
-                        }
-                    }
-                    .pickerStyle(.automatic)
-                    .padding(4)
-                    .background(.regularMaterial)
-                    .cornerRadius(15)
-                    
-                    Image(systemName: "arrow.right")
-                        .font(.title2)
-                    
-                    Picker("", selection: $controller.translatedLanguage) {
-                        ForEach(controller.languages, id: \.self) { language in
-                            Text(controller.getLanguageName(for: language))
-                                .tag(language)
-                        }
-                    }
-                    .pickerStyle(.automatic)
-                    .padding(4)
-                    .background(.regularMaterial)
-                    .cornerRadius(15)
-                }
+//                Divider()
+//                    .padding(8)
+//
+//                Text("Language")
+//                    .font(.title3)
+//                    .fontWeight(.bold)
+//                
+//                HStack {
+//                    Picker("", selection: $controller.originalLanguage) {
+//                        ForEach(controller.languages, id: \.self) { language in
+//                            Text(controller.getLanguageName(for: language))
+//                                .tag(language)
+//                        }
+//                    }
+//                    .pickerStyle(.automatic)
+//                    .padding(4)
+//                    .background(.regularMaterial)
+//                    .cornerRadius(15)
+//                    
+//                    Image(systemName: "arrow.right")
+//                        .font(.title2)
+//                    
+//                    Picker("", selection: $controller.translatedLanguage) {
+//                        ForEach(controller.languages, id: \.self) { language in
+//                            Text(controller.getLanguageName(for: language))
+//                                .tag(language)
+//                        }
+//                    }
+//                    .pickerStyle(.automatic)
+//                    .padding(4)
+//                    .background(.regularMaterial)
+//                    .cornerRadius(15)
+//                }
                 
                 Spacer()
             }

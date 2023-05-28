@@ -37,12 +37,12 @@ struct WordItem: View {
                 .background(Color(.quaternarySystemFill))
                 .cornerRadius(15)
             }
-        } leadingActions: { context in
-            SwipeAction(systemImage: "pin") {
+//        } leadingActions: { context in
+//            SwipeAction(systemImage: "pin") {
 //                controller.pinWordbook()
-            }
-            .background(.orange)
-            .foregroundColor(.white)
+//            }
+//            .background(.orange)
+//            .foregroundColor(.white)
         } trailingActions: { context in
             SwipeAction(systemImage: "square.and.pencil") {
                 controller.selectWord(for: word)

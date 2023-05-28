@@ -50,23 +50,25 @@ struct WordsView: View {
                     }
             }
             
-            VStack(alignment: .trailing) {
-                Spacer()
-                
-                NavigationLink {
-                    CardMode()
-                        .environmentObject(controller)
-                } label: {
-                    Image(systemName: "play.fill")
-                        .padding()
+            if !controller.wordbook.words.isEmpty {
+                VStack(alignment: .trailing) {
+                    Spacer()
+                    
+                    NavigationLink {
+                        CardMode()
+                            .environmentObject(controller)
+                    } label: {
+                        Image(systemName: "play.fill")
+                            .padding()
+                    }
+                    .id(UUID())
+                    .background(.thickMaterial)
+                    .cornerRadius(100)
+                    .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
                 }
-                .id(UUID())
-                .background(.thickMaterial)
-                .cornerRadius(100)
-                .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                .padding()
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-            .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.browser)
