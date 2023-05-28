@@ -12,10 +12,6 @@ struct ChangePasswordView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var controller = ChangePasswordController()
     
-    @State private var oldPassword = ""
-    @State private var newPassword = ""
-    @State private var reNewassword = ""
-    
     var body: some View {
         VStack(spacing: 15) {
             Text("changePassword")

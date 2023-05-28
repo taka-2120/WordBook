@@ -63,4 +63,15 @@ class UserDataRepo: UserDataRepoInterface {
                     .eq(column: "userId", value: userId)
                     .execute()
     }
+    
+    @MainActor
+    func deleteUserAccount() async throws {
+        let _ = try await client.database
+                    .rpc(fn: "delete_user")
+                    .execute()
+    }
+    
+    func resetUserData() {
+        userData = UserData(userId: UUID(), username: "")
+    }
 }

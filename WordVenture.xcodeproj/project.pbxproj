@@ -89,6 +89,8 @@
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
 		9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF1F2A20822D00229844 /* Localizable.strings */; };
+		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
+		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -185,6 +187,8 @@
 		9A24FE012A1F8CA200C34508 /* RelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedImage.swift; sourceTree = "<group>"; };
 		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,8 +284,8 @@
 		9A24FD412A171B6400C34508 /* UserDataRepo */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD422A171B6400C34508 /* UserDataRepoInterface.swift */,
 				9A24FD432A171B6400C34508 /* UserDataRepo.swift */,
+				9A24FD422A171B6400C34508 /* UserDataRepoInterface.swift */,
 			);
 			path = UserDataRepo;
 			sourceTree = "<group>";
@@ -398,10 +402,11 @@
 			children = (
 				9A24FD722A171B6400C34508 /* SettingsList */,
 				9A24FD672A171B6400C34508 /* ChangeUsername */,
-				9A24FD6A2A171B6400C34508 /* ChangePassword */,
 				9A24FD6D2A171B6400C34508 /* ChangeEmail */,
+				9A24FD6A2A171B6400C34508 /* ChangePassword */,
 				9A24FD702A171B6400C34508 /* PrivacyPolicy */,
 				9A24FD772A171B6400C34508 /* Credits */,
+				9AD4FF222A22F2F500229844 /* DeleteAccount */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -640,6 +645,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9AD4FF222A22F2F500229844 /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				9AD4FF232A22F30600229844 /* DeleteAccountView.swift */,
+				9AD4FF252A22F31100229844 /* DeleteAccountController.swift */,
+			);
+			path = DeleteAccount;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -741,6 +755,7 @@
 				9A24FDF42A171B6500C34508 /* WordEntity.swift in Sources */,
 				9A24FDC42A171B6500C34508 /* View+Hidden.swift in Sources */,
 				9A24FDB22A171B6500C34508 /* ChatGPTAPI.swift in Sources */,
+				9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */,
 				9A24FDED2A171B6500C34508 /* CustomField.swift in Sources */,
 				9A24FDCB2A171B6500C34508 /* PriorityColor.swift in Sources */,
 				9A24FDF12A171B6500C34508 /* AuthService.swift in Sources */,
@@ -793,6 +808,7 @@
 				9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */,
 				9A24FDC62A171B6500C34508 /* NotificationCenter.swift in Sources */,
 				9A24FDC12A171B6500C34508 /* AuthMethod.swift in Sources */,
+				9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */,
 				9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */,
 				9A24FDEA2A171B6500C34508 /* WelcomeView.swift in Sources */,
 				9A24FDE62A171B6500C34508 /* CardMode.swift in Sources */,

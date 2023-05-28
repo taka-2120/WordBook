@@ -1,45 +1,36 @@
 //
-//  SettingsController.swift
-//  WordBook
+//  DeleteAccountController.swift
+//  WordVenture
 //
-//  Created by Yu Takahashi on 4/25/23.
+//  Created by Yu Takahashi on 5/28/23.
 //
 
 import SwiftUI
 
-class SettingsController: ObservableObject {
-    
+class DeleteAccountController: ObservableObject {
     private var screenController = ScreenController.shared
     private let authService = AuthService()
     
-    @Published var username = ""
     @Published var email = ""
+    @Published var password = ""
     
     @Published var isLoading = false
-    @Published var isSignOutPromptShown = false
     
     @Published var isErrorShown = false
+    @Published var isDeleteWarningShown = false
+    @Published var isDeleteFinalConfirmationShown = false
     @Published var errorMessage = ""
     
-    init() {
-        fetchInformation()
-    }
-    
-    func fetchInformation() {
-        self.username = authService.getUsername()
-        self.email = authService.getEmail()
-    }
-    
-    func signOut() {
-        Task{ @MainActor in
+    func confirmAccount() {
+        Task { @MainActor in
             isLoading = true
             defer {
                 isLoading = false
             }
             
             do {
-                try await authService.signOut()
-                screenController.state = .auth
+                try await authService.signIn(email: email, password: password)
+                isDeleteWarningShown = true
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true
@@ -48,7 +39,7 @@ class SettingsController: ObservableObject {
         }
     }
     
-    func deleteAccount() {
+    func deleteAccount(_ dismiss: DismissAction) {
         Task { @MainActor in
             isLoading = true
             defer {
@@ -57,6 +48,7 @@ class SettingsController: ObservableObject {
             
             do {
                 try await authService.deleteAccount()
+                dismiss()
                 screenController.state = .auth
             } catch {
                 errorMessage = error.localizedDescription

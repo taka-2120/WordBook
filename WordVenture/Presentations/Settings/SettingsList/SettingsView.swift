@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     @Environment(\.dismiss) private var dismiss
     @StateObject private var controller = SettingsController()
     @State private var settingsPathes: [SettingsNavStack] = []
@@ -41,22 +42,13 @@ struct SettingsView: View {
                         .foregroundColor(.orange)
                     }
                     
-                    Button {
-                        
-                    } label: {
-                        VStack(alignment: .leading, spacing: 10) {
-                            HStack {
-                                Image(systemName: "trash")
-                                Text("deleteAccount")
-                            }
-                            .foregroundColor(.gray)
-                            
-                            Text("deleteNotes")
-                                .font(.caption)
-                                .foregroundColor(Color(.secondaryLabel))
+                    NavigationLink(destination: { DeleteAccountView() }) {
+                        HStack {
+                            Image(systemName: "trash")
+                            Text("deleteAccount")
                         }
+                        .foregroundColor(.red)
                     }
-                    .disabled(true)
                 }
                 
                 Link(destination: URL(string: "https://www.buymeacoffee.com/yutakahashi")!) {
@@ -88,7 +80,7 @@ struct SettingsView: View {
                 case .changePassword: ChangePasswordView()
                 case .privacyPolicy: PrivacyPolicyView()
                 case .credits: CreditsView()
-                case .deleteAccount: EmptyView()
+                case .deleteAccount: DeleteAccountView()
                 }
             }
             .onChange(of: settingsPathes) { newValue in
@@ -100,10 +92,20 @@ struct SettingsView: View {
                 Button(role: .destructive) {
                     controller.signOut()
                 } label: {
-                    Text("OK")
+                    Text("yes")
+                }
+                Button(role: .cancel) {
+                    controller.isSignOutPromptShown = false
+                } label: {
+                    Text("no")
                 }
             } message: {
                 Text("signOutConfirmationMessage")
+            }
+            .alert("error", isPresented: $controller.isErrorShown) {
+                Text("OK")
+            } message: {
+                Text(controller.errorMessage)
             }
             .loading($controller.isLoading)
         }

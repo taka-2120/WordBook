@@ -44,6 +44,13 @@
 // Sign Out
 "signOutConfirmationTitle" = "本当にサインアウトしますか?";
 "signOutConfirmationMessage" = "サインアウトしても、あなたのデータはデータベースに保管されます。";
+// Delete Account
+"deleteAccountDescription" = "アカウントを削除するためにアカウント情報を入力してください。\n一度アカウントを削除すると全てのデータがデータベースから完全に削除されます。ご注意ください。";
+"delete" = "削除";
+"deleteWarningTitle" = "注意";
+"deleteWarningMessage" = "本当にアカウントを削除しますか？データは完全に削除されます。";
+"deleteFinalConfirmationTitle" = "最終確認";
+"deleteFinalConfirmationMessage" = "アカウント削除後は初期画面に戻ります。削除を続けますか？";
 
 
 // Wordbook
@@ -94,6 +101,8 @@
 "cancel" = "キャンセル";
 "error" = "エラー";
 "confirmation" = "確認";
+"yes" = "はい";
+"no" = "いいえ";
 
 
 // Errors

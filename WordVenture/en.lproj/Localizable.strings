@@ -44,6 +44,13 @@
 // Sign Out
 "signOutConfirmationTitle" = "Do you really want to sign out?";
 "signOutConfirmationMessage" = "Your data will be kept on the database.";
+// Delete Account
+"deleteAccountDescription" = "To delete your account, you need to enter your account information.\nPlease aware that your all data will be parmanently deleted from our database if you delete your account.";
+"delete" = "Delete";
+"deleteWarningTitle" = "Warning";
+"deleteWarningMessage" = "Do you really want to delete your account? Your data will be deleted parmanently.";
+"deleteFinalConfirmationTitle" = "Final Confirmation";
+"deleteFinalConfirmationMessage" = "After deleting your account, this screen will be changed to welcome page.\nDo you continue?";
 
 
 // Wordbook
@@ -94,6 +101,8 @@
 "cancel" = "Cancel";
 "error" = "Error";
 "confirmation" = "Confirmation";
+"yes" = "Yes";
+"no" = "No";
 
 
 // Errors

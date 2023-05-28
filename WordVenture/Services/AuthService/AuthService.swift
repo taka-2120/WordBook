@@ -18,7 +18,6 @@ class AuthService: AuthServiceInterface {
     func signUp(username: String, email: String, password: String) async throws {
         let user = try await authRepo.signUp(email: email, password: password)
         try await userDataRepo.insertUserData(userId: user.id, username: username)
-        print("Success Sign Up")
         print(userDataRepo.userData)
     }
     
@@ -26,7 +25,6 @@ class AuthService: AuthServiceInterface {
     func signIn(email: String, password: String) async throws {
         let user = try await authRepo.signIn(email: email, password: password)
         try await userDataRepo.fetchUserData(userId: user.id)
-        print("Success Sign In")
         print(userDataRepo.userData)
         try await wordbookRepo.fetchWordbook(userId: user.id)
         print(wordbookRepo.wordbooks)
@@ -35,6 +33,17 @@ class AuthService: AuthServiceInterface {
     @MainActor
     func signOut() async throws {
         try await authRepo.signOut()
+        authRepo.resetSession()
+        userDataRepo.resetUserData()
+        wordbookRepo.resetWordbooks()
+    }
+    
+    @MainActor
+    func deleteAccount() async throws {
+        try await userDataRepo.deleteUserAccount()
+        authRepo.resetSession()
+        userDataRepo.resetUserData()
+        wordbookRepo.resetWordbooks()
     }
     
     @MainActor

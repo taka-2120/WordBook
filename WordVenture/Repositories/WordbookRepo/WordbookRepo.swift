@@ -187,11 +187,8 @@ class WordbookRepo: WordbookRepoInterface {
         return wordbooks
     }
     
-    
-    func test() {
-        for i in 1...10 {
-            print("No.\(i)")
-        }
+    func resetWordbooks() {
+        wordbooks = []
     }
     
 }

@@ -63,4 +63,8 @@ class SupabaseAuthRepo: SupabaseAuthRepoInterface {
     func sendResetPasswordEmail(to email: String) async throws {
         try await client.auth.resetPasswordForEmail(email)
     }
+    
+    func resetSession() {
+        session = nil
+    }
 }
