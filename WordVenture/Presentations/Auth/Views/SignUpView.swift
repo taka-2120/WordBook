@@ -18,7 +18,7 @@ struct SignUpView: View {
                     .font(.title)
                     .bold()
                 
-                Image("signUp")
+                Image("SignUp")
                     .resizable()
                     .scaledToFit()
                     .padding(.horizontal, 50)
@@ -66,7 +66,6 @@ struct SignUpView: View {
                     VStack(spacing: 0) {
                         SecureField("password", text: $controller.password)
                             .padding(.vertical)
-                            .keyboardType(.emailAddress)
                             .controlSize(.large)
                         RoundedRectangle(cornerRadius: 10)
                             .fill(.gray)

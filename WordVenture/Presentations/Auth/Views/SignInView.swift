@@ -18,7 +18,7 @@ struct SignInView: View {
                     .font(.title)
                     .bold()
                 
-                Image("signIn")
+                Image("SignIn")
                     .resizable()
                     .scaledToFit()
                     .padding(.horizontal, 50)
@@ -54,6 +54,8 @@ struct SignInView: View {
                     }
                 }
                 .padding(.horizontal)
+                
+                Spacer()
                 
                 Button {
                     controller.signIn()
