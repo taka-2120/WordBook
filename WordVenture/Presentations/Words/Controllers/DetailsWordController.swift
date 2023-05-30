@@ -17,8 +17,12 @@ class DetailsWordController: ObservableObject {
     @Published var synonyms = [String]()
     @Published var antonyms = [String]()
     @Published var examples = [String]()
+    @Published var isLoading = false
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
+    
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
     
     init(wordbook: Wordbook, word: Word) {
         self.wordbook = wordbook
@@ -40,6 +44,8 @@ class DetailsWordController: ObservableObject {
                                            synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
                 dismiss()
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }
@@ -50,6 +56,8 @@ class DetailsWordController: ObservableObject {
             do {
                 imageUrls = try await fetchUnsplashPhotos(for: originalWord)
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }
@@ -63,6 +71,8 @@ class DetailsWordController: ObservableObject {
                 antonyms = try await fetchGPTResult(for: originalWord, mode: .antonyms) ?? []
                 examples = try await fetchGPTResult(for: originalWord, mode: .examples) ?? []
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
             isGenerating = false

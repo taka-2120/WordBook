@@ -127,6 +127,11 @@ struct WordsView: View {
             DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
         }
         .environmentObject(controller)
+        .alert("error", isPresented: $controller.isErrorShown) {
+            Text("OK")
+        } message: {
+            Text(controller.errorMessage)
+        }
     }
 }
 

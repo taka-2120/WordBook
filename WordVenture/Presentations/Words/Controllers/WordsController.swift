@@ -36,6 +36,9 @@ class WordsController: ObservableObject {
         }
     }
     
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
+    
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
         self.wordbookIndex = wordbookService.getWordbooks().firstIndex(where: { $0.bookId == wordbook.bookId})

@@ -10,14 +10,17 @@ import SwiftUI
 class AddWordbookController: ObservableObject {
     private let wordbookService = WordbookService()
     
-    @Published var title = ""
-    @Published var color = Color.blue
-    @Published var isLoading = false
-    
     let languages = NSLocale.isoLanguageCodes.sorted()
     let currentLanguage = NSLocale.current.language.languageCode?.identifier ?? "en"
     @Published var originalLanguage = ""
     @Published var translatedLanguage = "en"
+    
+    @Published var title = ""
+    @Published var color = Color.blue
+    @Published var isLoading = false
+    
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
     
     init() {
         originalLanguage = currentLanguage
@@ -34,6 +37,8 @@ class AddWordbookController: ObservableObject {
                 try await wordbookService.addWordbook(name: title, color: color.toHex(), original: originalLanguage, translated: translatedLanguage)
                 dismiss()
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }

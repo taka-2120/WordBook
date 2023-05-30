@@ -30,7 +30,7 @@
 "signOut" = "サインアウト";
 "deleteAccount" = "アカウント削除";
 "deleteNotes" = "アカウント削除は現在無効化されています。以降のアップデートで有効化予定です。";
-"update" = "アップデート";
+"update" = "更新";
 // Username
 "newUsername" = "新しいユーザー名";
 // Email

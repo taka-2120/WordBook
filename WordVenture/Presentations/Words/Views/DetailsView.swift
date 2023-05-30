@@ -127,6 +127,9 @@ struct DetailsView: View {
                 }
                 .padding()
             }
+            .animation(.spring(), value: controller.synonyms)
+            .animation(.spring(), value: controller.antonyms)
+            .animation(.spring(), value: controller.examples)
             .navigationBarTitle(Text(controller.word.original), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -146,6 +149,12 @@ struct DetailsView: View {
                     }
                 }
             }
+            .alert("error", isPresented: $controller.isErrorShown) {
+                Text("OK")
+            } message: {
+                Text(controller.errorMessage)
+            }
+            .loading($controller.isLoading)
         }
     }
 }

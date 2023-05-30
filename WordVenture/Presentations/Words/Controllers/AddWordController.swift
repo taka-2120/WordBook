@@ -20,6 +20,9 @@ class AddWordController: ObservableObject {
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
     
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
+    
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
     }
@@ -37,6 +40,8 @@ class AddWordController: ObservableObject {
                                                   synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
                 dismiss()
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }
@@ -47,6 +52,8 @@ class AddWordController: ObservableObject {
             do {
                 imageUrls = try await fetchUnsplashPhotos(for: originalWord)
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }
@@ -60,6 +67,8 @@ class AddWordController: ObservableObject {
                 antonyms = try await fetchGPTResult(for: originalWord, mode: .antonyms) ?? []
                 examples = try await fetchGPTResult(for: originalWord, mode: .examples) ?? []
             } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
             isGenerating = false

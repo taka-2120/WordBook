@@ -18,7 +18,7 @@ class SupabaseAuthRepo: SupabaseAuthRepoInterface {
     
     @MainActor
     func signUp(email: String, password: String) async throws -> User {
-        let response = try await client.auth.signUp(email: email, password: password)
+        let _ = try await client.auth.signUp(email: email, password: password)
         self.session = try await retriveSession()
         return session!.user
     }

@@ -127,7 +127,6 @@ struct AddWordView: View {
                 }
                 .padding()
             }
-            .loading($controller.isLoading)
             .animation(.spring(), value: controller.synonyms)
             .animation(.spring(), value: controller.antonyms)
             .animation(.spring(), value: controller.examples)
@@ -150,6 +149,12 @@ struct AddWordView: View {
                     .disabled(controller.originalWord.isEmpty || controller.translatedWord.isEmpty)
                 }
             }
+            .alert("error", isPresented: $controller.isErrorShown) {
+                Text("OK")
+            } message: {
+                Text(controller.errorMessage)
+            }
+            .loading($controller.isLoading)
         }
     }
 }

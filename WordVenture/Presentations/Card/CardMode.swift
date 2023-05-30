@@ -109,6 +109,10 @@ struct CardFlip: ViewModifier {
         .onTapGesture {
             flipped.toggle()
         }
+        .onChange(of: flipped) { _ in
+            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+            impactMed.impactOccurred()
+        }
     }
 }
 

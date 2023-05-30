@@ -34,7 +34,7 @@ struct WordItem: View {
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 20)
-                .background(Color(.quaternarySystemFill))
+                .background(Color(.systemFill))
                 .cornerRadius(15)
             }
 //        } leadingActions: { context in

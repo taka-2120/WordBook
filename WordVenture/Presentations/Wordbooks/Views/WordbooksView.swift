@@ -14,9 +14,11 @@ struct WordbooksView: View {
     
     var body: some View {
         NavigationStack(path: $wordbookPathes) {
-            ScrollView {
+            Group {
+                
                 if controller.wordbooks.isEmpty {
                     VStack {
+                        Spacer()
                         Image(systemName: "square.stack.3d.up.slash")
                             .symbolRenderingMode(.hierarchical)
                             .font(.system(size: 64))
@@ -24,12 +26,29 @@ struct WordbooksView: View {
                         Text("noWordbooks")
                             .font(.title3)
                             .bold()
+                        Spacer()
+                        
+                        GADNativeViewControllerWrapper()
+                            .frame(height: 100)
+                            .background(Color(.systemFill))
+                            .cornerRadius(10)
+                            .shadow(color: .black.opacity(0.15), radius: 15, y: 4)
+                            .padding(18)
                     }
                 } else {
-                    SwipeViewGroup {
-                        ForEach(Array(controller.wordbooks.enumerated()), id: \.offset) { index, wordbook in
-                            WordbookItem(wordbook: wordbook, index: index)
+                    ScrollView {
+                        SwipeViewGroup {
+                            ForEach(Array(controller.wordbooks.enumerated()), id: \.offset) { index, wordbook in
+                                WordbookItem(wordbook: wordbook, index: index)
+                            }
                         }
+                        
+                        GADNativeViewControllerWrapper()
+                            .frame(height: 100)
+                            .background(Color(.systemFill))
+                            .cornerRadius(10)
+                            .shadow(color: .black.opacity(0.15), radius: 15, y: 4)
+                            .padding(18)
                     }
                 }
             }
@@ -62,6 +81,7 @@ struct WordbooksView: View {
                 }
             }
             .animation(.easeInOut, value: controller.wordbooks)
+            .animation(.easeInOut, value: controller.wordbooks.isEmpty)
         }
         .environmentObject(controller)
     }

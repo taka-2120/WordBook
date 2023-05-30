@@ -58,7 +58,6 @@ struct AddWordbookView: View {
                 
                 Spacer()
             }
-            .loading($controller.isLoading)
             .padding()
             .navigationBarTitle(Text("newWordbook"), displayMode: .inline)
             .toolbar {
@@ -79,6 +78,12 @@ struct AddWordbookView: View {
                     .disabled(controller.title.isEmpty)
                 }
             }
+            .alert("error", isPresented: $controller.isErrorShown) {
+                Text("OK")
+            } message: {
+                Text(controller.errorMessage)
+            }
+            .loading($controller.isLoading)
         }
     }
 }
