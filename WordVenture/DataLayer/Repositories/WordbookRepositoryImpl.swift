@@ -70,21 +70,15 @@ class WordbookRepositoryImpl: WordbookRepository {
         return words
     }
     
-    func insertWord(word: Word) async throws -> [Wordbook] {
+    func insertWord(word: Word) async throws {
         try await WordbooksDataSource.insertWord(word: word)
-        
-        return try await fetchWordbook(userId: word.userId)
     }
     
-    func updateWord(word: Word) async throws -> [Wordbook] {
+    func updateWord(word: Word) async throws {
         try await WordbooksDataSource.updateWord(word: word)
-        
-        return try await fetchWordbook(userId: word.userId)
     }
     
-    func removeWord(userId: UUID, target wordId: UUID) async throws -> [Wordbook] {
+    func removeWord(userId: UUID, target wordId: UUID) async throws {
         try await WordbooksDataSource.removeWord(target: wordId)
-        
-        return try await fetchWordbook(userId: userId)
     }
 }

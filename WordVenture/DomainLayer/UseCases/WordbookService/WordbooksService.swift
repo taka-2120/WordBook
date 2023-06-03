@@ -59,6 +59,6 @@ class WordbookService {
     }
     
     func removeWord(for wordbook: Wordbook, target wordId: UUID) async throws {
-        try await wordbookRepo.removeWordbook(userId: wordbook.userId, target: wordId)
+        try await wordbookRepo.removeWord(userId: wordbook.userId, target: wordId)
     }
 }
