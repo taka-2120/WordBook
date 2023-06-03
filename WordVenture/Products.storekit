@@ -28,10 +28,78 @@
   "settings" : {
     "_applicationInternalID" : "6449725228",
     "_developerTeamID" : "94WA597YZM",
-    "_lastSynchronizedDate" : 707412443.85685694
+    "_lastSynchronizedDate" : 707472900.30063105
   },
   "subscriptionGroups" : [
+    {
+      "id" : "21348252",
+      "localizations" : [
 
+      ],
+      "name" : "Unlimited",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "29.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6449865833",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Remove the limitation for using APIs",
+              "displayName" : "Unlimited Annually",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "テキスト生成、画像検索の利用回数制限が解除されます。",
+              "displayName" : "Unlimited 年額プラン",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "yutakahashi.WordVenture.Unlimited_Annually",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Unlimited Annually",
+          "subscriptionGroupID" : "21348252",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6449865708",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "テキスト生成、画像検索の利用回数制限が解除されます。",
+              "displayName" : "Unlimited 月額プラン",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Remove limitation for using APIs",
+              "displayName" : "Unlimited Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "yutakahashi.WordVenture.Unlimited_Monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Unlimited Monthly",
+          "subscriptionGroupID" : "21348252",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 2,

@@ -51,6 +51,30 @@
 "deleteWarningMessage" = "Do you really want to delete your account? Your data will be deleted parmanently.";
 "deleteFinalConfirmationTitle" = "Final Confirmation";
 "deleteFinalConfirmationMessage" = "After deleting your account, this screen will be changed to welcome page.\nDo you continue?";
+// Plans
+"plans" = "Plans";
+"free" = "Free";
+"contents" = "Contents: ";
+"removeAds" = "Remove Ads";
+"lifetime" = "Lifetime";
+"monthly" = "Monthly";
+"annually" = "Annually";
+"removeAdsDescription" = "You can hide all ads from this app.";
+"unlimitedDescription" = "You can hide all ads from this app, and you can also use APIs without any limits.";
+"freeDescription" = "You can use this app for free with some limits.";
+"ads" = "With Ads";
+"noAds" = "No Ads";
+"textGenFree" = "Text generation limit: 2 times/word";
+"imageSearchFree" = "Image searching limit: 1 times/word";
+"textGenRemoveAds" = "Text generation limit: 4 times/word";
+"imageSearchRemoveAds" = "Image searching limit: 2 times/word";
+"textGenUnlimited" = "Unlimit text generation";
+"imageSearchUnlimited" = "Unlimit image searching";
+"select" = "Select";
+"restorePurchase" = "Restore Purchase";
+"manageSubs" = "Manage Subscriptions";
+"redeemCode" = "Redeem Code";
+"requestRefunc" = "Request a Refund";
 
 
 // Wordbook

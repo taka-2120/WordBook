@@ -91,7 +91,6 @@
 		9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA74D2A2AEBE100AAE8C3 /* UnsplashRepository.swift */; };
 		9A5EA7502A2AEC3500AAE8C3 /* OpenAIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA74F2A2AEC3500AAE8C3 /* OpenAIRepository.swift */; };
 		9A5EA7532A2AF9F300AAE8C3 /* IAPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7522A2AF9F300AAE8C3 /* IAPDataSource.swift */; };
-		9A5EA7552A2AFA2E00AAE8C3 /* ProductIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7542A2AFA2E00AAE8C3 /* ProductIds.swift */; };
 		9A5EA7572A2AFAC100AAE8C3 /* UnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7562A2AFAC100AAE8C3 /* UnsplashDataSource.swift */; };
 		9A5EA7592A2AFB2E00AAE8C3 /* OpenAIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7582A2AFB2E00AAE8C3 /* OpenAIDataSource.swift */; };
 		9A5EA75B2A2AFB8D00AAE8C3 /* WordbookDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA75A2A2AFB8D00AAE8C3 /* WordbookDataSource.swift */; };
@@ -100,6 +99,9 @@
 		9A5EA7612A2B13E600AAE8C3 /* OpenAIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7602A2B13E600AAE8C3 /* OpenAIUseCase.swift */; };
 		9A5EA7632A2B13EF00AAE8C3 /* UnsplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7622A2B13EF00AAE8C3 /* UnsplashUseCase.swift */; };
 		9A5EA7652A2B187F00AAE8C3 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7642A2B187F00AAE8C3 /* WordController.swift */; };
+		9A5EA7672A2B275400AAE8C3 /* IAPUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7662A2B275400AAE8C3 /* IAPUseCase.swift */; };
+		9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7682A2B2B4200AAE8C3 /* Products.swift */; };
+		9A5EA76E2A2B301900AAE8C3 /* PlanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
@@ -224,7 +226,6 @@
 		9A5EA74D2A2AEBE100AAE8C3 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
 		9A5EA74F2A2AEC3500AAE8C3 /* OpenAIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRepository.swift; sourceTree = "<group>"; };
 		9A5EA7522A2AF9F300AAE8C3 /* IAPDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPDataSource.swift; sourceTree = "<group>"; };
-		9A5EA7542A2AFA2E00AAE8C3 /* ProductIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIds.swift; sourceTree = "<group>"; };
 		9A5EA7562A2AFAC100AAE8C3 /* UnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDataSource.swift; sourceTree = "<group>"; };
 		9A5EA7582A2AFB2E00AAE8C3 /* OpenAIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIDataSource.swift; sourceTree = "<group>"; };
 		9A5EA75A2A2AFB8D00AAE8C3 /* WordbookDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookDataSource.swift; sourceTree = "<group>"; };
@@ -233,6 +234,9 @@
 		9A5EA7602A2B13E600AAE8C3 /* OpenAIUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIUseCase.swift; sourceTree = "<group>"; };
 		9A5EA7622A2B13EF00AAE8C3 /* UnsplashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUseCase.swift; sourceTree = "<group>"; };
 		9A5EA7642A2B187F00AAE8C3 /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
+		9A5EA7662A2B275400AAE8C3 /* IAPUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPUseCase.swift; sourceTree = "<group>"; };
+		9A5EA7682A2B2B4200AAE8C3 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanItem.swift; sourceTree = "<group>"; };
 		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
@@ -349,7 +353,6 @@
 				9A24FD4D2A171B6400C34508 /* TableName.swift */,
 				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
 				9A24FD4F2A171B6400C34508 /* MockData.swift */,
-				9A5EA7542A2AFA2E00AAE8C3 /* ProductIds.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			children = (
 				9A24FD512A171B6400C34508 /* Regex.swift */,
 				9A24FD522A171B6400C34508 /* Errors.swift */,
+				9A5EA7682A2B2B4200AAE8C3 /* Products.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -644,6 +648,7 @@
 				9A24FDA52A171B6400C34508 /* WordbookService */,
 				9A5EA7602A2B13E600AAE8C3 /* OpenAIUseCase.swift */,
 				9A5EA7622A2B13EF00AAE8C3 /* UnsplashUseCase.swift */,
+				9A5EA7662A2B275400AAE8C3 /* IAPUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -729,6 +734,14 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		9A5EA76A2A2B2FFD00AAE8C3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9AD4FF222A22F2F500229844 /* DeleteAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +763,7 @@
 		9AD4FF352A26EF0A00229844 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
+				9A5EA76A2A2B2FFD00AAE8C3 /* Components */,
 				9AD4FF312A26E85E00229844 /* PlansView.swift */,
 				9AD4FF362A26EF8700229844 /* PlansController.swift */,
 			);
@@ -851,6 +865,7 @@
 				9A24FDF32A171B6500C34508 /* WordbooksService.swift in Sources */,
 				9A24FDCA2A171B6500C34508 /* WordIndex.swift in Sources */,
 				9A24FDD72A171B6500C34508 /* AddWordController.swift in Sources */,
+				9A5EA76E2A2B301900AAE8C3 /* PlanItem.swift in Sources */,
 				9A24FDE22A171B6500C34508 /* WordbooksView.swift in Sources */,
 				9A24FDCE2A171B6500C34508 /* ChangePasswordView.swift in Sources */,
 				9A24FDE72A171B6500C34508 /* LoadingController.swift in Sources */,
@@ -878,8 +893,8 @@
 				9A24FDF22A171B6500C34508 /* AuthServiceInterface.swift in Sources */,
 				9AD4FF392A271E4100229844 /* IAPManager.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
-				9A5EA7552A2AFA2E00AAE8C3 /* ProductIds.swift in Sources */,
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
+				9A5EA7672A2B275400AAE8C3 /* IAPUseCase.swift in Sources */,
 				9A24FDAE2A171B6500C34508 /* WordbookRepositoryImpl.swift in Sources */,
 				9AD4FF2B2A2477B700229844 /* GADNativeViewControllerWrapper.swift in Sources */,
 				9A24FDB32A171B6500C34508 /* UserDataRepository.swift in Sources */,
@@ -940,6 +955,7 @@
 				9A24FDD32A171B6500C34508 /* SettingsView.swift in Sources */,
 				9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */,
 				9A5EA75F2A2B041F00AAE8C3 /* UserDataSource.swift in Sources */,
+				9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */,
 				9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */,
 				9A24FDD82A171B6500C34508 /* WordsController.swift in Sources */,
 			);

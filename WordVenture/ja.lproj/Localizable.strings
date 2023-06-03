@@ -51,6 +51,30 @@
 "deleteWarningMessage" = "本当にアカウントを削除しますか？データは完全に削除されます。";
 "deleteFinalConfirmationTitle" = "最終確認";
 "deleteFinalConfirmationMessage" = "アカウント削除後は初期画面に戻ります。削除を続けますか？";
+// Plans
+"plans" = "プラン";
+"free" = "無料プラン";
+"contents" = "内容: ";
+"removeAds" = "広告削除";
+"lifetime" = "買い切り";
+"monthly" = "月額";
+"annually" = "年額";
+"removeAdsDescription" = "アプリ内の広告を全て削除できます。";
+"unlimitedDescription" = "アプリ内の広告を全て削除でき、APIの利用制限も解除されます。";
+"freeDescription" = "無料でアプリを利用できますが、いくつか制限があります。";
+"ads" = "広告表示あり";
+"noAds" = "広告表示なし";
+"textGenFree" = "テキスト生成回数: 2回/単語";
+"imageSearchFree" = "画像検索回数: 1回/単語";
+"textGenRemoveAds" = "テキスト生成回数: 4回/単語";
+"imageSearchRemoveAds" = "画像検索回数: 2回/単語";
+"textGenUnlimited" = "テキスト生成無制限";
+"imageSearchUnlimited" = "画像検索無制限";
+"select" = "選択";
+"restorePurchase" = "購入を復元";
+"manageSubs" = "サブスクリプションを管理";
+"redeemCode" = "特典コード";
+"requestRefunc" = "返金要求";
 
 
 // Wordbook
