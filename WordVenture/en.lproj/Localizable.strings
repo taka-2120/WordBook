@@ -56,6 +56,7 @@
 // Wordbook
 "noWordbooks" = "No Wordbooks";
 "wordbooks" = "Wordbooks";
+"deleteWordbookWarning" = "Do you really want to delete this wordbook?";
 
 
 // Add Wordbook
@@ -70,6 +71,7 @@
 "wordbookTitle" = "Wordbook Title";
 "noWords" = "No Words";
 "add" = "Add";
+"deleteWordWarning" = "Do you really want to delete this word?";
 
 
 // Add or Details Word
@@ -79,6 +81,7 @@
 "translated" = "Translated";
 "relatedImage" = "Related Image";
 "generateImage" = "Search Image";
+"imageNotFound" = "Related images were not found";
 "imageNotes" = "Unsplash will get matched images here";
 "generateText" = "Generate Text";
 "textNotes" = "Open AI will fill following these fields";
@@ -103,6 +106,7 @@
 "confirmation" = "Confirmation";
 "yes" = "Yes";
 "no" = "No";
+"delete" = "Delete";
 
 
 // Errors

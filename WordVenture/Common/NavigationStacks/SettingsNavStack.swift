@@ -13,5 +13,6 @@ enum SettingsNavStack {
     case changePassword
     case privacyPolicy
     case credits
+    case plans
     case deleteAccount
 }

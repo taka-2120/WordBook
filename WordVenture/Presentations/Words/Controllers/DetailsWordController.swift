@@ -20,6 +20,8 @@ class DetailsWordController: ObservableObject {
     @Published var isLoading = false
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
+    // If imageUrls are empty even if searched images, show error.
+    @Published var isImageSearched = false
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
@@ -55,6 +57,7 @@ class DetailsWordController: ObservableObject {
         Task { @MainActor in
             do {
                 imageUrls = try await fetchUnsplashPhotos(for: originalWord)
+                isImageSearched = imageUrls.isEmpty
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true

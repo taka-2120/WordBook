@@ -19,6 +19,7 @@ class AddWordController: ObservableObject {
     @Published var isLoading = false
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
+    @Published var isImageSearched = false
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""

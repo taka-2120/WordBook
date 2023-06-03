@@ -79,6 +79,7 @@
 "translated" = "翻訳後";
 "relatedImage" = "関連画像";
 "generateImage" = "画像検索";
+"imageNotFound" = "関連画像が見つかりませんでした。";
 "imageNotes" = "Unsplash 内の画像を検索します。";
 "generateText" = "テキストを生成";
 "textNotes" = "Open AI が以下のフィールドのテキストを生成します。";

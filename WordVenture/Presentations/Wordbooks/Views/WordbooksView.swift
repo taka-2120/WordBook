@@ -9,7 +9,7 @@ import SwiftUI
 import SwipeActions
 
 struct WordbooksView: View {
-    @ObservedObject private var controller = WordbooksController()
+    @StateObject private var controller = WordbooksController()
     @State private var wordbookPathes = NavigationPath()
     
     var body: some View {
@@ -32,7 +32,7 @@ struct WordbooksView: View {
                             .frame(height: 100)
                             .background(Color(.systemFill))
                             .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.15), radius: 15, y: 4)
+                            .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
                             .padding(18)
                     }
                 } else {
@@ -45,9 +45,9 @@ struct WordbooksView: View {
                         
                         GADNativeViewControllerWrapper()
                             .frame(height: 100)
-                            .background(Color(.systemFill))
+                            .background(.thickMaterial)
                             .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.15), radius: 15, y: 4)
+                            .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
                             .padding(18)
                     }
                 }

@@ -1,0 +1,40 @@
+{
+  "identifier" : "45A5B438",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6449725308",
+      "localizations" : [
+        {
+          "description" : "You can remove all ads in this app.",
+          "displayName" : "Remove Ads",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "アプリ内の広告をすべて非表示にできます。",
+          "displayName" : "広告非表示",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "yutakahashi.WordVenture.Remove_Ads",
+      "referenceName" : "Remove Ads",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6449725228",
+    "_developerTeamID" : "94WA597YZM",
+    "_lastSynchronizedDate" : 707412443.85685694
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

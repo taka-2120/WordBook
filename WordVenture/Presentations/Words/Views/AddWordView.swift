@@ -47,10 +47,20 @@ struct AddWordView: View {
                             .foregroundColor(.white)
                             .disabled(controller.originalWord == "")
                             
-                            Text("imageNotes")
-                                .font(.callout)
-                                .foregroundColor(Color(.secondaryLabel))
-                                .padding(.bottom)
+                            if controller.isImageSearched {
+                                HStack {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.red)
+                                    Text("imageNotFound")
+                                        .font(.callout)
+                                        .foregroundColor(Color(.secondaryLabel))
+                                }
+                            } else {
+                                Text("imageNotes")
+                                    .font(.callout)
+                                    .foregroundColor(Color(.secondaryLabel))
+                                    .padding(.bottom)
+                            }
                         } else {
                             HStack(alignment: .top) {
                                 VStack(alignment: .leading) {

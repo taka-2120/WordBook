@@ -29,6 +29,7 @@ struct SettingsView: View {
                         }
                     SettingsItem(kinds: .link, leftLabel: "privacyPolicy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "plans", leftIconName: "dollarsign.circle", destination: .plans, pathes: $settingsPathes)
                 }
                 
                 Section("dengerZone") {
@@ -80,6 +81,7 @@ struct SettingsView: View {
                 case .changePassword: ChangePasswordView()
                 case .privacyPolicy: PrivacyPolicyView()
                 case .credits: CreditsView()
+                case .plans: PlansView()
                 case .deleteAccount: DeleteAccountView()
                 }
             }

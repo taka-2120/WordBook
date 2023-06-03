@@ -36,7 +36,7 @@ struct DetailsView: View {
                                 controller.generateImages()
                             } label: {
                                 HStack {
-                                    Text("Generate Image")
+                                    Text("Search Image")
                                         .padding(.vertical)
                                 }
                                 .frame(maxWidth: 180)
@@ -47,10 +47,20 @@ struct DetailsView: View {
                             .foregroundColor(.white)
                             .disabled(controller.originalWord == "")
                             
-                            Text("Unsplash will generate matched images here")
-                                .font(.callout)
-                                .foregroundColor(Color(.secondaryLabel))
-                                .padding(.bottom)
+                            if controller.isImageSearched {
+                                HStack {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.red)
+                                    Text("Matched images were not found")
+                                        .font(.callout)
+                                        .foregroundColor(Color(.secondaryLabel))
+                                }
+                            } else {
+                                Text("Unsplash will generate matched images here")
+                                    .font(.callout)
+                                    .foregroundColor(Color(.secondaryLabel))
+                            }
+                            
                         } else {
                             HStack(alignment: .top) {
                                 VStack(alignment: .leading) {

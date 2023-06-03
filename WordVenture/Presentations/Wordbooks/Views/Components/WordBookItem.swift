@@ -65,17 +65,17 @@ struct WordbookItem: View {
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
         .padding(.vertical, 5)
-        .alert("Do you really want to delete this wordbook?", isPresented: $isDeletePromptShown) {
+        .alert("deleteWordbookWarning", isPresented: $isDeletePromptShown) {
             Button(role: .destructive) {
                 controller.removeWordbook(at: index)
                 close.send()
             } label: {
-                Text("Delete")
+                Text("delete")
             }
             Button(role: .cancel) {
                 close.send()
             } label: {
-                Text("Cancel")
+                Text("cancel")
             }
         }
     }

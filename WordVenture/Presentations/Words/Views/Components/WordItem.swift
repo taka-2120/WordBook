@@ -68,17 +68,17 @@ struct WordItem: View {
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
         .padding(.vertical, 5)
-        .alert("Do you really want to delete this word?", isPresented: $isDeletePromptShown) {
+        .alert("deleteWordWarning", isPresented: $isDeletePromptShown) {
             Button(role: .destructive) {
                 controller.removeWord(at: index)
                 close.send()
             } label: {
-                Text("Delete")
+                Text("delete")
             }
             Button(role: .cancel) {
                 close.send()
             } label: {
-                Text("Cancel")
+                Text("cancel")
             }
         }
     }
