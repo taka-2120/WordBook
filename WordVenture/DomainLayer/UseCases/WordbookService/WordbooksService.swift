@@ -55,7 +55,7 @@ class WordbookService {
         
         let newWord = Word(userId: wordbook.userId, wordId: wordId, bookId: wordbook.bookId, original: original, translated: translated, priority: priority, missed: missed, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls, synonyms: synonyms, antonyms: antonyms, examples: examples)
         
-        try await wordbookRepo.insertWord(word: newWord)
+        try await wordbookRepo.updateWord(word: newWord)
     }
     
     func removeWord(for wordbook: Wordbook, target wordId: UUID) async throws {

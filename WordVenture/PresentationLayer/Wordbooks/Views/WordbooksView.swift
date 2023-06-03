@@ -71,13 +71,9 @@ struct WordbooksView: View {
             }
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
             .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
-            .onChange(of: wordbookPathes) { newValue in
-                if newValue.isEmpty {
-                    controller.fetchWordbooks()
-                }
-            }
             .animation(.easeInOut, value: controller.wordbooks)
             .animation(.easeInOut, value: controller.wordbooks.isEmpty)
+            .onAppear(perform: controller.fetchWordbooks)
         }
         .environmentObject(controller)
     }

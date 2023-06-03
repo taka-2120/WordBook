@@ -80,7 +80,7 @@
 // Wordbook
 "noWordbooks" = "単語帳がありません";
 "wordbooks" = "単語帳";
-
+"deleteWordbookWarning" = "本当にこの単語帳を削除しますか？";
 
 // Add Wordbook
 "title" = "タイトル";
@@ -94,6 +94,7 @@
 "wordbookTitle" = "単語帳名";
 "noWords" = "単語がありません";
 "add" = "追加";
+"deleteWordWarning" = "本当にこの単語を削除しますか？";
 
 
 // Add or Details Word
@@ -128,6 +129,7 @@
 "confirmation" = "確認";
 "yes" = "はい";
 "no" = "いいえ";
+"delete" = "削除";
 
 
 // Errors
