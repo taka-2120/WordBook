@@ -13,6 +13,7 @@ struct UpcomingView: View {
         ScrollView {
             Markdown(SharedFile.upcoming.getMarkdown())
                 .markdownTheme(.gitHub)
+                .background(Color(.systemGroupedBackground))
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding()
         }

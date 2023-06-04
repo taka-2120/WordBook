@@ -20,24 +20,17 @@ struct SignUpView: View {
                 
                 Image("SignUp")
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
+                    .frame(height: 300)
+                    .cornerRadius(30)
                     .padding(.horizontal, 50)
                 
                 HStack(spacing: 15) {
                     Image(systemName: "person")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    VStack(spacing: 0) {
-                        TextField("username", text: $controller.username)
-                            .padding(.vertical)
-                            .controlSize(.large)
-                            .textInputAutocapitalization(.never)
-                            .keyboardType(.default)
-                            .autocorrectionDisabled()
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
-                            .frame(height: 2)
-                    }
+                    CustomField("", placeHolder: "username", text: $controller.username)
+                        .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
                 
@@ -45,17 +38,8 @@ struct SignUpView: View {
                     Image(systemName: "at")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    VStack(spacing: 0) {
-                        TextField("email", text: $controller.email)
-                            .padding(.vertical)
-                            .controlSize(.large)
-                            .textInputAutocapitalization(.never)
-                            .keyboardType(.emailAddress)
-                            .autocorrectionDisabled()
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
-                            .frame(height: 2)
-                    }
+                    CustomField("", placeHolder: "email", isEmail: true, text: $controller.email)
+                        .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
                 
@@ -63,14 +47,8 @@ struct SignUpView: View {
                     Image(systemName: "key.horizontal")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    VStack(spacing: 0) {
-                        SecureField("password", text: $controller.password)
-                            .padding(.vertical)
-                            .controlSize(.large)
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
-                            .frame(height: 2)
-                    }
+                    CustomField("", placeHolder: "password", isSecured: true, text: $controller.password)
+                        .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
                 
@@ -92,6 +70,8 @@ struct SignUpView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .background(Color.primaryAccent)
+        .foregroundColor(.black)
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {

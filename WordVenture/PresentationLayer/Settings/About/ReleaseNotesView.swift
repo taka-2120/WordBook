@@ -13,6 +13,7 @@ struct ReleaseNotesView: View {
         ScrollView {
             Markdown(SharedFile.releaseNotes.getMarkdown())
                 .markdownTheme(.gitHub)
+                .background(Color(.systemGroupedBackground))
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding()
         }

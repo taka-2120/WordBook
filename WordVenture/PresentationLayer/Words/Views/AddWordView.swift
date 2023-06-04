@@ -38,6 +38,7 @@ struct AddWordView: View {
                     Text("Notes: \n • Unsplash API sometimes cannot find images. \n • Oepn AI API sometimes generate texts in wrong format, or containing incorrect information. \n • In free plan, image searching is limited for 1 times per word, and text generation is limited for 2 times per word. \n • In remove ads plan, image searching is limited for 2 times per word, and text generation is limited for 4 times per word.")
                         .font(.caption)
                         .foregroundColor(Color(.secondaryLabel))
+                        .padding(.bottom)
                 }
                 .padding()
             }

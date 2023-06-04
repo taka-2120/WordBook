@@ -142,6 +142,7 @@ struct AboutView: View {
                 Text("buyMeACoffeeNotes")
                     .font(.callout)
                     .foregroundColor(Color(.secondaryLabel))
+                    .padding(.bottom)
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()

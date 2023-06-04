@@ -20,24 +20,17 @@ struct SignInView: View {
                 
                 Image("SignIn")
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
+                    .frame(height: 300)
+                    .cornerRadius(30)
                     .padding(.horizontal, 50)
                 
                 HStack(spacing: 15) {
                     Image(systemName: "at")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    VStack(spacing: 0) {
-                        TextField("email", text: $controller.email)
-                            .padding(.vertical)
-                            .controlSize(.large)
-                            .textInputAutocapitalization(.never)
-                            .keyboardType(.emailAddress)
-                            .autocorrectionDisabled()
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
-                            .frame(height: 2)
-                    }
+                    CustomField("", placeHolder: "email", isEmail: true, text: $controller.email)
+                        .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
                 
@@ -45,13 +38,8 @@ struct SignInView: View {
                     Image(systemName: "key.horizontal")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    VStack(spacing: 0) {
-                        SecureField("password", text: $controller.password)
-                            .padding(.vertical)
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
-                            .frame(height: 2)
-                    }
+                    CustomField("", placeHolder: "password", isSecured: true, text: $controller.password)
+                        .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
                 
@@ -72,6 +60,8 @@ struct SignInView: View {
             }
             .padding()
         }
+        .background(Color.primaryAccent)
+        .foregroundColor(.black)
         .navigationBarTitleDisplayMode(.inline)
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
