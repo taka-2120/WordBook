@@ -8,6 +8,7 @@
 import Foundation
 
 class WordbooksController: ObservableObject {
+    private let purchaseManager = PurchaseManager.shared
     private let wordbookService = WordbookService()
     @Published var wordbooks: [Wordbook] = []
     
@@ -36,6 +37,10 @@ class WordbooksController: ObservableObject {
     
     func pinWordbook() {
         
+    }
+    
+    func isAdRemoved() -> Bool {
+        return purchaseManager.hasAdsRemoved || purchaseManager.hasUnlimited
     }
     
     func removeWordbook(at index: Int) {

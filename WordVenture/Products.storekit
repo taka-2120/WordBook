@@ -28,7 +28,7 @@
   "settings" : {
     "_applicationInternalID" : "6449725228",
     "_developerTeamID" : "94WA597YZM",
-    "_lastSynchronizedDate" : 707472900.30063105
+    "_lastSynchronizedDate" : 707538302.48482704
   },
   "subscriptionGroups" : [
     {
@@ -46,7 +46,7 @@
 
           ],
           "displayPrice" : "29.99",
-          "familyShareable" : false,
+          "familyShareable" : true,
           "groupNumber" : 2,
           "internalID" : "6449865833",
           "introductoryOffer" : null,
@@ -76,7 +76,7 @@
 
           ],
           "displayPrice" : "2.99",
-          "familyShareable" : false,
+          "familyShareable" : true,
           "groupNumber" : 1,
           "internalID" : "6449865708",
           "introductoryOffer" : null,

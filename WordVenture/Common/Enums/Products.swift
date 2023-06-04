@@ -47,6 +47,28 @@ extension Plan {
         }
     }
     
+    var imageSearchLimit: Int {
+        switch self {
+        case .free:
+            return 1
+        case .removeAds:
+            return 2
+        case .unlimited:
+            return -1
+        }
+    }
+    
+    var textGenerationLimit: Int {
+        switch self {
+        case .free:
+            return 2
+        case .removeAds:
+            return 4
+        case .unlimited:
+            return -1
+        }
+    }
+    
     var name: LocalizedStringKey {
         switch self {
         case .free:

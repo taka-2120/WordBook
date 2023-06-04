@@ -13,9 +13,13 @@ struct PlanItem: View {
     
     let plan: Plan
     let product: Product?
+    let disabled: Bool
+    let current: Bool
     
-    init(plan: Plan, product: Product? = nil) {
+    init(plan: Plan, disabled: Bool = false, current: Bool = false, product: Product? = nil) {
         self.plan = plan
+        self.disabled = disabled
+        self.current = current
         self.product = product
     }
     
@@ -27,14 +31,16 @@ struct PlanItem: View {
                 Button {
                     controller.selectedPlan = plan
                 } label: {
-                    Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                        .foregroundColor(isSelected ? .green : .gray)
+                    Image(systemName: current ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(current ? .green : .gray)
                 }
                 .padding(.trailing, 10)
+                .disabled(disabled)
                 
                 Text(plan.name)
                     .font(.title3)
                     .fontWeight(.bold)
+                    .foregroundColor(disabled ? Color(.secondaryLabel) : Color(.label))
                 
                 Spacer()
                 

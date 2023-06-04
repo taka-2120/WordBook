@@ -27,12 +27,14 @@ struct WordbooksView: View {
                             .bold()
                         Spacer()
                         
-                        GADNativeViewControllerWrapper()
-                            .frame(height: 100)
-                            .background(Color(.systemFill))
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                            .padding(18)
+                        if !controller.isAdRemoved() {
+                            GADNativeViewControllerWrapper()
+                                .frame(height: 100)
+                                .background(Color(.systemFill))
+                                .cornerRadius(10)
+                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+                                .padding(18)
+                        }
                     }
                 } else {
                     ScrollView {
@@ -41,14 +43,16 @@ struct WordbooksView: View {
                                 WordbookItem(wordbook: wordbook, index: index)
                             }
                         }
-                        .padding(.top, 20)
+                        .padding(.top)
                         
-                        GADNativeViewControllerWrapper()
-                            .frame(height: 100)
-                            .background(.thickMaterial)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                            .padding(18)
+                        if !controller.isAdRemoved() {
+                            GADNativeViewControllerWrapper()
+                                .frame(height: 100)
+                                .background(Color(.systemFill))
+                                .cornerRadius(10)
+                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+                                .padding(18)
+                        }
                     }
                 }
             }

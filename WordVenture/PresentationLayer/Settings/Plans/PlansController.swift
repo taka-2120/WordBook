@@ -10,25 +10,63 @@ import StoreKit
 
 class PlansController: ObservableObject {
     
+    private let purchaseManager = PurchaseManager.shared
     private let iapUseCase = IAPUseCase()
     
+    @Published var currentPlan: Plan = .free
     @Published var products = [Product]()
     @Published var selectedPlan: Plan = .free
     @Published var expandedPlan: Plan? = nil
     @Published var unlimitedPeriod: UnlimitedPeriod = .monthly
     @Published var isSubscriptionManagerShown = false
     @Published var isOfferCodeRedepmtionShown = false
-    @Published var purchasedNonConsumables = Set<Product>()
-    var transacitonListener: Task<Void, Error>?
 
     
     init() {
         requestProducts()
-        
-        transacitonListener = listenForTransactions()
-        Task {
-            await updateCurrentEntitlements()
+        purchaseManager.listenTransaction()
+        reflectPurchaseState()
+    }
+    
+    deinit {
+        purchaseManager.cancelListeningTransaction()
+    }
+    
+    func reflectPurchaseState() {
+        if hasAdsRemoved() {
+            selectedPlan = .removeAds
+            currentPlan = .free
+        } else if hasUnlimited() {
+            selectedPlan = .unlimited
+            currentPlan = .unlimited
+            unlimitedPeriod = purchaseManager.purchasedProductIDs.contains(UnlimitedPeriod.monthly.id) ? .monthly : .annually
+        } else {
+            selectedPlan = .free
         }
+    }
+    
+    func hasAdsRemoved() -> Bool {
+        return purchaseManager.hasAdsRemoved
+    }
+    
+    func hasUnlimited() -> Bool {
+        return purchaseManager.hasUnlimited
+    }
+    
+    func isAvailable() -> Bool {
+        if selectedPlan == .removeAds {
+            let hasPurchased = purchaseManager.purchasedProductIDs.contains(selectedPlan.id)
+            return !hasPurchased
+        } else if selectedPlan == .unlimited {
+            let hasPurchased = purchaseManager.purchasedProductIDs.contains(unlimitedPeriod.id)
+            return !hasPurchased
+        }
+        
+        if hasUnlimited() && selectedPlan == .free {
+            return true
+        }
+        
+        return false
     }
     
     func showManageSubscriptionSheet() {
@@ -86,8 +124,7 @@ class PlansController: ObservableObject {
                     return
                 }
                 
-                let transaction = try await iapUseCase.purchaseProduct(for: product)
-                print(transaction)
+                _ = try await iapUseCase.purchaseProduct(for: product)
             } catch {
                 print(error)
             }
@@ -101,40 +138,6 @@ class PlansController: ObservableObject {
             } catch {
                 print(error)
             }
-        }
-    }
-    
-    // MARK: - Transactions
-    
-    @MainActor
-    private func handle(transactionVerification result: VerificationResult <Transaction> ) async {
-        switch result {
-        case let.verified(transaction):
-            guard
-                let product = self.products.first(where: {
-                    $0.id == transaction.productID
-                })
-            else {
-                return
-            }
-            self.purchasedNonConsumables.insert(product)
-            await transaction.finish()
-        default:
-            return
-        }
-    }
-    
-    func listenForTransactions() -> Task<Void, Error> {
-        return Task.detached {
-            for await result in Transaction.updates {
-                await self.handle(transactionVerification: result)
-            }
-        }
-    }
-    
-    private func updateCurrentEntitlements() async {
-        for await result in Transaction.currentEntitlements {
-            await self.handle(transactionVerification: result)
         }
     }
 }

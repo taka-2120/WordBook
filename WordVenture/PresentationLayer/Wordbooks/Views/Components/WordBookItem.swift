@@ -64,7 +64,6 @@ struct WordbookItem: View {
         .swipeActionsMaskCornerRadius(15)
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
-        .padding(.vertical, 5)
         .alert("deleteWordbookWarning", isPresented: $isDeletePromptShown) {
             Button(role: .destructive) {
                 controller.removeWordbook(at: index)

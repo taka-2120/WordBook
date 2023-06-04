@@ -9,10 +9,13 @@ import SwiftUI
 import StoreKit
 
 class PurchaseManager {
-    @Published private(set) var purchasedProductIDs = Set<String>()
+    static let shared = PurchaseManager()
+    private init () { }
     
+    private(set) var purchasedProductIDs = Set<String>()
     private var updates: Task<Void, Never>? = nil
     
+    // Product State
     var hasAdsRemoved: Bool {
         return purchasedProductIDs.contains(Plan.removeAds.id)
     }
@@ -23,13 +26,6 @@ class PurchaseManager {
         return monthlyContains || annuallyContains
     }
     
-    init() {
-        updates = observeTransactionUpdates()
-    }
-    
-    deinit {
-        updates?.cancel()
-    }
     
     func updatePurchasedProducts() async {
         for await result in Transaction.currentEntitlements {
@@ -45,9 +41,17 @@ class PurchaseManager {
         }
     }
     
+    func listenTransaction() {
+        updates = observeTransactionUpdates()
+    }
+    
+    func cancelListeningTransaction() {
+        updates?.cancel()
+    }
+    
     private func observeTransactionUpdates() -> Task<Void, Never> {
         Task(priority: .background) { [unowned self] in
-            for await verificationResult in Transaction.updates {
+            for await _ in Transaction.updates {
                 // Using verificationResult directly would be better
                 // but this way works for this tutorial
                 await self.updatePurchasedProducts()

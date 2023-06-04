@@ -32,12 +32,12 @@ struct WordsView: View {
                         .bold()
                     Spacer()
                     
-                    GADNativeViewControllerWrapper()
-                        .frame(height: 100)
-                        .background(.thickMaterial)
-                        .cornerRadius(10)
-                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                        .padding(18)
+//                    GADNativeViewControllerWrapper()
+//                        .frame(height: 100)
+//                        .background(.thickMaterial)
+//                        .cornerRadius(10)
+//                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+//                        .padding(18)
                 }
             } else {
                 ScrollView {
@@ -46,13 +46,14 @@ struct WordsView: View {
                             WordItem(word: word, index: index)
                         }
                     }
+                    .padding(.top, 20)
                     
-                    GADNativeViewControllerWrapper()
-                        .frame(height: 100)
-                        .background(.thickMaterial)
-                        .cornerRadius(10)
-                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                        .padding(18)
+//                    GADNativeViewControllerWrapper()
+//                        .frame(height: 100)
+//                        .background(.thickMaterial)
+//                        .cornerRadius(10)
+//                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+//                        .padding(18)
                 }
             }
             

@@ -53,10 +53,13 @@ struct PlansView: View {
                 .padding(.bottom, 10)
                 .padding(.horizontal)
                 
+//                TODO: Show current plan
+                Text("Your current plan is: ") + Text(controller.currentPlan.name).fontWeight(.semibold)
+                
                 ScrollView {
-                    PlanItem(plan: .free)
+                    PlanItem(plan: .free, disabled: controller.hasAdsRemoved(), current: !controller.hasAdsRemoved())
                         .padding(.top)
-                    PlanItem(plan: .removeAds, product: controller.products.filter({ $0.id == Plan.removeAds.id }).first)
+                    PlanItem(plan: .removeAds, disabled: controller.hasUnlimited(), current: controller.hasAdsRemoved(), product: controller.products.filter({ $0.id == Plan.removeAds.id }).first)
                     PlanItem(plan: .unlimited)
                 }
                 .animation(.spring(), value: controller.expandedPlan)
@@ -75,9 +78,10 @@ struct PlansView: View {
                         .padding()
                         .frame(maxWidth: 250)
                 }
-                .background(.blue)
+                .background(controller.isAvailable() ? Color.blue : .gray)
                 .cornerRadius(15)
-                .shadow(color: .blue.opacity(0.25), radius: 10, y: 4)
+                .shadow(color: (controller.isAvailable() ? Color.blue : .gray).opacity(0.25), radius: 10, y: 4)
+                .disabled(!controller.isAvailable())
 
             }
             .padding()

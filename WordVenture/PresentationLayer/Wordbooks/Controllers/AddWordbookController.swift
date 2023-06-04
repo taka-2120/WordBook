@@ -34,7 +34,7 @@ class AddWordbookController: ObservableObject {
             }
             
             do {
-                try await wordbookService.addWordbook(name: title, color: color.toHex(), original: originalLanguage, translated: translatedLanguage)
+                _ = try await wordbookService.addWordbook(name: title, color: color.toHex(), original: originalLanguage, translated: translatedLanguage)
                 dismiss()
             } catch {
                 errorMessage = error.localizedDescription
