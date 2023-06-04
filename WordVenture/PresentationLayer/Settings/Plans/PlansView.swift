@@ -54,7 +54,13 @@ struct PlansView: View {
                 .padding(.horizontal)
                 
 //                TODO: Show current plan
-                Text("Your current plan is: ") + Text(controller.currentPlan.name).fontWeight(.semibold)
+                Group {
+                    Text("Your current plan is: ") +
+                    Text(controller.currentPlan.name)
+                        .fontWeight(.semibold)
+                }
+                .font(.title3)
+                .padding(.horizontal)
                 
                 ScrollView {
                     PlanItem(plan: .free, disabled: controller.hasAdsRemoved(), current: !controller.hasAdsRemoved())

@@ -35,7 +35,7 @@ class PlansController: ObservableObject {
     func reflectPurchaseState() {
         if hasAdsRemoved() {
             selectedPlan = .removeAds
-            currentPlan = .free
+            currentPlan = .removeAds
         } else if hasUnlimited() {
             selectedPlan = .unlimited
             currentPlan = .unlimited
