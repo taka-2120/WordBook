@@ -1,0 +1,108 @@
+{
+  "identifier" : "45A5B438",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6449725308",
+      "localizations" : [
+        {
+          "description" : "You can remove all ads in this app.",
+          "displayName" : "Remove Ads",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "アプリ内の広告をすべて非表示にできます。",
+          "displayName" : "広告非表示",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "yutakahashi.WordVenture.Remove_Ads",
+      "referenceName" : "Remove Ads",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6449725228",
+    "_developerTeamID" : "94WA597YZM",
+    "_lastSynchronizedDate" : 707548757.90425003
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21348252",
+      "localizations" : [
+
+      ],
+      "name" : "Unlimited",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "29.99",
+          "familyShareable" : true,
+          "groupNumber" : 2,
+          "internalID" : "6449865833",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Remove the limitation for using APIs",
+              "displayName" : "Unlimited Annually",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "テキスト生成、画像検索の利用回数制限が解除されます。",
+              "displayName" : "Unlimited 年額プラン",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "yutakahashi.WordVenture.Unlimited_Annually",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Unlimited Annually",
+          "subscriptionGroupID" : "21348252",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "6449865708",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "テキスト生成、画像検索の利用回数制限が解除されます。",
+              "displayName" : "Unlimited 月額プラン",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Remove limitation for using APIs",
+              "displayName" : "Unlimited Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "yutakahashi.WordVenture.Unlimited_Monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Unlimited Monthly",
+          "subscriptionGroupID" : "21348252",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
