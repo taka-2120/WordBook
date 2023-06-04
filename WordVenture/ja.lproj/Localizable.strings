@@ -82,6 +82,7 @@
 "wordbooks" = "単語帳";
 "deleteWordbookWarning" = "本当にこの単語帳を削除しますか？";
 
+
 // Add Wordbook
 "title" = "タイトル";
 "color" = "色";
@@ -130,6 +131,7 @@
 "yes" = "はい";
 "no" = "いいえ";
 "delete" = "削除";
+"edit" = "編集";
 
 
 // Errors

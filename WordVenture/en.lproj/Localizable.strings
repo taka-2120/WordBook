@@ -131,6 +131,7 @@
 "yes" = "Yes";
 "no" = "No";
 "delete" = "Delete";
+"edit" = "Edit";
 
 
 // Errors

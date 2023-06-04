@@ -41,6 +41,7 @@ struct WordbooksView: View {
                                 WordbookItem(wordbook: wordbook, index: index)
                             }
                         }
+                        .padding(.top, 20)
                         
                         GADNativeViewControllerWrapper()
                             .frame(height: 100)

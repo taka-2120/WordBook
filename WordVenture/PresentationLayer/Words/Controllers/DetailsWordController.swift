@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-class DetailsWordController: WordController, ObservableObject {
+class DetailsWordController: WordController {
     let word: Word
+    
+    @Published var isEditing = false
     
     init(wordbook: Wordbook, word: Word) {
         self.word = word
@@ -24,6 +26,11 @@ class DetailsWordController: WordController, ObservableObject {
     
     func updateWord(dismiss: DismissAction) {
         Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,

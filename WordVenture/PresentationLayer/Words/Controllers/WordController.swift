@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class WordController {
+class WordController: ObservableObject {
     let wordbookService = WordbookService()
     private let openAIUseCase = OpenAIUseCase()
     private let unsplashUseCase = UnsplashUseCase()

@@ -103,6 +103,7 @@
 		9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7682A2B2B4200AAE8C3 /* Products.swift */; };
 		9A5EA76E2A2B301900AAE8C3 /* PlanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */; };
 		9A5EA7702A2B927F00AAE8C3 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA76F2A2B927F00AAE8C3 /* PurchaseManager.swift */; };
+		9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
@@ -239,6 +240,7 @@
 		9A5EA7682A2B2B4200AAE8C3 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanItem.swift; sourceTree = "<group>"; };
 		9A5EA76F2A2B927F00AAE8C3 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWordSection.swift; sourceTree = "<group>"; };
 		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				9A24FD832A171B6400C34508 /* FieldItem.swift */,
 				9A24FD842A171B6400C34508 /* WordItem.swift */,
 				9A24FE012A1F8CA200C34508 /* RelatedImage.swift */,
+				9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 				9A24FDD62A171B6500C34508 /* CreditsView.swift in Sources */,
 				9A24FDE42A171B6500C34508 /* AddingWordbookView.swift in Sources */,
 				9A24FDC32A171B6500C34508 /* View+Loading.swift in Sources */,
+				9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */,
 				9A24FDE92A171B6500C34508 /* AuthController.swift in Sources */,
 				9A5EA7462A2AE32300AAE8C3 /* IAPRepositoryImpl.swift in Sources */,
 				9A5EA7412A2AE1B700AAE8C3 /* PromptMode.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class AddWordController: WordController, ObservableObject {
+class AddWordController: WordController {
     
     func addWord(_ dismiss: DismissAction) {
         Task { @MainActor in

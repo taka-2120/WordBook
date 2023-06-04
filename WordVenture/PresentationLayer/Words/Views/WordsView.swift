@@ -22,6 +22,7 @@ struct WordsView: View {
         ZStack {
             if controller.wordbook.words.isEmpty {
                 VStack {
+                    Spacer()
                     Image(systemName: "rectangle.portrait.on.rectangle.portrait.slash")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 64))
@@ -29,6 +30,14 @@ struct WordsView: View {
                     Text("noWords")
                         .font(.title3)
                         .bold()
+                    Spacer()
+                    
+                    GADNativeViewControllerWrapper()
+                        .frame(height: 100)
+                        .background(.thickMaterial)
+                        .cornerRadius(10)
+                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+                        .padding(18)
                 }
             } else {
                 ScrollView {
@@ -36,8 +45,14 @@ struct WordsView: View {
                         ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
                             WordItem(word: word, index: index)
                         }
-                        .padding(.top, 30)
                     }
+                    
+                    GADNativeViewControllerWrapper()
+                        .frame(height: 100)
+                        .background(.thickMaterial)
+                        .cornerRadius(10)
+                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+                        .padding(18)
                 }
             }
             
