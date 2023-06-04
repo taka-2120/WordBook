@@ -79,9 +79,3 @@ struct WordbookItem: View {
         }
     }
 }
-
-struct WordBookItem_Previews: PreviewProvider {
-    static var previews: some View {
-        WordbookItem(wordbook: wordbooksMock[0], index: 0)
-    }
-}

@@ -64,7 +64,9 @@ class WordbookRepositoryImpl: WordbookRepository {
                               imageUrls: word.imageUrls ?? [],
                               synonyms: word.synonyms,
                               antonyms: word.antonyms,
-                              examples: word.examples))
+                              examples: word.examples,
+                              imageSearchCount: word.imageSearchCount,
+                              textGeneratedCount: word.textGeneratedCount))
         }
         
         return words

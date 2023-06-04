@@ -71,7 +71,9 @@ class WordbooksDataSource: NSObject {
                                 imageUrls: word.imageUrls,
                                 synonyms: word.synonyms,
                                 antonyms: word.antonyms,
-                                examples: word.examples)
+                                examples: word.examples,
+                                imageSearchCount: word.imageSearchCount,
+                                textGeneratedCount: word.textGeneratedCount)
         
         _ = try await client.database
             .from(wordsTable)
@@ -91,7 +93,9 @@ class WordbooksDataSource: NSObject {
                                 imageUrls: word.imageUrls,
                                 synonyms: word.synonyms,
                                 antonyms: word.antonyms,
-                                examples: word.examples)
+                                examples: word.examples,
+                                imageSearchCount: word.imageSearchCount,
+                                textGeneratedCount: word.textGeneratedCount)
         
         _ = try await client.database
             .from(wordsTable)

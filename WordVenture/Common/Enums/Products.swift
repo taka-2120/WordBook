@@ -63,7 +63,7 @@ extension Plan {
         case .removeAds:
             return 2
         case .unlimited:
-            return -1
+            return Int.max
         }
     }
     
@@ -74,7 +74,7 @@ extension Plan {
         case .removeAds:
             return 4
         case .unlimited:
-            return -1
+            return Int.max
         }
     }
     

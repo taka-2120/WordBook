@@ -19,7 +19,8 @@ class AddWordController: WordController {
             do {
                 try await wordbookService.addWord(original: originalWord, translated: translatedWord,
                                                   priority: 0, missed: 0, thumbnailUrl: "", imageUrls: imageUrls,
-                                                  synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
+                                                  synonyms: synonyms, antonyms: antonyms, examples: examples,
+                                                  imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()
             } catch {
                 errorMessage = error.localizedDescription

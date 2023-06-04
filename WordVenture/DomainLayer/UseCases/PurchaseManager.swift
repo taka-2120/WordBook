@@ -16,6 +16,10 @@ class PurchaseManager {
     private var updates: Task<Void, Never>? = nil
     
     // Product State
+    var hasNoPlan: Bool {
+        return !hasUnlimited && !hasAdsRemoved
+    }
+    
     var hasAdsRemoved: Bool {
         return purchasedProductIDs.contains(Plan.removeAds.id)
     }

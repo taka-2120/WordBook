@@ -30,7 +30,7 @@ func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder
                 .foregroundColor(.white)
                 .disabled(controller.originalWord == "")
                 
-                if controller.isImageSearched {
+                if controller.isImageNotFound {
                     HStack {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.red)
@@ -42,7 +42,6 @@ func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder
                     Text("imageNotes")
                         .font(.callout)
                         .foregroundColor(Color(.secondaryLabel))
-                        .padding(.bottom)
                 }
             } else {
                 HStack(alignment: .top) {
@@ -51,12 +50,21 @@ func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder
                             .font(.headline)
                     }
                     Spacer()
+                    
+                    if controller.currentPlan != .unlimited {
+                        Text("\(controller.currentPlan.imageSearchLimit - controller.imageSearchCount)/\(controller.currentPlan.imageSearchLimit) times left")
+                            .font(.callout)
+                            .foregroundColor(Color(.secondaryLabel))
+                    }
+                    
                     Button {
                         controller.generateImages()
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
                             .foregroundColor(Color(.secondaryLabel))
                     }
+                    .disabled(controller.currentPlan.imageSearchLimit - controller.imageSearchCount <= 0)
+                    .opacity(controller.currentPlan.imageSearchLimit - controller.imageSearchCount <= 0 ? 0.5 : 1.0)
                 }
                 ScrollView(.horizontal, showsIndicators: true) {
                     HStack {
@@ -102,15 +110,23 @@ func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder
                     Spacer()
                     editButton()
                     
+                    if controller.currentPlan != .unlimited {
+                        Text("\(controller.currentPlan.textGenerationLimit - controller.textGeneratedCount)/\(controller.currentPlan.textGenerationLimit) times left")
+                            .font(.callout)
+                            .foregroundColor(Color(.secondaryLabel))
+                    }
+                    
                     Button {
                         controller.generateAll()
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
                             .foregroundColor(Color(.secondaryLabel))
                     }
+                    .disabled(controller.currentPlan.textGenerationLimit - controller.textGeneratedCount <= 0)
+                    .opacity(controller.currentPlan.textGenerationLimit - controller.textGeneratedCount <= 0 ? 0.5 : 1.0)
                 }
             }
         }
     }
-    .animation(.spring(), value: controller.isImageSearched)
+    .animation(.spring(), value: controller.isImageNotFound)
 }

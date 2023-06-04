@@ -21,7 +21,6 @@
 		9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD4C2A171B6400C34508 /* SupabaseClient.swift */; };
 		9A24FDBA2A171B6500C34508 /* TableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD4D2A171B6400C34508 /* TableName.swift */; };
 		9A24FDBB2A171B6500C34508 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */; };
-		9A24FDBC2A171B6500C34508 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD4F2A171B6400C34508 /* MockData.swift */; };
 		9A24FDBD2A171B6500C34508 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD512A171B6400C34508 /* Regex.swift */; };
 		9A24FDBE2A171B6500C34508 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD522A171B6400C34508 /* Errors.swift */; };
 		9A24FDBF2A171B6500C34508 /* SettingsNavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD542A171B6400C34508 /* SettingsNavStack.swift */; };
@@ -160,7 +159,6 @@
 		9A24FD4C2A171B6400C34508 /* SupabaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupabaseClient.swift; sourceTree = "<group>"; };
 		9A24FD4D2A171B6400C34508 /* TableName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableName.swift; sourceTree = "<group>"; };
 		9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
-		9A24FD4F2A171B6400C34508 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		9A24FD512A171B6400C34508 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9A24FD522A171B6400C34508 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		9A24FD542A171B6400C34508 /* SettingsNavStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavStack.swift; sourceTree = "<group>"; };
@@ -360,7 +358,6 @@
 				9A24FD4C2A171B6400C34508 /* SupabaseClient.swift */,
 				9A24FD4D2A171B6400C34508 /* TableName.swift */,
 				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
-				9A24FD4F2A171B6400C34508 /* MockData.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -916,7 +913,6 @@
 				9A5EA74C2A2AEB2F00AAE8C3 /* IAPRepository.swift in Sources */,
 				9A24FDFE2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift in Sources */,
 				9A24FDB12A171B6500C34508 /* SupabaseAuthRepository.swift in Sources */,
-				9A24FDBC2A171B6500C34508 /* MockData.swift in Sources */,
 				9A24FDB42A171B6500C34508 /* UserDataRepositoryImpl.swift in Sources */,
 				9A24FDE32A171B6500C34508 /* WordBookItem.swift in Sources */,
 				9A24FDBF2A171B6500C34508 /* SettingsNavStack.swift in Sources */,

@@ -22,6 +22,8 @@ class DetailsWordController: WordController {
         self.antonyms = word.antonyms
         self.examples = word.examples
         self.imageUrls = word.imageUrls
+        self.imageSearchCount = word.imageSearchCount
+        self.textGeneratedCount = word.textGeneratedCount
     }
     
     func updateWord(dismiss: DismissAction) {
@@ -35,7 +37,8 @@ class DetailsWordController: WordController {
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
                                            priority: word.priority, missed: word.missed, thumbnailUrl: "", imageUrls: imageUrls,
-                                           synonyms: synonyms, antonyms: antonyms, examples: examples, to: wordbook)
+                                           synonyms: synonyms, antonyms: antonyms, examples: examples,
+                                           imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()
             } catch {
                 errorMessage = error.localizedDescription

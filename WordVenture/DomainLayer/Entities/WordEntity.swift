@@ -24,6 +24,8 @@ struct Word: Equatable, Identifiable, Hashable, Codable {
     var synonyms: [String]
     var antonyms: [String]
     var examples: [String]
+    var imageSearchCount: Int
+    var textGeneratedCount: Int
 }
 
 struct WordAPIModel: Equatable, Hashable, Codable {
@@ -39,4 +41,6 @@ struct WordAPIModel: Equatable, Hashable, Codable {
     var synonyms: [String]
     var antonyms: [String]
     var examples: [String]
+    var imageSearchCount: Int
+    var textGeneratedCount: Int
 }

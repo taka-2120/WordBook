@@ -11,6 +11,7 @@ class WordController: ObservableObject {
     let wordbookService = WordbookService()
     private let openAIUseCase = OpenAIUseCase()
     private let unsplashUseCase = UnsplashUseCase()
+    private let purchaseManager = PurchaseManager.shared
     var wordbook: Wordbook
     
     @Published var originalWord = ""
@@ -21,20 +22,37 @@ class WordController: ObservableObject {
     @Published var isLoading = false
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
-    @Published var isImageSearched = false
+    @Published var isImageNotFound = false
+    
+    @Published var imageSearchCount = 0
+    @Published var textGeneratedCount = 0
+    @Published var currentPlan: Plan
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
+        
+        // Plan Check
+        if purchaseManager.hasNoPlan {
+            currentPlan = .free
+        } else if purchaseManager.hasAdsRemoved {
+            currentPlan = .removeAds
+        } else {
+            currentPlan = .unlimited
+        }
     }
     
     func generateImages() {
         Task { @MainActor in
             do {
                 imageUrls = try await unsplashUseCase.fetchUnsplashImageUrls(for: originalWord)
-                isImageSearched = imageUrls.isEmpty
+                
+                isImageNotFound = imageUrls.isEmpty
+                if !isImageNotFound {
+                    imageSearchCount += 1
+                }
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true
@@ -50,6 +68,7 @@ class WordController: ObservableObject {
                 synonyms = try await openAIUseCase.fetchGeneratedText(for: originalWord, mode: .synonyms) ?? []
                 antonyms = try await openAIUseCase.fetchGeneratedText(for: originalWord, mode: .antonyms) ?? []
                 examples = try await openAIUseCase.fetchGeneratedText(for: originalWord, mode: .examples) ?? []
+                textGeneratedCount += 1
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true
