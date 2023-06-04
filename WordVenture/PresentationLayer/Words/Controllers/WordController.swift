@@ -34,6 +34,7 @@ class WordController: ObservableObject {
         Task { @MainActor in
             do {
                 imageUrls = try await unsplashUseCase.fetchUnsplashImageUrls(for: originalWord)
+                isImageSearched = imageUrls.isEmpty
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true

@@ -63,10 +63,26 @@ struct PlansView: View {
                 .padding(.horizontal)
                 
                 ScrollView {
-                    PlanItem(plan: .free, disabled: controller.hasAdsRemoved(), current: !controller.hasAdsRemoved())
+                    PlanItem(plan: .free, disabled: controller.hasAdsRemoved() || controller.hasUnlimited(), current: !(controller.hasAdsRemoved() || controller.hasUnlimited()))
                         .padding(.top)
                     PlanItem(plan: .removeAds, disabled: controller.hasUnlimited(), current: controller.hasAdsRemoved(), product: controller.products.filter({ $0.id == Plan.removeAds.id }).first)
-                    PlanItem(plan: .unlimited)
+                    PlanItem(plan: .unlimited, current: controller.hasUnlimited())
+                    
+                    if controller.hasUnlimited() {
+                        Group {
+                            Text("If you want to cancel Unlimited subscription, please ")
+                                .foregroundColor(Color(.secondaryLabel))
+                            + Text("tap here")
+                                .fontWeight(.bold)
+                                .foregroundColor(.blue)
+                            + Text(" to cancel it.")
+                                .foregroundColor(Color(.secondaryLabel))
+                        }
+                        .padding([.horizontal, .top])
+                        .onTapGesture {
+                            controller.showManageSubscriptionSheet()
+                        }
+                    }
                 }
                 .animation(.spring(), value: controller.expandedPlan)
                 .ignoresSafeArea(edges: .bottom)

@@ -112,4 +112,5 @@ func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder
             }
         }
     }
+    .animation(.spring(), value: controller.isImageSearched)
 }

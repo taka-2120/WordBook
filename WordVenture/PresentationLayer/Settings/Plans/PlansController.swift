@@ -63,10 +63,6 @@ class PlansController: ObservableObject {
             return !hasPurchased
         }
         
-        if hasUnlimited() && selectedPlan == .free {
-            return true
-        }
-        
         return false
     }
     
@@ -82,6 +78,7 @@ class PlansController: ObservableObject {
         Task { @MainActor in
             do {
                 products = try await iapUseCase.fetchProducts()
+                await purchaseManager.updatePurchasedProducts()
             } catch {
                 print(error)
             }
@@ -126,6 +123,7 @@ class PlansController: ObservableObject {
                 }
                 
                 _ = try await iapUseCase.purchaseProduct(for: product)
+                await purchaseManager.updatePurchasedProducts()
             } catch {
                 print(error)
             }
@@ -136,6 +134,7 @@ class PlansController: ObservableObject {
         Task { @MainActor in
             do {
                 try await iapUseCase.restorePurchase()
+                await purchaseManager.updatePurchasedProducts()
             } catch {
                 print(error)
             }
