@@ -30,6 +30,15 @@ extension UnlimitedPeriod {
             return "annually"
         }
     }
+    
+    var name: LocalizedStringKey {
+        switch self {
+        case .monthly:
+            return "Unlimited Monthly"
+        case .annually:
+            return "Unlimited Annually"
+        }
+    }
 }
 
 

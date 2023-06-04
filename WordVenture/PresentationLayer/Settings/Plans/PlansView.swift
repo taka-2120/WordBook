@@ -41,7 +41,7 @@ struct PlansView: View {
                         Divider()
                         
                         Button(role: .destructive) {
-                            
+                            controller.isRefundSheetShown = true
                         } label: {
                             Label("requestRefunc", systemImage: "dollarsign.arrow.circlepath")
                         }
@@ -94,6 +94,9 @@ struct PlansView: View {
         }
         .manageSubscriptionsSheet(isPresented: $controller.isSubscriptionManagerShown)
         .offerCodeRedemption(isPresented: $controller.isOfferCodeRedepmtionShown)
+        .sheet(isPresented: $controller.isRefundSheetShown) {
+            RefundView()
+        }
         .navigationBarTitleDisplayMode(.inline)
         .environmentObject(controller)
     }

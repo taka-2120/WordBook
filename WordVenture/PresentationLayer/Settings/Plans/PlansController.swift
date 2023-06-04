@@ -20,6 +20,7 @@ class PlansController: ObservableObject {
     @Published var unlimitedPeriod: UnlimitedPeriod = .monthly
     @Published var isSubscriptionManagerShown = false
     @Published var isOfferCodeRedepmtionShown = false
+    @Published var isRefundSheetShown = false
 
     
     init() {
