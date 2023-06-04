@@ -36,7 +36,7 @@ struct AboutView: View {
                     ReleaseNotesView()
                 } label: {
                     HStack {
-                        Text("Release Notes")
+                        Text("releaseNotes")
                         Spacer()
                         Image(systemName: "chevron.right")
                             .foregroundColor(Color(.secondaryLabel))
@@ -52,7 +52,7 @@ struct AboutView: View {
                     UpcomingView()
                 } label: {
                     HStack {
-                        Text("Upcoming Features")
+                        Text("upcomingFeatures")
                         Spacer()
                         Image(systemName: "chevron.right")
                             .foregroundColor(Color(.secondaryLabel))
@@ -68,7 +68,7 @@ struct AboutView: View {
                     .padding(.vertical, 10)
                 
                 VStack(alignment: .leading) {
-                    Text("Developer")
+                    Text("developer")
                         .font(.title2)
                         .fontWeight(.bold)
                     
@@ -88,14 +88,14 @@ struct AboutView: View {
                         
                         Spacer()
                         
-                        Link(destination: URL(string: "https://twitter.com/yutk_941")!) {
+                        Link(destination: URL(string: tiwtterUrl)!) {
                             Image("twitter")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 40)
                         }
                         
-                        Link(destination: URL(string: "https://github.com/taka-2120")!) {
+                        Link(destination: URL(string: githubUrl)!) {
                             Image("github")
                                 .resizable()
                                 .scaledToFit()
@@ -114,9 +114,9 @@ struct AboutView: View {
                     .cornerRadius(15)
                 }
                 
-                Link(destination: URL(string: "https://yu-dev.vercel.app/")!) {
+                Link(destination: URL(string: portfolioUrl)!) {
                     HStack {
-                        Text("My Portfolio")
+                        Text("portfolio")
                         Spacer()
                         Image(systemName: "arrow.up.forward.square")
                             .foregroundColor(Color(.secondaryLabel))
@@ -128,7 +128,7 @@ struct AboutView: View {
                 }
                 .padding(.top)
                 
-                Link(destination: URL(string: "https://www.buymeacoffee.com/yutakahashi")!) {
+                Link(destination: URL(string: buyMeACoffeeUrl)!) {
                     Image("BuyMeACoffee")
                         .resizable()
                         .scaledToFit()
@@ -139,14 +139,14 @@ struct AboutView: View {
                 .background(Color(.systemGroupedBackground))
                 .padding(.top)
                 
-                Text("If you like this app and your wallet is affordable, please buy me a cup of coffee. It will help me for future updates!")
+                Text("buyMeACoffeeNotes")
                     .font(.callout)
                     .foregroundColor(Color(.secondaryLabel))
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
         }
-        .navigationTitle("About")
+        .navigationTitle("about")
         .background(Color(.systemGroupedBackground))
     }
 }

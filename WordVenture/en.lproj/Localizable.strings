@@ -75,6 +75,14 @@
 "manageSubs" = "Manage Subscriptions";
 "redeemCode" = "Redeem Code";
 "requestRefunc" = "Request a Refund";
+// About
+"about %@" = "About %@";
+"about" = "About";
+"releaseNotes" = "Release Notes";
+"upcomingFeatures" = "Upcoming Features";
+"developer" = "Developer";
+"portfolio" = "My Portfolio";
+"buyMeACoffeeNotes" = "If you like this app and your wallet is affordable, please buy me a cup of coffee. It will help me for future updates!";
 
 
 // Wordbook

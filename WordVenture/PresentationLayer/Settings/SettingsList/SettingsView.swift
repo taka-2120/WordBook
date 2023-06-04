@@ -23,7 +23,7 @@ struct SettingsView: View {
                 }
 
                 Section("info") {
-                    SettingsItem(kinds: .link, leftLabel: "About WordVenture", leftIconName: "info", destination: .about, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "about \("WordVenture")", leftIconName: "info", destination: .about, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "privacyPolicy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "plans", leftIconName: "dollarsign.circle", destination: .plans, pathes: $settingsPathes)

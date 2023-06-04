@@ -75,6 +75,14 @@
 "manageSubs" = "サブスクリプションを管理";
 "redeemCode" = "特典コード";
 "requestRefunc" = "返金要求";
+// About
+"about %@" = "%@について";
+"about" = "アプリについて";
+"releaseNotes" = "リリースノート";
+"upcomingFeatures" = "今後の機能";
+"developer" = "開発者";
+"portfolio" = "ポートフォリオ";
+"buyMeACoffeeNotes" = "もしこのアプリを気に入ってくださり、お財布に余裕がありましたら、1杯のコーヒーを恵んでいただけませんか…? 今後の開発の力になります!";
 
 
 // Wordbook
