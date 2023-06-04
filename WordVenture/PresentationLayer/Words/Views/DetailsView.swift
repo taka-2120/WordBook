@@ -57,6 +57,7 @@ struct DetailsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
+                        controller.updateCountOnly()
                         dismiss()
                     } label: {
                         Text("cancel")

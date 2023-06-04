@@ -36,10 +36,31 @@ class DetailsWordController: WordController {
             do {
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
-                                           priority: word.priority, missed: word.missed, thumbnailUrl: "", imageUrls: imageUrls,
+                                           priority: word.priority, missed: word.missed, thumbnailUrl: word.thumbnailUrl, imageUrls: imageUrls,
                                            synonyms: synonyms, antonyms: antonyms, examples: examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()
+            } catch {
+                errorMessage = error.localizedDescription
+                isErrorShown = true
+                print(error)
+            }
+        }
+    }
+    
+    func updateCountOnly() {
+        Task { @MainActor in
+            isLoading = true
+            defer {
+                isLoading = false
+            }
+            
+            do {
+                try await
+                wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
+                                           priority: word.priority, missed: word.missed, thumbnailUrl: word.thumbnailUrl, imageUrls: word.imageUrls,
+                                           synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
+                                           imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true
