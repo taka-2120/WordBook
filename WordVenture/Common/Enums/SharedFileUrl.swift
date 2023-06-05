@@ -10,6 +10,7 @@ import Foundation
 enum SharedFile: String {
     case releaseNotes = "release_notes"
     case upcoming = "upcoming"
+    case privacyPolicy = "privacy_policy"
 }
 
 extension SharedFile {

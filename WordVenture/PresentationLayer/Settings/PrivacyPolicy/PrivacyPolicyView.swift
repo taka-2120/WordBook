@@ -6,24 +6,17 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct PrivacyPolicyView: View {
     var body: some View {
-        VStack(spacing: 15) {
-            Text("privacyPolicy")
-                .font(.title)
-                .bold()
+        ScrollView {
+            Markdown(SharedFile.privacyPolicy.getMarkdown())
+                .markdownTheme(.gitHub)
+                .background(Color(.systemGroupedBackground))
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 10)
-            
-            ScrollView {
-                VStack {
-                    Text("Our Privacy Policy Here...")
-                }
-                .frame(minWidth: 0, maxWidth: .infinity)
-            }
+                .padding()
         }
-        .padding()
         .navigationBarTitleDisplayMode(.inline)
     }
 }
