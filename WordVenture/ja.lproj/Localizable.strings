@@ -14,6 +14,9 @@
 "username" = "ユーザー名";
 "email" = "メールアドレス";
 "password" = "パスワード";
+// Onboarding
+"apiIntro" = "ChatGPTとUnsplash画像検索により、あなた独自の効率的な単語帳を作成することができます！";
+"cardIntro" = "カード機能により、多くの単語をより簡単に記憶できるようになります！";
 
 
 // Settings
