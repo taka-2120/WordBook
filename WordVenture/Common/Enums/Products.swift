@@ -56,25 +56,21 @@ extension Plan {
         }
     }
     
-    var imageSearchLimit: Int {
+    var wordbookLimit: Int {
         switch self {
-        case .free:
-            return 1
-        case .removeAds:
-            return 2
         case .unlimited:
             return Int.max
+        default:
+            return 3
         }
     }
     
-    var textGenerationLimit: Int {
+    var wordLimit: Int {
         switch self {
-        case .free:
-            return 2
-        case .removeAds:
-            return 4
         case .unlimited:
             return Int.max
+        default:
+            return 10
         }
     }
     
@@ -112,11 +108,11 @@ extension Plan {
     var contents: [String] {
         switch self {
         case .free:
-            return ["ads", "textGenFree", "imageSearchFree"]
+            return ["ads", "freeWordbooks", "freeWords"]
         case .removeAds:
-            return ["noAds", "textGenRemoveAds", "imageSearchRemoveAds"]
+            return ["noAds", "freeWordbooks", "freeWords"]
         case .unlimited:
-            return ["noAds", "textGenUnlimited", "imageSearchUnlimited"]
+            return ["noAds", "unlimitedWordbooks", "unlimitedWords"]
         }
     }
 }

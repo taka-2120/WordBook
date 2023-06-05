@@ -105,6 +105,12 @@
 		9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */; };
 		9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7732A2C354600AAE8C3 /* RefundView.swift */; };
 		9A5EA7762A2C358E00AAE8C3 /* RefundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */; };
+		9A5EA7782A2C802100AAE8C3 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7772A2C802100AAE8C3 /* ReleaseNotesView.swift */; };
+		9A5EA77A2A2C803200AAE8C3 /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7792A2C803200AAE8C3 /* UpcomingView.swift */; };
+		9A5EA77F2A2C837100AAE8C3 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9A5EA77E2A2C837100AAE8C3 /* MarkdownUI */; };
+		9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */; };
+		9A5EA7842A2C881000AAE8C3 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7832A2C881000AAE8C3 /* Urls.swift */; };
+		9A5EA7862A2C896900AAE8C3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7852A2C896900AAE8C3 /* AboutView.swift */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
@@ -243,6 +249,11 @@
 		9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWordSection.swift; sourceTree = "<group>"; };
 		9A5EA7732A2C354600AAE8C3 /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundController.swift; sourceTree = "<group>"; };
+		9A5EA7772A2C802100AAE8C3 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
+		9A5EA7792A2C803200AAE8C3 /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
+		9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUrl.swift; sourceTree = "<group>"; };
+		9A5EA7832A2C881000AAE8C3 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		9A5EA7852A2C896900AAE8C3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
@@ -263,6 +274,7 @@
 				9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */,
 				9AD4FF2D2A24B7C900229844 /* StoreKit.framework in Frameworks */,
 				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
+				9A5EA77F2A2C837100AAE8C3 /* MarkdownUI in Frameworks */,
 				9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */,
 				9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */,
 				9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */,
@@ -358,6 +370,7 @@
 				9A24FD4C2A171B6400C34508 /* SupabaseClient.swift */,
 				9A24FD4D2A171B6400C34508 /* TableName.swift */,
 				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
+				9A5EA7832A2C881000AAE8C3 /* Urls.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -368,6 +381,7 @@
 				9A24FD512A171B6400C34508 /* Regex.swift */,
 				9A24FD522A171B6400C34508 /* Errors.swift */,
 				9A5EA7682A2B2B4200AAE8C3 /* Products.swift */,
+				9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -450,6 +464,7 @@
 				9A24FD772A171B6400C34508 /* Credits */,
 				9AD4FF222A22F2F500229844 /* DeleteAccount */,
 				9AD4FF352A26EF0A00229844 /* Plans */,
+				9A5EA7802A2C853300AAE8C3 /* About */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -749,6 +764,35 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9A5EA7802A2C853300AAE8C3 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				9A5EA7852A2C896900AAE8C3 /* AboutView.swift */,
+				9A5EA7772A2C802100AAE8C3 /* ReleaseNotesView.swift */,
+				9A5EA7792A2C803200AAE8C3 /* UpcomingView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		9A5EA7872A2C8A1700AAE8C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AD4FF312A26E85E00229844 /* PlansView.swift */,
+				9A5EA7732A2C354600AAE8C3 /* RefundView.swift */,
+				9A5EA76A2A2B2FFD00AAE8C3 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9A5EA7882A2C8A1C00AAE8C3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9AD4FF362A26EF8700229844 /* PlansController.swift */,
+				9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		9AD4FF222A22F2F500229844 /* DeleteAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,11 +814,8 @@
 		9AD4FF352A26EF0A00229844 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
-				9A5EA76A2A2B2FFD00AAE8C3 /* Components */,
-				9AD4FF312A26E85E00229844 /* PlansView.swift */,
-				9AD4FF362A26EF8700229844 /* PlansController.swift */,
-				9A5EA7732A2C354600AAE8C3 /* RefundView.swift */,
-				9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */,
+				9A5EA7872A2C8A1700AAE8C3 /* Views */,
+				9A5EA7882A2C8A1C00AAE8C3 /* Controllers */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -804,6 +845,7 @@
 				9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */,
 				9A2F836D2A138F030093CC7B /* SwiftUIPager */,
 				9AD4FF282A246E7A00229844 /* GoogleMobileAds */,
+				9A5EA77E2A2C837100AAE8C3 /* MarkdownUI */,
 			);
 			productName = Wordbook;
 			productReference = 3B3EBE942524727400152662 /* WordVenture.app */;
@@ -841,6 +883,7 @@
 				9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
 				9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				9A5EA77D2A2C837100AAE8C3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
 			projectDirPath = "";
@@ -872,6 +915,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A24FDF32A171B6500C34508 /* WordbooksService.swift in Sources */,
+				9A5EA77A2A2C803200AAE8C3 /* UpcomingView.swift in Sources */,
 				9A24FDCA2A171B6500C34508 /* WordIndex.swift in Sources */,
 				9A24FDD72A171B6500C34508 /* AddWordController.swift in Sources */,
 				9A5EA76E2A2B301900AAE8C3 /* PlanItem.swift in Sources */,
@@ -901,6 +945,7 @@
 				9A24FDCF2A171B6500C34508 /* ChangePasswordController.swift in Sources */,
 				9A24FDDD2A171B6500C34508 /* FieldItem.swift in Sources */,
 				9A24FDC72A171B6500C34508 /* Color+Custom.swift in Sources */,
+				9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */,
 				9A24FDF22A171B6500C34508 /* AuthServiceInterface.swift in Sources */,
 				9AD4FF392A271E4100229844 /* IAPManager.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
@@ -909,6 +954,7 @@
 				9A24FDAE2A171B6500C34508 /* WordbookRepositoryImpl.swift in Sources */,
 				9AD4FF2B2A2477B700229844 /* GADNativeViewControllerWrapper.swift in Sources */,
 				9A24FDB32A171B6500C34508 /* UserDataRepository.swift in Sources */,
+				9A5EA7782A2C802100AAE8C3 /* ReleaseNotesView.swift in Sources */,
 				9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */,
 				9A5EA74C2A2AEB2F00AAE8C3 /* IAPRepository.swift in Sources */,
 				9A24FDFE2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift in Sources */,
@@ -932,6 +978,7 @@
 				9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */,
 				9A24FDE92A171B6500C34508 /* AuthController.swift in Sources */,
 				9A5EA7462A2AE32300AAE8C3 /* IAPRepositoryImpl.swift in Sources */,
+				9A5EA7862A2C896900AAE8C3 /* AboutView.swift in Sources */,
 				9A5EA7412A2AE1B700AAE8C3 /* PromptMode.swift in Sources */,
 				9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */,
 				9A5EA75D2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift in Sources */,
@@ -943,6 +990,7 @@
 				9A24FDD42A171B6500C34508 /* SettingsController.swift in Sources */,
 				9A24FDBA2A171B6500C34508 /* TableName.swift in Sources */,
 				9A24FDE12A171B6500C34508 /* AddWordbookController.swift in Sources */,
+				9A5EA7842A2C881000AAE8C3 /* Urls.swift in Sources */,
 				9A24FDD52A171B6500C34508 /* SettingsItem.swift in Sources */,
 				9A24FDE52A171B6500C34508 /* CardIntroductionView.swift in Sources */,
 				9A24FDC52A171B6500C34508 /* Color+Hex.swift in Sources */,
@@ -1203,6 +1251,14 @@
 				minimumVersion = 0.0.4;
 			};
 		};
+		9A5EA77D2A2C837100AAE8C3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		9A85014A29F5FE860033FD05 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase/supabase-swift.git";
@@ -1247,6 +1303,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
 			productName = SwiftfulLoadingIndicators;
+		};
+		9A5EA77E2A2C837100AAE8C3 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A5EA77D2A2C837100AAE8C3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 		9A85014B29F5FE860033FD05 /* Supabase */ = {
 			isa = XCSwiftPackageProductDependency;

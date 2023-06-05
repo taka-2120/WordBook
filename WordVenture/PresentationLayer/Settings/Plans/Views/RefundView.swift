@@ -19,6 +19,7 @@ struct RefundView: View {
                         Spacer()
                         Image(systemName: "exclamationmark.arrow.triangle.2.circlepath")
                             .symbolRenderingMode(.hierarchical)
+                            .font(.largeTitle)
                         Text("You have any refundable purchase.")
                             .font(.title3)
                             .fontWeight(.bold)

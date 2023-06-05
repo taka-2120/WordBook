@@ -23,10 +23,7 @@ struct SettingsView: View {
                 }
 
                 Section("info") {
-                    SettingsItem(kinds: .normal, leftLabel: "version", leftIconName: "info", rightLabel: "1.0.0 Beta 1", pathes: $settingsPathes)
-                        .onTapGesture(count: 7) {
-                            UserDefaults.standard.set(false, forKey: isCardModeOpenedKey)
-                        }
+                    SettingsItem(kinds: .link, leftLabel: "about \("WordVenture")", leftIconName: "info", destination: .about, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "privacyPolicy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "plans", leftIconName: "dollarsign.circle", destination: .plans, pathes: $settingsPathes)
@@ -51,17 +48,6 @@ struct SettingsView: View {
                         .foregroundColor(.red)
                     }
                 }
-                
-                Link(destination: URL(string: "https://www.buymeacoffee.com/yutakahashi")!) {
-                    Image("BuyMeACoffee")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 50)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .buttonStyle(PlainButtonStyle())
-                .listRowInsets(EdgeInsets())
-                .background(Color(.systemGroupedBackground))
             }
             .environmentObject(controller)
             .navigationBarTitle("settings")
@@ -83,6 +69,7 @@ struct SettingsView: View {
                 case .credits: CreditsView()
                 case .plans: PlansView()
                 case .deleteAccount: DeleteAccountView()
+                case .about: AboutView()
                 }
             }
             .onChange(of: settingsPathes) { newValue in

@@ -41,9 +41,11 @@ struct WordsView: View {
                 }
             } else {
                 ScrollView {
-                    SwipeViewGroup {
-                        ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
-                            WordItem(word: word, index: index)
+                    VStack {
+                        SwipeViewGroup {
+                            ForEach(Array(controller.wordbook.words.enumerated()), id: \.offset) { index, word in
+                                WordItem(word: word, index: index)
+                            }
                         }
                     }
                     .padding(.top, 20)
@@ -54,6 +56,38 @@ struct WordsView: View {
 //                        .cornerRadius(10)
 //                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
 //                        .padding(18)
+                    
+                    if !controller.hasUnlimited && controller.wordbook.words.count == Plan.free.wordLimit {
+                        Button {
+                            controller.isPlanViewShown = true
+                        } label: {
+                            HStack {
+                                Text("You need Unlimited plan for more words!")
+                                    .font(.headline)
+                                    .foregroundColor(Color(.label))
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding(.horizontal)
+                            .padding(.vertical, 20)
+                            .background(.regularMaterial)
+                            .cornerRadius(15)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .strokeBorder(.gray, style: StrokeStyle(lineWidth: 2, dash: [10]))
+                            }
+                        }
+                        .padding()
+                    }
+                    
+                    if !controller.hasUnlimited && controller.wordbook.words.count < Plan.free.wordLimit {
+                        HStack {
+                            Spacer()
+                            Text("Limit: \(controller.wordbook.words.count)/\(Plan.free.wordLimit)")
+                                .foregroundColor(Color(.secondaryLabel))
+                                .font(.callout)
+                        }
+                        .padding()
+                    }
                 }
             }
             
@@ -141,6 +175,10 @@ struct WordsView: View {
         .sheet(isPresented: $controller.isAddShown, content: { AddWordView(wordbook: controller.wordbook) })
         .sheet(isPresented: $controller.isDetailsShown) {
             DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
+        }
+        .sheet(isPresented: $controller.isPlanViewShown) {
+            PlansView()
+                .padding(.top, 20)
         }
         .environmentObject(controller)
         .alert("error", isPresented: $controller.isErrorShown) {

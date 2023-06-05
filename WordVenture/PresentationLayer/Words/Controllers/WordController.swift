@@ -11,7 +11,6 @@ class WordController: ObservableObject {
     let wordbookService = WordbookService()
     private let openAIUseCase = OpenAIUseCase()
     private let unsplashUseCase = UnsplashUseCase()
-    private let purchaseManager = PurchaseManager.shared
     var wordbook: Wordbook
     
     @Published var originalWord = ""
@@ -26,22 +25,12 @@ class WordController: ObservableObject {
     
     @Published var imageSearchCount = 0
     @Published var textGeneratedCount = 0
-    @Published var currentPlan: Plan
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
     
     init(wordbook: Wordbook) {
         self.wordbook = wordbook
-        
-        // Plan Check
-        if purchaseManager.hasNoPlan {
-            currentPlan = .free
-        } else if purchaseManager.hasAdsRemoved {
-            currentPlan = .removeAds
-        } else {
-            currentPlan = .unlimited
-        }
     }
     
     func generateImages() {

@@ -9,6 +9,7 @@ import SwiftUI
 
 class WordsController: ObservableObject {
     private let wordbookService = WordbookService()
+    private let purchaseManager = PurchaseManager.shared
     @Published var wordbook: Wordbook
     @Published var selectedWord: Word? = nil
     
@@ -31,6 +32,8 @@ class WordsController: ObservableObject {
             updateWordbook()
         }
     }
+    @Published var isPlanViewShown = false
+    @Published var hasUnlimited: Bool
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
@@ -40,6 +43,9 @@ class WordsController: ObservableObject {
         self.wordbookIndex = index
         self.wordbookTitle = wordbook.name
         self.wordbookColor = Color(hex: wordbook.color)
+        
+        // Plan Check
+        self.hasUnlimited = purchaseManager.hasUnlimited
     }
     
     func updateWordbook() {

@@ -14,6 +14,9 @@
 "username" = "Username";    
 "email" = "Email";
 "password" = "Password";
+// Onboarding
+"apiIntro" = "You can create your own powerful wordbooks using ChatGPT and Unsplash image searchnig!";
+"cardIntro" = "You can easily memorize a lot of words using Card Mode!";
 
 
 // Settings
@@ -60,21 +63,27 @@
 "monthly" = "Monthly";
 "annually" = "Annually";
 "removeAdsDescription" = "You can hide all ads from this app.";
-"unlimitedDescription" = "You can hide all ads from this app, and you can also use APIs without any limits.";
+"unlimitedDescription" = "You can hide all ads from this app, and you can also create wordbooks and words without any limits.";
 "freeDescription" = "You can use this app for free with some limits.";
 "ads" = "With Ads";
 "noAds" = "No Ads";
-"textGenFree" = "Text generation limit: 2 times/word";
-"imageSearchFree" = "Image searching limit: 1 times/word";
-"textGenRemoveAds" = "Text generation limit: 4 times/word";
-"imageSearchRemoveAds" = "Image searching limit: 2 times/word";
-"textGenUnlimited" = "Unlimit text generation";
-"imageSearchUnlimited" = "Unlimit image searching";
+"freeWordbooks" = "Max 3 wordbooks";
+"freeWords" = "Max 10 words for each wordbook";
+"unlimitedWordbooks" = "Unlimit the number of wordbooks";
+"unlimitedWords" = "Unlimit the number of words";
 "select" = "Select";
 "restorePurchase" = "Restore Purchase";
 "manageSubs" = "Manage Subscriptions";
 "redeemCode" = "Redeem Code";
 "requestRefunc" = "Request a Refund";
+// About
+"about %@" = "About %@";
+"about" = "About";
+"releaseNotes" = "Release Notes";
+"upcomingFeatures" = "Upcoming Features";
+"developer" = "Developer";
+"portfolio" = "My Portfolio";
+"buyMeACoffeeNotes" = "If you like this app and your wallet is affordable, please buy me a cup of coffee. It will help me for future updates!";
 
 
 // Wordbook

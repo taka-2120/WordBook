@@ -1,17 +1,17 @@
 //
-//  PrivacyPolicyView.swift
-//  WordBook
+//  UpcomingView.swift
+//  WordVenture
 //
-//  Created by Yu Takahashi on 3/29/23.
+//  Created by Yu Takahashi on 6/4/23.
 //
 
 import SwiftUI
 import MarkdownUI
 
-struct PrivacyPolicyView: View {
+struct UpcomingView: View {
     var body: some View {
         ScrollView {
-            Markdown(SharedFile.privacyPolicy.getMarkdown())
+            Markdown(SharedFile.upcoming.getMarkdown())
                 .markdownTheme(.gitHub)
                 .background(Color(.systemGroupedBackground))
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -21,8 +21,8 @@ struct PrivacyPolicyView: View {
     }
 }
 
-struct PrivacyPolicyView_Previews: PreviewProvider {
+struct UpcomingView_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyView()
+        UpcomingView()
     }
 }

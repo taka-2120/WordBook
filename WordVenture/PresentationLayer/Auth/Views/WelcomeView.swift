@@ -33,32 +33,34 @@ struct WelcomeView: View {
                             .bold()
                             .padding(12)
                         Rectangle()
-                            .fill(Color.black)
+                            .fill(.black)
                             .frame(height: 4)
                             .frame(minWidth: 0)
                     }
-                    .background(Color.white)
+                    .background(.white)
                     .cornerRadius(10)
                 }
                 .padding(.leading, 100)
                 
                 TabView {
-                    VStack {
-                        Image("BookStack")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(30)
-                        Text("Fooooo")
-                    }
-                    .padding()
-                    .tag(0)
+//                    VStack {
+//                        Image("BookStack")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .cornerRadius(30)
+//                        Text("Fooooo")
+//                            .padding(.bottom, 40)
+//                    }
+//                    .padding()
+//                    .tag(0)
                     
                     VStack {
                         Image("Brain")
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(30)
-                        Text("Fooooo")
+                        Text("apiIntro")
+                            .padding(.vertical)
                     }
                     .padding()
                     .tag(1)
@@ -68,12 +70,14 @@ struct WelcomeView: View {
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(30)
-                        Text("Fooooo")
+                        Text("cardIntro")
+                            .padding(.vertical)
                     }
                     .padding()
                     .tag(2)
                 }
                 .background(Color.white)
+                .font(.title3)
                 .cornerRadius(30)
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .background(Color.clear)
@@ -99,16 +103,18 @@ struct WelcomeView: View {
                         authPathes = [.signIn]
                     } label: {
                         Text("signIn")
-                            .foregroundColor(Color(.label))
                             .font(.title3)
                             .bold()
                             .padding()
                     }
                     .frame(maxWidth: 250)
                     .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 2)
+                    }
                 }
             }
+            .foregroundColor(.black)
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color.primaryAccent)

@@ -15,4 +15,5 @@ enum SettingsNavStack {
     case credits
     case plans
     case deleteAccount
+    case about
 }
