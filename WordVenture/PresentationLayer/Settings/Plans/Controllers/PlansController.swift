@@ -18,9 +18,27 @@ class PlansController: ObservableObject {
     @Published var selectedPlan: Plan = .free
     @Published var expandedPlan: Plan? = nil
     @Published var unlimitedPeriod: UnlimitedPeriod = .monthly
-    @Published var isSubscriptionManagerShown = false
-    @Published var isOfferCodeRedepmtionShown = false
-    @Published var isRefundSheetShown = false
+    @Published var isSubscriptionManagerShown = false {
+        willSet {
+            if newValue == false {
+                reflectPurchaseState()
+            }
+        }
+    }
+    @Published var isOfferCodeRedepmtionShown = false {
+        willSet {
+            if newValue == false {
+                reflectPurchaseState()
+            }
+        }
+    }
+    @Published var isRefundSheetShown = false {
+        willSet {
+            if newValue == false {
+                reflectPurchaseState()
+            }
+        }
+    }
 
     
     init() {
@@ -124,6 +142,7 @@ class PlansController: ObservableObject {
                 
                 _ = try await iapUseCase.purchaseProduct(for: product)
                 await purchaseManager.updatePurchasedProducts()
+                reflectPurchaseState()
             } catch {
                 print(error)
             }
@@ -135,6 +154,7 @@ class PlansController: ObservableObject {
             do {
                 try await iapUseCase.restorePurchase()
                 await purchaseManager.updatePurchasedProducts()
+                reflectPurchaseState()
             } catch {
                 print(error)
             }
