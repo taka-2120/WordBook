@@ -28,6 +28,7 @@ class AuthController: ObservableObject {
             }
             
             do {
+                try validate(isSignUp: false)
                 try await authService.signIn(email: email, password: password)
                 screenController.state = .main
             } catch {
@@ -46,6 +47,7 @@ class AuthController: ObservableObject {
             }
             
             do {
+                try validate(isSignUp: true)
                 try await authService.signUp(username: username, email: email, password: password)
                 screenController.state = .main
             } catch {
@@ -53,6 +55,24 @@ class AuthController: ObservableObject {
                 isErrorShown = true
                 print(error)
             }
+        }
+    }
+    
+    private func validate(isSignUp: Bool) throws {
+        if username.isEmpty || email.isEmpty || password.isEmpty {
+            throw CustomError.empty
+        }
+        
+        if username.isVailed(type: .usernameRegex) && isSignUp {
+            throw CustomError.longUsername
+        }
+        
+        if email.isVailed(type: .emailRegex) {
+            throw CustomError.invaildEmailFormat
+        }
+        
+        if password.isVailed(type: .passwordRegex) {
+            throw CustomError.weakPassword
         }
     }
 }
