@@ -45,6 +45,28 @@ struct WordbooksView: View {
                         }
                         .padding(.top)
                         
+                        if !controller.hasUnlimited && controller.wordbooks.count == Plan.free.wordbookLimit {
+                            Button {
+                                controller.isPlanViewShown = true
+                            } label: {
+                                HStack {
+                                    Text("You need Unlimited plan for more wordbooks!")
+                                        .font(.headline)
+                                        .foregroundColor(Color(.label))
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding(.horizontal)
+                                .padding(.vertical, 20)
+                                .background(.regularMaterial)
+                                .cornerRadius(15)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .strokeBorder(.gray, style: StrokeStyle(lineWidth: 2, dash: [10]))
+                                }
+                            }
+                            .padding()
+                        }
+                        
                         if !controller.isAdRemoved() {
                             GADNativeViewControllerWrapper()
                                 .frame(height: 100)
@@ -52,6 +74,16 @@ struct WordbooksView: View {
                                 .cornerRadius(10)
                                 .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
                                 .padding(18)
+                        }
+                        
+                        if !controller.hasUnlimited && controller.wordbooks.count < Plan.free.wordbookLimit {
+                            HStack {
+                                Spacer()
+                                Text("Limit: \(controller.wordbooks.count)/\(Plan.free.wordbookLimit)")
+                                    .foregroundColor(Color(.secondaryLabel))
+                                    .font(.callout)
+                            }
+                            .padding()
                         }
                     }
                 }
@@ -72,10 +104,16 @@ struct WordbooksView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .disabled(controller.wordbooks.count == Plan.free.wordbookLimit)
+                    .opacity(controller.wordbooks.count == Plan.free.wordbookLimit ? 0.6 : 1.0)
                 }
             }
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
             .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
+            .sheet(isPresented: $controller.isPlanViewShown) {
+                PlansView()
+                    .padding(.top, 20)
+            }
             .animation(.easeInOut, value: controller.wordbooks)
             .animation(.easeInOut, value: controller.wordbooks.isEmpty)
             .onAppear(perform: controller.fetchWordbooks)

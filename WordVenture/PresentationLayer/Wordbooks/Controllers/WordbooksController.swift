@@ -20,9 +20,14 @@ class WordbooksController: ObservableObject {
         }
     }
     @Published var isSettingsShown = false
+    @Published var isPlanViewShown = false
+    @Published var hasUnlimited: Bool
     
     init() {
-        fetchWordbooks()
+        // Plan Check
+        self.hasUnlimited = purchaseManager.hasUnlimited
+        
+        self.fetchWordbooks()
     }
     
     func fetchWordbooks() {
