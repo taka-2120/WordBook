@@ -25,8 +25,11 @@ class GADNativeViewController: UIViewController {
     var nativeAdView: GADNativeAdView!
     
     /// The ad unit ID.
-    //  let adUnitID = "ca-app-pub-8585341779496895/5509399168"
-    let adUnitID = "ca-app-pub-3940256099942544/3986624511"
+    #if DEBUG
+    let adUnitID = devAdUnitID
+    #else
+    let adUnitID = isTestFlight ? devAdUnitID : prodAdUnitID
+    #endif
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -59,19 +59,19 @@ class AuthController: ObservableObject {
     }
     
     private func validate(isSignUp: Bool) throws {
-        if username.isEmpty || email.isEmpty || password.isEmpty {
+        if username.isEmpty && isSignUp || email.isEmpty || password.isEmpty {
             throw CustomError.empty
         }
         
-        if username.isVailed(type: .usernameRegex) && isSignUp {
+        if !username.isVailed(type: .usernameRegex) && isSignUp {
             throw CustomError.longUsername
         }
         
-        if email.isVailed(type: .emailRegex) {
+        if !email.isVailed(type: .emailRegex) {
             throw CustomError.invaildEmailFormat
         }
         
-        if password.isVailed(type: .passwordRegex) {
+        if !password.isVailed(type: .passwordRegex) {
             throw CustomError.weakPassword
         }
     }

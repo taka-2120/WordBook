@@ -6,3 +6,5 @@
 //
 
 import Foundation
+
+let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"

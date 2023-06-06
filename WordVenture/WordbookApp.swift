@@ -29,15 +29,19 @@ struct WordbookApp: App {
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
-    // Initialize Mobile Ads SDK
-    GADMobileAds.sharedInstance().start(completionHandler: nil)
-    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
-
-//    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers =
-//        [ kGADSimulatorID ] as? [String]
-
-    return true
-  }
+    func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        // Initialize Mobile Ads SDK
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        #if DEBUG
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
+        #else
+        if isTestFlight {
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
+        }
+        #endif
+        
+        return true
+    }
 }
