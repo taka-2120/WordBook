@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthController: ObservableObject {
+@MainActor class AuthController: ObservableObject, Sendable {
     
     private var screenController = ScreenController.shared
     private let authService = AuthService()
@@ -21,8 +21,9 @@ class AuthController: ObservableObject {
     @Published var errorMessage = ""
     
     func signIn() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }
@@ -40,8 +41,9 @@ class AuthController: ObservableObject {
     }
     
     func signUp() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task { 
             defer {
                 isLoading = false
             }

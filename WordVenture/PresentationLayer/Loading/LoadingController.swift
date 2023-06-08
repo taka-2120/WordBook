@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoadingController: ObservableObject {
+@MainActor class LoadingController: ObservableObject, Sendable {
     private var screenController = ScreenController.shared
     private let authService = AuthService()
     private let wordbookService = WordbookService()
@@ -18,7 +18,6 @@ class LoadingController: ObservableObject {
     @Published var isErrorShown = false
     @Published var errorMessage = ""
     
-    @MainActor
     func load() async {
         do {
             try await authService.isSignedIn()

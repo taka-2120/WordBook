@@ -27,14 +27,14 @@ struct WordbooksView: View {
                             .bold()
                         Spacer()
                         
-                        if !controller.isAdRemoved() {
-                            GADNativeViewControllerWrapper()
-                                .frame(height: 100)
-                                .background(Color(.systemFill))
-                                .cornerRadius(10)
-                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                                .padding(18)
-                        }
+//                        if !controller.isAdRemoved() {
+//                            GADNativeViewControllerWrapper()
+//                                .frame(height: 100)
+//                                .background(Color(.systemFill))
+//                                .cornerRadius(10)
+//                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+//                                .padding(18)
+//                        }
                     }
                 } else {
                     ScrollView {
@@ -67,14 +67,14 @@ struct WordbooksView: View {
                             .padding()
                         }
                         
-                        if !controller.isAdRemoved() {
-                            GADNativeViewControllerWrapper()
-                                .frame(height: 100)
-                                .background(Color(.systemFill))
-                                .cornerRadius(10)
-                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                                .padding(18)
-                        }
+//                        if !controller.isAdRemoved() {
+//                            GADNativeViewControllerWrapper()
+//                                .frame(height: 100)
+//                                .background(Color(.systemFill))
+//                                .cornerRadius(10)
+//                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
+//                                .padding(18)
+//                        }
                         
                         if !controller.hasUnlimited && controller.wordbooks.count < Plan.free.wordbookLimit {
                             HStack {
@@ -116,7 +116,9 @@ struct WordbooksView: View {
             }
             .animation(.easeInOut, value: controller.wordbooks)
             .animation(.easeInOut, value: controller.wordbooks.isEmpty)
-            .onAppear(perform: controller.fetchWordbooks)
+            .onAppear {
+                controller.fetchWordbooks()
+            }
         }
         .environmentObject(controller)
     }

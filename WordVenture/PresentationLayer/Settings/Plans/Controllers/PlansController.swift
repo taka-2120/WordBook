@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-class PlansController: ObservableObject {
+@MainActor class PlansController: ObservableObject {
     
     private let purchaseManager = PurchaseManager.shared
     private let iapUseCase = IAPUseCase()
@@ -93,7 +93,7 @@ class PlansController: ObservableObject {
     }
     
     func requestProducts() {
-        Task { @MainActor in
+        Task {
             do {
                 products = try await iapUseCase.fetchProducts()
                 await purchaseManager.updatePurchasedProducts()
@@ -124,7 +124,7 @@ class PlansController: ObservableObject {
     }
     
     func purchaseProduct() {
-        Task { @MainActor in
+        Task {
             do {
                 var product: Product? = nil
                 
@@ -150,7 +150,7 @@ class PlansController: ObservableObject {
     }
     
     func restorePurchase() {
-        Task { @MainActor in
+        Task {
             do {
                 try await iapUseCase.restorePurchase()
                 await purchaseManager.updatePurchasedProducts()

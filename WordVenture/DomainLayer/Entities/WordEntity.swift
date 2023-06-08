@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
 
-struct Word: Equatable, Identifiable, Hashable, Codable {
+struct Word: Equatable, Identifiable, Hashable, Codable, Sendable {
     var id: UUID {
         self.wordId
     }

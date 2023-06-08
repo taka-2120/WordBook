@@ -10,7 +10,7 @@ import GIFImage
 
 struct LoadingView: View {
     
-    @ObservedObject private var controller = LoadingController()
+    @StateObject private var controller = LoadingController()
     
     var body: some View {
         ZStack {

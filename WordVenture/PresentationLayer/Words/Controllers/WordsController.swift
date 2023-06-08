@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class WordsController: ObservableObject {
+@MainActor class WordsController: ObservableObject, Sendable {
     private let wordbookService = WordbookService()
     private let purchaseManager = PurchaseManager.shared
     @Published var wordbook: Wordbook
@@ -49,7 +49,7 @@ class WordsController: ObservableObject {
     }
     
     func updateWordbook() {
-        Task { @MainActor in
+        Task {
             do {
                 wordbook = try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex(), original: nil, translated: nil)[wordbookIndex]
             } catch {
@@ -59,7 +59,7 @@ class WordsController: ObservableObject {
     }
     
     private func fetchWordbook() {
-        Task { @MainActor in
+        Task {
             do {
                 wordbook = try await wordbookService.fetchWordbook()[wordbookIndex]
             } catch {
@@ -73,7 +73,7 @@ class WordsController: ObservableObject {
     }
     
     func removeWord(at index: Int) {
-        Task { @MainActor in
+        Task {
             let word = wordbook.words[index]
             do {
                 wordbook.words.remove(at: index)

@@ -55,7 +55,7 @@ struct PlansView: View {
                 
 //                TODO: Show current plan
                 Group {
-                    Text("Your current plan is: ") +
+                    Text("Your current plan is ") +
                     Text(controller.currentPlan.name)
                         .fontWeight(.semibold)
                 }
@@ -65,7 +65,6 @@ struct PlansView: View {
                 ScrollView {
                     PlanItem(plan: .free, disabled: controller.hasAdsRemoved() || controller.hasUnlimited(), current: !(controller.hasAdsRemoved() || controller.hasUnlimited()))
                         .padding(.top)
-                    PlanItem(plan: .removeAds, disabled: controller.hasUnlimited(), current: controller.hasAdsRemoved(), product: controller.products.filter({ $0.id == Plan.removeAds.id }).first)
                     PlanItem(plan: .unlimited, current: controller.hasUnlimited())
                     
                     if controller.hasUnlimited() {

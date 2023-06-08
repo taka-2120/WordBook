@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Wordbook: Identifiable, Hashable, Codable {
+struct Wordbook: Identifiable, Hashable, Codable, Sendable {
     var id: UUID {
         self.bookId
     }

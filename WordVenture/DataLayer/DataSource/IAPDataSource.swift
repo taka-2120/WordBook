@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-class IAPDataSource: NSObject {
+final class IAPDataSource: NSObject, Sendable {
     
     class func fetchProducts() async throws -> [Product] {
         let identifiers: [String] = [Plan.removeAds.id, UnlimitedPeriod.monthly.id, UnlimitedPeriod.annually.id]

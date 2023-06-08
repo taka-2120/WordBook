@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddWordbookView: View {
-    @ObservedObject private var controller = AddWordbookController()
+    @StateObject private var controller = AddWordbookController()
     
     @Environment(\.dismiss) private var dismiss
     

@@ -117,7 +117,7 @@
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
-		9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF1F2A20822D00229844 /* Localizable.strings */; };
+		9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC1FDC82A31576000EE329F /* Localizable.xcstrings */; };
 		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
 		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
 		9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD4FF282A246E7A00229844 /* GoogleMobileAds */; };
@@ -126,7 +126,6 @@
 		9AD4FF2F2A24B8BF00229844 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */; };
 		9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF312A26E85E00229844 /* PlansView.swift */; };
 		9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF362A26EF8700229844 /* PlansController.swift */; };
-		9AD4FF392A271E4100229844 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF382A271E4100229844 /* IAPManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -260,8 +259,7 @@
 		9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "info-dev.plist"; sourceTree = "<group>"; };
 		9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnvironment.swift; sourceTree = "<group>"; };
 		9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobId.swift; sourceTree = "<group>"; };
-		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
 		9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADNativeViewControllerWrapper.swift; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 		9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		9AD4FF312A26E85E00229844 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		9AD4FF362A26EF8700229844 /* PlansController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansController.swift; sourceTree = "<group>"; };
-		9AD4FF382A271E4100229844 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,7 +320,7 @@
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
 				9A24FD442A171B6400C34508 /* Preview Content */,
-				9AD4FF1F2A20822D00229844 /* Localizable.strings */,
+				9AC1FDC82A31576000EE329F /* Localizable.xcstrings */,
 			);
 			path = WordVenture;
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 		9A24FD392A171B6400C34508 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				9AD4FF382A271E4100229844 /* IAPManager.swift */,
 				9A5EA7452A2AE32300AAE8C3 /* IAPRepositoryImpl.swift */,
 				9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */,
 				9A24FD402A171B6400C34508 /* OpenAIRepositoryImpl.swift */,
@@ -910,9 +906,9 @@
 			files = (
 				9A5EA78C2A2D896900AAE8C3 /* info-dev.plist in Resources */,
 				9A24FDAC2A171B6500C34508 /* Assets.xcassets in Resources */,
-				9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */,
 				9AD4FF2F2A24B8BF00229844 /* NativeAdView.xib in Resources */,
 				9A24FDB52A171B6500C34508 /* Preview Assets.xcassets in Resources */,
+				9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */,
 				9A24FDAB2A171B6500C34508 /* BookStack.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,7 +953,6 @@
 				9A24FDC72A171B6500C34508 /* Color+Custom.swift in Sources */,
 				9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */,
 				9A24FDF22A171B6500C34508 /* AuthServiceInterface.swift in Sources */,
-				9AD4FF392A271E4100229844 /* IAPManager.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
 				9A5EA7672A2B275400AAE8C3 /* IAPUseCase.swift in Sources */,
@@ -1035,18 +1030,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		9AD4FF1F2A20822D00229844 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9AD4FF1E2A20822D00229844 /* en */,
-				9AD4FF202A20823000229844 /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3B3EBEA12524727500152662 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1100,6 +1083,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1155,6 +1139,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1190,6 +1175,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yutakahashi.WordVenture.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)Dev";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1220,6 +1206,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yutakahashi.WordVenture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,7 +9,7 @@ import Foundation
 import Supabase
 import GoTrue
 
-class SupabaseAuthDataSource: NSObject {
+final class SupabaseAuthDataSource: NSObject, Sendable {
     
     class func signUp(email: String, password: String) async throws {
         _ = try await client.auth.signUp(email: email, password: password)

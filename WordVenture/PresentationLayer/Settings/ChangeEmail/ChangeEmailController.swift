@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ChangeEmailController: ObservableObject {
+@MainActor class ChangeEmailController: ObservableObject, Sendable {
     private let authService = AuthService()
     
     @Published var email = ""
@@ -24,7 +24,7 @@ class ChangeEmailController: ObservableObject {
     }
     
     func getEmail() {
-        Task{ @MainActor in
+        Task{
             do {
                 self.email = try await authService.getEmail() ?? "N/A"
             } catch {
@@ -48,8 +48,8 @@ class ChangeEmailController: ObservableObject {
     }
     
     func updateEmail(_ dismiss: DismissAction) {
-        Task{ @MainActor in
-            isLoading = true
+        isLoading = true
+        Task{
             defer {
                 isLoading = false
             }

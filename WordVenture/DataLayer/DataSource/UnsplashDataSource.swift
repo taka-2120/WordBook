@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UnsplashDataSource: NSObject {
+final class UnsplashDataSource: NSObject, Sendable {
     
     class func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
         let url = "https://api.unsplash.com/search/photos/?page=1&query=\(word)&client_id=\(ENV().unsplashAccessKey)"

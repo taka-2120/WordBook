@@ -8,7 +8,7 @@
 import Foundation
 import Supabase
 
-class UserDataSource: NSObject {
+final class UserDataSource: NSObject, Sendable {
     
     class func insertUserData(userId: UUID, username: String) async throws {
         let userdata = UserData(userId: userId, username: username)

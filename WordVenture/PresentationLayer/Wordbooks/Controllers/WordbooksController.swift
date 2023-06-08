@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WordbooksController: ObservableObject {
+@MainActor class WordbooksController: ObservableObject, Sendable {
     private let purchaseManager = PurchaseManager.shared
     private let wordbookService = WordbookService()
     @Published var wordbooks: [Wordbook] = []
@@ -31,7 +31,7 @@ class WordbooksController: ObservableObject {
     }
     
     func fetchWordbooks() {
-        Task { @MainActor in
+        Task {
             do {
                 wordbooks = try await wordbookService.fetchWordbook()
             } catch {
@@ -49,7 +49,7 @@ class WordbooksController: ObservableObject {
     }
     
     func removeWordbook(at index: Int) {
-        Task { @MainActor in
+        Task {
             let wordbook = wordbooks[index]
             do {
                 wordbooks.remove(at: index)

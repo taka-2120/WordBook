@@ -10,11 +10,6 @@ import SwiftUI
 struct WelcomeView: View {
     @State private var authPathes: [AuthMethod] = []
     
-    init() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue.withAlphaComponent(0.8)
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-    }
-    
     var body: some View {
         NavigationStack(path: $authPathes) {
             VStack {
@@ -122,6 +117,12 @@ struct WelcomeView: View {
                 switch method {
                 case .signUp: SignUpView()
                 case .signIn: SignInView()
+                }
+            }
+            .onAppear {
+                Task { @MainActor in
+                    UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue.withAlphaComponent(0.8)
+                    UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
                 }
             }
         }

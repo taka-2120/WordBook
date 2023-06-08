@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AddWordView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var controller: AddWordController
+    @StateObject private var controller: AddWordController
     
     init(wordbook: Wordbook) {
-        controller = AddWordController(wordbook: wordbook)
+        _controller = StateObject(wrappedValue: AddWordController(wordbook: wordbook))
     }
     
     var body: some View {
@@ -57,9 +57,9 @@ struct AddWordView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        controller.addWord(dismiss)
+                        controller.addWord({ dismiss() })
                     } label: {
-                        Text("save")
+                        Text("add")
                             .bold()
                     }
                     .disabled(controller.originalWord.isEmpty || controller.translatedWord.isEmpty)

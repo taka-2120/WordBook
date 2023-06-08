@@ -8,19 +8,19 @@
 import SwiftUI
 import StoreKit
 
-class RefundController: ObservableObject {
+@MainActor class RefundController: ObservableObject, Sendable {
+    
     @Published var entitlements: [StoreKit.Transaction] = []
     
     @Published var selectedTransactionID: UInt64?
     @Published var isRefundRequestShown: Bool = false
     
     init() {
-        Task { @MainActor in
+        Task {
             await fetchEntitlements()
         }
     }
     
-    @MainActor
     private func fetchEntitlements() async {
         for await result in Transaction.currentEntitlements {
             if case .verified(let transaction) = result {

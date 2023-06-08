@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-class AddWordController: WordController {
+@MainActor class AddWordController: WordController, Sendable {
     
-    func addWord(_ dismiss: DismissAction) {
-        Task { @MainActor in
-            isLoading = true
+    func addWord(_ dismissAction: @escaping () -> Void) {
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }
@@ -21,7 +22,7 @@ class AddWordController: WordController {
                                                   priority: 0, missed: 0, thumbnailUrl: "", imageUrls: imageUrls,
                                                   synonyms: synonyms, antonyms: antonyms, examples: examples,
                                                   imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
-                dismiss()
+                dismissAction()
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true

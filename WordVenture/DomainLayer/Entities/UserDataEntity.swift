@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserData: Codable {
+struct UserData: Codable, Sendable {
     var userId: UUID
     let username: String
 }

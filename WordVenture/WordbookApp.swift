@@ -10,7 +10,7 @@ import GoogleMobileAds
 
 @main
 struct WordbookApp: App {
-    @ObservedObject private var screenController = ScreenController.shared
+    @StateObject private var screenController = ScreenController.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
