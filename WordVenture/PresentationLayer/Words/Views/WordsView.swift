@@ -106,6 +106,7 @@ struct WordsView: View {
                 .padding()
             }
         }
+        .background(Color(.secondarySystemBackground))
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.browser)
         .toolbar {
@@ -166,12 +167,12 @@ struct WordsView: View {
             PlansView()
                 .padding(.top, 20)
         }
-        .environmentObject(controller)
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
             Text(controller.errorMessage)
         }
+        .environmentObject(controller)
     }
 }
 

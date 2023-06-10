@@ -70,6 +70,7 @@ struct WordbooksView: View {
                     }
                 }
             }
+            .background(Color(.secondarySystemBackground))
             .navigationTitle("wordbooks")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -86,8 +87,8 @@ struct WordbooksView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .disabled(controller.wordbooks.count == unlimitedMaxWordbookCount)
-                    .opacity(controller.wordbooks.count == unlimitedMaxWordbookCount ? 0.6 : 1.0)
+                    .disabled(!controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount)
+                    .opacity(!controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount ? 0.6 : 1.0)
                 }
             }
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })

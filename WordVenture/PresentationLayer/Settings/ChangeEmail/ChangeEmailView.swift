@@ -14,12 +14,6 @@ struct ChangeEmailView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("changeEmail")
-                .font(.title)
-                .bold()
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 10)
-            
             Text("currentEmail") +
             Text(controller.email)
                 .bold()
@@ -43,6 +37,7 @@ struct ChangeEmailView: View {
             .cornerRadius(15)
         }
         .padding()
+        .navigationTitle("changeEmail")
         .navigationBarTitleDisplayMode(.inline)
         .alert("confirmation", isPresented: $controller.isEmailConfirmationPromptShown) {
             Button(role: .destructive) {
