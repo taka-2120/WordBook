@@ -45,7 +45,7 @@ import Foundation
     }
     
     func isAdRemoved() -> Bool {
-        return purchaseManager.hasAdsRemoved || purchaseManager.hasUnlimited
+        return purchaseManager.hasUnlimited
     }
     
     func removeWordbook(at index: Int) {

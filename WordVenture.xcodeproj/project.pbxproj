@@ -118,6 +118,7 @@
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
 		9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC1FDC82A31576000EE329F /* Localizable.xcstrings */; };
+		9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */; };
 		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
 		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
 		9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD4FF282A246E7A00229844 /* GoogleMobileAds */; };
@@ -260,6 +261,7 @@
 		9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnvironment.swift; sourceTree = "<group>"; };
 		9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobId.swift; sourceTree = "<group>"; };
 		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlan.swift; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
 		9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADNativeViewControllerWrapper.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				9A5EA7832A2C881000AAE8C3 /* Urls.swift */,
 				9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */,
 				9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */,
+				9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */,
 				9A24FDC62A171B6500C34508 /* NotificationCenter.swift in Sources */,
 				9A24FDC12A171B6500C34508 /* AuthMethod.swift in Sources */,
+				9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */,
 				9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */,
 				9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */,
 				9A24FDEA2A171B6500C34508 /* WelcomeView.swift in Sources */,

@@ -8,7 +8,7 @@
 import SwiftUI
 import StoreKit
 
-class PurchaseManager {
+final class PurchaseManager {
     static let shared = PurchaseManager()
     private init () { }
     
@@ -17,11 +17,7 @@ class PurchaseManager {
     
     // Product State
     var hasNoPlan: Bool {
-        return !hasUnlimited && !hasAdsRemoved
-    }
-    
-    var hasAdsRemoved: Bool {
-        return purchasedProductIDs.contains(Plan.removeAds.id)
+        return !hasUnlimited
     }
     
     var hasUnlimited: Bool {

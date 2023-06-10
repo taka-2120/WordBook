@@ -20,7 +20,7 @@ struct RefundView: View {
                         Image(systemName: "exclamationmark.arrow.triangle.2.circlepath")
                             .symbolRenderingMode(.hierarchical)
                             .font(.largeTitle)
-                        Text("You have any refundable purchase.")
+                        Text("You do not have any refundable purchase.")
                             .font(.title3)
                             .fontWeight(.bold)
                         Spacer()
@@ -30,7 +30,7 @@ struct RefundView: View {
                         ForEach(controller.entitlements, id: \.id) { transaction in
                             HStack {
                                 VStack(alignment: .leading, spacing: 5) {
-                                    Text(Plan.allCases.filter({ $0.id == transaction.productID }).first?.name ?? UnlimitedPeriod.allCases.filter({ $0.id == transaction.productID }).first?.name ?? "")
+                                    Text(UnlimitedPeriod.allCases.filter({ $0.id == transaction.productID }).first?.periodName ?? "")
                                     Text(transaction.purchaseDate.formatted())
                                         .foregroundColor(Color(.secondaryLabel))
                                         .font(.callout)

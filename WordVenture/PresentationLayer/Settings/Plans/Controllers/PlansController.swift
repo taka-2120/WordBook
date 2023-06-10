@@ -7,17 +7,18 @@
 
 import Foundation
 import StoreKit
+import SwiftUI
 
-@MainActor class PlansController: ObservableObject {
+@MainActor class PlansController: ObservableObject, Sendable {
     
     private let purchaseManager = PurchaseManager.shared
     private let iapUseCase = IAPUseCase()
     
-    @Published var currentPlan: Plan = .free
     @Published var products = [Product]()
-    @Published var selectedPlan: Plan = .free
-    @Published var expandedPlan: Plan? = nil
-    @Published var unlimitedPeriod: UnlimitedPeriod = .monthly
+    @Published var currentPeriod: UnlimitedPeriod? = nil
+    @Published var selectedPeriod: UnlimitedPeriod = .monthly
+    @Published var isAvailable = false
+    
     @Published var isSubscriptionManagerShown = false {
         willSet {
             if newValue == false {
@@ -52,36 +53,17 @@ import StoreKit
     }
     
     func reflectPurchaseState() {
-        if hasAdsRemoved() {
-            selectedPlan = .removeAds
-            currentPlan = .removeAds
-        } else if hasUnlimited() {
-            selectedPlan = .unlimited
-            currentPlan = .unlimited
-            unlimitedPeriod = purchaseManager.purchasedProductIDs.contains(UnlimitedPeriod.monthly.id) ? .monthly : .annually
+        if hasUnlimited() {
+            currentPeriod = purchaseManager.purchasedProductIDs.contains(UnlimitedPeriod.monthly.id) ? .monthly : .annually
+            selectedPeriod = currentPeriod!
         } else {
-            selectedPlan = .free
+            currentPeriod = nil
+            selectedPeriod = .monthly
         }
-    }
-    
-    func hasAdsRemoved() -> Bool {
-        return purchaseManager.hasAdsRemoved
     }
     
     func hasUnlimited() -> Bool {
         return purchaseManager.hasUnlimited
-    }
-    
-    func isAvailable() -> Bool {
-        if selectedPlan == .removeAds {
-            let hasPurchased = purchaseManager.purchasedProductIDs.contains(selectedPlan.id)
-            return !hasPurchased
-        } else if selectedPlan == .unlimited {
-            let hasPurchased = purchaseManager.purchasedProductIDs.contains(unlimitedPeriod.id)
-            return !hasPurchased
-        }
-        
-        return false
     }
     
     func showManageSubscriptionSheet() {
@@ -90,6 +72,24 @@ import StoreKit
     
     func showOfferCodeRedepmtionSheet() {
         isOfferCodeRedepmtionShown = true
+    }
+    
+    func getCurrentPlanName() -> String {
+        if let currentPeriod = currentPeriod {
+            return currentPeriod.periodName
+        }
+        return "free"
+    }
+    
+    func getLocalizedPrice(for period: UnlimitedPeriod) -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.currencySymbol = Locale.current.currencySymbol ?? ""
+        formatter.internationalCurrencySymbol = Locale.current.currencySymbol ?? ""
+        formatter.numberStyle = .currencyAccounting
+        let localizedPrice = formatter.string(from: period.price as NSNumber) ?? ""
+        
+        return localizedPrice
     }
     
     func requestProducts() {
@@ -103,22 +103,23 @@ import StoreKit
         }
     }
     
-    func expand(for plan: Plan) {
-        if expandedPlan == plan {
-            expandedPlan = nil
-        } else {
-            expandedPlan = plan
+    func selectPeriod(for period: UnlimitedPeriod) {
+        selectedPeriod = period
+        
+        // Check if the period is available
+        guard let currentPeriod = currentPeriod else {
+            // If user doesn't subscribe to any plan...
+            isAvailable = true
+            return
         }
+        
+        let hasPurchased = purchaseManager.purchasedProductIDs.contains(period.id)
+        isAvailable = !hasPurchased
     }
     
-    func getPrice(for plan: Plan) -> String {
+    func getPrice(for period: UnlimitedPeriod) -> String {
         var product: Product? = nil
-        
-        if plan == .removeAds {
-            product = products.filter( { $0.id == plan.id }).first
-        } else if plan == .unlimited {
-            product = products.filter( { $0.id == unlimitedPeriod.id }).first
-        }
+        product = products.filter( { $0.id == period.id }).first
         
         return product?.displayPrice ?? "N/A"
     }
@@ -128,13 +129,7 @@ import StoreKit
             do {
                 var product: Product? = nil
                 
-                if selectedPlan == .removeAds {
-                    product = products.filter( { $0.id == selectedPlan.id }).first
-                } else if selectedPlan == .unlimited {
-                    product = products.filter( { $0.id == unlimitedPeriod.id }).first
-                } else {
-                    return
-                }
+                product = products.filter( { $0.id == selectedPeriod.id }).first
                 
                 guard let product = product else {
                     return

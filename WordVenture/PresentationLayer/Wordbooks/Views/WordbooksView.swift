@@ -26,15 +26,6 @@ struct WordbooksView: View {
                             .font(.title3)
                             .bold()
                         Spacer()
-                        
-//                        if !controller.isAdRemoved() {
-//                            GADNativeViewControllerWrapper()
-//                                .frame(height: 100)
-//                                .background(Color(.systemFill))
-//                                .cornerRadius(10)
-//                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-//                                .padding(18)
-//                        }
                     }
                 } else {
                     ScrollView {
@@ -45,7 +36,7 @@ struct WordbooksView: View {
                         }
                         .padding(.top)
                         
-                        if !controller.hasUnlimited && controller.wordbooks.count == Plan.free.wordbookLimit {
+                        if !controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount {
                             Button {
                                 controller.isPlanViewShown = true
                             } label: {
@@ -67,19 +58,10 @@ struct WordbooksView: View {
                             .padding()
                         }
                         
-//                        if !controller.isAdRemoved() {
-//                            GADNativeViewControllerWrapper()
-//                                .frame(height: 100)
-//                                .background(Color(.systemFill))
-//                                .cornerRadius(10)
-//                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-//                                .padding(18)
-//                        }
-                        
-                        if !controller.hasUnlimited && controller.wordbooks.count < Plan.free.wordbookLimit {
+                        if !controller.hasUnlimited && controller.wordbooks.count < unlimitedMaxWordbookCount {
                             HStack {
                                 Spacer()
-                                Text("Limit: \(controller.wordbooks.count)/\(Plan.free.wordbookLimit)")
+                                Text("Limit: \(controller.wordbooks.count)/\(unlimitedMaxWordbookCount)")
                                     .foregroundColor(Color(.secondaryLabel))
                                     .font(.callout)
                             }
@@ -104,8 +86,8 @@ struct WordbooksView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .disabled(controller.wordbooks.count == Plan.free.wordbookLimit)
-                    .opacity(controller.wordbooks.count == Plan.free.wordbookLimit ? 0.6 : 1.0)
+                    .disabled(controller.wordbooks.count == unlimitedMaxWordbookCount)
+                    .opacity(controller.wordbooks.count == unlimitedMaxWordbookCount ? 0.6 : 1.0)
                 }
             }
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })

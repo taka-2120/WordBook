@@ -11,7 +11,7 @@ import StoreKit
 final class IAPDataSource: NSObject, Sendable {
     
     class func fetchProducts() async throws -> [Product] {
-        let identifiers: [String] = [Plan.removeAds.id, UnlimitedPeriod.monthly.id, UnlimitedPeriod.annually.id]
+        let identifiers: [String] = [UnlimitedPeriod.monthly.id, UnlimitedPeriod.annually.id]
         return try await Product.products(for: identifiers)
     }
     
