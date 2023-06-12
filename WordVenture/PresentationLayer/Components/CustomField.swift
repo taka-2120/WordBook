@@ -83,8 +83,8 @@ struct CustomField: View {
     }
 }
 
-struct CustomField_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomField("Field", notes: "Here is some notes.", text: .constant("Text"))
-    }
-}
+//struct CustomField_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomField("Field", notes: "Here is some notes.", text: .constant("Text"))
+//    }
+//}

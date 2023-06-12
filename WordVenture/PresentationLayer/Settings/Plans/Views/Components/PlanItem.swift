@@ -44,7 +44,7 @@ struct PlanItem: View {
             
             if controller.currentPeriod == period {
                 HStack {
-                    Label("Your plan", systemImage: "star")
+                    Label("yourPlan", systemImage: "star")
                         .foregroundStyle(Color(.secondaryLabel))
                         .padding(.leading)
                     Spacer()

@@ -48,7 +48,7 @@ struct WordsView: View {
                             controller.isPlanViewShown = true
                         } label: {
                             HStack {
-                                Text("You need Unlimited plan for more words!")
+                                Text("needUnlimitedWord")
                                     .font(.headline)
                                     .foregroundColor(Color(.label))
                             }
@@ -68,7 +68,7 @@ struct WordsView: View {
                     if !controller.hasUnlimited && controller.wordbook.words.count < unlimitedMaxWordCount {
                         HStack {
                             Spacer()
-                            Text("Limit: \(controller.wordbook.words.count)/\(unlimitedMaxWordCount)")
+                            Text("limit: \(controller.wordbook.words.count)/\(unlimitedMaxWordCount)")
                                 .foregroundColor(Color(.secondaryLabel))
                                 .font(.callout)
                         }

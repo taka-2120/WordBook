@@ -2,31 +2,99 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     " • " : {
-
-    },
-    " 1.0.0 (Beta 1)" : {
-
-    },
-    " to cancel it." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "[Launch image](https://lottiefiles.com/24291-stack-of-books) is created by Scott A on LottieFiles" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Launch image](https://lottiefiles.com/24291-stack-of-books) is created by Scott A on LottieFiles"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "[Sign in](https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#&position=1&from_view=collections) and [sign up](https://www.freepik.com/free-vector/high-five-concept-illustration_7010860.htm#&position=0&from_view=collections) images are created by storyset on Freepik" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Sign in](https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#&position=1&from_view=collections) and [sign up](https://www.freepik.com/free-vector/high-five-concept-illustration_7010860.htm#&position=0&from_view=collections) images are created by storyset on Freepik"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "%@" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "%lld" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "%lld." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "about" : {
       "localizations" : {
@@ -110,23 +178,6 @@
         }
       }
     },
-    "annually" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Annually"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "年額"
-          }
-        }
-      }
-    },
     "antonyms" : {
       "localizations" : {
         "en" : {
@@ -156,6 +207,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ChatGPTとUnsplash画像検索により、あなた独自の効率的な単語帳を作成することができます！"
+          }
+        }
+      }
+    },
+    "apiNotes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notes: \n • Unsplash API sometimes cannot find images. \n • Oepn AI API sometimes generate texts in wrong format, or containing incorrect information."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ご利用上の注意: \n• Unsplash APIでは、検索する単語によって画像がヒットしない場合があります。\n• OpenAI APIでは、生成されるテキストのフォーマットが崩れていたり、誤った情報が含まれている場合があります。"
           }
         }
       }
@@ -205,6 +272,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャンセル"
+          }
+        }
+      }
+    },
+    "cancelUnlimited" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you want to cancel Unlimited subscription, please "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimitedプランをキャンセルする場合は、"
           }
         }
       }
@@ -678,8 +761,21 @@
         }
       }
     },
-    "Example %lld" : {
-
+    "example %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Example %lld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "例文 %lld"
+          }
+        }
+      }
     },
     "examples" : {
       "localizations" : {
@@ -693,43 +789,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "例文"
-          }
-        }
-      }
-    },
-    "Field" : {
-
-    },
-    "free" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Free"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料プラン"
-          }
-        }
-      }
-    },
-    "freeDescription" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use this app for free with some limits."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料でアプリを利用できますが、いくつか制限があります。"
           }
         }
       }
@@ -800,12 +859,6 @@
         }
       }
     },
-    "Here is some notes." : {
-
-    },
-    "If you want to cancel Unlimited subscription, please " : {
-
-    },
     "imageNotes" : {
       "localizations" : {
         "en" : {
@@ -871,29 +924,18 @@
         }
       }
     },
-    "lifetime" : {
-      "extractionState" : "stale",
+    "limit: %lld/%lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lifetime"
+            "state" : "new",
+            "value" : "limit: %1$lld/%2$lld"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "買い切り"
-          }
-        }
-      }
-    },
-    "Limit: %lld/%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Limit: %1$lld/%2$lld"
+            "value" : "個数制限: %lld/%lld"
           }
         }
       }
@@ -947,19 +989,34 @@
         }
       }
     },
-    "monthly" : {
-      "extractionState" : "stale",
+    "needUnlimitedWord" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monthly"
+            "value" : "You need Unlimited plan for more words!"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "月額"
+            "value" : "これ以上はUnlimitedプランが必要です！"
+          }
+        }
+      }
+    },
+    "needUnlimitedWordbook" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need Unlimited plan for more wordbooks!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これ以上はUnlimitedプランが必要です！"
           }
         }
       }
@@ -1112,8 +1169,21 @@
         }
       }
     },
-    "Notes: \n • Unsplash API sometimes cannot find images. \n • Oepn AI API sometimes generate texts in wrong format, or containing incorrect information." : {
-
+    "noRefundablePurchases" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don't have any refundable purchases."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返金可能な購入はありません。"
+          }
+        }
+      }
     },
     "noWordbooks" : {
       "comment" : "Wordbook",
@@ -1149,7 +1219,14 @@
       }
     },
     "OK" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "oldPassword" : {
       "comment" : "Password",
@@ -1199,9 +1276,6 @@
           }
         }
       }
-    },
-    "plan" : {
-
     },
     "plans" : {
       "comment" : "Plans",
@@ -1268,11 +1342,37 @@
         }
       }
     },
-    "Refund" : {
-
+    "refund" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refund"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返金"
+          }
+        }
+      }
     },
-    "Refundable Purchases" : {
-
+    "refundablePurchases" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refundable Purchases"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返金可能な購入"
+          }
+        }
+      }
     },
     "relatedImage" : {
       "localizations" : {
@@ -1302,40 +1402,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "リリースノート"
-          }
-        }
-      }
-    },
-    "removeAds" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Remove Ads"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "広告削除"
-          }
-        }
-      }
-    },
-    "removeAdsDescription" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can hide all ads from this app."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アプリ内の広告を全て削除できます。"
           }
         }
       }
@@ -1552,8 +1618,21 @@
         }
       }
     },
-    "tap here" : {
-
+    "tapHere" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tap here"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ここをタップして"
+          }
+        }
+      }
     },
     "textNotes" : {
       "localizations" : {
@@ -1584,6 +1663,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "タイトル"
+          }
+        }
+      }
+    },
+    "toCancelIt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " to cancel it."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセルしてください。"
           }
         }
       }
@@ -1622,7 +1717,14 @@
       }
     },
     "Unlimited " : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "unlimitedDescription" : {
       "localizations" : {
@@ -1756,7 +1858,14 @@
       }
     },
     "Welcome to" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "welcomeBack" : {
       "localizations" : {
@@ -1841,7 +1950,14 @@
       }
     },
     "WordVenture" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "yes" : {
       "localizations" : {
@@ -1859,20 +1975,31 @@
         }
       }
     },
-    "You do not have any refundable purchase." : {
-
-    },
-    "You need Unlimited plan for more wordbooks!" : {
-
-    },
-    "You need Unlimited plan for more words!" : {
-
-    },
-    "Your plan" : {
-
+    "yourPlan" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Plan"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在のプラン"
+          }
+        }
+      }
     },
     "Yu Takahashi" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

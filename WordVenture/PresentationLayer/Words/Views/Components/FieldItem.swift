@@ -29,7 +29,7 @@ struct FieldItem: View {
                     HStack {
                         Text("\(index + 1).")
                             .frame(minWidth: 0, maxWidth: 20)
-                        TextField("Example \(index + 1)", text: $array[index])
+                        TextField("example \(index + 1)", text: $array[index])
                             .padding(8)
                             .background(Color(.tertiarySystemGroupedBackground))
                             .frame(minWidth: 0, maxWidth: .infinity)

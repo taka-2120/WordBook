@@ -53,12 +53,12 @@ struct PlansView: View {
                     
                     // Unlimited Plan Notes
                     Group {
-                        Text("If you want to cancel Unlimited subscription, please ")
+                        Text("cancelUnlimited")
                             .foregroundColor(Color(.secondaryLabel))
-                        + Text("tap here")
+                        + Text("tapHere")
                             .fontWeight(.bold)
                             .foregroundColor(.blue)
-                        + Text(" to cancel it.")
+                        + Text("toCancelIt")
                             .foregroundColor(Color(.secondaryLabel))
                     }
                     .padding([.horizontal, .top])
