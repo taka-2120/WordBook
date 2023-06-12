@@ -27,39 +27,6 @@
         }
       }
     },
-    "[Launch image](https://lottiefiles.com/24291-stack-of-books) is created by Scott A on LottieFiles" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "[Launch image](https://lottiefiles.com/24291-stack-of-books) is created by Scott A on LottieFiles"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
-    "[Sign in](https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#&position=1&from_view=collections) and [sign up](https://www.freepik.com/free-vector/high-five-concept-illustration_7010860.htm#&position=0&from_view=collections) images are created by storyset on Freepik" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "[Sign in](https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#&position=1&from_view=collections) and [sign up](https://www.freepik.com/free-vector/high-five-concept-illustration_7010860.htm#&position=0&from_view=collections) images are created by storyset on Freepik"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "%@" : {
       "localizations" : {
         "ja" : {
@@ -174,6 +141,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "広告表示あり"
+          }
+        }
+      }
+    },
+    "annually" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annually"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "年額"
           }
         }
       }
@@ -985,6 +969,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ようこそ学習カードへ (ベータ)"
+          }
+        }
+      }
+    },
+    "monthly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月額"
           }
         }
       }
