@@ -11,7 +11,7 @@ import Foundation
     private var screenController = ScreenController.shared
     private let authService = AuthService()
     private let wordbookService = WordbookService()
-    private let purchaseManager = PurchaseManager.shared
+    private let purchaseManager = PurchaseManager()
     
     let launchAnimationPath = Bundle.main.path(forResource: "BookStack", ofType: "gif")!
     
@@ -22,7 +22,7 @@ import Foundation
         do {
             try await authService.isSignedIn()
             _ = try await wordbookService.fetchWordbook()
-            await purchaseManager.updatePurchasedProducts()
+//            await purchaseManager.updatePurchasedProducts()
             screenController.state = .main
         } catch {
             errorMessage = error.localizedDescription

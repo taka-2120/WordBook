@@ -12,7 +12,23 @@ struct PlansView: View {
     @StateObject private var controller = PlansController()
     let unlimitedContents = ["unlimitedWordbooks", "unlimitedWords"]
     
+    let selfNavigatable: Bool
+    
+    init(selfNavigatable: Bool = false) {
+        self.selfNavigatable = selfNavigatable
+    }
+    
     var body: some View {
+        if selfNavigatable {
+            NavigationView {
+                content
+            }
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         ZStack {
             ScrollView {
                 VStack {

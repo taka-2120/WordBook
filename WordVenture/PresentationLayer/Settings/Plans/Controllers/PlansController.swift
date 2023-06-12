@@ -11,12 +11,16 @@ import SwiftUI
 
 @MainActor class PlansController: ObservableObject, Sendable {
     
-    private let purchaseManager = PurchaseManager.shared
+    private let purchaseManager = PurchaseManager()
     private let iapUseCase = IAPUseCase()
     
     @Published var products = [Product]()
     @Published var currentPeriod: UnlimitedPeriod? = nil
-    @Published var selectedPeriod: UnlimitedPeriod = .monthly
+    @Published var selectedPeriod: UnlimitedPeriod = .monthly {
+        willSet {
+            refreshPurchaseState(for: newValue.id)
+        }
+    }
     @Published var isAvailable = false
     
     @Published var isSubscriptionManagerShown = false {
@@ -44,17 +48,15 @@ import SwiftUI
     
     init() {
         requestProducts()
-        purchaseManager.listenTransaction()
-        reflectPurchaseState()
-    }
-    
-    deinit {
-        purchaseManager.cancelListeningTransaction()
+        purchaseManager.fetchCurrentEntitlements {
+            self.reflectPurchaseState()
+            self.refreshPurchaseState(for: self.selectedPeriod.id)
+        }
     }
     
     func reflectPurchaseState() {
         if hasUnlimited() {
-            currentPeriod = purchaseManager.purchasedProductIDs.contains(UnlimitedPeriod.monthly.id) ? .monthly : .annually
+            currentPeriod = purchaseManager.isPurchased(for: UnlimitedPeriod.monthly.id) ? .monthly : .annually
             selectedPeriod = currentPeriod!
         } else {
             currentPeriod = nil
@@ -96,7 +98,6 @@ import SwiftUI
         Task {
             do {
                 products = try await iapUseCase.fetchProducts()
-                await purchaseManager.updatePurchasedProducts()
             } catch {
                 print(error)
             }
@@ -105,16 +106,6 @@ import SwiftUI
     
     func selectPeriod(for period: UnlimitedPeriod) {
         selectedPeriod = period
-        
-        // Check if the period is available
-        guard let currentPeriod = currentPeriod else {
-            // If user doesn't subscribe to any plan...
-            isAvailable = true
-            return
-        }
-        
-        let hasPurchased = purchaseManager.purchasedProductIDs.contains(period.id)
-        isAvailable = !hasPurchased
     }
     
     func getPrice(for period: UnlimitedPeriod) -> String {
@@ -122,6 +113,18 @@ import SwiftUI
         product = products.filter( { $0.id == period.id }).first
         
         return product?.displayPrice ?? "N/A"
+    }
+    
+    private func refreshPurchaseState(for productId: String) {
+        // Check if the period is available
+        if currentPeriod == nil {
+            // If user doesn't subscribe to any plan...
+            isAvailable = true
+            return
+        }
+        
+        let hasPurchased = purchaseManager.isPurchased(for: productId)
+        isAvailable = !hasPurchased
     }
     
     func purchaseProduct() {
@@ -136,7 +139,7 @@ import SwiftUI
                 }
                 
                 _ = try await iapUseCase.purchaseProduct(for: product)
-                await purchaseManager.updatePurchasedProducts()
+
                 reflectPurchaseState()
             } catch {
                 print(error)
@@ -148,7 +151,6 @@ import SwiftUI
         Task {
             do {
                 try await iapUseCase.restorePurchase()
-                await purchaseManager.updatePurchasedProducts()
                 reflectPurchaseState()
             } catch {
                 print(error)

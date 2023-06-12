@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor class WordbooksController: ObservableObject, Sendable {
-    private let purchaseManager = PurchaseManager.shared
+    private let purchaseManager = PurchaseManager()
     private let wordbookService = WordbookService()
     @Published var wordbooks: [Wordbook] = []
     

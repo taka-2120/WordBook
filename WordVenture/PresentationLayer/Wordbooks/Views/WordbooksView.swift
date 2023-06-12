@@ -27,6 +27,7 @@ struct WordbooksView: View {
                             .bold()
                         Spacer()
                     }
+                    .frame(minWidth: 0, maxWidth: .infinity)
                 } else {
                     ScrollView {
                         SwipeViewGroup {
@@ -37,6 +38,9 @@ struct WordbooksView: View {
                         .padding(.top)
                         
                         if !controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount {
+                            Divider()
+                                .padding(10)
+                            
                             Button {
                                 controller.isPlanViewShown = true
                             } label: {
@@ -93,10 +97,7 @@ struct WordbooksView: View {
             }
             .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
             .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
-            .sheet(isPresented: $controller.isPlanViewShown) {
-                PlansView()
-                    .padding(.top, 20)
-            }
+            .sheet(isPresented: $controller.isPlanViewShown, content: { PlansView(selfNavigatable: true) })
             .animation(.easeInOut, value: controller.wordbooks)
             .animation(.easeInOut, value: controller.wordbooks.isEmpty)
             .onAppear {
