@@ -114,6 +114,9 @@
 		9A5EA78C2A2D896900AAE8C3 /* info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */; };
 		9A5EA78E2A2DA43A00AAE8C3 /* StoreEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */; };
 		9A5EA7902A2DA5C100AAE8C3 /* AdmobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */; };
+		9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */; };
+		9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */; };
+		9A6C02B42A3AEAAD00BA61DC /* PlanContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
@@ -261,6 +264,9 @@
 		9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "info-dev.plist"; sourceTree = "<group>"; };
 		9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnvironment.swift; sourceTree = "<group>"; };
 		9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobId.swift; sourceTree = "<group>"; };
+		9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedStringKey+String.swift"; sourceTree = "<group>"; };
+		9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanContents.swift; sourceTree = "<group>"; };
 		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlan.swift; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
@@ -323,8 +329,8 @@
 				9A24FD652A171B6400C34508 /* PresentationLayer */,
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
-				9A24FD442A171B6400C34508 /* Preview Content */,
 				9AC1FDC82A31576000EE329F /* Localizable.xcstrings */,
+				9A24FD442A171B6400C34508 /* Preview Content */,
 			);
 			path = WordVenture;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 				9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */,
 				9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */,
 				9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */,
+				9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -411,12 +418,12 @@
 			children = (
 				9A24FD592A171B6400C34508 /* Modifiers */,
 				9A24FD582A171B6400C34508 /* Date+Format.swift */,
-				9A24FD5B2A171B6400C34508 /* View+Hidden.swift */,
 				9A24FD5C2A171B6400C34508 /* Color+Hex.swift */,
 				9A24FD5D2A171B6400C34508 /* NotificationCenter.swift */,
 				9A24FD5E2A171B6400C34508 /* Color+Custom.swift */,
 				9A24FD5F2A171B6400C34508 /* String+Regex.swift */,
 				9A24FDF92A17349900C34508 /* String+Language.swift */,
+				9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -425,6 +432,8 @@
 			isa = PBXGroup;
 			children = (
 				9A24FD5A2A171B6400C34508 /* View+Loading.swift */,
+				9A24FD5B2A171B6400C34508 /* View+Hidden.swift */,
+				9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -870,7 +879,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					3B3EBE932524727400152662 = {
 						CreatedOnToolsVersion = 12.0;
@@ -950,6 +959,7 @@
 				9A24FDCB2A171B6500C34508 /* PriorityColor.swift in Sources */,
 				9A24FDF12A171B6500C34508 /* AuthService.swift in Sources */,
 				9A24FDDE2A171B6500C34508 /* WordItem.swift in Sources */,
+				9A6C02B42A3AEAAD00BA61DC /* PlanContents.swift in Sources */,
 				9A24FDBD2A171B6500C34508 /* Regex.swift in Sources */,
 				9A24FDC02A171B6500C34508 /* MainPathes.swift in Sources */,
 				9A5EA7762A2C358E00AAE8C3 /* RefundController.swift in Sources */,
@@ -973,6 +983,7 @@
 				9A24FDB42A171B6500C34508 /* UserDataRepositoryImpl.swift in Sources */,
 				9A24FDE32A171B6500C34508 /* WordBookItem.swift in Sources */,
 				9A24FDBF2A171B6500C34508 /* SettingsNavStack.swift in Sources */,
+				9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */,
 				9A24FDC82A171B6500C34508 /* String+Regex.swift in Sources */,
 				9A5EA7632A2B13EF00AAE8C3 /* UnsplashUseCase.swift in Sources */,
 				9A24FDC22A171B6500C34508 /* Date+Format.swift in Sources */,
@@ -1031,6 +1042,7 @@
 				9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */,
 				9A5EA75F2A2B041F00AAE8C3 /* UserDataSource.swift in Sources */,
 				9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */,
+				9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */,
 				9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */,
 				9A24FDD82A171B6500C34508 /* WordsController.swift in Sources */,
 			);
@@ -1043,6 +1055,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1076,6 +1090,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1106,6 +1121,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1139,6 +1156,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
