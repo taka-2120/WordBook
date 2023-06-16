@@ -10,7 +10,9 @@ import StoreKit
 
 final class PurchaseManager {
     
-    init() {
+    static let shared = PurchaseManager()
+    
+    private init() {
         listenTransaction()
     }
     
@@ -18,18 +20,28 @@ final class PurchaseManager {
         cancelListeningTransaction()
     }
     
-    private var purchasedProductIDs = Set<String>()
+    private var purchasedProductIDs = Set<String>() {
+        didSet {
+            hasUnlimited = checkUnlimitedState()
+        }
+    }
     private var updates: Task<Void, Never>? = nil
     
     // Product State
-    var hasNoPlan: Bool {
-        return !hasUnlimited
+    var hasUnlimited = false
+    
+    func isPurchased(for productId: String) -> Bool {
+        let contains = purchasedProductIDs.contains(productId)
+        return contains
     }
     
-    var hasUnlimited: Bool {
-        let monthlyContains = purchasedProductIDs.contains(UnlimitedPeriod.monthly.id)
-        let annuallyContains = purchasedProductIDs.contains(UnlimitedPeriod.annually.id)
-        return monthlyContains || annuallyContains
+    private func checkUnlimitedState() -> Bool {
+        for period in UnlimitedPeriod.allCases {
+            if purchasedProductIDs.contains(period.id) {
+                return true
+            }
+        }
+        return false
     }
         
     private func handle(updatedTransaction verificationResult: VerificationResult<StoreKit.Transaction>) {
@@ -80,11 +92,6 @@ final class PurchaseManager {
             completion()
             print("fetchCurrentEntitlements: \(purchasedProductIDs)")
         }
-    }
-    
-    func isPurchased(for productId: String) -> Bool {
-        let contains = purchasedProductIDs.contains(productId)
-        return contains
     }
     
     private func observeTransactionUpdates() -> Task<Void, Never> {

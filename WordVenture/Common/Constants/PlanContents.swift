@@ -6,3 +6,5 @@
 //
 
 import Foundation
+
+let unlimitedContents = ["unlimitedWordbooks", "unlimitedWords"]
