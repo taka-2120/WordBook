@@ -11,7 +11,7 @@ import SwiftUI
 
 @MainActor class PlansController: ObservableObject, Sendable {
     
-    private let purchaseManager = PurchaseManager()
+    private let purchaseManager = PurchaseManager.shared
     private let iapUseCase = IAPUseCase()
     
     @Published var products = [Product]()
@@ -95,7 +95,7 @@ import SwiftUI
     }
     
     func requestProducts() {
-        Task {
+        Task { @MainActor in
             do {
                 products = try await iapUseCase.fetchProducts()
             } catch {
@@ -128,7 +128,7 @@ import SwiftUI
     }
     
     func purchaseProduct() {
-        Task {
+        Task { @MainActor in
             do {
                 var product: Product? = nil
                 
@@ -148,7 +148,7 @@ import SwiftUI
     }
     
     func restorePurchase() {
-        Task {
+        Task { @MainActor in
             do {
                 try await iapUseCase.restorePurchase()
                 reflectPurchaseState()

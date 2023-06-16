@@ -13,6 +13,10 @@ struct PlanItem: View {
     
     let period: UnlimitedPeriod
     
+    init(period: UnlimitedPeriod) {
+        self.period = period
+    }
+    
     var body: some View {
         VStack(spacing: 5) {
             HStack {

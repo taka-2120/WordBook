@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import VisionKit
-import Vision
 import SwipeActions
 
 struct WordsView: View {

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct RelatedImage: View {
     
-    let url: String
+    private let url: String
+    
+    init(url: String) {
+        self.url = url
+    }
     
     var body: some View {
         AsyncImage(url: URL(string: url)!) { image in

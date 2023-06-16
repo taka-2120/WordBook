@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CustomField: View {
-    let label: LocalizedStringKey
-    var placeHolder: LocalizedStringKey? = nil
-    var isSecured: Bool = false
-    var isEmail: Bool = false
-    var notes: LocalizedStringKey? = nil
-    @Binding var text: String
-    @Binding var isNoteShown: Bool
+    private let label: LocalizedStringKey
+    private var placeHolder: LocalizedStringKey? = nil
+    private var isSecured: Bool = false
+    private var isEmail: Bool = false
+    private var notes: LocalizedStringKey? = nil
+    @Binding private var text: String
+    @Binding private var isNoteShown: Bool
     
     init(_ label: LocalizedStringKey,
          placeHolder: LocalizedStringKey? = nil,

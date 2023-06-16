@@ -11,7 +11,7 @@ import Foundation
     private var screenController = ScreenController.shared
     private let authService = AuthService()
     private let wordbookService = WordbookService()
-    private let purchaseManager = PurchaseManager()
+    private let purchaseManager = PurchaseManager.shared
     
     let launchAnimationPath = Bundle.main.path(forResource: "BookStack", ofType: "gif")!
     

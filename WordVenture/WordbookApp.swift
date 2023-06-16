@@ -11,7 +11,7 @@ import GoogleMobileAds
 @main
 struct WordbookApp: App {
     @StateObject private var screenController = ScreenController.shared
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     var body: some Scene {
         WindowGroup {

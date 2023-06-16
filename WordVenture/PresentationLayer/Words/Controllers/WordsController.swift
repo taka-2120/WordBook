@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor class WordsController: ObservableObject, Sendable {
     private let wordbookService = WordbookService()
-    private let purchaseManager = PurchaseManager()
+    private let purchaseManager = PurchaseManager.shared
     @Published var wordbook: Wordbook
     @Published var selectedWord: Word? = nil
     

@@ -11,11 +11,16 @@ import SwipeActions
 
 struct WordbookItem: View {
     @EnvironmentObject private var controller: WordbooksController
-    @State var close = PassthroughSubject<Void, Never>()
+    @State private var close = PassthroughSubject<Void, Never>()
     @State private var isDeletePromptShown = false
     
-    let wordbook: Wordbook
-    let index: Int
+    private let wordbook: Wordbook
+    private let index: Int
+    
+    init(wordbook: Wordbook, index: Int) {
+        self.wordbook = wordbook
+        self.index = index
+    }
     
     var body: some View {
         SwipeView {

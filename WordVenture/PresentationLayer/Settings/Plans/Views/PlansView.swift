@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PlansView: View {
     
+    @Environment (\.dismiss) private var dismiss
     @StateObject private var controller = PlansController()
-    let unlimitedContents = ["unlimitedWordbooks", "unlimitedWords"]
     
-    let selfNavigatable: Bool
+    private let selfNavigatable: Bool
     
     init(selfNavigatable: Bool = false) {
         self.selfNavigatable = selfNavigatable
@@ -35,8 +35,9 @@ struct PlansView: View {
                     PlanItem(period: .monthly)
                     PlanItem(period: .annually)
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 15) {
                         Text("unlimitedDescription")
+                            .multilineTextAlignment(.leading)
                             .foregroundColor(Color(.secondaryLabel))
                             .padding(.top, 5)
                         
@@ -48,23 +49,25 @@ struct PlansView: View {
                                 Text(" • ") + Text(LocalizedStringKey(stringLiteral: content))
                             }
                         }
+                        
+                        // Unlimited Plan Notes
+                        Group {
+                            Text("cancelUnlimited")
+                                .foregroundColor(Color(.secondaryLabel))
+                            + Text("tapHere")
+                                .fontWeight(.bold)
+                                .foregroundColor(.blue)
+                            + Text("toCancelIt")
+                                .foregroundColor(Color(.secondaryLabel))
+                        }
+                        .multilineTextAlignment(.leading)
+                        .padding(.top)
+                        .font(.callout)
+                        .onTapGesture {
+                            controller.showManageSubscriptionSheet()
+                        }
                     }
                     .padding()
-                    
-                    // Unlimited Plan Notes
-                    Group {
-                        Text("cancelUnlimited")
-                            .foregroundColor(Color(.secondaryLabel))
-                        + Text("tapHere")
-                            .fontWeight(.bold)
-                            .foregroundColor(.blue)
-                        + Text("toCancelIt")
-                            .foregroundColor(Color(.secondaryLabel))
-                    }
-                    .padding([.horizontal, .top])
-                    .onTapGesture {
-                        controller.showManageSubscriptionSheet()
-                    }
                 }
                 .padding(.top, 20)
                 .padding(.bottom, 200)
@@ -75,22 +78,39 @@ struct PlansView: View {
             
             VStack {
                 Spacer()
-                Button {
-                    controller.purchaseProduct()
-                } label: {
-                    Text("select")
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .padding()
-                        .frame(maxWidth: 250)
+                VStack(spacing: 15) {
+                    Text("renewNote \(controller.getPrice(for: controller.selectedPeriod)) \(LocalizedStringKey(stringLiteral: controller.selectedPeriod.periodName).toString())")
+                        .multilineTextAlignment(.center)
+                        .font(.caption)
+                        .foregroundStyle(Color(.secondaryLabel))
+                    
+                    Button {
+                        controller.purchaseProduct()
+                    } label: {
+                        Text("select")
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: 250)
+                    }
+                    .background(controller.isAvailable ? Color.blue : .gray)
+                    .cornerRadius(15)
+                    .shadow(color: (controller.isAvailable ? Color.blue : .gray).opacity(0.25), radius: 10, y: 4)
+                    .disabled(!controller.isAvailable)
+                    .animation(.spring(), value: controller.isAvailable)
+                    
+                    Button {
+                        controller.showOfferCodeRedepmtionSheet()
+                    } label: {
+                        Text("redeemCode")
+                            .font(.callout)
+                    }
                 }
-                .background(controller.isAvailable ? Color.blue : .gray)
-                .cornerRadius(15)
-                .shadow(color: (controller.isAvailable ? Color.blue : .gray).opacity(0.25), radius: 10, y: 4)
-                .disabled(!controller.isAvailable)
-                .animation(.spring(), value: controller.isAvailable)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding([.top, .horizontal])
+                .padding(.bottom, 8)
+                .background(.regularMaterial)
+                .background(ignoresSafeAreaEdges: .bottom)
             }
-            .padding()
         }
         .navigationTitle("plans")
         .toolbar {
@@ -124,6 +144,16 @@ struct PlansView: View {
                 } label: {
                     Image(systemName: "ellipsis.circle")
                         .imageScale(.large)
+                }
+            }
+            
+            if selfNavigatable {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
                 }
             }
         }
