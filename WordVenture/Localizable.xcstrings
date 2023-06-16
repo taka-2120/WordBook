@@ -1434,7 +1434,7 @@
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "プランは%2$@ %1$@でキャンセルされるまで自動更新されます。"
           }
         }
@@ -1747,14 +1747,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can hide all ads from this app, and you can also create wordbooks and words without any limits."
+            "state" : "needs_review",
+            "value" : "You can create wordbooks and words without any limits."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリ内の広告を全て削除でき、個数制限も解除されます。"
+            "value" : "アプリ内の単語帳と単語の作成個数の制限が全て解除されます。"
           }
         }
       }

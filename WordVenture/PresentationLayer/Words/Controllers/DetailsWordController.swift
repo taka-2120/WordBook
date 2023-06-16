@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor class DetailsWordController: WordController, Sendable {
-    private let word: Word
+    let word: Word
     
     @Published var isEditing = false
     
