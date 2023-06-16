@@ -1424,6 +1424,22 @@
         }
       }
     },
+    "renewNote %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan auto-renews for %1$@ %2$@ until canceled."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "プランは%2$@ %1$@でキャンセルされるまで自動更新されます。"
+          }
+        }
+      }
+    },
     "reNewPassword" : {
       "localizations" : {
         "en" : {
