@@ -908,6 +908,22 @@
         }
       }
     },
+    "licenses" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licenses"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライセンス"
+          }
+        }
+      }
+    },
     "limit: %lld/%lld" : {
       "localizations" : {
         "en" : {
@@ -1747,7 +1763,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "You can create wordbooks and words without any limits."
           }
         },

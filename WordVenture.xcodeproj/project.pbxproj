@@ -122,6 +122,7 @@
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
 		9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC1FDC82A31576000EE329F /* Localizable.xcstrings */; };
 		9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */; };
+		9ACA0A702A3F532B00C76A22 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */; };
 		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
 		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
 		9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD4FF282A246E7A00229844 /* GoogleMobileAds */; };
@@ -269,6 +270,7 @@
 		9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanContents.swift; sourceTree = "<group>"; };
 		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlan.swift; sourceTree = "<group>"; };
+		9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
 		9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADNativeViewControllerWrapper.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				9A24FD6D2A171B6400C34508 /* ChangeEmail */,
 				9A24FD6A2A171B6400C34508 /* ChangePassword */,
 				9A24FD702A171B6400C34508 /* PrivacyPolicy */,
+				9ACA0A6E2A3F531A00C76A22 /* Licenses */,
 				9A24FD772A171B6400C34508 /* Credits */,
 				9AD4FF222A22F2F500229844 /* DeleteAccount */,
 				9AD4FF352A26EF0A00229844 /* Plans */,
@@ -813,6 +816,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		9ACA0A6E2A3F531A00C76A22 /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */,
+			);
+			path = Licenses;
+			sourceTree = "<group>";
+		};
 		9AD4FF222A22F2F500229844 /* DeleteAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +997,7 @@
 				9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */,
 				9A24FDC82A171B6500C34508 /* String+Regex.swift in Sources */,
 				9A5EA7632A2B13EF00AAE8C3 /* UnsplashUseCase.swift in Sources */,
+				9ACA0A702A3F532B00C76A22 /* LicensesView.swift in Sources */,
 				9A24FDC22A171B6500C34508 /* Date+Format.swift in Sources */,
 				9A24FDD92A171B6500C34508 /* DetailsWordController.swift in Sources */,
 				9A5EA7652A2B187F00AAE8C3 /* WordController.swift in Sources */,
