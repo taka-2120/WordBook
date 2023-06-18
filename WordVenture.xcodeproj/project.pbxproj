@@ -125,10 +125,7 @@
 		9ACA0A702A3F532B00C76A22 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */; };
 		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
 		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
-		9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD4FF282A246E7A00229844 /* GoogleMobileAds */; };
-		9AD4FF2B2A2477B700229844 /* GADNativeViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */; };
 		9AD4FF2D2A24B7C900229844 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD4FF2C2A24B7C900229844 /* StoreKit.framework */; };
-		9AD4FF2F2A24B8BF00229844 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */; };
 		9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF312A26E85E00229844 /* PlansView.swift */; };
 		9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF362A26EF8700229844 /* PlansController.swift */; };
 		9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */; };
@@ -273,9 +270,7 @@
 		9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
-		9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADNativeViewControllerWrapper.swift; sourceTree = "<group>"; };
 		9AD4FF2C2A24B7C900229844 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		9AD4FF312A26E85E00229844 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		9AD4FF362A26EF8700229844 /* PlansController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansController.swift; sourceTree = "<group>"; };
 		9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetection.swift; sourceTree = "<group>"; };
@@ -286,7 +281,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */,
 				9AD4FF2D2A24B7C900229844 /* StoreKit.framework in Frameworks */,
 				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
 				9A5EA77F2A2C837100AAE8C3 /* MarkdownUI in Frameworks */,
@@ -462,7 +456,6 @@
 		9A24FD652A171B6400C34508 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				9AD4FF302A25C3F000229844 /* Ads */,
 				9A24FD922A171B6400C34508 /* Loading */,
 				9A24FD952A171B6400C34508 /* Auth */,
 				9A24FD862A171B6400C34508 /* Wordbooks */,
@@ -833,15 +826,6 @@
 			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
-		9AD4FF302A25C3F000229844 /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */,
-				9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */,
-			);
-			path = Ads;
-			sourceTree = "<group>";
-		};
 		9AD4FF352A26EF0A00229844 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,7 +859,6 @@
 				9AAB3B6929F8C8B900AD6F6C /* SwipeActions */,
 				9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */,
 				9A2F836D2A138F030093CC7B /* SwiftUIPager */,
-				9AD4FF282A246E7A00229844 /* GoogleMobileAds */,
 				9A5EA77E2A2C837100AAE8C3 /* MarkdownUI */,
 			);
 			productName = Wordbook;
@@ -913,7 +896,6 @@
 				9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */,
 				9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
-				9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				9A5EA77D2A2C837100AAE8C3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
@@ -932,7 +914,6 @@
 			files = (
 				9A5EA78C2A2D896900AAE8C3 /* info-dev.plist in Resources */,
 				9A24FDAC2A171B6500C34508 /* Assets.xcassets in Resources */,
-				9AD4FF2F2A24B8BF00229844 /* NativeAdView.xib in Resources */,
 				9A24FDB52A171B6500C34508 /* Preview Assets.xcassets in Resources */,
 				9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */,
 				9A24FDAB2A171B6500C34508 /* BookStack.gif in Resources */,
@@ -984,7 +965,6 @@
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
 				9A5EA7672A2B275400AAE8C3 /* IAPUseCase.swift in Sources */,
 				9A24FDAE2A171B6500C34508 /* WordbookRepositoryImpl.swift in Sources */,
-				9AD4FF2B2A2477B700229844 /* GADNativeViewControllerWrapper.swift in Sources */,
 				9A24FDB32A171B6500C34508 /* UserDataRepository.swift in Sources */,
 				9A5EA7782A2C802100AAE8C3 /* ReleaseNotesView.swift in Sources */,
 				9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */,
@@ -1325,14 +1305,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1365,11 +1337,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
-		};
-		9AD4FF282A246E7A00229844 /* GoogleMobileAds */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
-			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

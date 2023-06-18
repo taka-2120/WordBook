@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import GoogleMobileAds
 
 @main
 struct WordbookApp: App {
     @StateObject private var screenController = ScreenController.shared
-    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     var body: some Scene {
         WindowGroup {
@@ -24,24 +22,5 @@ struct WordbookApp: App {
             }
             .animation(.easeInOut, value: screenController.state)
         }
-    }
-}
-
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        // Initialize Mobile Ads SDK
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
-        #if DEBUG
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
-        #else
-        if isTestFlight {
-            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
-        }
-        #endif
-        
-        return true
     }
 }
