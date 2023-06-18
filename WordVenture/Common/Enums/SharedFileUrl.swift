@@ -22,10 +22,20 @@ extension SharedFile {
         return sharedBaseUrl + self.rawValue + "_en.md"
     }
     
-    func getMarkdown() -> String {
-        let url = URL(string: self.localizedUrl)!
-        let data = try! Data(contentsOf: url)
-        let mdString = String(data: data, encoding: .utf8)!
-        return mdString
+    func getMarkdown() async -> String {
+        let url = URL(string: self.localizedUrl)
+        guard let url = url else {
+            print("Invailed URL: \(self.localizedUrl)")
+            return "Not Found"
+        }
+        
+        do {
+            let data = try await URLSession.shared.data(from: url).0
+            let mdString = String(data: data, encoding: .utf8)
+            return mdString ?? "Contents cannot be encoded"
+        } catch {
+            print(error.localizedDescription)
+            return "Error occured while loading"
+        }
     }
 }
