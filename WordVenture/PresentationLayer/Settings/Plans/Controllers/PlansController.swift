@@ -127,7 +127,7 @@ import SwiftUI
         isAvailable = !hasPurchased
     }
     
-    func purchaseProduct() {
+    func purchaseProduct(dismissAction: @escaping () -> Void) {
         Task { @MainActor in
             do {
                 var product: Product? = nil
@@ -135,12 +135,16 @@ import SwiftUI
                 product = products.filter( { $0.id == selectedPeriod.id }).first
                 
                 guard let product = product else {
+                    print("Products are not available")
                     return
                 }
                 
-                _ = try await iapUseCase.purchaseProduct(for: product)
-
-                reflectPurchaseState()
+                let transaction = try await iapUseCase.purchaseProduct(for: product)
+                
+                if transaction != nil {
+                    reflectPurchaseState()
+                    dismissAction()
+                }
             } catch {
                 print(error)
             }

@@ -19,8 +19,20 @@ import Foundation
             }
         }
     }
-    @Published var isSettingsShown = false
-    @Published var isPlanViewShown = false
+    @Published var isSettingsShown = false {
+        willSet {
+            if newValue == false {
+                self.hasUnlimited = purchaseManager.hasUnlimited
+            }
+        }
+    }
+    @Published var isPlanViewShown = false {
+        willSet {
+            if newValue == false {
+                self.hasUnlimited = purchaseManager.hasUnlimited
+            }
+        }
+    }
     @Published var hasUnlimited: Bool
     
     init() {

@@ -85,7 +85,7 @@ struct PlansView: View {
                         .foregroundStyle(Color(.secondaryLabel))
                     
                     Button {
-                        controller.purchaseProduct()
+                        controller.purchaseProduct(dismissAction: { })
                     } label: {
                         Text("select")
                             .foregroundColor(.white)

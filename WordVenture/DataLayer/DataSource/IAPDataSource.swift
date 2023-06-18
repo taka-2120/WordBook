@@ -16,7 +16,7 @@ final class IAPDataSource: NSObject, Sendable {
     }
     
     class func purchaseProduct(for product: Product) async throws -> Transaction? {
-        let result = try await product.purchase()
+        let result = try await product.purchase(options: [.simulatesAskToBuyInSandbox(true)])
         
         switch result {
         case .success(.verified(let transaction)):

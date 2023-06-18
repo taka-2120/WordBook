@@ -13,6 +13,7 @@ final class PurchaseManager {
     static let shared = PurchaseManager()
     
     private init() {
+        fetchCurrentEntitlements(completion: {})
         listenTransaction()
     }
     
@@ -57,10 +58,10 @@ final class PurchaseManager {
             // the revoked transaction.
             print("Transaction Revoked at \(revocationDate)")
             self.purchasedProductIDs.remove(transaction.productID)
+            return
         } else if let expirationDate = transaction.expirationDate, expirationDate < Date() {
             // Do nothing, this subscription is expired.
-            print("Transaction Expired")
-            self.purchasedProductIDs.remove(transaction.productID)
+            print("Transaction Expired at \(expirationDate)")
             return
         } else if transaction.isUpgraded {
             // Do nothing, there is an active transaction
@@ -72,6 +73,7 @@ final class PurchaseManager {
             // transaction.productID.
             print("Transaction Verified")
             self.purchasedProductIDs.insert(transaction.productID)
+            return
         }
     }
     
@@ -85,8 +87,8 @@ final class PurchaseManager {
     }
     
     func fetchCurrentEntitlements(completion: @escaping () -> Void) {
-        Task {
-            for await verificationResult in Transaction.currentEntitlements {
+        Task(priority: .background) {
+            for await verificationResult in StoreKit.Transaction.currentEntitlements {
                 self.handle(updatedTransaction: verificationResult)
             }
             completion()
@@ -96,7 +98,7 @@ final class PurchaseManager {
     
     private func observeTransactionUpdates() -> Task<Void, Never> {
         Task(priority: .background) {
-            for await verificationResult in Transaction.updates {
+            for await verificationResult in StoreKit.Transaction.updates {
                 self.handle(updatedTransaction: verificationResult)
                 print("CALLED: observeTransactionUpdates")
                 print("fetchCurrentEntitlements: \(purchasedProductIDs)")
