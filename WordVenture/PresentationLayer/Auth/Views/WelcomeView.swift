@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State private var authPathes: [AuthMethod] = []
+    @State private var isPrivacyPolicyShown = false
+    @State private var isTermsAndConditionsShown = false
     
     var body: some View {
         NavigationStack(path: $authPathes) {
@@ -50,7 +52,7 @@ struct WelcomeView: View {
 //                    .tag(0)
                     
                     VStack {
-                        Image("Brain")
+                        Image(.brain)
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(30)
@@ -61,7 +63,7 @@ struct WelcomeView: View {
                     .tag(1)
                     
                     VStack {
-                        Image("CardStack")
+                        Image(.cardStack)
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(30)
@@ -79,7 +81,6 @@ struct WelcomeView: View {
                 .padding()
                 
                 HStack {
-                    
                     Button {
                         authPathes = [.signUp]
                     } label: {
@@ -108,11 +109,37 @@ struct WelcomeView: View {
                         RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 2)
                     }
                 }
+                
+                VStack(spacing: 8) {
+                    Text("If you continue to use this app, you will be regarded as agreed to following Privacy Policy and Terms and Conditions.")
+                        .multilineTextAlignment(.leading)
+                        .font(.callout)
+                        .foregroundStyle(Color(.secondaryLabel))
+                    
+                    Button {
+                        isPrivacyPolicyShown.toggle()
+                    } label: {
+                        Text("privacyPolicy")
+                            .font(.callout)
+                            .underline()
+                    }
+                    
+                    Button {
+                        isTermsAndConditionsShown.toggle()
+                    } label: {
+                        Text("termsAndConditions")
+                            .font(.callout)
+                            .underline()
+                    }
+                }
+                .padding(.top, 10)
             }
             .foregroundColor(.black)
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color.primaryAccent)
+            .sheet(isPresented: $isPrivacyPolicyShown, content: { PrivacyPolicyView(selfNavigatable: true) })
+            .sheet(isPresented: $isTermsAndConditionsShown, content: { TermsAndConditionsView(selfNavigatable: true) })
             .navigationDestination(for: AuthMethod.self) { method in
                 switch method {
                 case .signUp: SignUpView()
@@ -120,10 +147,8 @@ struct WelcomeView: View {
                 }
             }
             .onAppear {
-                Task { @MainActor in
-                    UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue.withAlphaComponent(0.8)
-                    UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-                }
+                UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue.withAlphaComponent(0.8)
+                UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
             }
         }
     }

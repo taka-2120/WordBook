@@ -9,6 +9,9 @@ import SwiftUI
 import MarkdownUI
 
 struct PrivacyPolicyView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
+    
     @State private var markdownText = "" {
         willSet {
             if newValue != "" {
@@ -20,16 +23,22 @@ struct PrivacyPolicyView: View {
     
     private let date: Date?
     private let needPadding: Bool
+    private let selfNavigatable: Bool
     
-    init(date: Date? = nil, needPadding: Bool = false) {
+    init(date: Date? = nil, needPadding: Bool = false, selfNavigatable: Bool = false) {
         self.date = date
         self.needPadding = needPadding
+        self.selfNavigatable = selfNavigatable
     }
     
     var body: some View {
-        Group {
+        ZStack(alignment: .top) {
             if isLoading {
-                ProgressView()
+                VStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
             } else {
                 ScrollView {
                     if let date = date {
@@ -38,16 +47,39 @@ struct PrivacyPolicyView: View {
                                 .multilineTextAlignment(.leading)
                             Divider()
                         }
-                        .padding()
+                        .padding([.bottom, .horizontal])
                     }
                     
                     Markdown(markdownText)
                         .markdownTheme(.gitHub)
                         .background(Color(.systemGroupedBackground))
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .padding([.horizontal, .top])
+                        .padding(.horizontal)
                         .padding(.bottom, needPadding ? 150 : 15)
+                        .padding(.top, 30)
                 }
+            }
+            
+            if selfNavigatable {
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(Color(white: colorScheme == .dark ? 0.19 : 0.93))
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.body.weight(.bold))
+                                .scaleEffect(0.416)
+                                .foregroundColor(Color(white: colorScheme == .dark ? 0.62 : 0.51))
+                        }
+                        .frame(width: 30, height: 30)
+                    }
+                }
+                .padding()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
