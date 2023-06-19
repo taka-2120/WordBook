@@ -12,6 +12,7 @@ enum SharedFile: String {
     case upcoming = "upcoming"
     case privacyPolicy = "privacy_policy"
     case licenses = "licenses"
+    case termsAndConditions = "terms_and_conditions"
 }
 
 extension SharedFile {
@@ -27,7 +28,7 @@ extension SharedFile {
         return sharedBaseUrl + self.rawValue + "_en.md"
     }
     
-    func getMarkdown() async -> String {
+    func fetchFileData() async -> String {
         let url = URL(string: self.localizedUrl)
         guard let url = url else {
             print("Invailed URL: \(self.localizedUrl)")

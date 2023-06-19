@@ -35,7 +35,7 @@ struct LicensesView: View {
         .navigationBarTitleDisplayMode(.inline)
         .animation(.easeInOut, value: markdownText)
         .task {
-            markdownText = await SharedFile.licenses.getMarkdown()
+            markdownText = await SharedFile.licenses.fetchFileData()
         }
     }
 }

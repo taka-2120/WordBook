@@ -35,7 +35,7 @@ struct UpcomingView: View {
         .navigationBarTitleDisplayMode(.inline)
         .animation(.easeInOut, value: markdownText)
         .task {
-            markdownText = await SharedFile.upcoming.getMarkdown()
+            markdownText = await SharedFile.upcoming.fetchFileData()
         }
     }
 }

@@ -1,14 +1,14 @@
 //
-//  ReleaseNotesView.swift
+//  TermsAndConditionsView.swift
 //  WordVenture
 //
-//  Created by Yu Takahashi on 6/4/23.
+//  Created by Yu Takahashi on 6/19/23.
 //
 
 import SwiftUI
 import MarkdownUI
 
-struct ReleaseNotesView: View {
+struct TermsAndConditionsView: View {
     @State private var markdownText = "" {
         willSet {
             if newValue != "" {
@@ -17,6 +17,12 @@ struct ReleaseNotesView: View {
         }
     }
     @State private var isLoading = true
+    
+    private let needPadding: Bool
+    
+    init(needPadding: Bool = false) {
+        self.needPadding = needPadding
+    }
     
     var body: some View {
         Group {
@@ -28,20 +34,20 @@ struct ReleaseNotesView: View {
                         .markdownTheme(.gitHub)
                         .background(Color(.systemGroupedBackground))
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .padding()
+                        .padding([.horizontal, .top])
+                        .padding(.bottom, needPadding ? 150 : 15)
                 }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .animation(.easeInOut, value: markdownText)
         .task {
-            markdownText = await SharedFile.releaseNotes.fetchFileData()
+            markdownText = await SharedFile.termsAndConditions.fetchFileData()
         }
     }
 }
 
-struct ReleaseNotesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReleaseNotesView()
-    }
+@available(iOS 17.0, *)
+#Preview {
+    TermsAndConditionsView()
 }

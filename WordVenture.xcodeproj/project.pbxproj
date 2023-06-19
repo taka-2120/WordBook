@@ -123,6 +123,10 @@
 		9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC1FDC82A31576000EE329F /* Localizable.xcstrings */; };
 		9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */; };
 		9ACA0A702A3F532B00C76A22 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */; };
+		9ACA0A732A3FE13700C76A22 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A722A3FE13700C76A22 /* TermsAndConditionsView.swift */; };
+		9ACA0A752A3FE87500C76A22 /* ISOtoDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A742A3FE87500C76A22 /* ISOtoDate.swift */; };
+		9ACA0A772A3FF4C700C76A22 /* DocPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */; };
+		9ACA0A792A3FF4E200C76A22 /* DocKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A782A3FF4E200C76A22 /* DocKind.swift */; };
 		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
 		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
 		9AD4FF2D2A24B7C900229844 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD4FF2C2A24B7C900229844 /* StoreKit.framework */; };
@@ -268,6 +272,10 @@
 		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlan.swift; sourceTree = "<group>"; };
 		9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
+		9ACA0A722A3FE13700C76A22 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		9ACA0A742A3FE87500C76A22 /* ISOtoDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOtoDate.swift; sourceTree = "<group>"; };
+		9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPromptView.swift; sourceTree = "<group>"; };
+		9ACA0A782A3FF4E200C76A22 /* DocKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocKind.swift; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
 		9AD4FF2C2A24B7C900229844 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -395,6 +403,7 @@
 				9A24FD522A171B6400C34508 /* Errors.swift */,
 				9A5EA7682A2B2B4200AAE8C3 /* Products.swift */,
 				9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */,
+				9ACA0A782A3FF4E200C76A22 /* DocKind.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 				9A24FD5F2A171B6400C34508 /* String+Regex.swift */,
 				9A24FDF92A17349900C34508 /* String+Language.swift */,
 				9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */,
+				9ACA0A742A3FE87500C76A22 /* ISOtoDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -476,6 +486,7 @@
 				9A24FD6D2A171B6400C34508 /* ChangeEmail */,
 				9A24FD6A2A171B6400C34508 /* ChangePassword */,
 				9A24FD702A171B6400C34508 /* PrivacyPolicy */,
+				9ACA0A712A3FE0FC00C76A22 /* TermsAndConditions */,
 				9ACA0A6E2A3F531A00C76A22 /* Licenses */,
 				9A24FD772A171B6400C34508 /* Credits */,
 				9AD4FF222A22F2F500229844 /* DeleteAccount */,
@@ -639,6 +650,7 @@
 			children = (
 				9A24FD932A171B6400C34508 /* LoadingController.swift */,
 				9A24FD942A171B6400C34508 /* LoadingView.swift */,
+				9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -817,6 +829,14 @@
 			path = Licenses;
 			sourceTree = "<group>";
 		};
+		9ACA0A712A3FE0FC00C76A22 /* TermsAndConditions */ = {
+			isa = PBXGroup;
+			children = (
+				9ACA0A722A3FE13700C76A22 /* TermsAndConditionsView.swift */,
+			);
+			path = TermsAndConditions;
+			sourceTree = "<group>";
+		};
 		9AD4FF222A22F2F500229844 /* DeleteAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1006,7 @@
 				9A24FDD22A171B6500C34508 /* PrivacyPolicyView.swift in Sources */,
 				9A24FDC92A171B6500C34508 /* CircleNavigationButton.swift in Sources */,
 				9A24FDE02A171B6500C34508 /* WordbooksController.swift in Sources */,
+				9ACA0A772A3FF4C700C76A22 /* DocPromptView.swift in Sources */,
 				9A24FDD62A171B6500C34508 /* CreditsView.swift in Sources */,
 				9A24FDE42A171B6500C34508 /* AddingWordbookView.swift in Sources */,
 				9A5EA78E2A2DA43A00AAE8C3 /* StoreEnvironment.swift in Sources */,
@@ -998,6 +1019,7 @@
 				9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */,
 				9A5EA75D2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift in Sources */,
 				9A24FDD02A171B6500C34508 /* ChangeEmailView.swift in Sources */,
+				9ACA0A732A3FE13700C76A22 /* TermsAndConditionsView.swift in Sources */,
 				9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */,
 				9A24FDB02A171B6500C34508 /* SupabaseAuthRepositoryImpl.swift in Sources */,
 				9A24FDCD2A171B6500C34508 /* ChangeUsernameView.swift in Sources */,
@@ -1011,7 +1033,9 @@
 				9A24FDC52A171B6500C34508 /* Color+Hex.swift in Sources */,
 				9A24FDBB2A171B6500C34508 /* UserDefaultsKey.swift in Sources */,
 				9A5EA7902A2DA5C100AAE8C3 /* AdmobId.swift in Sources */,
+				9ACA0A792A3FF4E200C76A22 /* DocKind.swift in Sources */,
 				9A5EA7502A2AEC3500AAE8C3 /* OpenAIRepository.swift in Sources */,
+				9ACA0A752A3FE87500C76A22 /* ISOtoDate.swift in Sources */,
 				9A24FDBE2A171B6500C34508 /* Errors.swift in Sources */,
 				9A24FDEC2A171B6500C34508 /* SignUpView.swift in Sources */,
 				9A24FDFC2A1744EA00C34508 /* Languages.swift in Sources */,

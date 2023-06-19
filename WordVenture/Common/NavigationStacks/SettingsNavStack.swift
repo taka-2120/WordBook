@@ -17,4 +17,5 @@ enum SettingsNavStack {
     case plans
     case deleteAccount
     case about
+    case termsAndConditions
 }

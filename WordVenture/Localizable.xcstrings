@@ -145,6 +145,9 @@
         }
       }
     },
+    "agree" : {
+
+    },
     "annually" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -630,6 +633,9 @@
           }
         }
       }
+    },
+    "disagree" : {
+
     },
     "diveIn" : {
       "localizations" : {
@@ -1663,6 +1669,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ここをタップして"
+          }
+        }
+      }
+    },
+    "termsAndConditions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "利用規約"
           }
         }
       }

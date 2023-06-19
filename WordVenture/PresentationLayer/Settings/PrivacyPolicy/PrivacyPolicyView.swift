@@ -18,6 +18,12 @@ struct PrivacyPolicyView: View {
     }
     @State private var isLoading = true
     
+    private let needPadding: Bool
+    
+    init(needPadding: Bool = false) {
+        self.needPadding = needPadding
+    }
+    
     var body: some View {
         Group {
             if isLoading {
@@ -28,14 +34,15 @@ struct PrivacyPolicyView: View {
                         .markdownTheme(.gitHub)
                         .background(Color(.systemGroupedBackground))
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .padding()
+                        .padding([.horizontal, .top])
+                        .padding(.bottom, needPadding ? 150 : 15)
                 }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .animation(.easeInOut, value: markdownText)
         .task {
-            markdownText = await SharedFile.privacyPolicy.getMarkdown()
+            markdownText = await SharedFile.privacyPolicy.fetchFileData()
         }
     }
 }
