@@ -95,7 +95,11 @@ struct WordbooksView: View {
                     .opacity(!controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount ? 0.6 : 1.0)
                 }
             }
-            .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
+            .sheet(isPresented: $controller.isAddShown) {
+                AddWordbookView()
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
+            }
             .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
             .sheet(isPresented: $controller.isPlanViewShown, content: { PlansView(selfNavigatable: true) })
             .animation(.easeInOut, value: controller.wordbooks)
