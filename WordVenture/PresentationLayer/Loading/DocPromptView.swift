@@ -22,9 +22,9 @@ struct DocPromptView: View {
         ZStack {
             switch docKind {
             case .privacyPolicy:
-                PrivacyPolicyView(needPadding: true)
+                PrivacyPolicyView(date: controller.privacyPolicyUpdatedDate, needPadding: true)
             case .termsAndConditions:
-                TermsAndConditionsView(needPadding: true)
+                TermsAndConditionsView(date: controller.privacyPolicyUpdatedDate, needPadding: true)
             }
             
             GeometryReader { geo in

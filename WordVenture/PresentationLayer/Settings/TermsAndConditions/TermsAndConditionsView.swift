@@ -18,9 +18,11 @@ struct TermsAndConditionsView: View {
     }
     @State private var isLoading = true
     
+    private let date: Date?
     private let needPadding: Bool
     
-    init(needPadding: Bool = false) {
+    init(date: Date? = nil, needPadding: Bool = false) {
+        self.date = date
         self.needPadding = needPadding
     }
     
@@ -30,6 +32,15 @@ struct TermsAndConditionsView: View {
                 ProgressView()
             } else {
                 ScrollView {
+                    if let date = date {
+                        VStack(alignment: .leading) {
+                            Text("updated \(DocKind.termsAndConditions.key.toString()) \(date.formatted(date: .complete, time: .standard))")
+                                .multilineTextAlignment(.leading)
+                            Divider()
+                        }
+                        .padding()
+                    }
+                    
                     Markdown(markdownText)
                         .markdownTheme(.gitHub)
                         .background(Color(.systemGroupedBackground))

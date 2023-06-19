@@ -8,3 +8,5 @@
 import Foundation
 
 let isCardModeOpenedKey = "isCardModeOpened"
+let privacyPolicyUpdatedDateKey = "privacyPolicyUpdatedDate"
+let termsAndConditionsUpdatedDateKey = "termsAndConditionsUpdatedDate"

@@ -17,6 +17,8 @@ import Foundation
     
     @Published var isPrivacyPolicyUpdated = false
     @Published var isTermsAndConditionsUpdated = false
+    @Published var privacyPolicyUpdatedDate = Date()
+    @Published var termsAndConditionsUpdatedDate = Date()
     @Published var isLoadingFinished = false
     
     @Published var isErrorShown = false
@@ -67,9 +69,11 @@ import Foundation
     func agree(for kind: DocKind) {
         switch kind {
         case .privacyPolicy:
+            UserDefaults.standard.setValue(privacyPolicyUpdatedDate, forKey: privacyPolicyUpdatedDateKey)
             isPrivacyPolicyUpdated = false
             break
         case .termsAndConditions:
+            UserDefaults.standard.setValue(termsAndConditionsUpdatedDate, forKey: termsAndConditionsUpdatedDateKey)
             isTermsAndConditionsUpdated = false
             break
         }
@@ -84,11 +88,14 @@ import Foundation
     private func checkFileDates() async {
         let datesJson = await fetchSharedFileDates()
         
-        let privacyPolicyDateStored = UserDefaults.standard.object(forKey: "privacyPolicyUpdatedDate") as? Date ?? Date()
-        let termsAndConditionsDateStored = UserDefaults.standard.object(forKey: "termsAndConditionsUpdatedDate") as? Date ?? Date()
+        let privacyPolicyDateStored = UserDefaults.standard.object(forKey: privacyPolicyUpdatedDateKey) as? Date ?? Date()
+        let termsAndConditionsDateStored = UserDefaults.standard.object(forKey: termsAndConditionsUpdatedDateKey) as? Date ?? Date()
         
         let privacyPolicyDate = datesJson["privacy_policy"]?.isoToDate() ?? Date()
         let termsAndConditionsDate = datesJson["terms_and_conditions"]?.isoToDate() ?? Date()
+        
+        privacyPolicyUpdatedDate = privacyPolicyDate
+        termsAndConditionsUpdatedDate = termsAndConditionsDate
         
         isPrivacyPolicyUpdated = privacyPolicyDateStored < privacyPolicyDate
         isTermsAndConditionsUpdated = termsAndConditionsDateStored < termsAndConditionsDate
