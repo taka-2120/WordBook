@@ -22,6 +22,7 @@ final class SupabaseAuthDataSource: NSObject, Sendable {
     
     class func signOut() async throws {
         try await client.auth.signOut()
+        await client.auth.initialize()
     }
     
     class func fetchUser() async throws -> User {

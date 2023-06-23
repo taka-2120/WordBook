@@ -140,10 +140,10 @@ struct AboutView: View {
                 .background(Color(.systemGroupedBackground))
                 .padding(.top)
                 
-                Text("buyMeACoffeeNotes")
-                    .font(.callout)
-                    .foregroundColor(Color(.secondaryLabel))
-                    .padding(.bottom)
+//                Text("buyMeACoffeeNotes")
+//                    .font(.callout)
+//                    .foregroundColor(Color(.secondaryLabel))
+//                    .padding(.bottom)
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()

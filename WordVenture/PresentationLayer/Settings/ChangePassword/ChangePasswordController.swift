@@ -46,6 +46,7 @@ import SwiftUI
             do {
                 try validation()
                 
+                try await authService.signOut()
                 try await authService.signIn(email: email, password: password)
                 
                 try await authService.updatePassword(newPassword: newPassword)

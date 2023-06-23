@@ -9,7 +9,7 @@ import Foundation
 
 let usernameRegex = "^[A-Za-z0-9_ -]{1,15}$"
 let emailRegex = "[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+"
-let passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
+let passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@.$ %^&*-]).{8,}$"
 
 enum RegexType: String {
     case usernameRegex = "^[A-Za-z0-9_ -]{1,15}$"
