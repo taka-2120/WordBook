@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,19 +111,28 @@
 		9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */; };
 		9A5EA7842A2C881000AAE8C3 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7832A2C881000AAE8C3 /* Urls.swift */; };
 		9A5EA7862A2C896900AAE8C3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7852A2C896900AAE8C3 /* AboutView.swift */; };
+		9A5EA78C2A2D896900AAE8C3 /* info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */; };
+		9A5EA78E2A2DA43A00AAE8C3 /* StoreEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */; };
+		9A5EA7902A2DA5C100AAE8C3 /* AdmobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */; };
+		9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */; };
+		9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */; };
+		9A6C02B42A3AEAAD00BA61DC /* PlanContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
-		9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF1F2A20822D00229844 /* Localizable.strings */; };
+		9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC1FDC82A31576000EE329F /* Localizable.xcstrings */; };
+		9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */; };
+		9ACA0A702A3F532B00C76A22 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */; };
+		9ACA0A732A3FE13700C76A22 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A722A3FE13700C76A22 /* TermsAndConditionsView.swift */; };
+		9ACA0A752A3FE87500C76A22 /* ISOtoDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A742A3FE87500C76A22 /* ISOtoDate.swift */; };
+		9ACA0A772A3FF4C700C76A22 /* DocPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */; };
+		9ACA0A792A3FF4E200C76A22 /* DocKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA0A782A3FF4E200C76A22 /* DocKind.swift */; };
 		9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF232A22F30600229844 /* DeleteAccountView.swift */; };
 		9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF252A22F31100229844 /* DeleteAccountController.swift */; };
-		9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD4FF282A246E7A00229844 /* GoogleMobileAds */; };
-		9AD4FF2B2A2477B700229844 /* GADNativeViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */; };
 		9AD4FF2D2A24B7C900229844 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD4FF2C2A24B7C900229844 /* StoreKit.framework */; };
-		9AD4FF2F2A24B8BF00229844 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */; };
 		9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF312A26E85E00229844 /* PlansView.swift */; };
 		9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF362A26EF8700229844 /* PlansController.swift */; };
-		9AD4FF392A271E4100229844 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF382A271E4100229844 /* IAPManager.swift */; };
+		9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -150,7 +159,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B3EBE942524727400152662 /* WordVenture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordVenture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B3EBE942524727400152662 /* WordVentureDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordVentureDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A24FD362A171B6400C34508 /* BookStack.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BookStack.gif; sourceTree = "<group>"; };
 		9A24FD372A171B6400C34508 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A24FD382A171B6400C34508 /* env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
@@ -254,16 +263,25 @@
 		9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUrl.swift; sourceTree = "<group>"; };
 		9A5EA7832A2C881000AAE8C3 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		9A5EA7852A2C896900AAE8C3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		9AD4FF1E2A20822D00229844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9AD4FF202A20823000229844 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "info-dev.plist"; sourceTree = "<group>"; };
+		9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnvironment.swift; sourceTree = "<group>"; };
+		9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobId.swift; sourceTree = "<group>"; };
+		9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedStringKey+String.swift"; sourceTree = "<group>"; };
+		9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanContents.swift; sourceTree = "<group>"; };
+		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlan.swift; sourceTree = "<group>"; };
+		9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
+		9ACA0A722A3FE13700C76A22 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		9ACA0A742A3FE87500C76A22 /* ISOtoDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOtoDate.swift; sourceTree = "<group>"; };
+		9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPromptView.swift; sourceTree = "<group>"; };
+		9ACA0A782A3FF4E200C76A22 /* DocKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocKind.swift; sourceTree = "<group>"; };
 		9AD4FF232A22F30600229844 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		9AD4FF252A22F31100229844 /* DeleteAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountController.swift; sourceTree = "<group>"; };
-		9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADNativeViewControllerWrapper.swift; sourceTree = "<group>"; };
 		9AD4FF2C2A24B7C900229844 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		9AD4FF312A26E85E00229844 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		9AD4FF362A26EF8700229844 /* PlansController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansController.swift; sourceTree = "<group>"; };
-		9AD4FF382A271E4100229844 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +289,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD4FF292A246E7A00229844 /* GoogleMobileAds in Frameworks */,
 				9AD4FF2D2A24B7C900229844 /* StoreKit.framework in Frameworks */,
 				9A85014C29F5FE860033FD05 /* Supabase in Frameworks */,
 				9A5EA77F2A2C837100AAE8C3 /* MarkdownUI in Frameworks */,
@@ -297,7 +314,7 @@
 		3B3EBE952524727400152662 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B3EBE942524727400152662 /* WordVenture.app */,
+				3B3EBE942524727400152662 /* WordVentureDev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,6 +324,7 @@
 			children = (
 				9A5EA73F2A2A41D600AAE8C3 /* Products.storekit */,
 				9A24FDA02A171B6400C34508 /* Info.plist */,
+				9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */,
 				9A24FD372A171B6400C34508 /* Assets.xcassets */,
 				9A24FD352A171B6400C34508 /* Resources */,
 				9A24FD4A2A171B6400C34508 /* Common */,
@@ -315,8 +333,8 @@
 				9A24FD652A171B6400C34508 /* PresentationLayer */,
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
+				9AC1FDC82A31576000EE329F /* Localizable.xcstrings */,
 				9A24FD442A171B6400C34508 /* Preview Content */,
-				9AD4FF1F2A20822D00229844 /* Localizable.strings */,
 			);
 			path = WordVenture;
 			sourceTree = "<group>";
@@ -332,7 +350,6 @@
 		9A24FD392A171B6400C34508 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				9AD4FF382A271E4100229844 /* IAPManager.swift */,
 				9A5EA7452A2AE32300AAE8C3 /* IAPRepositoryImpl.swift */,
 				9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */,
 				9A24FD402A171B6400C34508 /* OpenAIRepositoryImpl.swift */,
@@ -371,6 +388,10 @@
 				9A24FD4D2A171B6400C34508 /* TableName.swift */,
 				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
 				9A5EA7832A2C881000AAE8C3 /* Urls.swift */,
+				9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */,
+				9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */,
+				9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */,
+				9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -382,6 +403,7 @@
 				9A24FD522A171B6400C34508 /* Errors.swift */,
 				9A5EA7682A2B2B4200AAE8C3 /* Products.swift */,
 				9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */,
+				9ACA0A782A3FF4E200C76A22 /* DocKind.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -401,12 +423,13 @@
 			children = (
 				9A24FD592A171B6400C34508 /* Modifiers */,
 				9A24FD582A171B6400C34508 /* Date+Format.swift */,
-				9A24FD5B2A171B6400C34508 /* View+Hidden.swift */,
 				9A24FD5C2A171B6400C34508 /* Color+Hex.swift */,
 				9A24FD5D2A171B6400C34508 /* NotificationCenter.swift */,
 				9A24FD5E2A171B6400C34508 /* Color+Custom.swift */,
 				9A24FD5F2A171B6400C34508 /* String+Regex.swift */,
 				9A24FDF92A17349900C34508 /* String+Language.swift */,
+				9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */,
+				9ACA0A742A3FE87500C76A22 /* ISOtoDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				9A24FD5A2A171B6400C34508 /* View+Loading.swift */,
+				9A24FD5B2A171B6400C34508 /* View+Hidden.swift */,
+				9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -433,6 +458,7 @@
 				9A24FD632A171B6400C34508 /* WordIndex.swift */,
 				9A24FD642A171B6400C34508 /* PriorityColor.swift */,
 				9A24FDFB2A1744EA00C34508 /* Languages.swift */,
+				9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -440,7 +466,6 @@
 		9A24FD652A171B6400C34508 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				9AD4FF302A25C3F000229844 /* Ads */,
 				9A24FD922A171B6400C34508 /* Loading */,
 				9A24FD952A171B6400C34508 /* Auth */,
 				9A24FD862A171B6400C34508 /* Wordbooks */,
@@ -461,6 +486,8 @@
 				9A24FD6D2A171B6400C34508 /* ChangeEmail */,
 				9A24FD6A2A171B6400C34508 /* ChangePassword */,
 				9A24FD702A171B6400C34508 /* PrivacyPolicy */,
+				9ACA0A712A3FE0FC00C76A22 /* TermsAndConditions */,
+				9ACA0A6E2A3F531A00C76A22 /* Licenses */,
 				9A24FD772A171B6400C34508 /* Credits */,
 				9AD4FF222A22F2F500229844 /* DeleteAccount */,
 				9AD4FF352A26EF0A00229844 /* Plans */,
@@ -623,6 +650,7 @@
 			children = (
 				9A24FD932A171B6400C34508 /* LoadingController.swift */,
 				9A24FD942A171B6400C34508 /* LoadingView.swift */,
+				9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -793,6 +821,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		9ACA0A6E2A3F531A00C76A22 /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */,
+			);
+			path = Licenses;
+			sourceTree = "<group>";
+		};
+		9ACA0A712A3FE0FC00C76A22 /* TermsAndConditions */ = {
+			isa = PBXGroup;
+			children = (
+				9ACA0A722A3FE13700C76A22 /* TermsAndConditionsView.swift */,
+			);
+			path = TermsAndConditions;
+			sourceTree = "<group>";
+		};
 		9AD4FF222A22F2F500229844 /* DeleteAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,15 +844,6 @@
 				9AD4FF252A22F31100229844 /* DeleteAccountController.swift */,
 			);
 			path = DeleteAccount;
-			sourceTree = "<group>";
-		};
-		9AD4FF302A25C3F000229844 /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				9AD4FF2A2A2477B700229844 /* GADNativeViewControllerWrapper.swift */,
-				9AD4FF2E2A24B8BF00229844 /* NativeAdView.xib */,
-			);
-			path = Ads;
 			sourceTree = "<group>";
 		};
 		9AD4FF352A26EF0A00229844 /* Plans */ = {
@@ -844,11 +879,10 @@
 				9AAB3B6929F8C8B900AD6F6C /* SwipeActions */,
 				9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */,
 				9A2F836D2A138F030093CC7B /* SwiftUIPager */,
-				9AD4FF282A246E7A00229844 /* GoogleMobileAds */,
 				9A5EA77E2A2C837100AAE8C3 /* MarkdownUI */,
 			);
 			productName = Wordbook;
-			productReference = 3B3EBE942524727400152662 /* WordVenture.app */;
+			productReference = 3B3EBE942524727400152662 /* WordVentureDev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -859,7 +893,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					3B3EBE932524727400152662 = {
 						CreatedOnToolsVersion = 12.0;
@@ -882,7 +916,6 @@
 				9AAB3B5C29F7AE6400AD6F6C /* XCRemoteSwiftPackageReference "GIFImage" */,
 				9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				9A4A0CAD2A00ADDC00178B5F /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
-				9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				9A5EA77D2A2C837100AAE8C3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 3B3EBE952524727400152662 /* Products */;
@@ -899,10 +932,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5EA78C2A2D896900AAE8C3 /* info-dev.plist in Resources */,
 				9A24FDAC2A171B6500C34508 /* Assets.xcassets in Resources */,
-				9AD4FF1D2A20822D00229844 /* Localizable.strings in Resources */,
-				9AD4FF2F2A24B8BF00229844 /* NativeAdView.xib in Resources */,
 				9A24FDB52A171B6500C34508 /* Preview Assets.xcassets in Resources */,
+				9AC1FDC92A31576000EE329F /* Localizable.xcstrings in Resources */,
 				9A24FDAB2A171B6500C34508 /* BookStack.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -938,6 +971,7 @@
 				9A24FDCB2A171B6500C34508 /* PriorityColor.swift in Sources */,
 				9A24FDF12A171B6500C34508 /* AuthService.swift in Sources */,
 				9A24FDDE2A171B6500C34508 /* WordItem.swift in Sources */,
+				9A6C02B42A3AEAAD00BA61DC /* PlanContents.swift in Sources */,
 				9A24FDBD2A171B6500C34508 /* Regex.swift in Sources */,
 				9A24FDC02A171B6500C34508 /* MainPathes.swift in Sources */,
 				9A5EA7762A2C358E00AAE8C3 /* RefundController.swift in Sources */,
@@ -947,12 +981,10 @@
 				9A24FDC72A171B6500C34508 /* Color+Custom.swift in Sources */,
 				9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */,
 				9A24FDF22A171B6500C34508 /* AuthServiceInterface.swift in Sources */,
-				9AD4FF392A271E4100229844 /* IAPManager.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
 				9A5EA7672A2B275400AAE8C3 /* IAPUseCase.swift in Sources */,
 				9A24FDAE2A171B6500C34508 /* WordbookRepositoryImpl.swift in Sources */,
-				9AD4FF2B2A2477B700229844 /* GADNativeViewControllerWrapper.swift in Sources */,
 				9A24FDB32A171B6500C34508 /* UserDataRepository.swift in Sources */,
 				9A5EA7782A2C802100AAE8C3 /* ReleaseNotesView.swift in Sources */,
 				9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */,
@@ -962,8 +994,10 @@
 				9A24FDB42A171B6500C34508 /* UserDataRepositoryImpl.swift in Sources */,
 				9A24FDE32A171B6500C34508 /* WordBookItem.swift in Sources */,
 				9A24FDBF2A171B6500C34508 /* SettingsNavStack.swift in Sources */,
+				9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */,
 				9A24FDC82A171B6500C34508 /* String+Regex.swift in Sources */,
 				9A5EA7632A2B13EF00AAE8C3 /* UnsplashUseCase.swift in Sources */,
+				9ACA0A702A3F532B00C76A22 /* LicensesView.swift in Sources */,
 				9A24FDC22A171B6500C34508 /* Date+Format.swift in Sources */,
 				9A24FDD92A171B6500C34508 /* DetailsWordController.swift in Sources */,
 				9A5EA7652A2B187F00AAE8C3 /* WordController.swift in Sources */,
@@ -972,8 +1006,10 @@
 				9A24FDD22A171B6500C34508 /* PrivacyPolicyView.swift in Sources */,
 				9A24FDC92A171B6500C34508 /* CircleNavigationButton.swift in Sources */,
 				9A24FDE02A171B6500C34508 /* WordbooksController.swift in Sources */,
+				9ACA0A772A3FF4C700C76A22 /* DocPromptView.swift in Sources */,
 				9A24FDD62A171B6500C34508 /* CreditsView.swift in Sources */,
 				9A24FDE42A171B6500C34508 /* AddingWordbookView.swift in Sources */,
+				9A5EA78E2A2DA43A00AAE8C3 /* StoreEnvironment.swift in Sources */,
 				9A24FDC32A171B6500C34508 /* View+Loading.swift in Sources */,
 				9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */,
 				9A24FDE92A171B6500C34508 /* AuthController.swift in Sources */,
@@ -983,6 +1019,7 @@
 				9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */,
 				9A5EA75D2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift in Sources */,
 				9A24FDD02A171B6500C34508 /* ChangeEmailView.swift in Sources */,
+				9ACA0A732A3FE13700C76A22 /* TermsAndConditionsView.swift in Sources */,
 				9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */,
 				9A24FDB02A171B6500C34508 /* SupabaseAuthRepositoryImpl.swift in Sources */,
 				9A24FDCD2A171B6500C34508 /* ChangeUsernameView.swift in Sources */,
@@ -995,16 +1032,21 @@
 				9A24FDE52A171B6500C34508 /* CardIntroductionView.swift in Sources */,
 				9A24FDC52A171B6500C34508 /* Color+Hex.swift in Sources */,
 				9A24FDBB2A171B6500C34508 /* UserDefaultsKey.swift in Sources */,
+				9A5EA7902A2DA5C100AAE8C3 /* AdmobId.swift in Sources */,
+				9ACA0A792A3FF4E200C76A22 /* DocKind.swift in Sources */,
 				9A5EA7502A2AEC3500AAE8C3 /* OpenAIRepository.swift in Sources */,
+				9ACA0A752A3FE87500C76A22 /* ISOtoDate.swift in Sources */,
 				9A24FDBE2A171B6500C34508 /* Errors.swift in Sources */,
 				9A24FDEC2A171B6500C34508 /* SignUpView.swift in Sources */,
 				9A24FDFC2A1744EA00C34508 /* Languages.swift in Sources */,
 				9A24FDEF2A171B6500C34508 /* WordbookApp.swift in Sources */,
 				9A5EA7592A2AFB2E00AAE8C3 /* OpenAIDataSource.swift in Sources */,
+				9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */,
 				9A24FDDB2A171B6500C34508 /* DetailsView.swift in Sources */,
 				9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */,
 				9A24FDC62A171B6500C34508 /* NotificationCenter.swift in Sources */,
 				9A24FDC12A171B6500C34508 /* AuthMethod.swift in Sources */,
+				9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */,
 				9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */,
 				9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */,
 				9A24FDEA2A171B6500C34508 /* WelcomeView.swift in Sources */,
@@ -1016,6 +1058,7 @@
 				9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */,
 				9A5EA75F2A2B041F00AAE8C3 /* UserDataSource.swift in Sources */,
 				9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */,
+				9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */,
 				9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */,
 				9A24FDD82A171B6500C34508 /* WordsController.swift in Sources */,
 			);
@@ -1023,23 +1066,13 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		9AD4FF1F2A20822D00229844 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9AD4FF1E2A20822D00229844 /* en */,
-				9AD4FF202A20823000229844 /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3B3EBEA12524727500152662 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1073,6 +1106,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1088,6 +1122,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1101,6 +1137,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1134,6 +1172,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1143,9 +1182,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -1159,12 +1201,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"WordVenture/Preview Content\"";
 				DEVELOPMENT_TEAM = 94WA597YZM;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = WordVenture/Info.plist;
+				INFOPLIST_FILE = "WordVenture/Info-dev.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WordVenture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1175,8 +1217,10 @@
 				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = yutakahashi.WordVenture.dev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)Dev";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1189,7 +1233,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"WordVenture/Preview Content\"";
 				DEVELOPMENT_TEAM = 94WA597YZM;
 				ENABLE_PREVIEWS = YES;
@@ -1206,6 +1250,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yutakahashi.WordVenture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1283,14 +1329,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1323,11 +1361,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
-		};
-		9AD4FF282A246E7A00229844 /* GoogleMobileAds */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9AD4FF272A246E7A00229844 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
-			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

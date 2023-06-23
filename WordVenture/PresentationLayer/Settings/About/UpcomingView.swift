@@ -9,15 +9,34 @@ import SwiftUI
 import MarkdownUI
 
 struct UpcomingView: View {
+    @State private var markdownText = "" {
+        willSet {
+            if newValue != "" {
+                isLoading = false
+            }
+        }
+    }
+    @State private var isLoading = true
+    
     var body: some View {
-        ScrollView {
-            Markdown(SharedFile.upcoming.getMarkdown())
-                .markdownTheme(.gitHub)
-                .background(Color(.systemGroupedBackground))
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .padding()
+        Group {
+            if isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    Markdown(markdownText)
+                        .markdownTheme(.gitHub)
+                        .background(Color(.systemGroupedBackground))
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                }
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .animation(.easeInOut, value: markdownText)
+        .task {
+            markdownText = await SharedFile.upcoming.fetchFileData()
+        }
     }
 }
 

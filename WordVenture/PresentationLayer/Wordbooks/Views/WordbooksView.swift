@@ -26,16 +26,8 @@ struct WordbooksView: View {
                             .font(.title3)
                             .bold()
                         Spacer()
-                        
-                        if !controller.isAdRemoved() {
-                            GADNativeViewControllerWrapper()
-                                .frame(height: 100)
-                                .background(Color(.systemFill))
-                                .cornerRadius(10)
-                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                                .padding(18)
-                        }
                     }
+                    .frame(minWidth: 0, maxWidth: .infinity)
                 } else {
                     ScrollView {
                         SwipeViewGroup {
@@ -45,12 +37,15 @@ struct WordbooksView: View {
                         }
                         .padding(.top)
                         
-                        if !controller.hasUnlimited && controller.wordbooks.count == Plan.free.wordbookLimit {
+                        if !controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount {
+                            Divider()
+                                .padding(10)
+                            
                             Button {
                                 controller.isPlanViewShown = true
                             } label: {
                                 HStack {
-                                    Text("You need Unlimited plan for more wordbooks!")
+                                    Text("needUnlimitedWordbook")
                                         .font(.headline)
                                         .foregroundColor(Color(.label))
                                 }
@@ -67,19 +62,10 @@ struct WordbooksView: View {
                             .padding()
                         }
                         
-                        if !controller.isAdRemoved() {
-                            GADNativeViewControllerWrapper()
-                                .frame(height: 100)
-                                .background(Color(.systemFill))
-                                .cornerRadius(10)
-                                .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-                                .padding(18)
-                        }
-                        
-                        if !controller.hasUnlimited && controller.wordbooks.count < Plan.free.wordbookLimit {
+                        if !controller.hasUnlimited && controller.wordbooks.count < unlimitedMaxWordbookCount {
                             HStack {
                                 Spacer()
-                                Text("Limit: \(controller.wordbooks.count)/\(Plan.free.wordbookLimit)")
+                                Text("limit: \(controller.wordbooks.count)/\(unlimitedMaxWordbookCount)")
                                     .foregroundColor(Color(.secondaryLabel))
                                     .font(.callout)
                             }
@@ -88,6 +74,7 @@ struct WordbooksView: View {
                     }
                 }
             }
+            .background(Color(.secondarySystemBackground))
             .navigationTitle("wordbooks")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -104,19 +91,22 @@ struct WordbooksView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .disabled(controller.wordbooks.count == Plan.free.wordbookLimit)
-                    .opacity(controller.wordbooks.count == Plan.free.wordbookLimit ? 0.6 : 1.0)
+                    .disabled(!controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount)
+                    .opacity(!controller.hasUnlimited && controller.wordbooks.count == unlimitedMaxWordbookCount ? 0.6 : 1.0)
                 }
             }
-            .sheet(isPresented: $controller.isAddShown, content: { AddWordbookView() })
-            .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
-            .sheet(isPresented: $controller.isPlanViewShown) {
-                PlansView()
-                    .padding(.top, 20)
+            .sheet(isPresented: $controller.isAddShown) {
+                AddWordbookView()
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
             }
+            .sheet(isPresented: $controller.isSettingsShown, content: { SettingsView() })
+            .sheet(isPresented: $controller.isPlanViewShown, content: { PlansView(selfNavigatable: true) })
             .animation(.easeInOut, value: controller.wordbooks)
             .animation(.easeInOut, value: controller.wordbooks.isEmpty)
-            .onAppear(perform: controller.fetchWordbooks)
+            .onAppear {
+                controller.fetchWordbooks()
+            }
         }
         .environmentObject(controller)
     }

@@ -42,7 +42,7 @@ struct DetailsView: View {
                     Divider()
                         .padding(.vertical, 5)
                     
-                    Text("Notes: \n • Unsplash API sometimes cannot find images. \n • Oepn AI API sometimes generate texts in wrong format, or containing incorrect information.")
+                    Text("apiNotes")
                         .font(.caption)
                         .foregroundColor(Color(.secondaryLabel))
                         .padding(.bottom)

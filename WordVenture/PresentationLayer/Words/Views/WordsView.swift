@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import VisionKit
-import Vision
 import SwipeActions
 
 struct WordsView: View {
@@ -31,13 +29,6 @@ struct WordsView: View {
                         .font(.title3)
                         .bold()
                     Spacer()
-                    
-//                    GADNativeViewControllerWrapper()
-//                        .frame(height: 100)
-//                        .background(.thickMaterial)
-//                        .cornerRadius(10)
-//                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-//                        .padding(18)
                 }
             } else {
                 ScrollView {
@@ -50,19 +41,12 @@ struct WordsView: View {
                     }
                     .padding(.top, 20)
                     
-//                    GADNativeViewControllerWrapper()
-//                        .frame(height: 100)
-//                        .background(.thickMaterial)
-//                        .cornerRadius(10)
-//                        .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
-//                        .padding(18)
-                    
-                    if !controller.hasUnlimited && controller.wordbook.words.count == Plan.free.wordLimit {
+                    if !controller.hasUnlimited && controller.wordbook.words.count == unlimitedMaxWordCount {
                         Button {
                             controller.isPlanViewShown = true
                         } label: {
                             HStack {
-                                Text("You need Unlimited plan for more words!")
+                                Text("needUnlimitedWord")
                                     .font(.headline)
                                     .foregroundColor(Color(.label))
                             }
@@ -79,10 +63,10 @@ struct WordsView: View {
                         .padding()
                     }
                     
-                    if !controller.hasUnlimited && controller.wordbook.words.count < Plan.free.wordLimit {
+                    if !controller.hasUnlimited && controller.wordbook.words.count < unlimitedMaxWordCount {
                         HStack {
                             Spacer()
-                            Text("Limit: \(controller.wordbook.words.count)/\(Plan.free.wordLimit)")
+                            Text("limit: \(controller.wordbook.words.count)/\(unlimitedMaxWordCount)")
                                 .foregroundColor(Color(.secondaryLabel))
                                 .font(.callout)
                         }
@@ -120,6 +104,7 @@ struct WordsView: View {
                 .padding()
             }
         }
+        .background(Color(.secondarySystemBackground))
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.browser)
         .toolbar {
@@ -180,12 +165,12 @@ struct WordsView: View {
             PlansView()
                 .padding(.top, 20)
         }
-        .environmentObject(controller)
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
             Text(controller.errorMessage)
         }
+        .environmentObject(controller)
     }
 }
 

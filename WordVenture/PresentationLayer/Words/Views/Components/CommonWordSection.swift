@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftfulLoadingIndicators
 
-func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder _ editButton: () -> Content) -> some View {
+@MainActor func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder _ editButton: () -> Content) -> some View {
     return VStack {
         Divider()
             .padding(.vertical, 5)

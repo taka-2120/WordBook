@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class AddWordbookController: ObservableObject {
+@MainActor class AddWordbookController: ObservableObject, Sendable {
     private let wordbookService = WordbookService()
     
     let languages = NSLocale.isoLanguageCodes.sorted()
@@ -27,8 +27,9 @@ class AddWordbookController: ObservableObject {
     }
     
     func addWordbook(_ dismiss: DismissAction) {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }

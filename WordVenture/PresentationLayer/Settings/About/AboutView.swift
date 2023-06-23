@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AboutView: View {
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -24,7 +25,7 @@ struct AboutView: View {
                         .fontWeight(.bold)
                     
                     Group {
-                        Text("version") + Text(" 1.0.0 (Beta 1)")
+                        Text("version") + Text(detectVersion())
                     }
                     .foregroundColor(Color(.secondaryLabel))
                     .onTapGesture(count: 7) {
@@ -139,10 +140,10 @@ struct AboutView: View {
                 .background(Color(.systemGroupedBackground))
                 .padding(.top)
                 
-                Text("buyMeACoffeeNotes")
-                    .font(.callout)
-                    .foregroundColor(Color(.secondaryLabel))
-                    .padding(.bottom)
+//                Text("buyMeACoffeeNotes")
+//                    .font(.callout)
+//                    .foregroundColor(Color(.secondaryLabel))
+//                    .padding(.bottom)
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()

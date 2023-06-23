@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class SettingsController: ObservableObject {
+@MainActor class SettingsController: ObservableObject, Sendable {
     
     private var screenController = ScreenController.shared
     private let authService = AuthService()
@@ -26,7 +26,7 @@ class SettingsController: ObservableObject {
     }
     
     func fetchInformation() {
-        Task{ @MainActor in
+        Task{
             do {
                 self.username = try await authService.getUsername()
                 self.email = try await authService.getEmail() ?? "N/A"
@@ -37,8 +37,9 @@ class SettingsController: ObservableObject {
     }
     
     func signOut() {
-        Task{ @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task{
             defer {
                 isLoading = false
             }
@@ -55,8 +56,9 @@ class SettingsController: ObservableObject {
     }
     
     func deleteAccount() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }

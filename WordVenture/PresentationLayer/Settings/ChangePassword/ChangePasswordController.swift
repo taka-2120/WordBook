@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ChangePasswordController: ObservableObject {
+@MainActor class ChangePasswordController: ObservableObject, Sendable {
     private let authService = AuthService()
     
     @Published var email = ""
@@ -37,8 +37,8 @@ class ChangePasswordController: ObservableObject {
     }
     
     func updatePassword(_ dismiss: DismissAction) {
+        isLoading = true
         Task{ @MainActor in
-            isLoading = true
             defer {
                 isLoading = false
             }
@@ -46,6 +46,7 @@ class ChangePasswordController: ObservableObject {
             do {
                 try validation()
                 
+                try await authService.signOut()
                 try await authService.signIn(email: email, password: password)
                 
                 try await authService.updatePassword(newPassword: newPassword)

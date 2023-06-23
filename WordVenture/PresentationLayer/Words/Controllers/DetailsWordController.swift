@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class DetailsWordController: WordController {
+@MainActor class DetailsWordController: WordController, Sendable {
     let word: Word
     
     @Published var isEditing = false
@@ -27,8 +27,9 @@ class DetailsWordController: WordController {
     }
     
     func updateWord(dismiss: DismissAction) {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }
@@ -49,8 +50,9 @@ class DetailsWordController: WordController {
     }
     
     func updateCountOnly() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }

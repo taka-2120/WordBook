@@ -7,12 +7,17 @@
 
 import Foundation
 
-class UnsplashDataSource: NSObject {
+final class UnsplashDataSource: NSObject, Sendable {
     
     class func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
         let url = "https://api.unsplash.com/search/photos/?page=1&query=\(word)&client_id=\(ENV().unsplashAccessKey)"
         
-        let apiUrl = URL(string: url)!
+        let apiUrl = URL(string: url)
+        
+        guard let apiUrl = apiUrl else {
+            print("Unsplash api url: nil.")
+            return []
+        }
 
         var request = URLRequest(url: apiUrl)
         request.httpMethod = "GET"

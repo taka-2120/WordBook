@@ -11,121 +11,65 @@ import StoreKit
 struct PlanItem: View {
     @EnvironmentObject private var controller: PlansController
     
-    let plan: Plan
-    let product: Product?
-    let disabled: Bool
-    let current: Bool
+    let period: UnlimitedPeriod
     
-    init(plan: Plan, disabled: Bool = false, current: Bool = false, product: Product? = nil) {
-        self.plan = plan
-        self.disabled = disabled
-        self.current = current
-        self.product = product
+    init(period: UnlimitedPeriod) {
+        self.period = period
     }
     
     var body: some View {
-        let isSelected = controller.selectedPlan == plan
-        
-        VStack(spacing: 0) {
+        VStack(spacing: 5) {
             HStack {
-                Button {
-                    controller.selectedPlan = plan
-                } label: {
-                    Image(systemName: current ? "checkmark.circle.fill" : "circle")
-                        .foregroundColor(current ? .green : .gray)
-                }
-                .padding(.trailing, 10)
-                .disabled(disabled)
+                Image(systemName: controller.selectedPeriod == period ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(controller.selectedPeriod == period ? .green : .gray)
+                    .padding(.trailing, 10)
                 
-                Text(plan.name)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(disabled ? Color(.secondaryLabel) : Color(.label))
+                Group {
+                    Text("Unlimited ")
+                    + Text(LocalizedStringKey(stringLiteral: period.periodName))
+                }
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundColor(Color(.label))
                 
                 Spacer()
                 
-                if plan != .free {
-                    HStack(spacing: 0) {
-                        Group {
-                            Text(plan == .unlimited ? controller.unlimitedPeriod.period : plan.period)
-                            + Text(" • ")
-                        }
-                        .foregroundColor(Color(.secondaryLabel))
-                        
-                        Text(controller.getPrice(for: plan))
-                            .foregroundColor(Color(.label))
+                HStack(spacing: 0) {
+                    Group {
+                        Text(LocalizedStringKey(stringLiteral: period.periodName))
+                        + Text(" • ")
                     }
+                    .foregroundColor(Color(.secondaryLabel))
+                    
+                    Text(controller.getPrice(for: period))
+                        .foregroundColor(Color(.label))
                 }
-                
-                Button {
-                    controller.expand(for: plan)
-                } label: {
-                    Image(systemName: controller.expandedPlan == plan ? "chevron.up" : "chevron.down")
-                        .imageScale(.small)
-                        .foregroundColor(Color(.secondaryLabel))
-                }
-
-            }
-            .background(.clear)
-            .onTapGesture {
-                controller.expand(for: plan)
             }
             
-            if controller.expandedPlan == plan {
-                if plan == .unlimited {
-                    HStack {
-                        Spacer()
-                        Picker("", selection: $controller.unlimitedPeriod) {
-                            Text("monthly").tag(UnlimitedPeriod.monthly)
-                            Text("annually").tag(UnlimitedPeriod.annually)
-                        }
-                        .pickerStyle(.segmented)
-                        .frame(width: 210)
-                    }
-                    .padding(.top)
+            if controller.currentPeriod == period {
+                HStack {
+                    Label("yourPlan", systemImage: "star")
+                        .foregroundStyle(Color(.secondaryLabel))
+                        .padding(.leading)
+                    Spacer()
                 }
-                
-                VStack(alignment: .leading) {
-                    Text(plan.description)
-                        .foregroundColor(Color(.secondaryLabel))
-                        .padding(.top, 5)
-                    
-                    Divider()
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("contents")
-                        ForEach(plan.contents, id: \.self) { content in
-                            Text(" • ") + Text(LocalizedStringKey(stringLiteral: content))
-                        }
-                    }
-                }
-                .padding(10)
             }
         }
-        .frame(alignment: .top)
         .foregroundColor(Color(.label))
         .padding()
         .background(.regularMaterial)
         .cornerRadius(20)
+        .onTapGesture {
+            controller.selectPeriod(for: period)
+        }
         .overlay {
             RoundedRectangle(cornerRadius: 20)
-                .stroke(.blue, lineWidth: isSelected ? 2 : 0)
+                .stroke(.blue, lineWidth: controller.selectedPeriod == period ? 2 : 0)
         }
-        .shadow(color: (isSelected ? Color.blue : Color.black).opacity(0.25), radius: 15, y: 5)
+        .shadow(color: (controller.selectedPeriod == period ? Color.blue : Color.black).opacity(0.25), radius: 15, y: 5)
         .padding(.vertical, 8)
         .padding(.horizontal)
-        .animation(.spring(), value: isSelected)
-        .animation(.spring(), value: controller.unlimitedPeriod)
+        .animation(.spring(), value: controller.selectedPeriod)
+        .animation(.spring(), value: controller.currentPeriod)
     }
 }
-
-//struct PlanItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VStack {
-//            PlanItem(planProduct: .free)
-//            PlanItem(planProduct: .removeAds)
-//            PlanItem(planProduct: .unlimitedMonthly)
-//            Spacer()
-//        }
-//    }
-//}

@@ -65,7 +65,9 @@ struct SettingsItem: View {
             })
         case .link:
             Button {
-                pathes = [destination!]
+                if let destination = destination {
+                    pathes = [destination]
+                }
             } label: {
                 HStack {
                     if let leftIconName = leftIconName {

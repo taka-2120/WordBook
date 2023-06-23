@@ -7,17 +7,22 @@
 
 import Foundation
 import StoreKit
+import SwiftUI
 
-class PlansController: ObservableObject {
+@MainActor class PlansController: ObservableObject, Sendable {
     
     private let purchaseManager = PurchaseManager.shared
     private let iapUseCase = IAPUseCase()
     
-    @Published var currentPlan: Plan = .free
     @Published var products = [Product]()
-    @Published var selectedPlan: Plan = .free
-    @Published var expandedPlan: Plan? = nil
-    @Published var unlimitedPeriod: UnlimitedPeriod = .monthly
+    @Published var currentPeriod: UnlimitedPeriod? = nil
+    @Published var selectedPeriod: UnlimitedPeriod = .monthly {
+        willSet {
+            refreshPurchaseState(for: newValue.id)
+        }
+    }
+    @Published var isAvailable = false
+    
     @Published var isSubscriptionManagerShown = false {
         willSet {
             if newValue == false {
@@ -43,45 +48,24 @@ class PlansController: ObservableObject {
     
     init() {
         requestProducts()
-        purchaseManager.listenTransaction()
-        reflectPurchaseState()
-    }
-    
-    deinit {
-        purchaseManager.cancelListeningTransaction()
-    }
-    
-    func reflectPurchaseState() {
-        if hasAdsRemoved() {
-            selectedPlan = .removeAds
-            currentPlan = .removeAds
-        } else if hasUnlimited() {
-            selectedPlan = .unlimited
-            currentPlan = .unlimited
-            unlimitedPeriod = purchaseManager.purchasedProductIDs.contains(UnlimitedPeriod.monthly.id) ? .monthly : .annually
-        } else {
-            selectedPlan = .free
+        purchaseManager.fetchCurrentEntitlements {
+            self.reflectPurchaseState()
+            self.refreshPurchaseState(for: self.selectedPeriod.id)
         }
     }
     
-    func hasAdsRemoved() -> Bool {
-        return purchaseManager.hasAdsRemoved
+    func reflectPurchaseState() {
+        if hasUnlimited() {
+            currentPeriod = purchaseManager.isPurchased(for: UnlimitedPeriod.monthly.id) ? .monthly : .annually
+            selectedPeriod = currentPeriod!
+        } else {
+            currentPeriod = nil
+            selectedPeriod = .monthly
+        }
     }
     
     func hasUnlimited() -> Bool {
         return purchaseManager.hasUnlimited
-    }
-    
-    func isAvailable() -> Bool {
-        if selectedPlan == .removeAds {
-            let hasPurchased = purchaseManager.purchasedProductIDs.contains(selectedPlan.id)
-            return !hasPurchased
-        } else if selectedPlan == .unlimited {
-            let hasPurchased = purchaseManager.purchasedProductIDs.contains(unlimitedPeriod.id)
-            return !hasPurchased
-        }
-        
-        return false
     }
     
     func showManageSubscriptionSheet() {
@@ -92,57 +76,75 @@ class PlansController: ObservableObject {
         isOfferCodeRedepmtionShown = true
     }
     
+    func getCurrentPlanName() -> String {
+        if let currentPeriod = currentPeriod {
+            return currentPeriod.periodName
+        }
+        return "free"
+    }
+    
+    func getLocalizedPrice(for period: UnlimitedPeriod) -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.currencySymbol = Locale.current.currencySymbol ?? ""
+        formatter.internationalCurrencySymbol = Locale.current.currencySymbol ?? ""
+        formatter.numberStyle = .currencyAccounting
+        let localizedPrice = formatter.string(from: period.price as NSNumber) ?? ""
+        
+        return localizedPrice
+    }
+    
     func requestProducts() {
         Task { @MainActor in
             do {
                 products = try await iapUseCase.fetchProducts()
-                await purchaseManager.updatePurchasedProducts()
             } catch {
                 print(error)
             }
         }
     }
     
-    func expand(for plan: Plan) {
-        if expandedPlan == plan {
-            expandedPlan = nil
-        } else {
-            expandedPlan = plan
-        }
+    func selectPeriod(for period: UnlimitedPeriod) {
+        selectedPeriod = period
     }
     
-    func getPrice(for plan: Plan) -> String {
+    func getPrice(for period: UnlimitedPeriod) -> String {
         var product: Product? = nil
-        
-        if plan == .removeAds {
-            product = products.filter( { $0.id == plan.id }).first
-        } else if plan == .unlimited {
-            product = products.filter( { $0.id == unlimitedPeriod.id }).first
-        }
+        product = products.filter( { $0.id == period.id }).first
         
         return product?.displayPrice ?? "N/A"
     }
     
-    func purchaseProduct() {
+    private func refreshPurchaseState(for productId: String) {
+        // Check if the period is available
+        if currentPeriod == nil {
+            // If user doesn't subscribe to any plan...
+            isAvailable = true
+            return
+        }
+        
+        let hasPurchased = purchaseManager.isPurchased(for: productId)
+        isAvailable = !hasPurchased
+    }
+    
+    func purchaseProduct(dismissAction: @escaping () -> Void) {
         Task { @MainActor in
             do {
                 var product: Product? = nil
                 
-                if selectedPlan == .removeAds {
-                    product = products.filter( { $0.id == selectedPlan.id }).first
-                } else if selectedPlan == .unlimited {
-                    product = products.filter( { $0.id == unlimitedPeriod.id }).first
-                } else {
-                    return
-                }
+                product = products.filter( { $0.id == selectedPeriod.id }).first
                 
                 guard let product = product else {
+                    print("Products are not available")
                     return
                 }
                 
-                _ = try await iapUseCase.purchaseProduct(for: product)
-                await purchaseManager.updatePurchasedProducts()
-                reflectPurchaseState()
+                let transaction = try await iapUseCase.purchaseProduct(for: product)
+                
+                if transaction != nil {
+                    reflectPurchaseState()
+                    dismissAction()
+                }
             } catch {
                 print(error)
             }
@@ -153,7 +155,6 @@ class PlansController: ObservableObject {
         Task { @MainActor in
             do {
                 try await iapUseCase.restorePurchase()
-                await purchaseManager.updatePurchasedProducts()
                 reflectPurchaseState()
             } catch {
                 print(error)

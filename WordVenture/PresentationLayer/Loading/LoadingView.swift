@@ -8,9 +8,9 @@
 import SwiftUI
 import GIFImage
 
-struct LoadingView: View {
+struct LoadingView: View, Sendable {
     
-    @ObservedObject private var controller = LoadingController()
+    @StateObject private var controller = LoadingController()
     
     var body: some View {
         ZStack {
@@ -20,11 +20,18 @@ struct LoadingView: View {
                 await controller.load()
             }
         }
+        .fullScreenCover(isPresented: $controller.isPrivacyPolicyUpdated) {
+            DocPromptView(docKind: .privacyPolicy)
+        }
+        .fullScreenCover(isPresented: $controller.isTermsAndConditionsUpdated) {
+            DocPromptView(docKind: .termsAndConditions)
+        }
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
         } message: {
             Text(controller.errorMessage)
         }
+        .environmentObject(controller)
     }
 }
 

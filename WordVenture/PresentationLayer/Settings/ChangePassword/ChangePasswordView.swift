@@ -14,12 +14,6 @@ struct ChangePasswordView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("changePassword")
-                .font(.title)
-                .bold()
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 10)
-            
             CustomField("oldPassword", isSecured: true, text: $controller.password)
             CustomField("newPassword", isSecured: true, text: $controller.newPassword)
             CustomField("reNewPassword", isSecured: true, text: $controller.reNewPassword)
@@ -40,6 +34,7 @@ struct ChangePasswordView: View {
 
         }
         .padding()
+        .navigationTitle("changePassword")
         .navigationBarTitleDisplayMode(.inline)
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")

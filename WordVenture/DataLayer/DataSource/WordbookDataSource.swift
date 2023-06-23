@@ -8,7 +8,7 @@
 import Foundation
 import Supabase
 
-class WordbooksDataSource: NSObject {
+final class WordbooksDataSource: NSObject, Sendable {
     
     class func fetchWordbook(userId: UUID) async throws -> [WordbookAPIModel] {
         let query = client.database

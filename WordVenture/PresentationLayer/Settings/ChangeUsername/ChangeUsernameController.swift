@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ChangeUsernameController: ObservableObject {
+@MainActor class ChangeUsernameController: ObservableObject, Sendable {
     private let authService = AuthService()
     
     @Published var username = ""
@@ -31,8 +31,8 @@ class ChangeUsernameController: ObservableObject {
     }
     
     func updateUsername(_ dismiss: DismissAction) {
+        isLoading = true
         Task{ @MainActor in
-            isLoading = true
             defer {
                 isLoading = false
             }

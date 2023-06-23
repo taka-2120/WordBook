@@ -10,11 +10,11 @@ import SwiftUIPager
 
 struct CardMode: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) private var colorScheme
     
     @EnvironmentObject private var controller: WordsController
     
-    @StateObject var page: Page = .first()
+    @StateObject private var page: Page = .first()
     @State private var isCardModeShown = false
     
     var body: some View {

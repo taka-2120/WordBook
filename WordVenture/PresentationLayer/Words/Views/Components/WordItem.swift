@@ -11,11 +11,16 @@ import SwipeActions
 
 struct WordItem: View {
     @EnvironmentObject private var controller: WordsController
-    @State var close = PassthroughSubject<Void, Never>()
+    @State private var close = PassthroughSubject<Void, Never>()
     @State private var isDeletePromptShown = false
     
-    let word: Word
-    let index: Int
+    private let word: Word
+    private let index: Int
+    
+    init( word: Word, index: Int) {
+        self.word = word
+        self.index = index
+    }
     
     var body: some View {
         SwipeView {

@@ -20,13 +20,15 @@ struct SettingsView: View {
                     SettingsItem(kinds: .link, leftLabel: "changeUsername", leftIconName: "person", rightLabel: "\(controller.username)", destination: .changeUsername, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "changeEmail", leftIconName: "at", destination: .changeEmail, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "changePassword", leftIconName: "key", destination: .changePassword, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "plans", leftIconName: "dollarsign.circle", destination: .plans, pathes: $settingsPathes)
                 }
 
                 Section("info") {
                     SettingsItem(kinds: .link, leftLabel: "about \("WordVenture")", leftIconName: "info", destination: .about, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "privacyPolicy", leftIconName: "lock.fill", destination: .privacyPolicy, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "termsAndConditions", leftIconName: "network.badge.shield.half.filled", destination: .termsAndConditions, pathes: $settingsPathes)
+                    SettingsItem(kinds: .link, leftLabel: "licenses", leftIconName: "puzzlepiece", destination: .licenses, pathes: $settingsPathes)
                     SettingsItem(kinds: .link, leftLabel: "credits", leftIconName: "quote.opening", destination: .credits, pathes: $settingsPathes)
-                    SettingsItem(kinds: .link, leftLabel: "plans", leftIconName: "dollarsign.circle", destination: .plans, pathes: $settingsPathes)
                 }
                 
                 Section("dengerZone") {
@@ -66,10 +68,12 @@ struct SettingsView: View {
                 case .changeEmail: ChangeEmailView()
                 case .changePassword: ChangePasswordView()
                 case .privacyPolicy: PrivacyPolicyView()
+                case .licenses: LicensesView()
                 case .credits: CreditsView()
                 case .plans: PlansView()
                 case .deleteAccount: DeleteAccountView()
                 case .about: AboutView()
+                case .termsAndConditions: TermsAndConditionsView()
                 }
             }
             .onChange(of: settingsPathes) { newValue in

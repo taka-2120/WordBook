@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthController: ObservableObject {
+@MainActor class AuthController: ObservableObject, Sendable {
     
     private var screenController = ScreenController.shared
     private let authService = AuthService()
@@ -21,8 +21,9 @@ class AuthController: ObservableObject {
     @Published var errorMessage = ""
     
     func signIn() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task {
             defer {
                 isLoading = false
             }
@@ -40,8 +41,9 @@ class AuthController: ObservableObject {
     }
     
     func signUp() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        
+        Task { 
             defer {
                 isLoading = false
             }
@@ -59,19 +61,19 @@ class AuthController: ObservableObject {
     }
     
     private func validate(isSignUp: Bool) throws {
-        if username.isEmpty || email.isEmpty || password.isEmpty {
+        if username.isEmpty && isSignUp || email.isEmpty || password.isEmpty {
             throw CustomError.empty
         }
         
-        if username.isVailed(type: .usernameRegex) && isSignUp {
+        if !username.isVailed(type: .usernameRegex) && isSignUp {
             throw CustomError.longUsername
         }
         
-        if email.isVailed(type: .emailRegex) {
+        if !email.isVailed(type: .emailRegex) {
             throw CustomError.invaildEmailFormat
         }
         
-        if password.isVailed(type: .passwordRegex) {
+        if !password.isVailed(type: .passwordRegex) {
             throw CustomError.weakPassword
         }
     }

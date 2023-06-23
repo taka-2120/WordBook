@@ -14,12 +14,6 @@ struct DeleteAccountView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("deleteAccount")
-                .font(.title)
-                .bold()
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 10)
-            
             Text("deleteAccountDescription")
                 .font(.callout)
                 .foregroundColor(Color(.secondaryLabel))
@@ -44,7 +38,7 @@ struct DeleteAccountView: View {
 
         }
         .padding()
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("deleteAccount")
         .alert("deleteWarningTitle", isPresented: $controller.isDeleteWarningShown) {
             Button(role: .destructive) {
                 controller.isDeleteFinalConfirmationShown = true

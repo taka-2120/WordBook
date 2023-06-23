@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class WordController: ObservableObject {
+@MainActor class WordController: ObservableObject, Sendable {
     let wordbookService = WordbookService()
     private let openAIUseCase = OpenAIUseCase()
     private let unsplashUseCase = UnsplashUseCase()
@@ -34,7 +34,7 @@ class WordController: ObservableObject {
     }
     
     func generateImages() {
-        Task { @MainActor in
+        Task {
             do {
                 imageUrls = try await unsplashUseCase.fetchUnsplashImageUrls(for: originalWord)
                 
@@ -51,8 +51,8 @@ class WordController: ObservableObject {
     }
     
     func generateAll() {
-        Task { @MainActor in
-            isGenerating = true
+        isGenerating = true
+        Task {
             do {
                 synonyms = try await openAIUseCase.fetchGeneratedText(for: originalWord, mode: .synonyms) ?? []
                 antonyms = try await openAIUseCase.fetchGeneratedText(for: originalWord, mode: .antonyms) ?? []

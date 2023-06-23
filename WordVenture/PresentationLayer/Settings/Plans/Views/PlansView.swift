@@ -9,111 +9,159 @@ import SwiftUI
 
 struct PlansView: View {
     
+    @Environment (\.dismiss) private var dismiss
     @StateObject private var controller = PlansController()
     
+    private let selfNavigatable: Bool
+    
+    init(selfNavigatable: Bool = false) {
+        self.selfNavigatable = selfNavigatable
+    }
+    
     var body: some View {
+        if selfNavigatable {
+            NavigationView {
+                content
+            }
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         ZStack {
-            VStack(alignment: .leading, spacing: 15) {
-                HStack {
-                    Text("plans")
-                        .font(.title)
-                        .bold()
-                    Spacer()
-                    Menu {
-                        Button {
-                            controller.restorePurchase()
-                        } label: {
-                            Label("restorePurchase", systemImage: "arrow.counterclockwise")
-                        }
-                        
-                        Button {
-                            controller.showManageSubscriptionSheet()
-                        } label: {
-                            Label("manageSubs", systemImage: "square.and.pencil")
-                        }
-                        
-                        Button {
-                            controller.showOfferCodeRedepmtionSheet()
-                        } label: {
-                            Label("redeemCode", systemImage: "ticket.fill")
-                        }
+            ScrollView {
+                VStack {
+                    PlanItem(period: .monthly)
+                    PlanItem(period: .annually)
+                    
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text("unlimitedDescription")
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color(.secondaryLabel))
+                            .padding(.top, 5)
                         
                         Divider()
                         
-                        Button(role: .destructive) {
-                            controller.isRefundSheetShown = true
-                        } label: {
-                            Label("requestRefunc", systemImage: "dollarsign.arrow.circlepath")
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("contents")
+                            ForEach(unlimitedContents, id: \.self) { content in
+                                Text(" • ") + Text(LocalizedStringKey(stringLiteral: content))
+                            }
                         }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                            .imageScale(.large)
-                    }
-                }
-                .padding(.bottom, 10)
-                .padding(.horizontal)
-                
-//                TODO: Show current plan
-                Group {
-                    Text("Your current plan is: ") +
-                    Text(controller.currentPlan.name)
-                        .fontWeight(.semibold)
-                }
-                .font(.title3)
-                .padding(.horizontal)
-                
-                ScrollView {
-                    PlanItem(plan: .free, disabled: controller.hasAdsRemoved() || controller.hasUnlimited(), current: !(controller.hasAdsRemoved() || controller.hasUnlimited()))
-                        .padding(.top)
-                    PlanItem(plan: .removeAds, disabled: controller.hasUnlimited(), current: controller.hasAdsRemoved(), product: controller.products.filter({ $0.id == Plan.removeAds.id }).first)
-                    PlanItem(plan: .unlimited, current: controller.hasUnlimited())
-                    
-                    if controller.hasUnlimited() {
+                        
+                        // Unlimited Plan Notes
                         Group {
-                            Text("If you want to cancel Unlimited subscription, please ")
+                            Text("cancelUnlimited")
                                 .foregroundColor(Color(.secondaryLabel))
-                            + Text("tap here")
+                            + Text("tapHere")
                                 .fontWeight(.bold)
                                 .foregroundColor(.blue)
-                            + Text(" to cancel it.")
+                            + Text("toCancelIt")
                                 .foregroundColor(Color(.secondaryLabel))
                         }
-                        .padding([.horizontal, .top])
+                        .multilineTextAlignment(.leading)
+                        .padding(.top)
+                        .font(.callout)
                         .onTapGesture {
                             controller.showManageSubscriptionSheet()
                         }
                     }
+                    .padding()
                 }
-                .animation(.spring(), value: controller.expandedPlan)
-                .ignoresSafeArea(edges: .bottom)
+                .padding(.top, 20)
+                .padding(.bottom, 200)
+                .frame(minWidth: 0, maxWidth: .infinity)
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
+            .animation(.spring(), value: controller.selectedPeriod)
+            .ignoresSafeArea(edges: .bottom)
             
             VStack {
                 Spacer()
-                Button {
-                    controller.purchaseProduct()
-                } label: {
-                    Text("select")
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .padding()
-                        .frame(maxWidth: 250)
+                VStack(spacing: 15) {
+                    Text("renewNote \(controller.getPrice(for: controller.selectedPeriod)) \(LocalizedStringKey(stringLiteral: controller.selectedPeriod.periodName).toString())")
+                        .multilineTextAlignment(.center)
+                        .font(.caption)
+                        .foregroundStyle(Color(.secondaryLabel))
+                    
+                    Button {
+                        controller.purchaseProduct(dismissAction: { })
+                    } label: {
+                        Text("select")
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: 250)
+                    }
+                    .background(controller.isAvailable ? Color.blue : .gray)
+                    .cornerRadius(15)
+                    .shadow(color: (controller.isAvailable ? Color.blue : .gray).opacity(0.25), radius: 10, y: 4)
+                    .disabled(!controller.isAvailable)
+                    .animation(.spring(), value: controller.isAvailable)
+                    
+                    Button {
+                        controller.showOfferCodeRedepmtionSheet()
+                    } label: {
+                        Text("redeemCode")
+                            .font(.callout)
+                    }
                 }
-                .background(controller.isAvailable() ? Color.blue : .gray)
-                .cornerRadius(15)
-                .shadow(color: (controller.isAvailable() ? Color.blue : .gray).opacity(0.25), radius: 10, y: 4)
-                .disabled(!controller.isAvailable())
-
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding([.top, .horizontal])
+                .padding(.bottom, 8)
+                .background(.regularMaterial)
+                .background(ignoresSafeAreaEdges: .bottom)
             }
-            .padding()
+        }
+        .navigationTitle("plans")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    Button {
+                        controller.restorePurchase()
+                    } label: {
+                        Label("restorePurchase", systemImage: "arrow.counterclockwise")
+                    }
+                    
+                    Button {
+                        controller.showManageSubscriptionSheet()
+                    } label: {
+                        Label("manageSubs", systemImage: "square.and.pencil")
+                    }
+                    
+                    Button {
+                        controller.showOfferCodeRedepmtionSheet()
+                    } label: {
+                        Label("redeemCode", systemImage: "ticket.fill")
+                    }
+                    
+                    Divider()
+                    
+                    Button(role: .destructive) {
+                        controller.isRefundSheetShown = true
+                    } label: {
+                        Label("requestRefunc", systemImage: "dollarsign.arrow.circlepath")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .imageScale(.large)
+                }
+            }
+            
+            if selfNavigatable {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                }
+            }
         }
         .manageSubscriptionsSheet(isPresented: $controller.isSubscriptionManagerShown)
         .offerCodeRedemption(isPresented: $controller.isOfferCodeRedepmtionShown)
         .sheet(isPresented: $controller.isRefundSheetShown) {
             RefundView()
         }
-        .navigationBarTitleDisplayMode(.inline)
         .environmentObject(controller)
     }
 }

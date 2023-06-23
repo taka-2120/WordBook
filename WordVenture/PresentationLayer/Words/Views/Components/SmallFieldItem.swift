@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SmallFieldItem: View {
     
-    let label: LocalizedStringKey
-    @Binding var array: [String]
-    let isEditing: Bool
+    @Binding private var array: [String]
+    private let label: LocalizedStringKey
+    private let isEditing: Bool
     
     init(_ label: LocalizedStringKey, array: Binding<[String]>, isEditing: Bool = true) {
         self.label = label

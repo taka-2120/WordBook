@@ -24,7 +24,6 @@ class WordbookService {
         return try await wordbookRepo.fetchWordbook(userId: user.id)
     }
     
-    
     func addWordbook(name: String, color: String, original: String, translated: String) async throws -> [Wordbook] {
         let user = try await authRepo.fetchUser()
         return try await wordbookRepo.insertWordbook(userId: user.id, name: name, color: color, original: original, translated: translated)

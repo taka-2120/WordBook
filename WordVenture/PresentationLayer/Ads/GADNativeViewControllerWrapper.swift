@@ -25,8 +25,11 @@ class GADNativeViewController: UIViewController {
     var nativeAdView: GADNativeAdView!
     
     /// The ad unit ID.
-    //  let adUnitID = "ca-app-pub-8585341779496895/5509399168"
-    let adUnitID = "ca-app-pub-3940256099942544/3986624511"
+    #if DEBUG
+    let adUnitID = devAdUnitID
+    #else
+    let adUnitID = isTestFlight ? devAdUnitID : prodAdUnitID
+    #endif
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +104,7 @@ class GADNativeViewController: UIViewController {
 
 extension GADNativeViewController: GADVideoControllerDelegate {
     
-    func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+    nonisolated func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
         print("Video playback has ended.")
     }
 }
@@ -172,7 +175,7 @@ extension GADNativeViewController: GADNativeAdLoaderDelegate {
         nativeAdView.nativeAd = nativeAd
     }
     
-    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
+    nonisolated func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
         print("\(adLoader) failed with error: \(error.localizedDescription)")
     }
 }
@@ -181,27 +184,27 @@ extension GADNativeViewController: GADNativeAdLoaderDelegate {
 
 extension GADNativeViewController: GADNativeAdDelegate {
     
-    func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
+    nonisolated func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
         print("\(#function) called")
     }
     
-    func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
+    nonisolated func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
         print("\(#function) called")
     }
     
-    func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
+    nonisolated func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
         print("\(#function) called")
     }
     
-    func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
+    nonisolated func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
         print("\(#function) called")
     }
     
-    func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
+    nonisolated func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
         print("\(#function) called")
     }
     
-    func nativeAdIsMuted(_ nativeAd: GADNativeAd) {
+    nonisolated func nativeAdIsMuted(_ nativeAd: GADNativeAd) {
         print("\(#function) called")
     }
 }

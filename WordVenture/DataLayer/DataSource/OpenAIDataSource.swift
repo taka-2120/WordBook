@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OpenAIDataSource: NSObject {
+final class OpenAIDataSource: NSObject, Sendable {
     
     class func fetchGeneratedText(for word: String, mode: PromptMode) async throws -> [String]? {
         let apiUrl = URL(string: "https://api.openai.com/v1/completions")!

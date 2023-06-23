@@ -8,15 +8,15 @@
 import Foundation
 import StoreKit
 
-class IAPDataSource: NSObject {
+final class IAPDataSource: NSObject, Sendable {
     
     class func fetchProducts() async throws -> [Product] {
-        let identifiers: [String] = [Plan.removeAds.id, UnlimitedPeriod.monthly.id, UnlimitedPeriod.annually.id]
+        let identifiers: [String] = [UnlimitedPeriod.monthly.id, UnlimitedPeriod.annually.id]
         return try await Product.products(for: identifiers)
     }
     
     class func purchaseProduct(for product: Product) async throws -> Transaction? {
-        let result = try await product.purchase()
+        let result = try await product.purchase(options: [.simulatesAskToBuyInSandbox(true)])
         
         switch result {
         case .success(.verified(let transaction)):

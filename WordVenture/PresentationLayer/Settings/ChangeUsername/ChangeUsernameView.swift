@@ -14,12 +14,6 @@ struct ChangeUsernameView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("changeUsername")
-                .font(.title)
-                .bold()
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 10)
-            
             CustomField("newUsername", text: $controller.username)
             
             Spacer()
@@ -37,6 +31,7 @@ struct ChangeUsernameView: View {
             .cornerRadius(15)
         }
         .padding()
+        .navigationTitle("changeUsername")
         .navigationBarTitleDisplayMode(.inline)
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")

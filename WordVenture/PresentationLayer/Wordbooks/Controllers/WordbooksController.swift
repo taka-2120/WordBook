@@ -7,9 +7,9 @@
 
 import Foundation
 
-class WordbooksController: ObservableObject {
-    private let purchaseManager = PurchaseManager.shared
+@MainActor class WordbooksController: ObservableObject, Sendable {
     private let wordbookService = WordbookService()
+    private let purchaseManager = PurchaseManager.shared
     @Published var wordbooks: [Wordbook] = []
     
     @Published var isAddShown = false {
@@ -19,8 +19,20 @@ class WordbooksController: ObservableObject {
             }
         }
     }
-    @Published var isSettingsShown = false
-    @Published var isPlanViewShown = false
+    @Published var isSettingsShown = false {
+        willSet {
+            if newValue == false {
+                self.hasUnlimited = purchaseManager.hasUnlimited
+            }
+        }
+    }
+    @Published var isPlanViewShown = false {
+        willSet {
+            if newValue == false {
+                self.hasUnlimited = purchaseManager.hasUnlimited
+            }
+        }
+    }
     @Published var hasUnlimited: Bool
     
     init() {
@@ -31,7 +43,7 @@ class WordbooksController: ObservableObject {
     }
     
     func fetchWordbooks() {
-        Task { @MainActor in
+        Task {
             do {
                 wordbooks = try await wordbookService.fetchWordbook()
             } catch {
@@ -45,11 +57,11 @@ class WordbooksController: ObservableObject {
     }
     
     func isAdRemoved() -> Bool {
-        return purchaseManager.hasAdsRemoved || purchaseManager.hasUnlimited
+        return purchaseManager.hasUnlimited
     }
     
     func removeWordbook(at index: Int) {
-        Task { @MainActor in
+        Task {
             let wordbook = wordbooks[index]
             do {
                 wordbooks.remove(at: index)

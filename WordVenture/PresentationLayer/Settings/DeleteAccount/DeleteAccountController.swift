@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class DeleteAccountController: ObservableObject {
+@MainActor class DeleteAccountController: ObservableObject, Sendable {
     private var screenController = ScreenController.shared
     private let authService = AuthService()
     
@@ -22,8 +22,8 @@ class DeleteAccountController: ObservableObject {
     @Published var errorMessage = ""
     
     func confirmAccount() {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        Task {
             defer {
                 isLoading = false
             }
@@ -40,8 +40,8 @@ class DeleteAccountController: ObservableObject {
     }
     
     func deleteAccount(_ dismiss: DismissAction) {
-        Task { @MainActor in
-            isLoading = true
+        isLoading = true
+        Task {
             defer {
                 isLoading = false
             }
