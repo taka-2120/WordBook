@@ -111,7 +111,7 @@ struct WelcomeView: View {
                 }
                 
                 VStack(spacing: 8) {
-                    Text("If you continue to use this app, you will be regarded as agreed to following Privacy Policy and Terms and Conditions.")
+                    Text("usingAppNotes")
                         .multilineTextAlignment(.leading)
                         .font(.callout)
                         .foregroundStyle(Color(.secondaryLabel))
