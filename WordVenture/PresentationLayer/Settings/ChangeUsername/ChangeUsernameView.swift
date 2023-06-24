@@ -16,6 +16,10 @@ struct ChangeUsernameView: View {
         VStack(spacing: 15) {
             CustomField("newUsername", text: $controller.username)
             
+            Text(LocalizedStringKey(stringLiteral: RegexType.usernameRegex.notes))
+                .font(.callout)
+                .foregroundStyle(Color(.secondaryLabel))
+            
             Spacer()
             
             Button {

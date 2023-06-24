@@ -29,8 +29,14 @@ struct SignUpView: View {
                     Image(systemName: "person")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: "username", text: $controller.username)
-                        .preferredColorScheme(.light)
+                    
+                    VStack(alignment: .leading) {
+                        CustomField("", placeHolder: "username", text: $controller.username)
+                            .preferredColorScheme(.light)
+                        Text(LocalizedStringKey(stringLiteral: RegexType.usernameRegex.notes))
+                            .font(.callout)
+                            .foregroundStyle(Color(.secondaryLabel))
+                    }
                 }
                 .padding(.horizontal)
                 
@@ -47,8 +53,14 @@ struct SignUpView: View {
                     Image(systemName: "key.horizontal")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: "password", isSecured: true, text: $controller.password)
-                        .preferredColorScheme(.light)
+                    
+                    VStack(alignment: .leading) {
+                        CustomField("", placeHolder: "password", isSecured: true, text: $controller.password)
+                            .preferredColorScheme(.light)
+                        Text(LocalizedStringKey(stringLiteral: RegexType.passwordRegex.notes))
+                            .font(.callout)
+                            .foregroundStyle(Color(.secondaryLabel))
+                    }
                 }
                 .padding(.horizontal)
                 

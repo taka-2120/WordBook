@@ -73,7 +73,7 @@ import Foundation
             throw CustomError.invaildEmailFormat
         }
         
-        if !password.isVailed(type: .passwordRegex) {
+        if !password.isVailed(type: .passwordRegex) && isSignUp {
             throw CustomError.weakPassword
         }
     }

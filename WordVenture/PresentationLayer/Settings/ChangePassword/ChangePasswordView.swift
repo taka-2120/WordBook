@@ -18,6 +18,10 @@ struct ChangePasswordView: View {
             CustomField("newPassword", isSecured: true, text: $controller.newPassword)
             CustomField("reNewPassword", isSecured: true, text: $controller.reNewPassword)
             
+            Text(LocalizedStringKey(stringLiteral: RegexType.passwordRegex.notes))
+                .font(.callout)
+                .foregroundStyle(Color(.secondaryLabel))
+            
             Spacer()
             
             Button {
