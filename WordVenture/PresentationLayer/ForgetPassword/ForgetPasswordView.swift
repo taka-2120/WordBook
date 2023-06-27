@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ForgetPasswordView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @StateObject private var controller = ForgetPasswordController()
     
     var body: some View {
@@ -39,6 +41,11 @@ struct ForgetPasswordView: View {
             }
             .padding()
             .navigationTitle("forgetPassword")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    DismissButton(dismiss, colorScheme)
+                }
+            }
         }
     }
 }
