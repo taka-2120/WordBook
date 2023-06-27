@@ -90,7 +90,8 @@ struct TermsAndConditionsView: View {
     }
 }
 
-@available(iOS 17.0, *)
-#Preview {
-    TermsAndConditionsView()
+struct TermsAndConditionsView_Previews: PreviewProvider {
+    static var previews: some View {
+        TermsAndConditionsView()
+    }
 }
