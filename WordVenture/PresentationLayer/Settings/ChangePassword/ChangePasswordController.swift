@@ -15,6 +15,7 @@ import SwiftUI
     @Published var newPassword = ""
     @Published var reNewPassword = ""
     @Published var isLoading = false
+    @Published var isForgetPasswordShown = false
     
     @Published var isErrorShown = false
     @Published var isEmailConfirmationPromptShown = false
