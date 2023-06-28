@@ -16,7 +16,6 @@ struct SignUpView: View {
             VStack(spacing: 15) {
                 Text("niceToMeetYou")
                     .font(.title)
-                    .bold()
                 
                 Image("SignUp")
                     .resizable()

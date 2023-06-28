@@ -4,26 +4,7 @@
 
   ],
   "products" : [
-    {
-      "displayPrice" : "0.99",
-      "familyShareable" : false,
-      "internalID" : "6449725308",
-      "localizations" : [
-        {
-          "description" : "You can remove all ads in this app.",
-          "displayName" : "Remove Ads",
-          "locale" : "en_US"
-        },
-        {
-          "description" : "アプリ内の広告をすべて非表示にできます。",
-          "displayName" : "広告非表示",
-          "locale" : "ja"
-        }
-      ],
-      "productID" : "yutakahashi.WordVenture.Remove_Ads",
-      "referenceName" : "Remove Ads",
-      "type" : "NonConsumable"
-    }
+
   ],
   "settings" : {
     "_applicationInternalID" : "6449725228",
@@ -32,7 +13,7 @@
     },
     "_developerTeamID" : "94WA597YZM",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 708224531.51033998,
+    "_lastSynchronizedDate" : 709270793.48134303,
     "_locale" : "ja",
     "_storefront" : "USA",
     "_storeKitErrors" : [

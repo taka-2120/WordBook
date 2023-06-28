@@ -117,6 +117,7 @@
 		9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */; };
 		9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */; };
 		9A6C02B42A3AEAAD00BA61DC /* PlanContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */; };
+		9A7406602A4ADEEB00A500EF /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74065F2A4ADEEB00A500EF /* DismissButton.swift */; };
 		9A85014C29F5FE860033FD05 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A85014B29F5FE860033FD05 /* Supabase */; };
 		9AAB3B5E29F7AE6400AD6F6C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B5D29F7AE6400AD6F6C /* GIFImage */; };
 		9AAB3B6A29F8C8B900AD6F6C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAB3B6929F8C8B900AD6F6C /* SwipeActions */; };
@@ -133,6 +134,8 @@
 		9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF312A26E85E00229844 /* PlansView.swift */; };
 		9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF362A26EF8700229844 /* PlansController.swift */; };
 		9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */; };
+		9AEFE5A72A469EC600C71423 /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFE5A62A469EC600C71423 /* ForgetPasswordView.swift */; };
+		9AEFE5A92A469F6200C71423 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFE5A82A469F6200C71423 /* ForgetPasswordController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -269,6 +272,7 @@
 		9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
 		9A6C02B12A38B21000BA61DC /* LocalizedStringKey+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedStringKey+String.swift"; sourceTree = "<group>"; };
 		9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanContents.swift; sourceTree = "<group>"; };
+		9A74065F2A4ADEEB00A500EF /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		9AC1FDC82A31576000EE329F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlan.swift; sourceTree = "<group>"; };
 		9ACA0A6F2A3F532B00C76A22 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
@@ -282,6 +286,8 @@
 		9AD4FF312A26E85E00229844 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		9AD4FF362A26EF8700229844 /* PlansController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansController.swift; sourceTree = "<group>"; };
 		9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetection.swift; sourceTree = "<group>"; };
+		9AEFE5A62A469EC600C71423 /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
+		9AEFE5A82A469F6200C71423 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				9A24FD612A171B6400C34508 /* CircleNavigationButton.swift */,
+				9A74065F2A4ADEEB00A500EF /* DismissButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -466,6 +473,7 @@
 		9A24FD652A171B6400C34508 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9AEFE5A52A469EB500C71423 /* ForgetPassword */,
 				9A24FD922A171B6400C34508 /* Loading */,
 				9A24FD952A171B6400C34508 /* Auth */,
 				9A24FD862A171B6400C34508 /* Wordbooks */,
@@ -855,6 +863,15 @@
 			path = Plans;
 			sourceTree = "<group>";
 		};
+		9AEFE5A52A469EB500C71423 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				9AEFE5A62A469EC600C71423 /* ForgetPasswordView.swift */,
+				9AEFE5A82A469F6200C71423 /* ForgetPasswordController.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -962,6 +979,7 @@
 				9A24FDE82A171B6500C34508 /* LoadingView.swift in Sources */,
 				9A24FDF42A171B6500C34508 /* WordEntity.swift in Sources */,
 				9A24FDC42A171B6500C34508 /* View+Hidden.swift in Sources */,
+				9A7406602A4ADEEB00A500EF /* DismissButton.swift in Sources */,
 				9A24FDB22A171B6500C34508 /* OpenAIRepositoryImpl.swift in Sources */,
 				9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */,
 				9A5EA75B2A2AFB8D00AAE8C3 /* WordbookDataSource.swift in Sources */,
@@ -994,6 +1012,7 @@
 				9A24FDB42A171B6500C34508 /* UserDataRepositoryImpl.swift in Sources */,
 				9A24FDE32A171B6500C34508 /* WordBookItem.swift in Sources */,
 				9A24FDBF2A171B6500C34508 /* SettingsNavStack.swift in Sources */,
+				9AEFE5A92A469F6200C71423 /* ForgetPasswordController.swift in Sources */,
 				9A6C02B22A38B21000BA61DC /* LocalizedStringKey+String.swift in Sources */,
 				9A24FDC82A171B6500C34508 /* String+Regex.swift in Sources */,
 				9A5EA7632A2B13EF00AAE8C3 /* UnsplashUseCase.swift in Sources */,
@@ -1047,6 +1066,7 @@
 				9A24FDC62A171B6500C34508 /* NotificationCenter.swift in Sources */,
 				9A24FDC12A171B6500C34508 /* AuthMethod.swift in Sources */,
 				9AC1FDCB2A33101600EE329F /* UnlimitedPlan.swift in Sources */,
+				9AEFE5A72A469EC600C71423 /* ForgetPasswordView.swift in Sources */,
 				9AD4FF242A22F30600229844 /* DeleteAccountView.swift in Sources */,
 				9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */,
 				9A24FDEA2A171B6500C34508 /* WelcomeView.swift in Sources */,

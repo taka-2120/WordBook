@@ -35,7 +35,12 @@ struct ChangePasswordView: View {
             }
             .background(Color(.label))
             .cornerRadius(15)
-
+            
+            Button {
+                controller.isForgetPasswordShown.toggle()
+            } label: {
+                Text("forgetPassword")
+            }
         }
         .padding()
         .navigationTitle("changePassword")
@@ -44,6 +49,9 @@ struct ChangePasswordView: View {
             Text("OK")
         } message: {
             Text(controller.errorMessage)
+        }
+        .sheet(isPresented: $controller.isForgetPasswordShown) {
+            ForgetPasswordView()
         }
         .loading($controller.isLoading)
     }

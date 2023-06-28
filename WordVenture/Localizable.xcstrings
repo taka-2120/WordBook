@@ -827,6 +827,22 @@
         }
       }
     },
+    "forgetPassword" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forget Password"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パスワードを忘れた場合"
+          }
+        }
+      }
+    },
     "freeWordbooks" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1350,13 +1366,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please set your password at least 8 characters with alphanumeric or special symbols: #?!@$%.^&*_-."
+            "value" : "Please set your password at least 8 characters contains at least one alphanumeric character and special symbols: #?!@$%.^&*_-."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "パスワードは、半角英数字と特殊文字(#?!@$%.^&*_-)を含んだ、最低8文字で作成してください。"
+            "value" : "パスワードは、最低1字の半角英数字と特殊文字(#?!@$%.^&*_-)を含んだ、8文字以上の文字列で作成してください。"
           }
         }
       }
@@ -1555,6 +1571,38 @@
         }
       }
     },
+    "resetEmailNote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A reset email will be send to this address: "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット用メールはこのアドレスに送信されます"
+          }
+        }
+      }
+    },
+    "resetNote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you forget your password, you can reset it by confirming your reset email."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パスワードを忘れた場合、リセット用のメールを確認することで、リセットすることができます。"
+          }
+        }
+      }
+    },
     "restorePurchase" : {
       "localizations" : {
         "en" : {
@@ -1599,6 +1647,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選択"
+          }
+        }
+      }
+    },
+    "sendEmail" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send an email"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メールを送信"
           }
         }
       }

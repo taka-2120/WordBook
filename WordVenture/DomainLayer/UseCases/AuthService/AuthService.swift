@@ -62,4 +62,8 @@ class AuthService: AuthServiceInterface {
         let user = try await authRepo.fetchUser()
         return try await userDataRepo.fetchUserData(userId: user.id).username
     }
+    
+    func sendResetEmail(to email: String) async throws {
+        try await authRepo.sendResetPasswordEmail(to: email)
+    }
 }

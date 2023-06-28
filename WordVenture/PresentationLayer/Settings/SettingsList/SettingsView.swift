@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @StateObject private var controller = SettingsController()
     @State private var settingsPathes: [SettingsNavStack] = []
     
@@ -55,11 +56,7 @@ struct SettingsView: View {
             .navigationBarTitle("settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
+                    DismissButton(dismiss, colorScheme)
                 }
             }
             .navigationDestination(for: SettingsNavStack.self) { path in

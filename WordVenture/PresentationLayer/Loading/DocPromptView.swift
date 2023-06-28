@@ -76,7 +76,8 @@ struct DocPromptView: View {
     }
 }
 
-@available(iOS 17.0, *)
-#Preview {
-    DocPromptView(docKind: .privacyPolicy)
+struct DocPromptView_Previews: PreviewProvider {
+    static var previews: some View {
+        DocPromptView(docKind: .privacyPolicy)
+    }
 }

@@ -40,7 +40,9 @@ struct LicensesView: View {
     }
 }
 
-@available(iOS 17.0, *)
-#Preview {
-   LicensesView()
+struct LicensesView_Previews: PreviewProvider {
+    static var previews: some View {
+        LicensesView()
+    }
 }
+

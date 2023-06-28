@@ -10,7 +10,7 @@ import SwiftUI
 enum CustomError: Error {
     case empty
     case longUsername
-    case invaildEmailFormat
+    case invalidEmailFormat
     case weakPassword
     case newPasswordNotMatched
     case unexpectedError
@@ -22,7 +22,7 @@ extension CustomError: LocalizedError {
         switch self {
         case .empty: return String(localized: .init("emptyError"))
         case .longUsername: return String(localized: .init("longUsername"))
-        case .invaildEmailFormat: return String(localized: .init("invaildEmailFormat"))
+        case .invalidEmailFormat: return String(localized: .init("invalidEmailFormat"))
         case .weakPassword: return String(localized: .init("weakPassword"))
         case .newPasswordNotMatched: return String(localized: .init("newPasswordNotMatched"))
         case .unexpectedError: return String(localized: .init("unexpectedError"))
