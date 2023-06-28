@@ -42,7 +42,7 @@ struct ForgetPasswordView: View {
             .padding()
             .navigationTitle("forgetPassword")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     DismissButton(dismiss, colorScheme)
                 }
             }

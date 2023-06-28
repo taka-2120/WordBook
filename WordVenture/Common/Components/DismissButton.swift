@@ -24,11 +24,13 @@ struct DismissButton: View {
             ZStack {
                 Circle()
                     .fill(Color(white: colorScheme == .dark ? 0.19 : 0.93))
-                Image(systemName: "xmark").resizable()
+                Image(systemName: "xmark")
+                    .resizable()
                     .scaledToFit()
-                    .font(Font.body.weight(.bold))
+                    .font(.body)
+                    .fontWeight(.bold)
                     .scaleEffect(0.416)
-                    .foregroundColor(Color(white: colorScheme == .dark ? 0.62 : 0.51))
+                    .foregroundStyle(Color(white: colorScheme == .dark ? 0.62 : 0.51))
             }
             .frame(width: 30, height: 30)
         }
