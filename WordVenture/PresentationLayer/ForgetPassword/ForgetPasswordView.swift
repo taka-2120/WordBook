@@ -16,6 +16,7 @@ struct ForgetPasswordView: View {
         NavigationView {
             VStack {
                 Text("resetNote")
+                    .frame(alignment: .leading)
                 
                 Group {
                     Text("resetEmailNote") +
@@ -39,6 +40,7 @@ struct ForgetPasswordView: View {
                 .background(Color(.label))
                 .cornerRadius(15)
             }
+            .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
             .navigationTitle("forgetPassword")
             .toolbar {
@@ -46,6 +48,12 @@ struct ForgetPasswordView: View {
                     DismissButton(dismiss, colorScheme)
                 }
             }
+            .alert("error", isPresented: $controller.isErrorShown) {
+                Text("OK")
+            } message: {
+                Text(controller.errorMessage)
+            }
+            .loading($controller.isLoading)
         }
     }
 }

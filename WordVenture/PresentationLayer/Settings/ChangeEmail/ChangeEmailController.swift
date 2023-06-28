@@ -72,7 +72,7 @@ import SwiftUI
         }
         
         if !newEmail.isVailed(type: .emailRegex) {
-            throw CustomError.invaildEmailFormat
+            throw CustomError.invalidEmailFormat
         }
     }
 }

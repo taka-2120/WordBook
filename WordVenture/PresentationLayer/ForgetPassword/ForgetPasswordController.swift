@@ -11,28 +11,46 @@ import Foundation
     private let authService = AuthService()
     
     @Published var email = ""
+    @Published var isLoading = false
+    
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
     
     init() {
         fetchEmail()
     }
     
     private func fetchEmail() {
+        isLoading = true
+        
         Task {
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await email = authService.getEmail() ?? "N/A"
             } catch {
-                // TODO: Handle this
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }
     }
     
     func sendResetEmail() {
+        isLoading = true
+        
         Task {
+            defer {
+                isLoading = false
+            }
+            
             do {
                 try await authService.sendResetEmail(to: email)
             } catch {
-                // TODO: Handle this
+                errorMessage = error.localizedDescription
+                isErrorShown = true
                 print(error)
             }
         }

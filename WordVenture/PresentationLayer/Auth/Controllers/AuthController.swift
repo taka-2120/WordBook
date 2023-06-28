@@ -70,7 +70,7 @@ import Foundation
         }
         
         if !email.isVailed(type: .emailRegex) {
-            throw CustomError.invaildEmailFormat
+            throw CustomError.invalidEmailFormat
         }
         
         if !password.isVailed(type: .passwordRegex) && isSignUp {
