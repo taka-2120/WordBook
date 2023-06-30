@@ -18,25 +18,17 @@ struct CardMode: View {
     @State private var isCardModeShown = false
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             GeometryReader { geo in
                 Pager(page: page,
                       data: controller.wordbook.words,
                       id: \.id) { word in
-                    Text(word.original)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .cardFlip(insets: geo.safeAreaInsets) {
-                            Text(word.translated)
-                                .font(.title)
-                                .fontWeight(.bold)
-                        }
+                    CardItem(word: word, geo: geo)
                 }
                 .interactive(scale: 0.8)
                 .edgesIgnoringSafeArea(.all)
                 .background(Color(.systemGroupedBackground))
                 .onAppear {
-                    print(geo.safeAreaInsets)
                     let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
                     
                     if !isCardModeOpened {
@@ -46,7 +38,7 @@ struct CardMode: View {
                 }
             }
             
-            VStack(alignment: .trailing) {
+            VStack {
                 Button {
                     dismiss()
                 } label: {
@@ -66,23 +58,79 @@ struct CardMode: View {
                 Spacer()
             }
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+            
+            HStack {
+                Spacer()
+                Text("\(page.index + 1) / \(controller.wordbook.words.count)")
+                    .foregroundStyle(Color(.secondaryLabel))
+                    .padding()
+                Spacer()
+            }
         }
         .toolbar(.hidden, for: .navigationBar)
         .sheet(isPresented: $isCardModeShown) {
             CardIntroductionView()
         }
-//        .onAppear {
-//            let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
-//
-//            if !isCardModeOpened {
-//                isCardModeShown = true
-//                UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
-//            }
-//        }
     }
 }
 
-struct CardFlip: ViewModifier {
+fileprivate struct CardItem: View {
+    
+    private let word: Word
+    private let geo: GeometryProxy
+    @State private var isImageShown = false
+    
+    init(word: Word, geo: GeometryProxy) {
+        self.word = word
+        self.geo = geo
+    }
+    
+    var body: some View {
+        content(isFront: true)
+        .cardFlip(insets: geo.safeAreaInsets) {
+            content(isFront: false)
+        }
+        .animation(.spring, value: isImageShown)
+    }
+    
+    private func content(isFront: Bool) -> some View {
+        VStack {
+            Spacer()
+            Text(isFront ? word.original : word.translated)
+                .font(.title)
+                .fontWeight(.bold)
+            Spacer()
+            
+            ImageSection
+            
+            HStack {
+                Button {
+                    isImageShown.toggle()
+                } label: {
+                    Image(systemName: isImageShown ? "eye.slash" : "photo")
+                        .imageScale(.large)
+                        .foregroundStyle(Color(.label))
+                }
+                .disabled(word.imageUrls.isEmpty)
+                .opacity(word.imageUrls.isEmpty ? 0.5 : 1.0)
+
+                Spacer()
+            }
+            .padding()
+        }
+    }
+    
+    private var ImageSection: some View {
+        Group {
+            if let url = word.imageUrls.first, isImageShown {
+                Divider()
+                RelatedImage(url: url, height: 200)
+            }
+        }
+    }
+}
+
+fileprivate struct CardFlip: ViewModifier {
     @State var flipped = false
     var insets: EdgeInsets
     var back: any View
