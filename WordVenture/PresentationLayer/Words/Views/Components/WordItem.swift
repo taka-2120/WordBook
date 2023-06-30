@@ -39,8 +39,9 @@ struct WordItem: View {
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 20)
-                .background(Color(.systemFill))
+                .background(Color(.tertiarySystemBackground).opacity(0.8))
                 .cornerRadius(15)
+                .shadow(color: .black.opacity(0.1), radius: 10, y: 2)
             }
 //        } leadingActions: { context in
 //            SwipeAction(systemImage: "pin") {
