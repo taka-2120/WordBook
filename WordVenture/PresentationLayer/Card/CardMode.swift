@@ -76,9 +76,10 @@ struct CardMode: View {
 
 fileprivate struct CardItem: View {
     
+    @State private var isImageShown = false
+    @State private var isDetailShown = false
     private let word: Word
     private let geo: GeometryProxy
-    @State private var isImageShown = false
     
     init(word: Word, geo: GeometryProxy) {
         self.word = word
@@ -101,23 +102,34 @@ fileprivate struct CardItem: View {
                 .fontWeight(.bold)
             Spacer()
             
-            ImageSection
-            
-            HStack {
-                Button {
-                    isImageShown.toggle()
-                } label: {
-                    Image(systemName: isImageShown ? "eye.slash" : "photo")
-                        .imageScale(.large)
-                        .foregroundStyle(Color(.label))
-                }
-                .disabled(word.imageUrls.isEmpty)
-                .opacity(word.imageUrls.isEmpty ? 0.5 : 1.0)
-
-                Spacer()
+            if isFront {
+                ImageSection
+            } else {
+                Divider()
+                
+                SmallFieldItem("synonyms", array: .constant(word.synonyms), isEditing: false)
+                SmallFieldItem("antonyms", array: .constant(word.antonyms), isEditing: false)
+                FieldItem("examples", array: .constant(word.examples), isEditing: false)
+                    .padding(.bottom)
             }
-            .padding()
+            
+            if isFront {
+                HStack {
+                    Button {
+                        isImageShown.toggle()
+                    } label: {
+                        Image(systemName: isImageShown ? "eye.slash" : "photo")
+                            .imageScale(.large)
+                            .foregroundStyle(Color(.label))
+                    }
+                    .disabled(word.imageUrls.isEmpty)
+                    .opacity(word.imageUrls.isEmpty ? 0.5 : 1.0)
+
+                    Spacer()
+                }
+            }
         }
+        .padding()
     }
     
     private var ImageSection: some View {
@@ -131,9 +143,9 @@ fileprivate struct CardItem: View {
 }
 
 fileprivate struct CardFlip: ViewModifier {
-    @State var flipped = false
-    var insets: EdgeInsets
-    var back: any View
+    @State private var flipped = false
+    private let insets: EdgeInsets
+    private let back: any View
     
     init(insets: EdgeInsets, @ViewBuilder back: () -> any View) {
         self.insets = insets
@@ -148,6 +160,7 @@ fileprivate struct CardFlip: ViewModifier {
                 .placedOnCard(insets: insets)
                 .flipRotate(flipDegrees)
                 .opacity(flipped ? 0.0 : 1.0)
+            
             AnyView(back)
                 .placedOnCard(insets: insets)
                 .flipRotate(-180 + flipDegrees)

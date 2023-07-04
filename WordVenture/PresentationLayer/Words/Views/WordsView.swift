@@ -109,6 +109,7 @@ struct WordsView: View {
                             .foregroundStyle(Color(.label))
                             .padding(8)
                             .cornerRadius(10)
+                            .frame(maxWidth: 250)
                         
                         Label("edit", systemImage: "pencil")
                             .foregroundStyle(Color(.secondaryLabel))

@@ -53,6 +53,7 @@ struct SmallFieldItem: View {
                     }
                 }
             }
+            .cornerRadius(15)
         }
     }
 }
