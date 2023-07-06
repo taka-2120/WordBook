@@ -9,8 +9,9 @@ import SwiftUI
 import SwipeActions
 
 struct WordsView: View {
+    
     @StateObject private var controller: WordsController
-    @State private var isEditing = false
+    @State private var isEditShown = false
     
     init(wordbook: Wordbook, at index: Int) {
         _controller = StateObject(wrappedValue: WordsController(wordbook: wordbook, index: index))
@@ -75,15 +76,6 @@ struct WordsView: View {
                 }
             }
             
-            if isEditing {
-                Rectangle()
-                    .fill(Color(.systemBackground).opacity(0.2))
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .onTapGesture {
-                        isEditing = false
-                    }
-            }
-            
             if !controller.wordbook.words.isEmpty {
                 VStack(alignment: .trailing) {
                     Spacer()
@@ -109,54 +101,32 @@ struct WordsView: View {
         .toolbarRole(.browser)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                HStack {
-                    ColorPicker("", selection: $controller.wordbookColor)
-                        .scaleEffect(0.7)
-                        .frame(width: 25, height: 25)
-                    
-                    TextField("wordbookTitle", text: $controller.wordbookTitle)
-                        .padding(8)
-                        .background(isEditing ? Color(.secondarySystemBackground) : .clear)
-                        .cornerRadius(10)
-                        .disabled(!isEditing)
-                        .frame(minWidth: 0, maxWidth: 130, alignment: .center)
-                    
-                    Menu {
-                        if !isEditing {
-                            Button {
-                                isEditing = true
-                            } label: {
-                                Label("rename", systemImage: "pencil")
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "chevron.down.circle.fill")
-                            .foregroundColor(Color(.secondaryLabel))
+                Button {
+                    isEditShown.toggle()
+                } label: {
+                    HStack {
+                        Text(controller.wordbook.name)
+                            .foregroundStyle(Color(.label))
+                            .padding(8)
+                            .cornerRadius(10)
+                            .frame(maxWidth: 250)
+                        
+                        Label("edit", systemImage: "pencil")
+                            .foregroundStyle(Color(.secondaryLabel))
                             .imageScale(.small)
                     }
-                    .disabled(isEditing)
                 }
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                if isEditing {
-                    Button {
-                        controller.updateWordbook()
-                        isEditing = false
-                    } label: {
-                        Text("done")
-                    }
-                } else {
-                    Button {
-                        controller.isAddShown = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+                Button {
+                    controller.isAddShown.toggle()
+                } label: {
+                    Image(systemName: "plus")
                 }
             }
         }
         .animation(.easeInOut, value: controller.wordbook)
-        .animation(.easeInOut, value: isEditing)
         .sheet(isPresented: $controller.isAddShown, content: { AddWordView(wordbook: controller.wordbook) })
         .sheet(isPresented: $controller.isDetailsShown) {
             DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
@@ -164,6 +134,11 @@ struct WordsView: View {
         .sheet(isPresented: $controller.isPlanViewShown) {
             PlansView()
                 .padding(.top, 20)
+        }
+        .sheet(isPresented: $isEditShown) {
+            WordEditView()
+                .presentationDetents([.medium])
+                .interactiveDismissDisabled()
         }
         .alert("error", isPresented: $controller.isErrorShown) {
             Text("OK")
@@ -174,8 +149,51 @@ struct WordsView: View {
     }
 }
 
-//struct WordsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WordsView(wordbooks: .constant([WordBooks(name: "System English Words", words: [], modifiedDate: Date())]), isNavBarHidden: .constant(false), wordbookId: UUID())
-//    }
-//}
+fileprivate struct WordEditView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject private var controller: WordsController
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 15) {
+                
+                CustomField("wordbookTitle", placeHolder: "wordbookTitle", text: $controller.wordbookTitle)
+                
+                ColorPicker("color", selection: $controller.wordbookColor)
+                    .padding([.leading, .top])
+                
+                Spacer()
+            }
+            .padding()
+            .alert("error", isPresented: $controller.isErrorShown) {
+                Text("OK")
+            } message: {
+                Text(controller.errorMessage)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("cancel")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        if controller.wordbookTitle.isEmpty {
+                            controller.errorMessage = "fillTitle"
+                            controller.isErrorShown = true
+                        } else {
+                            controller.updateWordbook()
+                            dismiss()
+                        }
+                    } label: {
+                        Text("save")
+                    }
+                }
+            }
+        }
+    }
+}

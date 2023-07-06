@@ -10,9 +10,11 @@ import SwiftUI
 struct RelatedImage: View {
     
     private let url: String
+    private let height: CGFloat
     
-    init(url: String) {
+    init(url: String, height: CGFloat = 150) {
         self.url = url
+        self.height = height
     }
     
     var body: some View {
@@ -24,7 +26,7 @@ struct RelatedImage: View {
         } placeholder: {
             ProgressView()
         }
-        .frame(height: 150)
+        .frame(height: height)
         .padding(10)
         .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
     }

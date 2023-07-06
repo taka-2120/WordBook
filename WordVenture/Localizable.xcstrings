@@ -47,6 +47,22 @@
         }
       }
     },
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
     "%lld." : {
       "localizations" : {
         "en" : {
@@ -160,6 +176,9 @@
           }
         }
       }
+    },
+    "Always show images" : {
+
     },
     "annually" : {
       "extractionState" : "manual",
@@ -823,6 +842,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "例文"
+          }
+        }
+      }
+    },
+    "fillTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please fill out the title."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトルを入力してください。"
           }
         }
       }
@@ -1502,23 +1538,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "リリースノート"
-          }
-        }
-      }
-    },
-    "rename" : {
-      "comment" : "Word",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rename"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "名前変更"
           }
         }
       }
