@@ -177,6 +177,9 @@
         }
       }
     },
+    "Always show images" : {
+
+    },
     "annually" : {
       "extractionState" : "manual",
       "localizations" : {

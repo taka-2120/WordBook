@@ -16,6 +16,7 @@ struct CardMode: View {
     
     @StateObject private var page: Page = .first()
     @State private var isCardModeShown = false
+    @State private var isAlwaysImageShown = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -23,41 +24,42 @@ struct CardMode: View {
                 Pager(page: page,
                       data: controller.wordbook.words,
                       id: \.id) { word in
-                    CardItem(word: word, geo: geo)
+                    CardItem(word: word, isImageShown: $isAlwaysImageShown, geo: geo)
                 }
-                .interactive(scale: 0.8)
-                .edgesIgnoringSafeArea(.all)
-                .background(Color(.systemGroupedBackground))
-                .onAppear {
-                    let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
-                    
-                    if !isCardModeOpened {
-                        isCardModeShown = true
-                        UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
-                    }
-                }
+                      .preferredItemSize(CGSize(width: geo.size.width - 70, height: .infinity))
+                      .itemSpacing(8)
+                      .interactive(scale: 0.8)
+                      .interactive(rotation: true)
+                      .edgesIgnoringSafeArea(.all)
+                      .background(Color(.systemGroupedBackground))
+                      .onAppear {
+                          let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
+                          
+                          if !isCardModeOpened {
+                              isCardModeShown = true
+                              UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
+                          }
+                      }
             }
             
-            VStack {
-                Button {
-                    dismiss()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(Color(white: colorScheme == .light ? 0.19 : 0.93))
-                        Image(systemName: "xmark").resizable()
-                            .scaledToFit()
-                            .font(Font.body.weight(.bold))
-                            .scaleEffect(0.416)
-                            .foregroundColor(Color(white: colorScheme == .light ? 0.62 : 0.51))
-                    }
-                    .frame(width: 30, height: 30)
-                }
-                .padding(.trailing)
-
+            HStack(alignment: .center, spacing: 15) {
                 Spacer()
+                
+                Menu {
+                    Toggle(isOn: $isAlwaysImageShown) {
+                        Label("Always show images", systemImage: "photo")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .foregroundStyle(Color(.secondaryLabel))
+                        .imageScale(.large)
+                }
+
+                DismissButton(dismiss, colorScheme)
+                    .padding(.trailing)
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding(.top, 10)
             
             HStack {
                 Spacer()
@@ -67,6 +69,7 @@ struct CardMode: View {
                 Spacer()
             }
         }
+        .environmentObject(page)
         .toolbar(.hidden, for: .navigationBar)
         .sheet(isPresented: $isCardModeShown) {
             CardIntroductionView()
@@ -76,21 +79,22 @@ struct CardMode: View {
 
 fileprivate struct CardItem: View {
     
-    @State private var isImageShown = false
+    @Binding private var isImageShown: Bool
     @State private var isDetailShown = false
     private let word: Word
     private let geo: GeometryProxy
     
-    init(word: Word, geo: GeometryProxy) {
+    init(word: Word, isImageShown: Binding<Bool>, geo: GeometryProxy) {
         self.word = word
         self.geo = geo
+        self._isImageShown = isImageShown
     }
     
     var body: some View {
         content(isFront: true)
-        .cardFlip(insets: geo.safeAreaInsets) {
-            content(isFront: false)
-        }
+            .cardFlip(id: word.id, insets: geo.safeAreaInsets) {
+                content(isFront: false)
+            }
         .animation(.spring, value: isImageShown)
     }
     
@@ -143,11 +147,17 @@ fileprivate struct CardItem: View {
 }
 
 fileprivate struct CardFlip: ViewModifier {
+    @EnvironmentObject private var wordController: WordsController
+    @EnvironmentObject private var page: Page
+    
     @State private var flipped = false
+    
+    private let id: UUID
     private let insets: EdgeInsets
     private let back: any View
     
-    init(insets: EdgeInsets, @ViewBuilder back: () -> any View) {
+    init(id: UUID, insets: EdgeInsets, @ViewBuilder back: () -> any View) {
+        self.id = id
         self.insets = insets
         self.back = back()
     }
@@ -168,7 +178,9 @@ fileprivate struct CardFlip: ViewModifier {
         }
         .animation(.spring(response: 0.8, dampingFraction: 0.6), value: flipped)
         .onTapGesture {
-            flipped.toggle()
+            if wordController.wordbook.words[page.index].id == id {
+                flipped.toggle()
+            }
         }
         .onChange(of: flipped) { _ in
             let impactMed = UIImpactFeedbackGenerator(style: .medium)
@@ -178,8 +190,8 @@ fileprivate struct CardFlip: ViewModifier {
 }
 
 extension View {
-    func cardFlip(insets: EdgeInsets, @ViewBuilder back: () -> any View) -> some View {
-        modifier(CardFlip(insets: insets, back: back))
+    @MainActor func cardFlip(id: UUID, insets: EdgeInsets, @ViewBuilder back: () -> any View) -> some View {
+        modifier(CardFlip(id: id, insets: insets, back: back))
     }
     
     func flipRotate(_ degrees : Double) -> some View {
@@ -190,11 +202,10 @@ extension View {
     func placedOnCard(insets: EdgeInsets) -> some View {
         return self
             .padding(5)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .frame(maxHeight: .infinity)
             .background(Color(.systemFill))
             .cornerRadius(20)
-            .padding(.vertical, 20)
-            .padding(.horizontal, 25)
+            .padding(.vertical, 30)
             .shadow(color: .black.opacity(0.2), radius: 15)
             .padding(.top, insets.top + 30)
             .padding(.bottom, insets.bottom)
