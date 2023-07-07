@@ -1120,6 +1120,22 @@
         }
       }
     },
+    "missedLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missed…!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "残念…！"
+          }
+        }
+      }
+    },
     "monthly" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1268,6 +1284,22 @@
         }
       }
     },
+    "next" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
     "niceToMeetYou" : {
       "localizations" : {
         "en" : {
@@ -1368,6 +1400,12 @@
     },
     "OK" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1939,6 +1977,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "翻訳後"
+          }
+        }
+      }
+    },
+    "undo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り消し"
           }
         }
       }

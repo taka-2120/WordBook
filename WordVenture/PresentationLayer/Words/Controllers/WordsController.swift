@@ -10,6 +10,7 @@ import SwiftUI
 @MainActor class WordsController: ObservableObject, Sendable {
     private let wordbookService = WordbookService()
     private let purchaseManager = PurchaseManager.shared
+    
     @Published var wordbook: Wordbook
     @Published var selectedWord: Word? = nil
     
@@ -48,6 +49,7 @@ import SwiftUI
         self.hasUnlimited = purchaseManager.hasUnlimited
     }
     
+    // TODO: Handle Errors
     func updateWordbook() {
         Task {
             do {
@@ -82,6 +84,21 @@ import SwiftUI
             } catch {
                 print(error)
                 wordbook.words.insert(word, at: index)
+            }
+        }
+    }
+    
+    func incrementMissedCount(for index: Int) {
+        Task {
+            do {
+                let word = wordbook.words[index]
+                let newMissedCount = word.missed + 1
+                try await wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
+                                                     priority: word.priority, missed: newMissedCount, thumbnailUrl: word.thumbnailUrl,
+                                                     imageUrls: word.imageUrls, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
+                                                     imageSearchCount: word.imageSearchCount, textGeneratedCount: word.textGeneratedCount, to: wordbook)
+            } catch {
+                print(error)
             }
         }
     }

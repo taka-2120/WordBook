@@ -134,6 +134,8 @@
 		9AD4FF322A26E85E00229844 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF312A26E85E00229844 /* PlansView.swift */; };
 		9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4FF362A26EF8700229844 /* PlansController.swift */; };
 		9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */; };
+		9AE82B5E2A57D9F900F3A5F1 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE82B5D2A57D9F900F3A5F1 /* CardController.swift */; };
+		9AE82B602A57E34800F3A5F1 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE82B5F2A57E34800F3A5F1 /* Haptics.swift */; };
 		9AEFE5A72A469EC600C71423 /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFE5A62A469EC600C71423 /* ForgetPasswordView.swift */; };
 		9AEFE5A92A469F6200C71423 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFE5A82A469F6200C71423 /* ForgetPasswordController.swift */; };
 /* End PBXBuildFile section */
@@ -286,6 +288,8 @@
 		9AD4FF312A26E85E00229844 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		9AD4FF362A26EF8700229844 /* PlansController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansController.swift; sourceTree = "<group>"; };
 		9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetection.swift; sourceTree = "<group>"; };
+		9AE82B5D2A57D9F900F3A5F1 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
+		9AE82B5F2A57E34800F3A5F1 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		9AEFE5A62A469EC600C71423 /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		9AEFE5A82A469F6200C71423 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -466,6 +470,7 @@
 				9A24FD642A171B6400C34508 /* PriorityColor.swift */,
 				9A24FDFB2A1744EA00C34508 /* Languages.swift */,
 				9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */,
+				9AE82B5F2A57E34800F3A5F1 /* Haptics.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -647,8 +652,8 @@
 		9A24FD8F2A171B6400C34508 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD902A171B6400C34508 /* CardIntroductionView.swift */,
-				9A24FD912A171B6400C34508 /* CardMode.swift */,
+				9AE82B5B2A57D9DE00F3A5F1 /* Controllers */,
+				9AE82B5C2A57D9E300F3A5F1 /* Views */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -863,6 +868,23 @@
 			path = Plans;
 			sourceTree = "<group>";
 		};
+		9AE82B5B2A57D9DE00F3A5F1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9AE82B5D2A57D9F900F3A5F1 /* CardController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9AE82B5C2A57D9E300F3A5F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A24FD902A171B6400C34508 /* CardIntroductionView.swift */,
+				9A24FD912A171B6400C34508 /* CardMode.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9AEFE5A52A469EB500C71423 /* ForgetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -1034,6 +1056,7 @@
 				9A24FDE92A171B6500C34508 /* AuthController.swift in Sources */,
 				9A5EA7462A2AE32300AAE8C3 /* IAPRepositoryImpl.swift in Sources */,
 				9A5EA7862A2C896900AAE8C3 /* AboutView.swift in Sources */,
+				9AE82B602A57E34800F3A5F1 /* Haptics.swift in Sources */,
 				9A5EA7412A2AE1B700AAE8C3 /* PromptMode.swift in Sources */,
 				9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */,
 				9A5EA75D2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift in Sources */,
@@ -1060,6 +1083,7 @@
 				9A24FDFC2A1744EA00C34508 /* Languages.swift in Sources */,
 				9A24FDEF2A171B6500C34508 /* WordbookApp.swift in Sources */,
 				9A5EA7592A2AFB2E00AAE8C3 /* OpenAIDataSource.swift in Sources */,
+				9AE82B5E2A57D9F900F3A5F1 /* CardController.swift in Sources */,
 				9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */,
 				9A24FDDB2A171B6500C34508 /* DetailsView.swift in Sources */,
 				9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */,

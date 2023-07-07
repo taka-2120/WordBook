@@ -15,6 +15,7 @@ import SwiftUI
     
     @Published var originalWord = ""
     @Published var translatedWord = ""
+    @Published var missed = 0
     @Published var synonyms = [String]()
     @Published var antonyms = [String]()
     @Published var examples = [String]()

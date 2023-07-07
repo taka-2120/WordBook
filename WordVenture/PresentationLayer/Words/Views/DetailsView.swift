@@ -26,6 +26,26 @@ struct DetailsView: View {
                         .foregroundColor(Color(.secondaryLabel))
                     CustomField("translated", text: $controller.translatedWord)
                     
+                    Group {
+                        Divider()
+                            .padding(.vertical, 5)
+                        
+                        HStack {
+                            Text("missedCount")
+                            Spacer()
+                            Text("\(controller.missed)")
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            Button {
+                                controller.resetMissedCount()
+                            } label: {
+                                Text("reset")
+                            }
+                        }
+                    }
+                    
                     CommonWordSection(controller) {
                         Button {
                             controller.isEditing.toggle()
@@ -39,13 +59,7 @@ struct DetailsView: View {
                     SmallFieldItem("antonyms", array: $controller.antonyms, isEditing: controller.isEditing)
                     FieldItem("examples", array: $controller.examples, isEditing: controller.isEditing)
                     
-                    Divider()
-                        .padding(.vertical, 5)
-                    
-                    Text("apiNotes")
-                        .font(.caption)
-                        .foregroundColor(Color(.secondaryLabel))
-                        .padding(.bottom)
+                    ApiNotes()
                 }
                 .padding()
             }
