@@ -47,7 +47,7 @@ struct CardMode: View {
                 
                 Menu {
                     Toggle(isOn: $isAlwaysImageShown) {
-                        Label("Always show images", systemImage: "photo")
+                        Label("alwaysShowImages", systemImage: "photo")
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle")

@@ -114,3 +114,15 @@ import SwiftfulLoadingIndicators
     }
     .animation(.spring(), value: controller.isImageNotFound)
 }
+
+func ApiNotes() -> some View {
+    Group {
+        Divider()
+            .padding(.vertical, 5)
+        
+        Text("apiNotes")
+            .font(.caption)
+            .foregroundColor(Color(.secondaryLabel))
+            .padding(.bottom)
+    }
+}

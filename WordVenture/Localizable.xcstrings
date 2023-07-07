@@ -177,8 +177,21 @@
         }
       }
     },
-    "Always show images" : {
-
+    "alwaysShowImages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always show images"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常に画像を表示する"
+          }
+        }
+      }
     },
     "annually" : {
       "extractionState" : "manual",
@@ -1091,6 +1104,22 @@
         }
       }
     },
+    "missedCount" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missed Count"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "間違いカウント"
+          }
+        }
+      }
+    },
     "monthly" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1586,6 +1615,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "返金要求"
+          }
+        }
+      }
+    },
+    "reset" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
           }
         }
       }
