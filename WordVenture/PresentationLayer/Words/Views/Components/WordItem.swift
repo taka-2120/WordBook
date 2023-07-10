@@ -41,8 +41,38 @@ struct WordItem: View {
                 .padding(.vertical, 20)
                 .background(Color(.tertiarySystemBackground).opacity(0.8))
                 .cornerRadius(15)
+                .contextMenu {
+                    Button {
+                        controller.selectedWord = word
+                        controller.isDetailsShown.toggle()
+                    } label: {
+                        Label("edit", systemImage: "square.and.pencil")
+                    }
+                } preview: {
+                    if word.imageUrls.count > 0 {
+                        ZStack(alignment: .bottomTrailing) {
+                            AsyncImage(url: URL(string: word.imageUrls[0])!) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            
+                            VStack(spacing: 10) {
+                                Text(word.original)
+                                Text(word.translated)
+                            }
+                            .padding(10)
+                            .background(.regularMaterial.opacity(0.7))
+                            .cornerRadius(15)
+                            .padding(10)
+                        }
+                    }
+                }
                 .shadow(color: .black.opacity(0.1), radius: 10, y: 2)
             }
+
 //        } leadingActions: { context in
 //            SwipeAction(systemImage: "pin") {
 //                controller.pinWordbook()
