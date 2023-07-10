@@ -27,6 +27,9 @@
         }
       }
     },
+    ": %lld" : {
+
+    },
     "%@" : {
       "localizations" : {
         "ja" : {
@@ -876,6 +879,22 @@
         }
       }
     },
+    "flashCard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flash Card"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フラッシュカード"
+          }
+        }
+      }
+    },
     "forgetPassword" : {
       "localizations" : {
         "en" : {
@@ -957,6 +976,9 @@
           }
         }
       }
+    },
+    "high" : {
+
     },
     "imageNotes" : {
       "localizations" : {
@@ -1072,6 +1094,9 @@
         }
       }
     },
+    "low" : {
+
+    },
     "manageSubs" : {
       "localizations" : {
         "en" : {
@@ -1135,6 +1160,9 @@
           }
         }
       }
+    },
+    "moderate" : {
+
     },
     "monthly" : {
       "extractionState" : "manual",
@@ -1513,6 +1541,9 @@
         }
       }
     },
+    "priority" : {
+
+    },
     "privacyPolicy" : {
       "localizations" : {
         "en" : {
@@ -1721,6 +1752,9 @@
         }
       }
     },
+    "Retry" : {
+
+    },
     "save" : {
       "localizations" : {
         "en" : {
@@ -1912,6 +1946,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "利用規約"
+          }
+        }
+      }
+    },
+    "testMode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test Mode"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テスト"
           }
         }
       }

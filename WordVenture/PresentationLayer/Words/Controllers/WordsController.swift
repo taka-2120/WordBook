@@ -35,6 +35,7 @@ import SwiftUI
     }
     @Published var isPlanViewShown = false
     @Published var hasUnlimited: Bool
+    @Published var selectedPriority: Priority = .moderate
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
@@ -84,6 +85,19 @@ import SwiftUI
             } catch {
                 print(error)
                 wordbook.words.insert(word, at: index)
+            }
+        }
+    }
+    
+    func updatePriority(for word: Word) {
+        Task {
+            do {
+                try await wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
+                                                     priority: selectedPriority.index, missed: word.missed, thumbnailUrl: word.thumbnailUrl,
+                                                     imageUrls: word.imageUrls, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
+                                                     imageSearchCount: word.imageSearchCount, textGeneratedCount: word.textGeneratedCount, to: wordbook)
+            } catch {
+                print(error)
             }
         }
     }

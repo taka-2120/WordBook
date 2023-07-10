@@ -80,14 +80,24 @@ struct WordsView: View {
                 VStack(alignment: .trailing) {
                     Spacer()
                     
-                    NavigationLink {
-                        CardMode()
-                            .environmentObject(controller)
+                    Menu {
+                        NavigationLink {
+                            TestModeView()
+                                .environmentObject(controller)
+                        } label: {
+                            Label("testMode", systemImage: "list.bullet.clipboard")
+                        }
+                        
+                        NavigationLink {
+                            FlashCardMode()
+                                .environmentObject(controller)
+                        } label: {
+                            Label("flashCard", systemImage: "rectangle.portrait.on.rectangle.portrait.angled.fill")
+                        }
                     } label: {
                         Image(systemName: "play.fill")
                             .padding()
                     }
-                    .id(UUID())
                     .background(.thickMaterial)
                     .cornerRadius(100)
                     .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
