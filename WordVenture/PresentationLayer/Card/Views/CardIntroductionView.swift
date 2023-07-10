@@ -22,10 +22,6 @@ struct CardIntroductionView: View {
                 
                 Spacer()
                 
-//                Text("welcomeCard")
-//                    .font(.title3)
-//                    .fontWeight(.medium)
-//                    .padding(10)
                 Text("cardDescription")
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .multilineTextAlignment(.leading)

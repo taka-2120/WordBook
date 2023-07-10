@@ -81,16 +81,13 @@ struct WordsView: View {
                     Spacer()
                     
                     Menu {
-                        NavigationLink {
-                            TestModeView()
-                                .environmentObject(controller)
+                        Button {
+                            controller.isTestShown.toggle()
                         } label: {
                             Label("testMode", systemImage: "list.bullet.clipboard")
                         }
-                        
-                        NavigationLink {
-                            FlashCardMode()
-                                .environmentObject(controller)
+                        Button {
+                            controller.isFlashCardShown.toggle()
                         } label: {
                             Label("flashCard", systemImage: "rectangle.portrait.on.rectangle.portrait.angled.fill")
                         }
@@ -137,7 +134,15 @@ struct WordsView: View {
             }
         }
         .animation(.easeInOut, value: controller.wordbook)
-        .sheet(isPresented: $controller.isAddShown, content: { AddWordView(wordbook: controller.wordbook) })
+        .fullScreenCover(isPresented: $controller.isTestShown) {
+            TestModeView()
+        }
+        .fullScreenCover(isPresented: $controller.isFlashCardShown) {
+            FlashCardMode()
+        }
+        .sheet(isPresented: $controller.isAddShown) {
+            AddWordView(wordbook: controller.wordbook)
+        }
         .sheet(isPresented: $controller.isDetailsShown) {
             DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
         }

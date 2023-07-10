@@ -26,9 +26,9 @@ struct DetailsView: View {
                         .foregroundColor(Color(.secondaryLabel))
                     CustomField("translated", text: $controller.translatedWord)
                     
-                    Group {
+                    Group {                        
                         Divider()
-                            .padding(.vertical, 5)
+                            .padding(.vertical)
                         
                         HStack {
                             Text("missedCount")
@@ -68,6 +68,10 @@ struct DetailsView: View {
             .animation(.spring(), value: controller.antonyms)
             .animation(.spring(), value: controller.examples)
             .animation(.spring(), value: controller.isEditing)
+            .sheet(isPresented: $controller.isPriorityShown) {
+                PriorityView(selectedPriority: $controller.priority)
+                    .presentationDetents([.medium])
+            }
             .navigationBarTitle(Text(controller.word.original), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

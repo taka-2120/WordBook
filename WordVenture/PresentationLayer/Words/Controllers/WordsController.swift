@@ -17,15 +17,28 @@ import SwiftUI
     @Published var editMode = EditMode.inactive
     @Published var isAddShown = false {
         willSet {
-            fetchWordbook()
+            if newValue == false {
+                fetchWordbook()
+            }
         }
     }
     @Published var isDetailsShown = false {
         willSet {
+            if newValue == false {
+                fetchWordbook()
+            }
+        }
+    }
+    @Published var isTestShown = false {
+        willSet {
             fetchWordbook()
         }
     }
-    @Published var cardViewShown = false
+    @Published var isFlashCardShown = false {
+        willSet {
+            fetchWordbook()
+        }
+    }
     @Published var wordbookIndex: Int
     @Published var wordbookTitle = ""
     @Published var wordbookColor = Color.blue {
@@ -35,7 +48,6 @@ import SwiftUI
     }
     @Published var isPlanViewShown = false
     @Published var hasUnlimited: Bool
-    @Published var selectedPriority: Priority = .moderate
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
@@ -89,11 +101,11 @@ import SwiftUI
         }
     }
     
-    func updatePriority(for word: Word) {
+    func updatePriority(for word: Word, priority: Priority) {
         Task {
             do {
                 try await wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
-                                                     priority: selectedPriority.index, missed: word.missed, thumbnailUrl: word.thumbnailUrl,
+                                                     priority: priority.index, missed: word.missed, thumbnailUrl: word.thumbnailUrl,
                                                      imageUrls: word.imageUrls, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
                                                      imageSearchCount: word.imageSearchCount, textGeneratedCount: word.textGeneratedCount, to: wordbook)
             } catch {

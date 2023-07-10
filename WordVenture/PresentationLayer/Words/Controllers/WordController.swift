@@ -20,9 +20,12 @@ import SwiftUI
     @Published var antonyms = [String]()
     @Published var examples = [String]()
     @Published var isLoading = false
+    @Published var priority: Priority = .no
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
     @Published var isImageNotFound = false
+    
+    @Published var isPriorityShown = false
     
     @Published var imageSearchCount = 0
     @Published var textGeneratedCount = 0

@@ -11,7 +11,24 @@ import SwiftfulLoadingIndicators
 @MainActor func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder _ editButton: () -> Content) -> some View {
     return VStack {
         Divider()
-            .padding(.vertical, 5)
+            .padding(.vertical)
+        
+        HStack {
+            Text("priority")
+            Spacer()
+            Button {
+                controller.isPriorityShown.toggle()
+            } label: {
+                HStack {
+                    Text(controller.priority.label)
+                    Image(systemName: controller.priority.symbol)
+                }
+            }
+            .foregroundStyle(controller.priority.color)
+        }
+        
+        Divider()
+            .padding(.vertical)
         
         VStack {
             if controller.imageUrls.isEmpty {
@@ -70,7 +87,7 @@ import SwiftfulLoadingIndicators
         }
         
         Divider()
-            .padding(.vertical, 5)
+            .padding(.vertical)
         
         VStack {
             if controller.antonyms.isEmpty && controller.synonyms.isEmpty && controller.examples.isEmpty {

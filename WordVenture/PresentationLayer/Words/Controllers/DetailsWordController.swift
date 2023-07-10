@@ -19,6 +19,7 @@ import SwiftUI
         self.originalWord = word.original
         self.translatedWord = word.translated
         self.missed = word.missed
+        self.priority = word.priority.toPriority()
         self.synonyms = word.synonyms
         self.antonyms = word.antonyms
         self.examples = word.examples
@@ -38,7 +39,7 @@ import SwiftUI
             do {
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
-                                           priority: word.priority, missed: missed, thumbnailUrl: word.thumbnailUrl, imageUrls: imageUrls,
+                                           priority: priority.index, missed: missed, thumbnailUrl: word.thumbnailUrl, imageUrls: imageUrls,
                                            synonyms: synonyms, antonyms: antonyms, examples: examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()

@@ -53,25 +53,21 @@ extension Priority {
     
     var index: Int {
         switch self {
-        case .high:
-            3
-        case .moderate:
-            2
-        case .low:
-            1
-        case .no:
-            0
+        case .high: 3
+        case .moderate: 2
+        case .low: 1
+        case .no: 0
         }
     }
 }
 
 extension Int {
-    func fromIndex() -> Priority {
+    func toPriority() -> Priority {
         switch self {
-        case 1: Priority.low
-        case 2: Priority.moderate
-        case 3: Priority.high
-        default: Priority.no
+        case 1: return Priority.low
+        case 2: return Priority.moderate
+        case 3: return Priority.high
+        default: return Priority.no
         }
     }
 }

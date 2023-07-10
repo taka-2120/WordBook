@@ -12,6 +12,8 @@ struct PriorityView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
     
+    @EnvironmentObject private var controller: WordController
+    
     @Binding private var selectedPriority: Priority
     
     init(selectedPriority: Binding<Priority>) {
@@ -52,11 +54,5 @@ struct PriorityView: View {
         }
         .padding()
         .animation(.bouncy, value: selectedPriority)
-    }
-}
-
-struct PriorityView_Previews: PreviewProvider {
-    static var previews: some View {
-        PriorityView(selectedPriority: .constant(.low))
     }
 }

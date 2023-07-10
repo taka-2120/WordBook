@@ -14,6 +14,7 @@ struct TestCardItem: View {
     @EnvironmentObject private var testCardController: TestCardController
     @EnvironmentObject private var page: Page
     
+    @State private var selectedPriority: Priority
     @Binding private var isImageShown: Bool
     
     private let word: Word
@@ -23,6 +24,7 @@ struct TestCardItem: View {
         self.word = word
         self.geo = geo
         self._isImageShown = isImageShown
+        self._selectedPriority = State(initialValue: word.priority.toPriority())
     }
     
     var body: some View {
@@ -60,7 +62,7 @@ struct TestCardItem: View {
                     } label: {
                         VStack {
                             Image(systemName: "arrow.counterclockwise")
-                            Text("Retry")
+                            Text("retry")
                                 .font(.callout)
                                 .foregroundStyle(Color(.secondaryLabel))
                         }
@@ -76,8 +78,8 @@ struct TestCardItem: View {
                                 Text("priority")
                                     .foregroundStyle(Color(.secondaryLabel))
                                     .font(.callout)
-                                Image(systemName: controller.selectedPriority.symbol)
-                                    .foregroundStyle(controller.selectedPriority.color)
+                                Image(systemName: selectedPriority.symbol)
+                                    .foregroundStyle(selectedPriority.color)
                             }
                         }
                     }
@@ -112,7 +114,9 @@ struct TestCardItem: View {
         .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
         .sheet(isPresented: $testCardController.isPrioritySheetShown) {
-            PriorityView(selectedPriority: $controller.selectedPriority)
+            controller.updatePriority(for: word, priority: selectedPriority)
+        } content: {
+            PriorityView(selectedPriority: $selectedPriority)
                 .presentationDetents([.medium])
         }
     }
