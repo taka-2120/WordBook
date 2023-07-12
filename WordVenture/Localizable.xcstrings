@@ -37,6 +37,9 @@
         }
       }
     },
+    "* " : {
+
+    },
     "%@" : {
       "localizations" : {
         "ja" : {
@@ -281,23 +284,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "これはベータ機能です。今後のアップデートで機能が追加されます!"
-          }
-        }
-      }
-    },
-    "buyMeACoffeeNotes" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you like this app and your wallet is affordable, please buy me a cup of coffee. It will help me for future updates!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "もしこのアプリを気に入ってくださり、お財布に余裕がありましたら、1杯のコーヒーを恵んでいただけませんか…? 今後の開発の力になります!"
           }
         }
       }
@@ -1000,12 +986,28 @@
         }
       }
     },
+    "imageCachingNotes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image data will be cached on this device up to 500MB."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像データはデバイス上にキャッシュが最大500MB分保存されます。"
+          }
+        }
+      }
+    },
     "imageNotes" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unsplash will get matched images here"
+            "value" : "Unsplash will search matched images here"
           }
         },
         "ja" : {
@@ -2050,6 +2052,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open AI が以下のフィールドのテキストを生成します。"
+          }
+        }
+      }
+    },
+    "thumbnailNotes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set a thumbnail image for this word by tapping the image."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップして選択することでサムネイル画像を指定できます。"
           }
         }
       }

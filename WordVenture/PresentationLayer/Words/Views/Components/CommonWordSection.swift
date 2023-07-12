@@ -8,132 +8,157 @@
 import SwiftUI
 import SwiftfulLoadingIndicators
 
-@MainActor func CommonWordSection<Content: View>(_ controller: WordController, @ViewBuilder _ editButton: () -> Content) -> some View {
-    return VStack {
-        Divider()
-            .padding(.vertical)
-        
-        HStack {
-            Text("priority")
-            Spacer()
-            Button {
-                controller.isPriorityShown.toggle()
-            } label: {
-                HStack {
-                    Text(controller.priority.label)
-                    Image(systemName: controller.priority.symbol)
-                }
-            }
-            .foregroundStyle(controller.priority.color)
-        }
-        
-        Divider()
-            .padding(.vertical)
-        
+struct CommonWordSection<Content: View>: View {
+    private let controller: WordController
+    @Binding private var selectedImageIndex: Int
+    private let editButton: () -> Content
+    
+    init(controller: WordController, selectedImageIndex: Binding<Int>, @ViewBuilder editButton: @escaping () -> Content) {
+        self.controller = controller
+        self._selectedImageIndex = selectedImageIndex
+        self.editButton = editButton
+    }
+    
+    var body: some View {
         VStack {
-            if controller.imageUrls.isEmpty {
+            Divider()
+                .padding(.vertical)
+            
+            HStack {
+                Text("priority")
+                Spacer()
                 Button {
-                    controller.generateImages()
+                    controller.isPriorityShown.toggle()
                 } label: {
                     HStack {
-                        Text("generateImage")
-                            .padding(.vertical)
+                        Text(controller.priority.label)
+                        Image(systemName: controller.priority.symbol)
                     }
-                    .frame(maxWidth: 180)
                 }
-                .background(.blue)
-                .opacity(controller.originalWord == "" ? 0.7 : 1.0)
-                .cornerRadius(20)
-                .foregroundColor(.white)
-                .disabled(controller.originalWord == "")
-                
-                if controller.isImageNotFound {
-                    HStack {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.red)
-                        Text("imageNotFound")
-                            .font(.callout)
-                            .foregroundColor(Color(.secondaryLabel))
-                    }
-                } else {
-                    Text("imageNotes")
-                        .font(.callout)
-                        .foregroundColor(Color(.secondaryLabel))
-                }
-            } else {
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
-                        Text("relatedImage")
-                            .font(.headline)
-                    }
-                    Spacer()
-                    
+                .foregroundStyle(controller.priority.color)
+            }
+            
+            Divider()
+                .padding(.vertical)
+            
+            VStack {
+                if controller.imageUrls.isEmpty {
                     Button {
                         controller.generateImages()
                     } label: {
-                        Image(systemName: "arrow.counterclockwise")
-                            .foregroundColor(Color(.secondaryLabel))
+                        HStack {
+                            Text("generateImage")
+                                .padding(.vertical)
+                        }
+                        .frame(maxWidth: 180)
                     }
-                }
-                ScrollView(.horizontal, showsIndicators: true) {
-                    HStack {
-                        ForEach(controller.imageUrls, id: \.self) { imageUrl in
-                            RelatedImage(url: imageUrl)
+                    .background(.blue)
+                    .opacity(controller.originalWord == "" ? 0.7 : 1.0)
+                    .cornerRadius(20)
+                    .foregroundColor(.white)
+                    .disabled(controller.originalWord == "")
+                    
+                    if controller.isImageNotFound {
+                        HStack {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.red)
+                            Text("imageNotFound")
+                                .font(.callout)
+                                .foregroundColor(Color(.secondaryLabel))
+                        }
+                    } else {
+                        Group {
+                            Text("imageNotes")
+                            
+                            Text("* ") + Text("imageCachingNotes")
+                        }
+                        .font(.callout)
+                        .foregroundColor(Color(.secondaryLabel))
+                    }
+                } else {
+                    HStack(alignment: .top) {
+                        Text("relatedImage")
+                            .font(.headline)
+                        
+                        Spacer()
+                        
+                        Button {
+                            controller.generateImages()
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .foregroundColor(Color(.secondaryLabel))
                         }
                     }
-                }
-                .cornerRadius(15)
-            }
-        }
-        
-        Divider()
-            .padding(.vertical)
-        
-        VStack {
-            if controller.antonyms.isEmpty && controller.synonyms.isEmpty && controller.examples.isEmpty {
-                Button {
-                    controller.generateAll()
-                } label: {
-                    HStack {
-                        Text("generateText")
-                            .padding(.vertical)
-                        LoadingIndicator(animation: .circleBars, color: .white, size: .small)
-                            .scaleEffect(0.8)
-                            .isHidden(!controller.isGenerating, remove: true)
-                    }
-                    .frame(maxWidth: 180)
-                }
-                .background(.blue)
-                .opacity(controller.originalWord == "" ? 0.7 : 1.0)
-                .cornerRadius(20)
-                .foregroundColor(.white)
-                .disabled(controller.originalWord == "" || controller.isGenerating)
-                .padding(.top, 5)
-                
-                Text("textNotes")
-                    .font(.callout)
-                    .foregroundColor(Color(.secondaryLabel))
-                    .padding(.bottom)
-            } else {
-                HStack {
-                    Spacer()
-                    editButton()
                     
+                    ScrollView(.horizontal, showsIndicators: true) {
+                        HStack {
+                            ForEach(Array(controller.imageUrls.enumerated()), id: \.offset) { index, imageUrl in
+                                SelectableRelatedImage(url: imageUrl, index: index, selectedIndex: $selectedImageIndex)
+                            }
+                        }
+                    }
+                    .cornerRadius(15)
+                    
+                    VStack(alignment: .leading) {
+                        Text("thumbnailNotes")
+                        
+                        Text("imageCachingNotes")
+                    }
+                    .font(.callout)
+                    .foregroundStyle(Color(.secondaryLabel))
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                }
+            }
+            
+            Divider()
+                .padding(.vertical)
+            
+            VStack {
+                if controller.antonyms.isEmpty && controller.synonyms.isEmpty && controller.examples.isEmpty {
                     Button {
                         controller.generateAll()
                     } label: {
-                        Image(systemName: "arrow.counterclockwise")
-                            .foregroundColor(Color(.secondaryLabel))
+                        HStack {
+                            Text("generateText")
+                                .padding(.vertical)
+                            LoadingIndicator(animation: .circleBars, color: .white, size: .small)
+                                .scaleEffect(0.8)
+                                .isHidden(!controller.isGenerating, remove: true)
+                        }
+                        .frame(maxWidth: 180)
+                    }
+                    .background(.blue)
+                    .opacity(controller.originalWord == "" ? 0.7 : 1.0)
+                    .cornerRadius(20)
+                    .foregroundColor(.white)
+                    .disabled(controller.originalWord == "" || controller.isGenerating)
+                    .padding(.top, 5)
+                    
+                    Text("textNotes")
+                        .font(.callout)
+                        .foregroundColor(Color(.secondaryLabel))
+                        .padding(.bottom)
+                } else {
+                    HStack {
+                        Spacer()
+                        editButton()
+                        
+                        Button {
+                            controller.generateAll()
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .foregroundColor(Color(.secondaryLabel))
+                        }
                     }
                 }
             }
         }
+        .animation(.spring(), value: controller.isImageNotFound)
     }
-    .animation(.spring(), value: controller.isImageNotFound)
 }
 
 func ApiNotes() -> some View {
-    Group {
+    VStack(alignment: .leading) {
         Divider()
             .padding(.vertical, 5)
         
@@ -142,4 +167,5 @@ func ApiNotes() -> some View {
             .foregroundColor(Color(.secondaryLabel))
             .padding(.bottom)
     }
+    .frame(minWidth: 0, maxWidth: .infinity)
 }

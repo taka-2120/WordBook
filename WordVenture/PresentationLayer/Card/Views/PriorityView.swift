@@ -30,6 +30,7 @@ struct PriorityView: View {
             ForEach(Priority.allCases, id: \.self) { priority in
                 Button {
                     selectedPriority = priority
+                    dismiss()
                 } label: {
                     let isSelected = selectedPriority == priority
                     

@@ -46,7 +46,7 @@ struct DetailsView: View {
                         }
                     }
                     
-                    CommonWordSection(controller) {
+                    CommonWordSection(controller: controller, selectedImageIndex: $controller.selectedImageIndex) {
                         Button {
                             controller.isEditing.toggle()
                         } label: {

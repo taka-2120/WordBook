@@ -26,7 +26,7 @@ struct AddWordView: View {
                         .foregroundColor(Color(.secondaryLabel))
                     CustomField("translated", text: $controller.translatedWord)
                     
-                    CommonWordSection(controller) { }
+                    CommonWordSection(controller: controller, selectedImageIndex: $controller.selectedImageIndex) { }
                     
                     SmallFieldItem("synonyms", array: $controller.synonyms)
                     SmallFieldItem("antonyms", array: $controller.antonyms)

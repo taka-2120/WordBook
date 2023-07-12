@@ -24,6 +24,7 @@ import SwiftUI
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
     @Published var isImageNotFound = false
+    @Published var selectedImageIndex = 0
     
     @Published var isPriorityShown = false
     
