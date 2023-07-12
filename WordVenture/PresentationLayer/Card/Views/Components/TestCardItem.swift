@@ -10,6 +10,8 @@ import SwiftUIPager
 
 struct TestCardItem: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @EnvironmentObject private var controller: WordsController
     @EnvironmentObject private var testCardController: TestCardController
     @EnvironmentObject private var page: Page
@@ -34,6 +36,13 @@ struct TestCardItem: View {
                     content(isFront: false)
                 }
                 .animation(.spring, value: isImageShown)
+                .alert("congratulations", isPresented: $testCardController.isCompletedShown) {
+                    Button("gotIt") {
+                        dismiss()
+                    }
+                } message: {
+                    Text("completeTest")
+                }
         }
     }
     
@@ -98,6 +107,10 @@ struct TestCardItem: View {
                         }
                         Spacer()
                         Button {
+                            if page.index == controller.wordbook.words.count - 1 {
+                                testCardController.isCompletedShown.toggle()
+                                return
+                            }
                             withAnimation {
                                 feedbackGenerator(type: .success)
                                 page.update(.next)

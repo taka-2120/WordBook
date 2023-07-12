@@ -424,6 +424,22 @@
         }
       }
     },
+    "completeTest" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You did finish the test."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テストを終了しました！"
+          }
+        }
+      }
+    },
     "confirmation" : {
       "localizations" : {
         "en" : {
@@ -436,6 +452,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "確認"
+          }
+        }
+      }
+    },
+    "congratulations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おめでとう！"
           }
         }
       }
@@ -973,6 +1005,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "テキストを生成"
+          }
+        }
+      }
+    },
+    "gotIt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単語一覧に戻る"
           }
         }
       }
@@ -2047,6 +2095,22 @@
         }
       }
     },
+    "testDismissAlert" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure to want to finish test?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本当にこのテストを終了しますか？"
+          }
+        }
+      }
+    },
     "testMode" : {
       "localizations" : {
         "en" : {
@@ -2346,6 +2410,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バージョン"
+          }
+        }
+      }
+    },
+    "warning" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注意"
           }
         }
       }

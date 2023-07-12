@@ -103,11 +103,12 @@ struct CommonWordSection<Content: View>: View {
                     }
                     .cornerRadius(15)
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("thumbnailNotes")
                         
                         Text("imageCachingNotes")
                     }
+                    .scaleEffect(0.9)
                     .font(.callout)
                     .foregroundStyle(Color(.secondaryLabel))
                     .frame(minWidth: 0, maxWidth: .infinity)

@@ -46,7 +46,9 @@ struct TestModeView: View {
                         .imageScale(.large)
                 }
 
-                DismissButton(dismiss, colorScheme)
+                DismissButton(dismiss, colorScheme, action: {
+                    testCardController.isDismissAlertShown.toggle()
+                })
                     .padding(.trailing)
             }
             .frame(minWidth: 0, maxWidth: .infinity)
@@ -75,6 +77,17 @@ struct TestModeView: View {
         .environmentObject(testCardController)
         .animation(.bouncy, value: testCardController.isMissedShown)
         .toolbar(.hidden, for: .navigationBar)
+        .alert("warning", isPresented: $testCardController.isDismissAlertShown) {
+            Button("yes", role: .destructive) {
+                testCardController.isDismissAlertShown.toggle()
+                dismiss()
+            }
+            Button("no", role: .cancel) {
+                testCardController.isDismissAlertShown.toggle()
+            }
+        } message: {
+            Text("testDismissAlert")
+        }
     }
     
     private var MissedOverlay: some View {

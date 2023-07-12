@@ -13,4 +13,6 @@ class TestCardController: ObservableObject {
     @Published var isImagesShown = false
     @Published var isDetailsShown = false
     @Published var isPrioritySheetShown = false
+    @Published var isDismissAlertShown = false
+    @Published var isCompletedShown = false
 }
