@@ -45,6 +45,7 @@ struct SelectableRelatedImage: View {
                         .background(Color(.systemBackground))
                 }
             }
+            .pipeline(customPipeline)
             .frame(height: height)
             .cornerRadius(15)
             .shadow(color: .black.opacity(0.2), radius: 15, y: 4)
@@ -106,6 +107,7 @@ struct RelatedImage: View {
                     .background(Color(.systemBackground))
             }
         }
+        .pipeline(customPipeline)
         .frame(height: height)
         .cornerRadius(15)
         .shadow(color: .black.opacity(0.2), radius: 15, y: 4)

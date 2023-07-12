@@ -9,6 +9,7 @@ import Combine
 import SwiftUI
 import SwipeActions
 import NukeUI
+import Nuke
 
 struct WordItem: View {
     @EnvironmentObject private var controller: WordsController
@@ -52,46 +53,50 @@ struct WordItem: View {
                 } preview: {
                     if !word.imageUrls.isEmpty || !word.thumbnailUrl.isEmpty {
                         let url = word.thumbnailUrl.isEmpty ? word.imageUrls.first! : word.thumbnailUrl
-                        Button {
-                            controller.selectedWord = word
-                            controller.isDetailsShown.toggle()
-                        } label: {
-                            ZStack(alignment: .bottomTrailing) {
-                                LazyImage(url: URL(string: url)!) { state in
-                                    if let image = state.image {
-                                        image
-                                            .resizable()
-                                            .scaledToFit()
-                                    } else if state.error != nil {
-                                        VStack {
-                                            Spacer()
-                                            Image(systemName: "xmark.fill")
-                                                .font(.system(size: 32))
-                                                .foregroundStyle(.red)
-                                            Spacer()
-                                        }
+                        
+                        ZStack(alignment: .bottomTrailing) {
+                            LazyImage(url: URL(string: url)!) { state in
+                                if let image = state.image {
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                } else if state.error != nil {
+                                    VStack {
+                                        Spacer()
+                                        Image(systemName: "xmark.fill")
+                                            .font(.system(size: 32))
+                                            .foregroundStyle(.red)
+                                        Spacer()
+                                    }
+                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                    .frame(height: 250)
+                                    .background(Color(.systemBackground))
+                                } else {
+                                    ProgressView()
                                         .frame(minWidth: 0, maxWidth: .infinity)
                                         .frame(height: 250)
                                         .background(Color(.systemBackground))
-                                    } else {
-                                        ProgressView()
-                                            .frame(minWidth: 0, maxWidth: .infinity)
-                                            .frame(height: 250)
-                                            .background(Color(.systemBackground))
-                                    }
                                 }
-                                
-                                VStack(spacing: 10) {
-                                    Text(word.original)
-                                    Text(word.translated)
-                                }
-                                .foregroundStyle(Color(.label))
-                                .padding(.vertical)
-                                .padding(.horizontal, 20)
-                                .background(.regularMaterial.opacity(0.8))
-                                .padding(10)
-                                .cornerRadius(15)
                             }
+                            .pipeline(customPipeline)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            
+                            VStack(spacing: 10) {
+                                Text(word.original)
+                                    .foregroundStyle(Color(.label))
+                                Text(word.translated)
+                                    .foregroundStyle(Color(.secondaryLabel))
+                            }
+                            .padding(.vertical)
+                            .padding(.horizontal, 20)
+                            .background(.regularMaterial.opacity(0.8))
+                            .cornerRadius(15)
+                            .padding(10)
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .onTapGesture {
+                            controller.selectedWord = word
+                            controller.isDetailsShown.toggle()
                         }
                     }
                 }
