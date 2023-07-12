@@ -57,6 +57,7 @@ struct CommonWordSection<Content: View>: View {
                     .cornerRadius(20)
                     .foregroundColor(.white)
                     .disabled(controller.originalWord == "")
+                    .padding(.bottom, 10)
                     
                     if controller.isImageNotFound {
                         HStack {
@@ -67,10 +68,13 @@ struct CommonWordSection<Content: View>: View {
                                 .foregroundColor(Color(.secondaryLabel))
                         }
                     } else {
-                        Group {
+                        VStack(spacing: 10) {
                             Text("imageNotes")
                             
-                            Text("* ") + Text("imageCachingNotes")
+                            Group {
+                                Text("*") + Text("imageCachingNotes")
+                            }
+                            .scaleEffect(0.9)
                         }
                         .font(.callout)
                         .foregroundColor(Color(.secondaryLabel))

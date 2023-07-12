@@ -38,6 +38,11 @@ struct WordItem: View {
                     Text("\(word.translated)")
                         .font(.subheadline)
                         .foregroundColor(Color(.secondaryLabel))
+                    
+                    Image(systemName: word.priority.toPriority().symbol)
+                        .foregroundStyle(word.priority.toPriority().color)
+                        .imageScale(.small)
+                        .isHidden(word.priority.toPriority() == .no, remove: false)
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 20)

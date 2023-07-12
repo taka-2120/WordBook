@@ -37,8 +37,15 @@
         }
       }
     },
-    "* " : {
-
+    "*" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "%@" : {
       "localizations" : {
@@ -1421,6 +1428,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "広告表示なし"
+          }
+        }
+      }
+    },
+    "noPriority" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Priority"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "優先度なし"
           }
         }
       }

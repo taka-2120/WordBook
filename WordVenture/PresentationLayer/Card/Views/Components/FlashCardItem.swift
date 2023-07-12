@@ -10,7 +10,10 @@ import SwiftUIPager
 
 struct FlashCardItem: View {
     
+    @EnvironmentObject private var controller: WordsController
     @EnvironmentObject private var flashCardController: FlashCardController
+    
+    @State private var selectedPriority: Priority
     @Binding private var isImageShown: Bool
     
     private let word: Word
@@ -20,6 +23,7 @@ struct FlashCardItem: View {
         self.word = word
         self.geo = geo
         self._isImageShown = isImageShown
+        self._selectedPriority = State(initialValue: word.priority.toPriority())
     }
     
     var body: some View {
@@ -73,9 +77,31 @@ struct FlashCardItem: View {
                 SmallFieldItem("antonyms", array: .constant(word.antonyms), isEditing: false)
                 FieldItem("examples", array: .constant(word.examples), isEditing: false)
                     .padding(.bottom)
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        flashCardController.isPrioritySheetShown.toggle()
+                    } label: {
+                        HStack {
+                            Text("priority")
+                                .foregroundStyle(Color(.secondaryLabel))
+                                .font(.callout)
+                            Image(systemName: selectedPriority.symbol)
+                                .foregroundStyle(selectedPriority.color)
+                        }
+                    }
+                }
             }
         }
         .padding()
+        .sheet(isPresented: $flashCardController.isPrioritySheetShown) {
+            controller.updatePriority(for: word, priority: selectedPriority)
+        } content: {
+            PriorityView(selectedPriority: $selectedPriority)
+                .presentationDetents([.medium])
+        }
     }
     
     private var ImageSection: some View {

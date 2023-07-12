@@ -21,7 +21,7 @@ extension Priority {
         case .low:
             "low"
         case .no:
-            "no"
+            "noPriority"
         }
     }
     

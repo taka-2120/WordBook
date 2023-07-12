@@ -13,6 +13,7 @@ class FlashCardController: ObservableObject {
     
     @Published var isCardModeShown = false
     @Published var isAlwaysImageShown = false
+    @Published var isPrioritySheetShown = false
     
     func speakWord(for word: String) {
         guard let languageCode = determineLanguage(for: word) else {
