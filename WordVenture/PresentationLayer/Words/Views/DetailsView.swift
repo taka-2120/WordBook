@@ -26,7 +26,27 @@ struct DetailsView: View {
                         .foregroundColor(Color(.secondaryLabel))
                     CustomField("translated", text: $controller.translatedWord)
                     
-                    CommonWordSection(controller) {
+                    Group {                        
+                        Divider()
+                            .padding(.vertical)
+                        
+                        HStack {
+                            Text("missedCount")
+                            Spacer()
+                            Text("\(controller.missed)")
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            Button {
+                                controller.resetMissedCount()
+                            } label: {
+                                Text("reset")
+                            }
+                        }
+                    }
+                    
+                    CommonWordSection(controller: controller, selectedImageIndex: $controller.selectedImageIndex) {
                         Button {
                             controller.isEditing.toggle()
                         } label: {
@@ -39,13 +59,7 @@ struct DetailsView: View {
                     SmallFieldItem("antonyms", array: $controller.antonyms, isEditing: controller.isEditing)
                     FieldItem("examples", array: $controller.examples, isEditing: controller.isEditing)
                     
-                    Divider()
-                        .padding(.vertical, 5)
-                    
-                    Text("apiNotes")
-                        .font(.caption)
-                        .foregroundColor(Color(.secondaryLabel))
-                        .padding(.bottom)
+                    ApiNotes()
                 }
                 .padding()
             }
@@ -54,6 +68,10 @@ struct DetailsView: View {
             .animation(.spring(), value: controller.antonyms)
             .animation(.spring(), value: controller.examples)
             .animation(.spring(), value: controller.isEditing)
+            .sheet(isPresented: $controller.isPriorityShown) {
+                PriorityView(selectedPriority: $controller.priority)
+                    .presentationDetents([.medium])
+            }
             .navigationBarTitle(Text(controller.word.original), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

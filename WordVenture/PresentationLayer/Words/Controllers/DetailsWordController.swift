@@ -18,6 +18,8 @@ import SwiftUI
         super.init(wordbook: wordbook)
         self.originalWord = word.original
         self.translatedWord = word.translated
+        self.missed = word.missed
+        self.priority = word.priority.toPriority()
         self.synonyms = word.synonyms
         self.antonyms = word.antonyms
         self.examples = word.examples
@@ -35,9 +37,14 @@ import SwiftUI
             }
             
             do {
+                var thumbnailUrl = ""
+                if !imageUrls.isEmpty {
+                    thumbnailUrl = imageUrls[selectedImageIndex]
+                }
+                
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
-                                           priority: word.priority, missed: word.missed, thumbnailUrl: word.thumbnailUrl, imageUrls: imageUrls,
+                                           priority: priority.index, missed: missed, correct: word.correct, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls,
                                            synonyms: synonyms, antonyms: antonyms, examples: examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()
@@ -47,6 +54,10 @@ import SwiftUI
                 print(error)
             }
         }
+    }
+    
+    func resetMissedCount() {
+        missed = 0
     }
     
     func updateCountOnly() {
@@ -60,7 +71,7 @@ import SwiftUI
             do {
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
-                                           priority: word.priority, missed: word.missed, thumbnailUrl: word.thumbnailUrl, imageUrls: word.imageUrls,
+                                           priority: word.priority, missed: word.missed, correct: word.correct, thumbnailUrl: word.thumbnailUrl, imageUrls: word.imageUrls,
                                            synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
             } catch {

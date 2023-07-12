@@ -80,14 +80,21 @@ struct WordsView: View {
                 VStack(alignment: .trailing) {
                     Spacer()
                     
-                    NavigationLink {
-                        CardMode()
-                            .environmentObject(controller)
+                    Menu {
+                        Button {
+                            controller.isTestShown.toggle()
+                        } label: {
+                            Label("testMode", systemImage: "list.bullet.clipboard")
+                        }
+                        Button {
+                            controller.isFlashCardShown.toggle()
+                        } label: {
+                            Label("flashCard", systemImage: "rectangle.portrait.on.rectangle.portrait.angled.fill")
+                        }
                     } label: {
                         Image(systemName: "play.fill")
                             .padding()
                     }
-                    .id(UUID())
                     .background(.thickMaterial)
                     .cornerRadius(100)
                     .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
@@ -127,7 +134,15 @@ struct WordsView: View {
             }
         }
         .animation(.easeInOut, value: controller.wordbook)
-        .sheet(isPresented: $controller.isAddShown, content: { AddWordView(wordbook: controller.wordbook) })
+        .fullScreenCover(isPresented: $controller.isTestShown) {
+            TestModeView()
+        }
+        .fullScreenCover(isPresented: $controller.isFlashCardShown) {
+            FlashCardMode()
+        }
+        .sheet(isPresented: $controller.isAddShown) {
+            AddWordView(wordbook: controller.wordbook)
+        }
         .sheet(isPresented: $controller.isDetailsShown) {
             DetailsView(wordbook: controller.wordbook, word: controller.selectedWord!)
         }

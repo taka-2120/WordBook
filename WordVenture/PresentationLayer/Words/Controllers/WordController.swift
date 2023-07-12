@@ -15,13 +15,18 @@ import SwiftUI
     
     @Published var originalWord = ""
     @Published var translatedWord = ""
+    @Published var missed = 0
     @Published var synonyms = [String]()
     @Published var antonyms = [String]()
     @Published var examples = [String]()
     @Published var isLoading = false
+    @Published var priority: Priority = .no
     @Published var isGenerating = false
     @Published var imageUrls = [String]()
     @Published var isImageNotFound = false
+    @Published var selectedImageIndex = 0
+    
+    @Published var isPriorityShown = false
     
     @Published var imageSearchCount = 0
     @Published var textGeneratedCount = 0
@@ -48,6 +53,10 @@ import SwiftUI
                 print(error)
             }
         }
+    }
+    
+    func setThumbnailImage(as index: Int) {
+        selectedImageIndex = index
     }
     
     func generateAll() {

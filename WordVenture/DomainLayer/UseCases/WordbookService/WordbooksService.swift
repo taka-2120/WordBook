@@ -29,9 +29,10 @@ class WordbookService {
         return try await wordbookRepo.insertWordbook(userId: user.id, name: name, color: color, original: original, translated: translated)
     }
     
-    func updateWordbook(bookId: UUID, name: String, color: String, original: String?, translated: String?) async throws -> [Wordbook] {
+    func updateWordbook(bookId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws -> [Wordbook] {
         let user = try await authRepo.fetchUser()
-        return try await wordbookRepo.updateWordbook(bookId: bookId, userId: user.id, name: name, color: color, original: original, translated: translated)
+        return try await wordbookRepo.updateWordbook(bookId: bookId, userId: user.id, name: name, color: color,
+                                                     original: original, translated: translated, testAttempts: testAttempts)
     }
     
     func removeWordbook(target bookId: UUID) async throws -> [Wordbook] {
@@ -41,23 +42,23 @@ class WordbookService {
     
     
     func addWord(original: String, translated: String,
-                 priority: Int, missed: Int, thumbnailUrl: String, imageUrls: [String],
+                 priority: Int, missed: Int, correct: Int, thumbnailUrl: String, imageUrls: [String],
                  synonyms: [String], antonyms: [String], examples: [String], imageSearchCount: Int, textGeneratedCount: Int, to wordbook: Wordbook) async throws {
         
         let newWord = Word(userId: wordbook.userId, wordId: UUID(), bookId: wordbook.bookId,
-                           original: original, translated: translated, priority: priority, missed: missed,
+                           original: original, translated: translated, priority: priority, missed: missed, correct: correct,
                            thumbnailUrl: thumbnailUrl, imageUrls: imageUrls, synonyms: synonyms, antonyms: antonyms, examples: examples,
                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount)
         try await wordbookRepo.insertWord(word: newWord)
     }
     
     func updateWord(wordId: UUID, original: String, translated: String,
-                    priority: Int, missed: Int, thumbnailUrl: String, imageUrls: [String],
+                    priority: Int, missed: Int, correct: Int, thumbnailUrl: String, imageUrls: [String],
                     synonyms: [String], antonyms: [String], examples: [String], imageSearchCount: Int, textGeneratedCount: Int, to wordbook: Wordbook) async throws {
         
         
         let newWord = Word(userId: wordbook.userId, wordId: wordId, bookId: wordbook.bookId,
-                           original: original, translated: translated, priority: priority, missed: missed,
+                           original: original, translated: translated, priority: priority, missed: missed, correct: correct,
                            thumbnailUrl: thumbnailUrl, imageUrls: imageUrls, synonyms: synonyms, antonyms: antonyms, examples: examples,
                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount)
         

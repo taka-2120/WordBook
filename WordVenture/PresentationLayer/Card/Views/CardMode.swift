@@ -12,11 +12,9 @@ struct CardMode: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
     
-    @EnvironmentObject private var controller: WordsController
-    
+    @StateObject private var cardController = CardController()
     @StateObject private var page: Page = .first()
-    @State private var isCardModeShown = false
-    @State private var isAlwaysImageShown = false
+    @EnvironmentObject private var controller: WordsController
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -24,7 +22,7 @@ struct CardMode: View {
                 Pager(page: page,
                       data: controller.wordbook.words,
                       id: \.id) { word in
-                    CardItem(word: word, isImageShown: $isAlwaysImageShown, geo: geo)
+                    CardItem(word: word, isImageShown: $cardController.isAlwaysImageShown, geo: geo)
                 }
                       .preferredItemSize(CGSize(width: geo.size.width - 70, height: .infinity))
                       .itemSpacing(8)
@@ -36,7 +34,7 @@ struct CardMode: View {
                           let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
                           
                           if !isCardModeOpened {
-                              isCardModeShown = true
+                              cardController.isCardModeShown = true
                               UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
                           }
                       }
@@ -46,8 +44,8 @@ struct CardMode: View {
                 Spacer()
                 
                 Menu {
-                    Toggle(isOn: $isAlwaysImageShown) {
-                        Label("Always show images", systemImage: "photo")
+                    Toggle(isOn: $cardController.isAlwaysImageShown) {
+                        Label("alwaysShowImages", systemImage: "photo")
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle")
@@ -68,18 +66,88 @@ struct CardMode: View {
                     .padding()
                 Spacer()
             }
+            
+            ZStack(alignment: .center) {
+                if cardController.isMissedShown {
+                    Rectangle()
+                        .fill(Color(.systemGray6).opacity(0.4))
+                        .ignoresSafeArea()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                    MissedOverlay
+                        .transition(.scale)
+                }
+            }
         }
         .environmentObject(page)
+        .environmentObject(cardController)
+        .animation(.bouncy, value: cardController.isMissedShown)
         .toolbar(.hidden, for: .navigationBar)
-        .sheet(isPresented: $isCardModeShown) {
+        .sheet(isPresented: $cardController.isCardModeShown) {
             CardIntroductionView()
         }
+    }
+    
+    private var MissedOverlay: some View {
+        VStack(spacing: 15) {
+            Image(systemName: "xmark")
+                .font(.system(size: 64))
+                .bold()
+                .foregroundStyle(.red.opacity(0.8))
+                .padding()
+            
+            Text("missedLabel")
+                .padding(.bottom)
+            
+            HStack(alignment: .top, spacing: 15) {
+                Button {
+                    withAnimation {
+                        cardController.isMissedShown.toggle()
+                    }
+                } label: {
+                    Text("undo")
+                        .foregroundStyle(Color(.label))
+                        .padding(.vertical, 12)
+                        .frame(minWidth: 80, maxWidth: 150)
+                }
+                .background(Color(.systemGray4))
+                .cornerRadius(15)
+                .shadow(color: .black.opacity(0.1), radius: 10, y: 2)
+                
+                Button {
+                    controller.incrementMissedCount(for: page.index)
+                    withAnimation {
+                        cardController.isMissedShown.toggle()
+                    }
+                    withAnimation {
+                        page.update(.next)
+                    }
+                } label: {
+                    Text("next")
+                        .foregroundStyle(.white)
+                        .padding(.vertical, 12)
+                        .frame(minWidth: 80, maxWidth: 150)
+                }
+                .background(.blue)
+                .cornerRadius(15)
+                .shadow(color: .black.opacity(0.1), radius: 10, y: 2)
+            }
+        }
+        .padding()
+        .background(.regularMaterial)
+        .cornerRadius(20)
+        .shadow(color: .black.opacity(0.1), radius: 15, y: 4)
+        .padding()
     }
 }
 
 fileprivate struct CardItem: View {
     
+    @EnvironmentObject private var controller: WordsController
+    @EnvironmentObject private var cardController: CardController
+    @EnvironmentObject private var page: Page
+    
     @Binding private var isImageShown: Bool
+    
     @State private var isDetailShown = false
     private let word: Word
     private let geo: GeometryProxy
@@ -91,11 +159,13 @@ fileprivate struct CardItem: View {
     }
     
     var body: some View {
-        content(isFront: true)
-            .cardFlip(id: word.id, insets: geo.safeAreaInsets) {
-                content(isFront: false)
-            }
-        .animation(.spring, value: isImageShown)
+        ZStack {
+            content(isFront: true)
+                .cardFlip(id: word.id, insets: geo.safeAreaInsets) {
+                    content(isFront: false)
+                }
+                .animation(.spring, value: isImageShown)
+        }
     }
     
     private func content(isFront: Bool) -> some View {
@@ -108,16 +178,7 @@ fileprivate struct CardItem: View {
             
             if isFront {
                 ImageSection
-            } else {
-                Divider()
                 
-                SmallFieldItem("synonyms", array: .constant(word.synonyms), isEditing: false)
-                SmallFieldItem("antonyms", array: .constant(word.antonyms), isEditing: false)
-                FieldItem("examples", array: .constant(word.examples), isEditing: false)
-                    .padding(.bottom)
-            }
-            
-            if isFront {
                 HStack {
                     Button {
                         isImageShown.toggle()
@@ -128,8 +189,39 @@ fileprivate struct CardItem: View {
                     }
                     .disabled(word.imageUrls.isEmpty)
                     .opacity(word.imageUrls.isEmpty ? 0.5 : 1.0)
-
+                    
                     Spacer()
+                }
+            } else {
+                Divider()
+                
+                SmallFieldItem("synonyms", array: .constant(word.synonyms), isEditing: false)
+                SmallFieldItem("antonyms", array: .constant(word.antonyms), isEditing: false)
+                FieldItem("examples", array: .constant(word.examples), isEditing: false)
+                    .padding(.bottom)
+                
+                HStack {
+                    Button {
+                        withAnimation {
+                            feedbackGenerator(type: .error)
+                            cardController.isMissedShown.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(.red)
+                            .font(.system(size: 28))
+                    }
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            feedbackGenerator(type: .success)
+                            page.update(.next)
+                        }
+                    } label: {
+                        Image(systemName: "circle.circle.fill")
+                            .foregroundStyle(.green)
+                            .font(.system(size: 28))
+                    }
                 }
             }
         }
@@ -183,8 +275,7 @@ fileprivate struct CardFlip: ViewModifier {
             }
         }
         .onChange(of: flipped) { _ in
-            let impactMed = UIImpactFeedbackGenerator(style: .medium)
-            impactMed.impactOccurred()
+            feedbackGenerator(style: .medium)
         }
     }
 }
@@ -205,7 +296,7 @@ extension View {
             .frame(maxHeight: .infinity)
             .background(Color(.systemFill))
             .cornerRadius(20)
-            .padding(.vertical, 30)
+            .padding(.vertical, 40)
             .shadow(color: .black.opacity(0.2), radius: 15)
             .padding(.top, insets.top + 30)
             .padding(.bottom, insets.bottom)

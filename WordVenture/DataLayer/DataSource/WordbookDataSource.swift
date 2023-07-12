@@ -22,7 +22,14 @@ final class WordbooksDataSource: NSObject, Sendable {
     }
     
     class func insertWordbook(userId: UUID, name: String, color: String, original: String, translated: String) async throws {
-        let wordbook = WordbookAPIModel(bookId: UUID(), userId: userId, name: name, color: color, original: original, translated: translated, modifiedDate: Date().ISO8601Format())
+        let wordbook = WordbookAPIModel(bookId: UUID(),
+                                        userId: userId,
+                                        name: name,
+                                        color: color,
+                                        original: original,
+                                        translated: translated,
+                                        modifiedDate: Date().ISO8601Format(),
+                                        testAttempts: 0)
         
         _ = try await client.database
             .from(wordbooksTable)
@@ -30,8 +37,15 @@ final class WordbooksDataSource: NSObject, Sendable {
             .execute()
     }
     
-    class func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?) async throws {
-        let wordbook = WordbookAPIModel(bookId: bookId, userId: userId, name: name, color: color, original: original, translated: translated, modifiedDate: Date().ISO8601Format())
+    class func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws {
+        let wordbook = WordbookAPIModel(bookId: bookId,
+                                        userId: userId,
+                                        name: name,
+                                        color: color,
+                                        original: original,
+                                        translated: translated,
+                                        modifiedDate: Date().ISO8601Format(),
+                                        testAttempts: testAttempts)
         
         _ = try await client.database
             .from(wordbooksTable)
@@ -67,6 +81,7 @@ final class WordbooksDataSource: NSObject, Sendable {
                                 translated: word.translated,
                                 priority: word.priority,
                                 missed: word.missed,
+                                correct: word.correct,
                                 thumbnailUrl: word.thumbnailUrl,
                                 imageUrls: word.imageUrls,
                                 synonyms: word.synonyms,
@@ -89,6 +104,7 @@ final class WordbooksDataSource: NSObject, Sendable {
                                 translated: word.translated,
                                 priority: word.priority,
                                 missed: word.missed,
+                                correct: word.correct,
                                 thumbnailUrl: word.thumbnailUrl,
                                 imageUrls: word.imageUrls,
                                 synonyms: word.synonyms,

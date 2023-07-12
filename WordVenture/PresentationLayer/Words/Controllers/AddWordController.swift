@@ -19,7 +19,7 @@ import SwiftUI
             
             do {
                 try await wordbookService.addWord(original: originalWord, translated: translatedWord,
-                                                  priority: 0, missed: 0, thumbnailUrl: "", imageUrls: imageUrls,
+                                                  priority: 0, missed: 0, correct: 0, thumbnailUrl: "", imageUrls: imageUrls,
                                                   synonyms: synonyms, antonyms: antonyms, examples: examples,
                                                   imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismissAction()

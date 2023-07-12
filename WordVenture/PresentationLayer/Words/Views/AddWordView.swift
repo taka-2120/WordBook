@@ -26,14 +26,14 @@ struct AddWordView: View {
                         .foregroundColor(Color(.secondaryLabel))
                     CustomField("translated", text: $controller.translatedWord)
                     
-                    CommonWordSection(controller) { }
+                    CommonWordSection(controller: controller, selectedImageIndex: $controller.selectedImageIndex) { }
                     
                     SmallFieldItem("synonyms", array: $controller.synonyms)
                     SmallFieldItem("antonyms", array: $controller.antonyms)
                     FieldItem("examples", array: $controller.examples)
                     
                     Divider()
-                        .padding(.vertical, 5)
+                        .padding(.vertical)
                     
                     Text("apiNotes")
                         .font(.caption)
@@ -47,6 +47,10 @@ struct AddWordView: View {
             .animation(.spring(), value: controller.antonyms)
             .animation(.spring(), value: controller.examples)
             .navigationBarTitle("newWord", displayMode: .inline)
+            .sheet(isPresented: $controller.isPriorityShown) {
+                PriorityView(selectedPriority: $controller.priority)
+                    .presentationDetents([.medium])
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {

@@ -27,6 +27,26 @@
         }
       }
     },
+    ": %lld" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "*" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
     "%@" : {
       "localizations" : {
         "ja" : {
@@ -177,8 +197,21 @@
         }
       }
     },
-    "Always show images" : {
-
+    "alwaysShowImages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always show images"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常に画像を表示する"
+          }
+        }
+      }
     },
     "annually" : {
       "extractionState" : "manual",
@@ -258,23 +291,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "これはベータ機能です。今後のアップデートで機能が追加されます!"
-          }
-        }
-      }
-    },
-    "buyMeACoffeeNotes" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you like this app and your wallet is affordable, please buy me a cup of coffee. It will help me for future updates!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "もしこのアプリを気に入ってくださり、お財布に余裕がありましたら、1杯のコーヒーを恵んでいただけませんか…? 今後の開発の力になります!"
           }
         }
       }
@@ -408,6 +424,22 @@
         }
       }
     },
+    "completeTest" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You did finish the test."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テストを終了しました！"
+          }
+        }
+      }
+    },
     "confirmation" : {
       "localizations" : {
         "en" : {
@@ -420,6 +452,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "確認"
+          }
+        }
+      }
+    },
+    "congratulations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おめでとう！"
           }
         }
       }
@@ -863,6 +911,22 @@
         }
       }
     },
+    "flashCard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flash Card"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フラッシュカード"
+          }
+        }
+      }
+    },
     "forgetPassword" : {
       "localizations" : {
         "en" : {
@@ -945,12 +1009,60 @@
         }
       }
     },
+    "gotIt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単語一覧に戻る"
+          }
+        }
+      }
+    },
+    "high" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "High"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高"
+          }
+        }
+      }
+    },
+    "imageCachingNotes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image data will be cached on this device."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "画像データはデバイス上にキャッシュされます。"
+          }
+        }
+      }
+    },
     "imageNotes" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unsplash will get matched images here"
+            "value" : "Unsplash will search matched images here"
           }
         },
         "ja" : {
@@ -1059,6 +1171,22 @@
         }
       }
     },
+    "low" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Low"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "低"
+          }
+        }
+      }
+    },
     "manageSubs" : {
       "localizations" : {
         "en" : {
@@ -1087,6 +1215,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ようこそ学習カードへ (ベータ)"
+          }
+        }
+      }
+    },
+    "missedCount" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missed Count"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "間違いカウント"
+          }
+        }
+      }
+    },
+    "missedLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missed…!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "残念…！"
+          }
+        }
+      }
+    },
+    "moderate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moderate"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中"
           }
         }
       }
@@ -1239,6 +1415,22 @@
         }
       }
     },
+    "next" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
     "niceToMeetYou" : {
       "localizations" : {
         "en" : {
@@ -1284,6 +1476,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "広告表示なし"
+          }
+        }
+      }
+    },
+    "noPriority" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Priority"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "優先度なし"
           }
         }
       }
@@ -1339,6 +1547,12 @@
     },
     "OK" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1442,6 +1656,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ポートフォリオ"
+          }
+        }
+      }
+    },
+    "priority" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Priority"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "優先度"
           }
         }
       }
@@ -1590,6 +1820,22 @@
         }
       }
     },
+    "reset" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
+          }
+        }
+      }
+    },
     "resetEmailNote" : {
       "localizations" : {
         "en" : {
@@ -1634,6 +1880,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "購入を復元"
+          }
+        }
+      }
+    },
+    "retry" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retry"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もう一度"
           }
         }
       }
@@ -1833,6 +2095,38 @@
         }
       }
     },
+    "testDismissAlert" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure to want to finish test?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本当にこのテストを終了しますか？"
+          }
+        }
+      }
+    },
+    "testMode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test Mode"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テスト"
+          }
+        }
+      }
+    },
     "textNotes" : {
       "localizations" : {
         "en" : {
@@ -1845,6 +2139,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open AI が以下のフィールドのテキストを生成します。"
+          }
+        }
+      }
+    },
+    "thumbnailNotes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set a thumbnail image for this word by tapping the image."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップして選択することでサムネイル画像を指定できます。"
           }
         }
       }
@@ -1894,6 +2204,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "翻訳後"
+          }
+        }
+      }
+    },
+    "undo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り消し"
           }
         }
       }
@@ -2084,6 +2410,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バージョン"
+          }
+        }
+      }
+    },
+    "warning" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注意"
           }
         }
       }
