@@ -11,15 +11,21 @@ struct DismissButton: View {
     
     private let dismiss: DismissAction
     private let colorScheme: ColorScheme
+    private let action: (() -> Void)?
     
-    init(_ dismiss: DismissAction, _ colorScheme: ColorScheme) {
+    init(_ dismiss: DismissAction, _ colorScheme: ColorScheme, action: (() -> Void)? = nil) {
         self.dismiss = dismiss
         self.colorScheme = colorScheme
+        self.action = action
     }
     
     var body: some View {
         Button {
-            dismiss()
+            if let action = action {
+                action()
+            } else {
+                dismiss()
+            }
         } label: {
             ZStack {
                 Circle()
