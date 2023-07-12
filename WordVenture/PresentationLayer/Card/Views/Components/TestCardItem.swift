@@ -76,6 +76,7 @@ struct TestCardItem: View {
                                 .foregroundStyle(Color(.secondaryLabel))
                         }
                     }
+                    .hidden()
                     
                     HStack {
                         Text("missedCount") + Text(": \(word.missed)")
