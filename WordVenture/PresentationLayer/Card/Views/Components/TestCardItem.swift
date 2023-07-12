@@ -112,6 +112,10 @@ struct TestCardItem: View {
                                 testCardController.isCompletedShown.toggle()
                                 return
                             }
+                            if page.index == 0 {
+                                controller.testAttempts += 1
+                                controller.updateWordbook()
+                            }
                             withAnimation {
                                 controller.incrementCorrectCount(for: page.index)
                                 feedbackGenerator(type: .success)

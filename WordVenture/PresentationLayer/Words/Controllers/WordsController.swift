@@ -40,6 +40,7 @@ import SwiftUI
         }
     }
     @Published var wordbookIndex: Int
+    @Published var testAttempts: Int
     @Published var wordbookTitle = ""
     @Published var wordbookColor = Color.blue {
         willSet {
@@ -57,6 +58,7 @@ import SwiftUI
         self.wordbookIndex = index
         self.wordbookTitle = wordbook.name
         self.wordbookColor = Color(hex: wordbook.color)
+        self.testAttempts = wordbook.testAttempts
         
         // Plan Check
         self.hasUnlimited = purchaseManager.hasUnlimited
@@ -66,7 +68,8 @@ import SwiftUI
     func updateWordbook() {
         Task {
             do {
-                wordbook = try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex(), original: nil, translated: nil)[wordbookIndex]
+                wordbook = try await wordbookService.updateWordbook(bookId: wordbook.bookId, name: wordbookTitle, color: wordbookColor.toHex(),
+                                                                    original: nil, translated: nil, testAttempts: testAttempts)[wordbookIndex]
             } catch {
                 print(error)
             }

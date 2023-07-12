@@ -19,6 +19,7 @@ struct Wordbook: Identifiable, Hashable, Codable, Sendable {
     var translated: String?  // ISO Language Code
     var words: [Word]
     var modifiedDate: String
+    var testAttempts: Int
 }
 
 struct WordbookAPIModel: Hashable, Codable {
@@ -29,4 +30,5 @@ struct WordbookAPIModel: Hashable, Codable {
     var original: String?    // ISO Language Code
     var translated: String?  // ISO Language Code
     var modifiedDate: String
+    var testAttempts: Int
 }

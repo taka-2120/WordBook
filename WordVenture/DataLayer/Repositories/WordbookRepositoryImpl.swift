@@ -23,7 +23,8 @@ class WordbookRepositoryImpl: WordbookRepository {
                                       original: wordbook.original,
                                       translated: wordbook.translated,
                                       words: words,
-                                      modifiedDate: wordbook.modifiedDate))
+                                      modifiedDate: wordbook.modifiedDate,
+                                      testAttempts: wordbook.testAttempts))
         }
         wordbooks.sort(by: {$0.name < $1.name})
         
@@ -36,8 +37,14 @@ class WordbookRepositoryImpl: WordbookRepository {
         return try await fetchWordbook(userId: userId)
     }
     
-    func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?) async throws -> [Wordbook] {
-        try await WordbooksDataSource.updateWordbook(bookId: bookId, userId: userId, name: name, color: color, original: original, translated: translated)
+    func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws -> [Wordbook] {
+        try await WordbooksDataSource.updateWordbook(bookId: bookId,
+                                                     userId: userId,
+                                                     name: name,
+                                                     color: color,
+                                                     original: original,
+                                                     translated: translated,
+                                                     testAttempts: testAttempts)
         
         return try await fetchWordbook(userId: userId)
     }
