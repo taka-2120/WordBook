@@ -1046,13 +1046,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Image data will be cached on this device up to 500MB."
+            "value" : "Image data will be cached on this device."
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "画像データはデバイス上にキャッシュが最大500MB分保存されます。"
+            "state" : "needs_review",
+            "value" : "画像データはデバイス上にキャッシュされます。"
           }
         }
       }
