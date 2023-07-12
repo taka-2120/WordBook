@@ -55,6 +55,10 @@ import SwiftUI
         }
     }
     
+    func setThumbnailImage(as index: Int) {
+        selectedImageIndex = index
+    }
+    
     func generateAll() {
         isGenerating = true
         Task {

@@ -9,7 +9,8 @@ import SwiftUI
 import SwiftUIPager
 
 struct FlashCardItem: View {
-        
+    
+    @EnvironmentObject private var flashCardController: FlashCardController
     @Binding private var isImageShown: Bool
     
     private let word: Word
@@ -33,6 +34,16 @@ struct FlashCardItem: View {
     
     private func content(isFront: Bool) -> some View {
         VStack {
+            HStack {
+                Spacer()
+                Button {
+                    flashCardController.speakWord(for: isFront ? word.original : word.translated)
+                } label: {
+                    Image(systemName: "speaker.wave.2.fill")
+                }
+            }
+            .isHidden(true, remove: true)
+            
             Spacer()
             Text(isFront ? word.original : word.translated)
                 .font(.title)
@@ -69,9 +80,9 @@ struct FlashCardItem: View {
     
     private var ImageSection: some View {
         Group {
-            if let url = word.imageUrls.first, isImageShown {
+            if !word.thumbnailUrl.isEmpty, isImageShown {
                 Divider()
-                RelatedImage(url: url, height: 200)
+                RelatedImage(url: word.thumbnailUrl, height: 200)
             }
         }
     }

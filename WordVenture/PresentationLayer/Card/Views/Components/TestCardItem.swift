@@ -123,9 +123,9 @@ struct TestCardItem: View {
     
     private var ImageSection: some View {
         Group {
-            if let url = word.imageUrls.first, isImageShown {
+            if !word.thumbnailUrl.isEmpty, isImageShown {
                 Divider()
-                RelatedImage(url: url, height: 200)
+                RelatedImage(url: word.thumbnailUrl, height: 200)
             }
         }
     }

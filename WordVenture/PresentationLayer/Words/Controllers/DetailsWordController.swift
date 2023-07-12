@@ -37,9 +37,14 @@ import SwiftUI
             }
             
             do {
+                var thumbnailUrl = ""
+                if !imageUrls.isEmpty {
+                    thumbnailUrl = imageUrls[selectedImageIndex]
+                }
+                
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
-                                           priority: priority.index, missed: missed, thumbnailUrl: word.thumbnailUrl, imageUrls: imageUrls,
+                                           priority: priority.index, missed: missed, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls,
                                            synonyms: synonyms, antonyms: antonyms, examples: examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()
