@@ -112,6 +112,7 @@ struct TestCardItem: View {
                                 return
                             }
                             withAnimation {
+                                controller.incrementCorrectCount(for: page.index)
                                 feedbackGenerator(type: .success)
                                 page.update(.next)
                             }

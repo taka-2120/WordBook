@@ -105,7 +105,22 @@ import SwiftUI
         Task {
             do {
                 try await wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
-                                                     priority: priority.index, missed: word.missed, thumbnailUrl: word.thumbnailUrl,
+                                                     priority: priority.index, missed: word.missed, correct: word.correct, thumbnailUrl: word.thumbnailUrl,
+                                                     imageUrls: word.imageUrls, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
+                                                     imageSearchCount: word.imageSearchCount, textGeneratedCount: word.textGeneratedCount, to: wordbook)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func incrementCorrectCount(for index: Int) {
+        Task {
+            do {
+                let word = wordbook.words[index]
+                let newCorrectCount = word.missed + 1
+                try await wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
+                                                     priority: word.priority, missed: word.missed, correct: newCorrectCount, thumbnailUrl: word.thumbnailUrl,
                                                      imageUrls: word.imageUrls, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
                                                      imageSearchCount: word.imageSearchCount, textGeneratedCount: word.textGeneratedCount, to: wordbook)
             } catch {
@@ -120,7 +135,7 @@ import SwiftUI
                 let word = wordbook.words[index]
                 let newMissedCount = word.missed + 1
                 try await wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
-                                                     priority: word.priority, missed: newMissedCount, thumbnailUrl: word.thumbnailUrl,
+                                                     priority: word.priority, missed: newMissedCount, correct: word.correct, thumbnailUrl: word.thumbnailUrl,
                                                      imageUrls: word.imageUrls, synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
                                                      imageSearchCount: word.imageSearchCount, textGeneratedCount: word.textGeneratedCount, to: wordbook)
             } catch {

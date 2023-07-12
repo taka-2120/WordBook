@@ -44,7 +44,7 @@ import SwiftUI
                 
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: originalWord, translated: translatedWord,
-                                           priority: priority.index, missed: missed, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls,
+                                           priority: priority.index, missed: missed, correct: word.correct, thumbnailUrl: thumbnailUrl, imageUrls: imageUrls,
                                            synonyms: synonyms, antonyms: antonyms, examples: examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
                 dismiss()
@@ -71,7 +71,7 @@ import SwiftUI
             do {
                 try await
                 wordbookService.updateWord(wordId: word.wordId, original: word.original, translated: word.translated,
-                                           priority: word.priority, missed: word.missed, thumbnailUrl: word.thumbnailUrl, imageUrls: word.imageUrls,
+                                           priority: word.priority, missed: word.missed, correct: word.correct, thumbnailUrl: word.thumbnailUrl, imageUrls: word.imageUrls,
                                            synonyms: word.synonyms, antonyms: word.antonyms, examples: word.examples,
                                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount, to: wordbook)
             } catch {

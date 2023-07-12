@@ -60,6 +60,7 @@ class WordbookRepositoryImpl: WordbookRepository {
                               translated: word.translated,
                               priority: word.priority,
                               missed: word.missed,
+                              correct: word.correct,
                               thumbnailUrl: word.thumbnailUrl,
                               imageUrls: word.imageUrls ?? [],
                               synonyms: word.synonyms,

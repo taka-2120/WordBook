@@ -20,6 +20,7 @@ struct Word: Equatable, Identifiable, Hashable, Codable, Sendable {
     var translated: String
     var priority: Int
     var missed: Int
+    var correct: Int
     var thumbnailUrl: String
     var imageUrls: [String]
     var synonyms: [String]
@@ -37,6 +38,7 @@ struct WordAPIModel: Equatable, Hashable, Codable {
     var translated: String
     var priority: Int
     var missed: Int
+    var correct: Int
     var thumbnailUrl: String
     var imageUrls: [String]?
     var synonyms: [String]
