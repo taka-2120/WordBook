@@ -3,22 +3,21 @@
 
 ## Currently working on
 
-- Redesign card in Card Mode
+- Language specified wordbooks
 - Pin wordbooks and word
-- Priority setting for words
-- Missing word count
-- Word Test Mode
+- Add stopwatch feature to Test Mode
+- Add summary of Test Mode
+- Add more tips how to use this app
+- Add Today's word feature
+- Sorting wordbooks and words
 
 ## Planning
 
-- Improve performance to load data and images
 - Text detection from images
-- Language specified wordbooks
 - Invert original and translated wordbooks
 - Improve Open AI response model
 - Automatic translation
-- Wordbooks sharing
-- Show statistics of your learning
 - Speech words
-- Today's word
-- Sorting wordbooks and words
+- Show statistics of your learning
+- Wordbooks sharing
+- Add retry feature in Test Mode

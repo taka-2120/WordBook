@@ -2403,13 +2403,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version"
+            "value" : "Version "
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "バージョン"
+            "value" : "バージョン "
           }
         }
       }
