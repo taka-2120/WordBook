@@ -114,7 +114,7 @@ struct PlansView: View {
         }
         .navigationTitle("plans")
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .topBarTrailing) {
                 Menu {
                     Button {
                         controller.restorePurchase()
@@ -148,7 +148,7 @@ struct PlansView: View {
             }
             
             if selfNavigatable {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         dismiss()
                     } label: {

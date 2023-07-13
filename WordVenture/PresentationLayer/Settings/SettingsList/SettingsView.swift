@@ -55,7 +55,7 @@ struct SettingsView: View {
             .environmentObject(controller)
             .navigationBarTitle("settings")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     DismissButton(dismiss, colorScheme)
                 }
             }

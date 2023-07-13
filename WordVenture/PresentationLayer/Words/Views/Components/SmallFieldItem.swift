@@ -12,11 +12,17 @@ struct SmallFieldItem: View {
     @Binding private var array: [String]
     private let label: LocalizedStringKey
     private let isEditing: Bool
+    private let fillColor: Color
     
-    init(_ label: LocalizedStringKey, array: Binding<[String]>, isEditing: Bool = true) {
+    init(_ label: LocalizedStringKey,
+         array: Binding<[String]>,
+         isEditing: Bool = true,
+         fillColor: Color = Color(.secondarySystemFill)) {
+        
         self.label = label
         self._array = array
         self.isEditing = isEditing
+        self.fillColor = fillColor
     }
     
     var body: some View {
@@ -27,29 +33,29 @@ struct SmallFieldItem: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(Array(array.enumerated()), id: \.offset) { index, word in
-                        if isEditing {
-                            HStack {
-                                Button {
-                                    array.remove(at: index)
-                                } label: {
-                                    Image(systemName: "xmark.circle.fill")
-                                        .foregroundColor(Color(.systemGray))
-                                        .imageScale(.small)
-                                }
+                        Group {
+                            if isEditing {
+                                HStack {
+                                    Button {
+                                        array.remove(at: index)
+                                    } label: {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(Color(.systemGray))
+                                            .imageScale(.small)
+                                    }
 
-                                TextField(label, text: $array[index])
-                                    .fixedSize(horizontal: false, vertical: true)
+                                    TextField(label, text: $array[index])
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                                .padding(10)
+                            } else {
+                                Text(array[index])
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal)
                             }
-                            .padding(10)
-                            .background(Color(.tertiarySystemGroupedBackground))
-                            .cornerRadius(15)
-                        } else {
-                            Text(array[index])
-                                .padding(.vertical, 10)
-                                .padding(.horizontal)
-                                .background(Color(.tertiarySystemGroupedBackground))
-                                .cornerRadius(15)
                         }
+                        .background(fillColor)
+                        .cornerRadius(15)
                     }
                 }
             }

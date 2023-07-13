@@ -31,7 +31,7 @@ final class WordbooksDataSource: NSObject, Sendable {
                                         modifiedDate: Date().ISO8601Format(),
                                         testAttempts: 0)
         
-        _ = try await client.database
+        try await client.database
             .from(wordbooksTable)
             .insert(values: wordbook, returning: .none)
             .execute()
@@ -47,7 +47,7 @@ final class WordbooksDataSource: NSObject, Sendable {
                                         modifiedDate: Date().ISO8601Format(),
                                         testAttempts: testAttempts)
         
-        _ = try await client.database
+        try await client.database
             .from(wordbooksTable)
             .update(values: wordbook)
             .eq(column: "bookId", value: bookId)
@@ -55,7 +55,7 @@ final class WordbooksDataSource: NSObject, Sendable {
     }
     
     class func removeWordbook(userId: UUID, target bookId: UUID) async throws {
-        _ = try await client.database
+        try await client.database
             .from(wordbooksTable)
             .delete()
             .eq(column: "bookId", value: bookId)
@@ -90,7 +90,7 @@ final class WordbooksDataSource: NSObject, Sendable {
                                 imageSearchCount: word.imageSearchCount,
                                 textGeneratedCount: word.textGeneratedCount)
         
-        _ = try await client.database
+        try await client.database
             .from(wordsTable)
             .insert(values: word, returning: .representation)
             .execute()
@@ -113,7 +113,7 @@ final class WordbooksDataSource: NSObject, Sendable {
                                 imageSearchCount: word.imageSearchCount,
                                 textGeneratedCount: word.textGeneratedCount)
         
-        _ = try await client.database
+        try await client.database
             .from(wordsTable)
             .update(values: word)
             .eq(column: "wordId", value: word.wordId)
@@ -121,7 +121,7 @@ final class WordbooksDataSource: NSObject, Sendable {
     }
     
     class func removeWord(target wordId: UUID) async throws {
-        _ = try await client.database
+        try await client.database
                 .from(wordsTable)
                 .delete()
                 .eq(column: "wordId", value: wordId)

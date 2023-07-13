@@ -31,18 +31,34 @@ struct WordItem: View {
                 controller.isDetailsShown.toggle()
             } label: {
                 HStack {
+                    if controller.isMissedCountChecked {
+                        Text("\(word.missed)")
+                            .font(.caption)
+                            .foregroundStyle(Color(.label))
+                            .background {
+                                Circle()
+                                    .fill(Color(.systemGray3))
+                                    .frame(width: 25, height: 25)
+                            }
+                            .padding(.horizontal, 8)
+                    }
+                    
                     Text(word.original)
                         .font(.headline)
                         .foregroundColor(Color(.label))
+                    
                     Spacer()
+                    
                     Text("\(word.translated)")
                         .font(.subheadline)
                         .foregroundColor(Color(.secondaryLabel))
                     
-                    Image(systemName: word.priority.toPriority().symbol)
-                        .foregroundStyle(word.priority.toPriority().color)
-                        .imageScale(.small)
-                        .isHidden(word.priority.toPriority() == .no, remove: false)
+                    if controller.isPriorityChecked {
+                        Image(systemName: word.priority.toPriority().symbol)
+                            .foregroundStyle(word.priority.toPriority().color)
+                            .imageScale(.small)
+                            .isHidden(word.priority.toPriority() == .no, remove: true)
+                    }
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 20)

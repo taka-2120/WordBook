@@ -12,11 +12,17 @@ struct FieldItem: View {
     @Binding private var array: [String]
     private let label: LocalizedStringKey
     private let isEditing: Bool
+    private let fillColor: Color
     
-    init(_ label: LocalizedStringKey, array: Binding<[String]>, isEditing: Bool = true) {
+    init(_ label: LocalizedStringKey,
+         array: Binding<[String]>,
+         isEditing: Bool = true,
+         fillColor: Color = Color(.secondarySystemFill)) {
+        
         self.label = label
         self._array = array
         self.isEditing = isEditing
+        self.fillColor = fillColor
     }
     
     var body: some View {
@@ -31,7 +37,7 @@ struct FieldItem: View {
                             .frame(minWidth: 0, maxWidth: 20)
                         TextField("example \(index + 1)", text: $array[index], axis: .vertical)
                             .padding(8)
-                            .background(Color(.tertiarySystemGroupedBackground))
+                            .background(fillColor)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .cornerRadius(10)
                         Button {
