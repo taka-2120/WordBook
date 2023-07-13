@@ -1,6 +1,16 @@
 
 # Release Notes
 
+## 1.0.0 (Beta 5)
+
+Released: July 13, 2023
+
+### Changes
+
+- Fixed the problem which users cannot change their username.
+- You can see missing count and priority for each word in the word list.
+- UI improvements
+
 ## 1.0.0 (Beta 4)
 
 Released: July 12, 2023
