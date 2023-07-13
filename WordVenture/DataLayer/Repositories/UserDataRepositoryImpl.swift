@@ -22,6 +22,10 @@ class UserDataRepositoryImpl: UserDataRepository {
         return try await UserDataSource.updateUsername(userId: userId, newUsername: newUsername)
     }
     
+    func updateVisibilities(userId: UUID, showPriority: Bool, showMissedCount: Bool) async throws {
+        return try await UserDataSource.updateVisibilities(userId: userId, showPriority: showPriority, showMissedCount: showMissedCount)
+    }
+    
     func deleteUserData(userId: UUID) async throws {
         try await UserDataSource.deleteUserData(userId: userId)
     }
