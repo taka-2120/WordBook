@@ -68,4 +68,12 @@ class WordbookService {
     func removeWord(for wordbook: Wordbook, target wordId: UUID) async throws {
         try await wordbookRepo.removeWord(userId: wordbook.userId, target: wordId)
     }
+    
+    func updateVisibilities(userId: UUID, showPriority: Bool, showMissedCount: Bool) async throws {
+        try await userDataRepo.updateVisibilities(userId: userId, showPriority: showPriority, showMissedCount: showMissedCount)
+    }
+    
+    func fetchVisibilities(for userId: UUID) async throws -> UserData {
+        try await userDataRepo.fetchUserData(userId: userId)
+    }
 }

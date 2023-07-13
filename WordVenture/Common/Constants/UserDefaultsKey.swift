@@ -10,3 +10,5 @@ import Foundation
 let isCardModeOpenedKey = "isCardModeOpened"
 let privacyPolicyUpdatedDateKey = "privacyPolicyUpdatedDate"
 let termsAndConditionsUpdatedDateKey = "termsAndConditionsUpdatedDate"
+let showPriorityKey = "showPriorityKey"
+let showMissedCountKey = "showMissedCountKey"

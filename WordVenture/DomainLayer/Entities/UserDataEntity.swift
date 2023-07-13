@@ -9,5 +9,7 @@ import Foundation
 
 struct UserData: Codable, Sendable {
     var userId: UUID
-    let username: String
+    var username: String
+    var showPriority: Bool
+    var showMissedCount: Bool
 }

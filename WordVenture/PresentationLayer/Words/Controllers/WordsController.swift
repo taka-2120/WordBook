@@ -48,6 +48,8 @@ import SwiftUI
         }
     }
     @Published var isPlanViewShown = false
+    @Published var isMissedCountChecked: Bool
+    @Published var isPriorityChecked: Bool
     @Published var hasUnlimited: Bool
     
     @Published var isErrorShown = false
@@ -59,9 +61,46 @@ import SwiftUI
         self.wordbookTitle = wordbook.name
         self.wordbookColor = Color(hex: wordbook.color)
         self.testAttempts = wordbook.testAttempts
+        self.isPriorityChecked = UserDefaults.standard.value(forKey: showPriorityKey) as? Bool ?? true
+        self.isMissedCountChecked = UserDefaults.standard.value(forKey: showMissedCountKey) as? Bool ?? true
         
         // Plan Check
         self.hasUnlimited = purchaseManager.hasUnlimited
+        
+        fetchVisibilities()
+    }
+    
+    private func fetchVisibilities() {
+        Task {
+            do {
+                let userData = try await wordbookService.fetchVisibilities(for: wordbook.userId)
+                isPriorityChecked = userData.showPriority
+                isMissedCountChecked = userData.showMissedCount
+                
+                storeVisibilitiesToUserDefaults()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    private func storeVisibilitiesToUserDefaults() {
+        UserDefaults.standard.setValue(isPriorityChecked, forKey: showPriorityKey)
+        UserDefaults.standard.setValue(isMissedCountChecked, forKey: showMissedCountKey)
+    }
+    
+    func updateWordItemVisibilities() {
+        Task {
+            do {
+                print(isPriorityChecked)
+                try await wordbookService.updateVisibilities(
+                    userId: wordbook.userId,
+                    showPriority: isPriorityChecked,
+                    showMissedCount: isMissedCountChecked)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     // TODO: Handle Errors
