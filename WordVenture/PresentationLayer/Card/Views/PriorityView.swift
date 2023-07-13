@@ -41,7 +41,7 @@ struct PriorityView: View {
                     }
                     .foregroundStyle(priority.color)
                     .padding()
-                    .background(Color(.systemBackground))
+                    .background(Color(.tertiarySystemFill))
                     .cornerRadius(15)
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
@@ -49,7 +49,6 @@ struct PriorityView: View {
                     }
                     .shadow(color: (isSelected ? Color.blue : Color.black).opacity(0.15), radius: 15, y: 4)
                 }
-
             }
             Spacer()
         }

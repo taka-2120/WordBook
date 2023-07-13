@@ -73,9 +73,9 @@ struct FlashCardItem: View {
             } else {
                 Divider()
                 
-                SmallFieldItem("synonyms", array: .constant(word.synonyms), isEditing: false)
-                SmallFieldItem("antonyms", array: .constant(word.antonyms), isEditing: false)
-                FieldItem("examples", array: .constant(word.examples), isEditing: false)
+                SmallFieldItem("synonyms", array: .constant(word.synonyms), isEditing: false, fillColor: Color(.systemGroupedBackground))
+                SmallFieldItem("antonyms", array: .constant(word.antonyms), isEditing: false, fillColor: Color(.systemGroupedBackground))
+                FieldItem("examples", array: .constant(word.examples), isEditing: false, fillColor: Color(.systemGroupedBackground))
                     .padding(.bottom)
                 
                 HStack {

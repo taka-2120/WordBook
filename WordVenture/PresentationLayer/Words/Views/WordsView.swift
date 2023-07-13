@@ -39,40 +39,41 @@ struct WordsView: View {
                                 WordItem(word: word, index: index)
                             }
                         }
+                        
+                        if !controller.hasUnlimited && controller.wordbook.words.count == unlimitedMaxWordCount {
+                            Button {
+                                controller.isPlanViewShown = true
+                            } label: {
+                                HStack {
+                                    Text("needUnlimitedWord")
+                                        .font(.headline)
+                                        .foregroundColor(Color(.label))
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding(.horizontal)
+                                .padding(.vertical, 20)
+                                .background(.regularMaterial)
+                                .cornerRadius(15)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .strokeBorder(.gray, style: StrokeStyle(lineWidth: 2, dash: [10]))
+                                }
+                            }
+                            .padding()
+                        }
+                        
+                        if !controller.hasUnlimited && controller.wordbook.words.count < unlimitedMaxWordCount {
+                            HStack {
+                                Spacer()
+                                Text("limit: \(controller.wordbook.words.count)/\(unlimitedMaxWordCount)")
+                                    .foregroundColor(Color(.secondaryLabel))
+                                    .font(.callout)
+                            }
+                            .padding()
+                        }
                     }
                     .padding(.top, 20)
-                    
-                    if !controller.hasUnlimited && controller.wordbook.words.count == unlimitedMaxWordCount {
-                        Button {
-                            controller.isPlanViewShown = true
-                        } label: {
-                            HStack {
-                                Text("needUnlimitedWord")
-                                    .font(.headline)
-                                    .foregroundColor(Color(.label))
-                            }
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.vertical, 20)
-                            .background(.regularMaterial)
-                            .cornerRadius(15)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .strokeBorder(.gray, style: StrokeStyle(lineWidth: 2, dash: [10]))
-                            }
-                        }
-                        .padding()
-                    }
-                    
-                    if !controller.hasUnlimited && controller.wordbook.words.count < unlimitedMaxWordCount {
-                        HStack {
-                            Spacer()
-                            Text("limit: \(controller.wordbook.words.count)/\(unlimitedMaxWordCount)")
-                                .foregroundColor(Color(.secondaryLabel))
-                                .font(.callout)
-                        }
-                        .padding()
-                    }
+                    .padding(.bottom, 70)
                 }
             }
             
@@ -93,11 +94,15 @@ struct WordsView: View {
                         }
                     } label: {
                         Image(systemName: "play.fill")
+                            .imageScale(.large)
                             .padding()
                     }
-                    .background(.thickMaterial)
-                    .cornerRadius(100)
-                    .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
+                    .background {
+                        Circle()
+                            .fill(.thickMaterial)
+                            .cornerRadius(100)
+                            .shadow(color: .black.opacity(0.2), radius: 15, y: 3)
+                    }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                 .padding()
@@ -125,15 +130,36 @@ struct WordsView: View {
                 }
             }
             
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    controller.isAddShown.toggle()
-                } label: {
-                    Image(systemName: "plus")
+            ToolbarItem(placement: .topBarTrailing) {
+                HStack(spacing: 0) {
+                    Menu {
+                        Toggle(isOn: $controller.isMissedCountChecked) {
+                            Label("missedCount", systemImage: "exclamationmark.transmission")
+                        }
+                        .onChange(of: controller.isMissedCountChecked) { _ in
+                            controller.updateWordItemVisibilities()
+                        }
+                        Toggle(isOn: $controller.isPriorityChecked) {
+                            Label("priority", systemImage: "sprinkler.fill")
+                        }
+                        .onChange(of: controller.isPriorityChecked) { _ in
+                            controller.updateWordItemVisibilities()
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+
+                    Button {
+                        controller.isAddShown.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
             }
         }
         .animation(.easeInOut, value: controller.wordbook)
+        .animation(.bouncy, value: controller.isPriorityChecked)
+        .animation(.bouncy, value: controller.isMissedCountChecked)
         .fullScreenCover(isPresented: $controller.isTestShown) {
             TestModeView()
         }

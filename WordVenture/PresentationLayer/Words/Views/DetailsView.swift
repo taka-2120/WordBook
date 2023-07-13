@@ -83,7 +83,7 @@ struct DetailsView: View {
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         controller.updateWord(dismiss: dismiss)
                     } label: {
