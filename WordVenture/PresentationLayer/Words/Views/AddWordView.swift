@@ -59,7 +59,7 @@ struct AddWordView: View {
                         Text("cancel")
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         controller.addWord({ dismiss() })
                     } label: {

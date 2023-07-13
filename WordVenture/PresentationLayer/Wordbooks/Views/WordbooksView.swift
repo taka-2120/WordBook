@@ -85,7 +85,7 @@ struct WordbooksView: View {
                         Image(systemName: "gearshape")
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         controller.isAddShown.toggle()
                     } label: {

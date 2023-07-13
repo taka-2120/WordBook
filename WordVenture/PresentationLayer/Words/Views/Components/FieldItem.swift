@@ -31,7 +31,7 @@ struct FieldItem: View {
                             .frame(minWidth: 0, maxWidth: 20)
                         TextField("example \(index + 1)", text: $array[index], axis: .vertical)
                             .padding(8)
-                            .background(Color(.tertiarySystemGroupedBackground))
+                            .background(Color(.secondarySystemFill))
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .cornerRadius(10)
                         Button {
