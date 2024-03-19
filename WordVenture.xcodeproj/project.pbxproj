@@ -364,8 +364,8 @@
 				9A24FD352A171B6400C34508 /* Resources */,
 				9A24FD4A2A171B6400C34508 /* Common */,
 				9A5EA7472A2AE88B00AAE8C3 /* DataLayer */,
-				9A5EA7482A2AE89B00AAE8C3 /* DomainLayer */,
-				9A24FD652A171B6400C34508 /* PresentationLayer */,
+				9A5EA7482A2AE89B00AAE8C3 /* Domains */,
+				9A24FD652A171B6400C34508 /* Presentations */,
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
 				9AC1FDC82A31576000EE329F /* Localizable.xcstrings */,
@@ -503,7 +503,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		9A24FD652A171B6400C34508 /* PresentationLayer */ = {
+		9A24FD652A171B6400C34508 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
 				9AEFE5A52A469EB500C71423 /* ForgetPassword */,
@@ -516,7 +516,7 @@
 				9A24FD9C2A171B6400C34508 /* Components */,
 				9A24FD9E2A171B6400C34508 /* ScreenController.swift */,
 			);
-			path = PresentationLayer;
+			path = Presentations;
 			sourceTree = "<group>";
 		};
 		9A24FD662A171B6400C34508 /* Settings */ = {
@@ -790,14 +790,14 @@
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
-		9A5EA7482A2AE89B00AAE8C3 /* DomainLayer */ = {
+		9A5EA7482A2AE89B00AAE8C3 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
 				9A5EA74A2A2AEA3D00AAE8C3 /* Repositories */,
 				9A24FDA72A171B6400C34508 /* Entities */,
 				9A24FDA12A171B6400C34508 /* UseCases */,
 			);
-			path = DomainLayer;
+			path = Domains;
 			sourceTree = "<group>";
 		};
 		9A5EA74A2A2AEA3D00AAE8C3 /* Repositories */ = {

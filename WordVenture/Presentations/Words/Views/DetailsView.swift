@@ -26,7 +26,7 @@ struct DetailsView: View {
                         .foregroundColor(Color(.secondaryLabel))
                     CustomField("translated", text: $controller.translatedWord)
                     
-                    Group {                        
+                    Group {
                         Divider()
                             .padding(.vertical)
                         
