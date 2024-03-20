@@ -1,15 +1,14 @@
 //
-//  OpenAIDataSource.swift
-//  WordVenture
+//  ChatGPTAPI.swift
+//  WordBook
 //
-//  Created by Yu Takahashi on 6/3/23.
+//  Created by Yu Takahashi on 3/31/23.
 //
 
 import Foundation
 
-final class OpenAIDataSource: NSObject, Sendable {
-    
-    class func fetchGeneratedText(for word: String, mode: PromptMode) async throws -> [String]? {
+final class OpenAIRepositoryImpl: OpenAIRepository {
+    func fetchGeneratedText(for word: String, mode: PromptMode) async throws -> [String]? {
         let apiUrl = URL(string: "https://api.openai.com/v1/completions")!
 
         var request = URLRequest(url: apiUrl)
@@ -36,7 +35,6 @@ final class OpenAIDataSource: NSObject, Sendable {
         }
         
         let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-        print(json)
         
         if let choices = json["choices"] as? [[String: Any]],
            let text = choices.first?["text"] as? String {

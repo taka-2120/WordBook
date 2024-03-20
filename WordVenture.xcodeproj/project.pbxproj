@@ -12,8 +12,8 @@
 		9A24FDAD2A171B6500C34508 /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD382A171B6400C34508 /* env.swift */; };
 		9A24FDAE2A171B6500C34508 /* WordbookRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD3B2A171B6400C34508 /* WordbookRepositoryImpl.swift */; };
 		9A24FDAF2A171B6500C34508 /* WordbookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD3C2A171B6400C34508 /* WordbookRepository.swift */; };
-		9A24FDB02A171B6500C34508 /* SupabaseAuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD3E2A171B6400C34508 /* SupabaseAuthRepositoryImpl.swift */; };
-		9A24FDB12A171B6500C34508 /* SupabaseAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD3F2A171B6400C34508 /* SupabaseAuthRepository.swift */; };
+		9A24FDB02A171B6500C34508 /* AuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD3E2A171B6400C34508 /* AuthRepositoryImpl.swift */; };
+		9A24FDB12A171B6500C34508 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD3F2A171B6400C34508 /* AuthRepository.swift */; };
 		9A24FDB22A171B6500C34508 /* OpenAIRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD402A171B6400C34508 /* OpenAIRepositoryImpl.swift */; };
 		9A24FDB32A171B6500C34508 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD422A171B6400C34508 /* UserDataRepository.swift */; };
 		9A24FDB42A171B6500C34508 /* UserDataRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FD432A171B6400C34508 /* UserDataRepositoryImpl.swift */; };
@@ -83,6 +83,7 @@
 		9A24FDFE2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */; };
 		9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FE012A1F8CA200C34508 /* RelatedImage.swift */; };
 		9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2F836D2A138F030093CC7B /* SwiftUIPager */; };
+		9A3DF0092BAA69370057FAD1 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */; };
 		9A48F9712A5E8FB600F14D8C /* NukeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */; };
 		9A48F9732A5E8FCF00F14D8C /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F9722A5E8FCF00F14D8C /* Bundle.swift */; };
 		9A4A0CAF2A00ADDC00178B5F /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4A0CAE2A00ADDC00178B5F /* SwiftfulLoadingIndicators */; };
@@ -91,12 +92,6 @@
 		9A5EA74C2A2AEB2F00AAE8C3 /* IAPRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA74B2A2AEB2F00AAE8C3 /* IAPRepository.swift */; };
 		9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA74D2A2AEBE100AAE8C3 /* UnsplashRepository.swift */; };
 		9A5EA7502A2AEC3500AAE8C3 /* OpenAIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA74F2A2AEC3500AAE8C3 /* OpenAIRepository.swift */; };
-		9A5EA7532A2AF9F300AAE8C3 /* IAPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7522A2AF9F300AAE8C3 /* IAPDataSource.swift */; };
-		9A5EA7572A2AFAC100AAE8C3 /* UnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7562A2AFAC100AAE8C3 /* UnsplashDataSource.swift */; };
-		9A5EA7592A2AFB2E00AAE8C3 /* OpenAIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7582A2AFB2E00AAE8C3 /* OpenAIDataSource.swift */; };
-		9A5EA75B2A2AFB8D00AAE8C3 /* WordbookDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA75A2A2AFB8D00AAE8C3 /* WordbookDataSource.swift */; };
-		9A5EA75D2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA75C2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift */; };
-		9A5EA75F2A2B041F00AAE8C3 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA75E2A2B041F00AAE8C3 /* UserDataSource.swift */; };
 		9A5EA7612A2B13E600AAE8C3 /* OpenAIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7602A2B13E600AAE8C3 /* OpenAIUseCase.swift */; };
 		9A5EA7632A2B13EF00AAE8C3 /* UnsplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7622A2B13EF00AAE8C3 /* UnsplashUseCase.swift */; };
 		9A5EA7652A2B187F00AAE8C3 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7642A2B187F00AAE8C3 /* WordController.swift */; };
@@ -182,8 +177,8 @@
 		9A24FD382A171B6400C34508 /* env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
 		9A24FD3B2A171B6400C34508 /* WordbookRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookRepositoryImpl.swift; sourceTree = "<group>"; };
 		9A24FD3C2A171B6400C34508 /* WordbookRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookRepository.swift; sourceTree = "<group>"; };
-		9A24FD3E2A171B6400C34508 /* SupabaseAuthRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupabaseAuthRepositoryImpl.swift; sourceTree = "<group>"; };
-		9A24FD3F2A171B6400C34508 /* SupabaseAuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupabaseAuthRepository.swift; sourceTree = "<group>"; };
+		9A24FD3E2A171B6400C34508 /* AuthRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepositoryImpl.swift; sourceTree = "<group>"; };
+		9A24FD3F2A171B6400C34508 /* AuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		9A24FD402A171B6400C34508 /* OpenAIRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAIRepositoryImpl.swift; sourceTree = "<group>"; };
 		9A24FD422A171B6400C34508 /* UserDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
 		9A24FD432A171B6400C34508 /* UserDataRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -253,6 +248,7 @@
 		9A24FDFB2A1744EA00C34508 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepositoryImpl.swift; sourceTree = "<group>"; };
 		9A24FE012A1F8CA200C34508 /* RelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedImage.swift; sourceTree = "<group>"; };
+		9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 		9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeConfig.swift; sourceTree = "<group>"; };
 		9A48F9722A5E8FCF00F14D8C /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		9A5EA73F2A2A41D600AAE8C3 /* Products.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Products.storekit; sourceTree = "<group>"; };
@@ -261,12 +257,6 @@
 		9A5EA74B2A2AEB2F00AAE8C3 /* IAPRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPRepository.swift; sourceTree = "<group>"; };
 		9A5EA74D2A2AEBE100AAE8C3 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
 		9A5EA74F2A2AEC3500AAE8C3 /* OpenAIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRepository.swift; sourceTree = "<group>"; };
-		9A5EA7522A2AF9F300AAE8C3 /* IAPDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPDataSource.swift; sourceTree = "<group>"; };
-		9A5EA7562A2AFAC100AAE8C3 /* UnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDataSource.swift; sourceTree = "<group>"; };
-		9A5EA7582A2AFB2E00AAE8C3 /* OpenAIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIDataSource.swift; sourceTree = "<group>"; };
-		9A5EA75A2A2AFB8D00AAE8C3 /* WordbookDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookDataSource.swift; sourceTree = "<group>"; };
-		9A5EA75C2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthDataSource.swift; sourceTree = "<group>"; };
-		9A5EA75E2A2B041F00AAE8C3 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		9A5EA7602A2B13E600AAE8C3 /* OpenAIUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIUseCase.swift; sourceTree = "<group>"; };
 		9A5EA7622A2B13EF00AAE8C3 /* UnsplashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUseCase.swift; sourceTree = "<group>"; };
 		9A5EA7642A2B187F00AAE8C3 /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
@@ -354,6 +344,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9A1F30CA2BAA67AB00AB4557 /* IAPRepository */ = {
+			isa = PBXGroup;
+			children = (
+				9A5EA74B2A2AEB2F00AAE8C3 /* IAPRepository.swift */,
+				9A5EA7452A2AE32300AAE8C3 /* IAPRepositoryImpl.swift */,
+			);
+			path = IAPRepository;
+			sourceTree = "<group>";
+		};
 		9A24FD342A171B6400C34508 /* WordVenture */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,8 +362,9 @@
 				9A24FD372A171B6400C34508 /* Assets.xcassets */,
 				9A24FD352A171B6400C34508 /* Resources */,
 				9A24FD4A2A171B6400C34508 /* Common */,
-				9A5EA7472A2AE88B00AAE8C3 /* DataLayer */,
-				9A5EA7482A2AE89B00AAE8C3 /* Domains */,
+				9A24FDA72A171B6400C34508 /* Entities */,
+				9A24FD392A171B6400C34508 /* Repositories */,
+				9A24FDA12A171B6400C34508 /* Services */,
 				9A24FD652A171B6400C34508 /* Presentations */,
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
@@ -385,12 +385,12 @@
 		9A24FD392A171B6400C34508 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				9A5EA7452A2AE32300AAE8C3 /* IAPRepositoryImpl.swift */,
-				9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */,
-				9A24FD402A171B6400C34508 /* OpenAIRepositoryImpl.swift */,
-				9A24FD3B2A171B6400C34508 /* WordbookRepositoryImpl.swift */,
-				9A24FD3E2A171B6400C34508 /* SupabaseAuthRepositoryImpl.swift */,
-				9A24FD432A171B6400C34508 /* UserDataRepositoryImpl.swift */,
+				9A1F30CA2BAA67AB00AB4557 /* IAPRepository */,
+				9A3DF0062BAA68140057FAD1 /* UnsplashRepository */,
+				9A3DF00A2BAA6A030057FAD1 /* OpebAIRepository */,
+				9A3DF00B2BAA6A8A0057FAD1 /* WordbookRepository */,
+				9A3DF00C2BAA6C800057FAD1 /* AuthRepository */,
+				9A3DF00D2BAA725B0057FAD1 /* UserRepository */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -406,6 +406,7 @@
 		9A24FD4A2A171B6400C34508 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9A3DF0072BAA690B0057FAD1 /* Errors */,
 				9A24FD4B2A171B6400C34508 /* Constants */,
 				9A24FD502A171B6400C34508 /* Enums */,
 				9A24FD532A171B6400C34508 /* NavigationStacks */,
@@ -731,7 +732,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		9A24FDA12A171B6400C34508 /* UseCases */ = {
+		9A24FDA12A171B6400C34508 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				9A24FDA22A171B6400C34508 /* AuthService */,
@@ -741,7 +742,7 @@
 				9A5EA7662A2B275400AAE8C3 /* IAPUseCase.swift */,
 				9A5EA76F2A2B927F00AAE8C3 /* PurchaseManager.swift */,
 			);
-			path = UseCases;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		9A24FDA22A171B6400C34508 /* AuthService */ = {
@@ -781,49 +782,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9A5EA7472A2AE88B00AAE8C3 /* DataLayer */ = {
+		9A3DF0062BAA68140057FAD1 /* UnsplashRepository */ = {
 			isa = PBXGroup;
 			children = (
-				9A5EA7512A2AEEE500AAE8C3 /* DataSource */,
-				9A24FD392A171B6400C34508 /* Repositories */,
-			);
-			path = DataLayer;
-			sourceTree = "<group>";
-		};
-		9A5EA7482A2AE89B00AAE8C3 /* Domains */ = {
-			isa = PBXGroup;
-			children = (
-				9A5EA74A2A2AEA3D00AAE8C3 /* Repositories */,
-				9A24FDA72A171B6400C34508 /* Entities */,
-				9A24FDA12A171B6400C34508 /* UseCases */,
-			);
-			path = Domains;
-			sourceTree = "<group>";
-		};
-		9A5EA74A2A2AEA3D00AAE8C3 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				9A5EA74B2A2AEB2F00AAE8C3 /* IAPRepository.swift */,
 				9A5EA74D2A2AEBE100AAE8C3 /* UnsplashRepository.swift */,
-				9A5EA74F2A2AEC3500AAE8C3 /* OpenAIRepository.swift */,
-				9A24FD3C2A171B6400C34508 /* WordbookRepository.swift */,
-				9A24FD3F2A171B6400C34508 /* SupabaseAuthRepository.swift */,
-				9A24FD422A171B6400C34508 /* UserDataRepository.swift */,
+				9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */,
 			);
-			path = Repositories;
+			path = UnsplashRepository;
 			sourceTree = "<group>";
 		};
-		9A5EA7512A2AEEE500AAE8C3 /* DataSource */ = {
+		9A3DF0072BAA690B0057FAD1 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				9A5EA7522A2AF9F300AAE8C3 /* IAPDataSource.swift */,
-				9A5EA7562A2AFAC100AAE8C3 /* UnsplashDataSource.swift */,
-				9A5EA7582A2AFB2E00AAE8C3 /* OpenAIDataSource.swift */,
-				9A5EA75A2A2AFB8D00AAE8C3 /* WordbookDataSource.swift */,
-				9A5EA75C2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift */,
-				9A5EA75E2A2B041F00AAE8C3 /* UserDataSource.swift */,
+				9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */,
 			);
-			path = DataSource;
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		9A3DF00A2BAA6A030057FAD1 /* OpebAIRepository */ = {
+			isa = PBXGroup;
+			children = (
+				9A5EA74F2A2AEC3500AAE8C3 /* OpenAIRepository.swift */,
+				9A24FD402A171B6400C34508 /* OpenAIRepositoryImpl.swift */,
+			);
+			path = OpebAIRepository;
+			sourceTree = "<group>";
+		};
+		9A3DF00B2BAA6A8A0057FAD1 /* WordbookRepository */ = {
+			isa = PBXGroup;
+			children = (
+				9A24FD3C2A171B6400C34508 /* WordbookRepository.swift */,
+				9A24FD3B2A171B6400C34508 /* WordbookRepositoryImpl.swift */,
+			);
+			path = WordbookRepository;
+			sourceTree = "<group>";
+		};
+		9A3DF00C2BAA6C800057FAD1 /* AuthRepository */ = {
+			isa = PBXGroup;
+			children = (
+				9A24FD3F2A171B6400C34508 /* AuthRepository.swift */,
+				9A24FD3E2A171B6400C34508 /* AuthRepositoryImpl.swift */,
+			);
+			path = AuthRepository;
+			sourceTree = "<group>";
+		};
+		9A3DF00D2BAA725B0057FAD1 /* UserRepository */ = {
+			isa = PBXGroup;
+			children = (
+				9A24FD422A171B6400C34508 /* UserDataRepository.swift */,
+				9A24FD432A171B6400C34508 /* UserDataRepositoryImpl.swift */,
+			);
+			path = UserRepository;
 			sourceTree = "<group>";
 		};
 		9A5EA76A2A2B2FFD00AAE8C3 /* Components */ = {
@@ -1045,6 +1054,7 @@
 				9A24FDE72A171B6500C34508 /* LoadingController.swift in Sources */,
 				9A24FDDA2A171B6500C34508 /* AddWordView.swift in Sources */,
 				9A5EA7612A2B13E600AAE8C3 /* OpenAIUseCase.swift in Sources */,
+				9A3DF0092BAA69370057FAD1 /* UnsplashError.swift in Sources */,
 				9A24FDCC2A171B6500C34508 /* ChangeUsernameController.swift in Sources */,
 				9A24FDDC2A171B6500C34508 /* SmallFieldItem.swift in Sources */,
 				9A24FDE82A171B6500C34508 /* LoadingView.swift in Sources */,
@@ -1053,10 +1063,8 @@
 				9A7406602A4ADEEB00A500EF /* DismissButton.swift in Sources */,
 				9A24FDB22A171B6500C34508 /* OpenAIRepositoryImpl.swift in Sources */,
 				9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */,
-				9A5EA75B2A2AFB8D00AAE8C3 /* WordbookDataSource.swift in Sources */,
 				9A24FDED2A171B6500C34508 /* CustomField.swift in Sources */,
 				9A5EA7702A2B927F00AAE8C3 /* PurchaseManager.swift in Sources */,
-				9A5EA7532A2AF9F300AAE8C3 /* IAPDataSource.swift in Sources */,
 				9A24FDCB2A171B6500C34508 /* PriorityColor.swift in Sources */,
 				9A24FDF12A171B6500C34508 /* AuthService.swift in Sources */,
 				9A24FDDE2A171B6500C34508 /* WordItem.swift in Sources */,
@@ -1080,7 +1088,7 @@
 				9A5EA74C2A2AEB2F00AAE8C3 /* IAPRepository.swift in Sources */,
 				9AE82B642A57F0A000F3A5F1 /* CardFlip.swift in Sources */,
 				9A24FDFE2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift in Sources */,
-				9A24FDB12A171B6500C34508 /* SupabaseAuthRepository.swift in Sources */,
+				9A24FDB12A171B6500C34508 /* AuthRepository.swift in Sources */,
 				9A24FDB42A171B6500C34508 /* UserDataRepositoryImpl.swift in Sources */,
 				9A24FDE32A171B6500C34508 /* WordBookItem.swift in Sources */,
 				9A48F9712A5E8FB600F14D8C /* NukeConfig.swift in Sources */,
@@ -1111,11 +1119,10 @@
 				9AE82B602A57E34800F3A5F1 /* Haptics.swift in Sources */,
 				9A5EA7412A2AE1B700AAE8C3 /* PromptMode.swift in Sources */,
 				9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */,
-				9A5EA75D2A2B013B00AAE8C3 /* SupabaseAuthDataSource.swift in Sources */,
 				9A24FDD02A171B6500C34508 /* ChangeEmailView.swift in Sources */,
 				9ACA0A732A3FE13700C76A22 /* TermsAndConditionsView.swift in Sources */,
 				9AD4FF372A26EF8700229844 /* PlansController.swift in Sources */,
-				9A24FDB02A171B6500C34508 /* SupabaseAuthRepositoryImpl.swift in Sources */,
+				9A24FDB02A171B6500C34508 /* AuthRepositoryImpl.swift in Sources */,
 				9A24FDCD2A171B6500C34508 /* ChangeUsernameView.swift in Sources */,
 				9A24FDAF2A171B6500C34508 /* WordbookRepository.swift in Sources */,
 				9A24FDD42A171B6500C34508 /* SettingsController.swift in Sources */,
@@ -1134,7 +1141,6 @@
 				9A24FDEC2A171B6500C34508 /* SignUpView.swift in Sources */,
 				9A24FDFC2A1744EA00C34508 /* Languages.swift in Sources */,
 				9A24FDEF2A171B6500C34508 /* WordbookApp.swift in Sources */,
-				9A5EA7592A2AFB2E00AAE8C3 /* OpenAIDataSource.swift in Sources */,
 				9AE82B5E2A57D9F900F3A5F1 /* FlashCardController.swift in Sources */,
 				9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */,
 				9A24FDDB2A171B6500C34508 /* DetailsView.swift in Sources */,
@@ -1151,11 +1157,9 @@
 				9A24FDAD2A171B6500C34508 /* env.swift in Sources */,
 				9A24FDF62A171B6500C34508 /* UserDataEntity.swift in Sources */,
 				9AD4FBB22A59427D003AB3DE /* TestCardController.swift in Sources */,
-				9A5EA7572A2AFAC100AAE8C3 /* UnsplashDataSource.swift in Sources */,
 				9A24FDD32A171B6500C34508 /* SettingsView.swift in Sources */,
 				9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */,
 				9AD4FBB62A594446003AB3DE /* TestCardItem.swift in Sources */,
-				9A5EA75F2A2B041F00AAE8C3 /* UserDataSource.swift in Sources */,
 				9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */,
 				9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */,
 				9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */,

@@ -1,22 +1,19 @@
 //
-//  UnsplashDataSource.swift
+//  UnsplashAPI.swift
 //  WordVenture
 //
-//  Created by Yu Takahashi on 6/3/23.
+//  Created by Yu Takahashi on 5/25/23.
 //
 
 import Foundation
 
-final class UnsplashDataSource: NSObject, Sendable {
+final class UnsplashRepositoryImpl: UnsplashRepository {
     
-    class func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
+    func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
         let url = "https://api.unsplash.com/search/photos/?page=1&query=\(word)&client_id=\(ENV().unsplashAccessKey)"
         
-        let apiUrl = URL(string: url)
-        
-        guard let apiUrl = apiUrl else {
-            print("Unsplash api url: nil.")
-            return []
+        guard let apiUrl = URL(string: url) else {
+            throw UnsplashError.invalidUrl
         }
 
         var request = URLRequest(url: apiUrl)
@@ -32,8 +29,8 @@ final class UnsplashDataSource: NSObject, Sendable {
         let imagesJson = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
         print(imagesJson["results"] as! NSArray)
         let imagesArray = imagesJson["results"] as! NSArray
-        var unsplashImageUrls = [String]()
 
+        var unsplashImageUrls = [String]()
         for imageJson in imagesArray {
             let url = ((imageJson as AnyObject)["links"]!! as AnyObject)["download"]!! as! String
             unsplashImageUrls.append(url)

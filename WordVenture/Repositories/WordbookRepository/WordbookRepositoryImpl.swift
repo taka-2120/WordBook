@@ -1,16 +1,16 @@
 //
-//  WordbookDataSource.swift
-//  WordVenture
+//  WordbookRepo.swift
+//  WordBook
 //
-//  Created by Yu Takahashi on 6/3/23.
+//  Created by Yu Takahashi on 4/24/23.
 //
 
 import Foundation
 import Supabase
 
-final class WordbooksDataSource: NSObject, Sendable {
+final class WordbookRepositoryImpl: WordbookRepository {
     
-    class func fetchWordbook(userId: UUID) async throws -> [WordbookAPIModel] {
+    static func fetchWordbook(userId: UUID) async throws -> [Wordbook] {
         let query = client.database
             .from(wordbooksTable)
             .select()
@@ -18,10 +18,25 @@ final class WordbooksDataSource: NSObject, Sendable {
         
         let response: [WordbookAPIModel] = try await query.execute().value
         
-        return response
+        var wordbooks = [Wordbook]()
+        for wordbook in response {
+            let words = try await fetchWords(userId: userId, bookId: wordbook.bookId)
+            wordbooks.append(Wordbook(bookId: wordbook.bookId,
+                                      userId: wordbook.userId,
+                                      name: wordbook.name,
+                                      color: wordbook.color,
+                                      original: wordbook.original,
+                                      translated: wordbook.translated,
+                                      words: words,
+                                      modifiedDate: wordbook.modifiedDate,
+                                      testAttempts: wordbook.testAttempts))
+        }
+        wordbooks.sort(by: {$0.name < $1.name})
+        
+        return wordbooks
     }
     
-    class func insertWordbook(userId: UUID, name: String, color: String, original: String, translated: String) async throws {
+    static func insertWordbook(userId: UUID, name: String, color: String, original: String, translated: String) async throws -> [Wordbook] {
         let wordbook = WordbookAPIModel(bookId: UUID(),
                                         userId: userId,
                                         name: name,
@@ -35,9 +50,11 @@ final class WordbooksDataSource: NSObject, Sendable {
             .from(wordbooksTable)
             .insert(values: wordbook, returning: .none)
             .execute()
+        
+        return try await fetchWordbook(userId: userId)
     }
     
-    class func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws {
+    static func updateWordbook(bookId: UUID, userId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws -> [Wordbook] {
         let wordbook = WordbookAPIModel(bookId: bookId,
                                         userId: userId,
                                         name: name,
@@ -52,17 +69,21 @@ final class WordbooksDataSource: NSObject, Sendable {
             .update(values: wordbook)
             .eq(column: "bookId", value: bookId)
             .execute()
+        
+        return try await fetchWordbook(userId: userId)
     }
     
-    class func removeWordbook(userId: UUID, target bookId: UUID) async throws {
+    static func removeWordbook(userId: UUID, target bookId: UUID) async throws -> [Wordbook] {
         try await client.database
             .from(wordbooksTable)
             .delete()
             .eq(column: "bookId", value: bookId)
             .execute()
+        
+        return try await fetchWordbook(userId: userId)
     }
     
-    class func fetchWords(userId: UUID, bookId: UUID) async throws -> [WordAPIModel] {
+    private static func fetchWords(userId: UUID, bookId: UUID) async throws -> [Word] {
         let query = client.database
             .from(wordsTable)
             .select()
@@ -70,10 +91,29 @@ final class WordbooksDataSource: NSObject, Sendable {
         
         let response: [WordAPIModel] = try await query.execute().value
         
-        return response
+        var words = [Word]()
+        for word in response {
+            words.append(Word(userId: userId,
+                              wordId: word.wordId,
+                              bookId: word.bookId,
+                              original: word.original,
+                              translated: word.translated,
+                              priority: word.priority,
+                              missed: word.missed,
+                              correct: word.correct,
+                              thumbnailUrl: word.thumbnailUrl,
+                              imageUrls: word.imageUrls ?? [],
+                              synonyms: word.synonyms,
+                              antonyms: word.antonyms,
+                              examples: word.examples,
+                              imageSearchCount: word.imageSearchCount,
+                              textGeneratedCount: word.textGeneratedCount))
+        }
+        
+        return words
     }
     
-    class func insertWord(word: Word) async throws {
+    static func insertWord(word: Word) async throws {
         let word = WordAPIModel(wordId: UUID(),
                                 userId: word.userId,
                                 bookId: word.bookId,
@@ -96,7 +136,7 @@ final class WordbooksDataSource: NSObject, Sendable {
             .execute()
     }
     
-    class func updateWord(word: Word) async throws {
+    static func updateWord(word: Word) async throws {
         let word = WordAPIModel(wordId: word.wordId,
                                 userId: word.userId,
                                 bookId: word.bookId,
@@ -120,12 +160,11 @@ final class WordbooksDataSource: NSObject, Sendable {
             .execute()
     }
     
-    class func removeWord(target wordId: UUID) async throws {
+    static func removeWord(userId: UUID, target wordId: UUID) async throws {
         try await client.database
-                .from(wordsTable)
-                .delete()
-                .eq(column: "wordId", value: wordId)
-                .execute()
+            .from(wordsTable)
+            .delete()
+            .eq(column: "wordId", value: wordId)
+            .execute()
     }
-    
 }
