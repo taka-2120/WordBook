@@ -11,13 +11,12 @@
 import StoreKit
 
 final class IAPRepositoryImpl: IAPRepository {
-    
-    func fetchProducts() async throws -> [Product] {
+    static func fetchProducts() async throws -> [Product] {
         let identifiers: [String] = [UnlimitedPeriod.monthly.id, UnlimitedPeriod.annually.id]
         return try await Product.products(for: identifiers)
     }
     
-    func purchaseProduct(for product: Product) async throws -> Transaction? {
+    static func purchaseProduct(for product: Product) async throws -> Transaction? {
         let result = try await product.purchase(options: [.simulatesAskToBuyInSandbox(true)])
         
         switch result {
@@ -28,8 +27,7 @@ final class IAPRepositoryImpl: IAPRepository {
         }
     }
     
-    func restorePurchase() async throws {
+    static func restorePurchase() async throws {
         try await AppStore.sync()
     }
-    
 }

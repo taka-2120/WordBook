@@ -8,13 +8,7 @@
 import Foundation
 
 class UnsplashUseCase {
-    private let unsplashRepository: UnsplashRepository
-    
-    init() {
-        unsplashRepository = UnsplashRepositoryImpl()
-    }
-    
     func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
-        return try await unsplashRepository.fetchUnsplashImageUrls(for: word)
+        return try await UnsplashRepositoryImpl.fetchUnsplashImageUrls(for: word)
     }
 }

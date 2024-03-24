@@ -9,12 +9,12 @@ import Supabase
 import GoTrue
 
 protocol AuthRepository: Sendable {
-    func signUp(email: String, password: String) async throws
-    func signIn(email: String, password: String) async throws
-    func signOut() async throws
-    func fetchUser() async throws -> User
-    func retriveSession() async throws -> Session
-    func updatePassword(newPassword: String) async throws
-    func updateEmail(newEmail: String) async throws
-    func sendResetPasswordEmail(to email: String) async throws
+    static func signUp(email: String, password: String) async throws
+    static func signIn(email: String, password: String) async throws
+    static func signOut() async throws
+    static func fetchUser() async throws -> User
+    static func retrieveSession() async throws -> Session
+    static func updatePassword(newPassword: String) async throws
+    static func updateEmail(newEmail: String) async throws
+    static func sendResetPasswordEmail(to email: String) async throws
 }

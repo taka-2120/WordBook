@@ -8,13 +8,7 @@
 import Foundation
 
 class OpenAIUseCase {
-    private let openAIRepository: OpenAIRepository
-    
-    init() {
-        openAIRepository = OpenAIRepositoryImpl()
-    }
-    
     func fetchGeneratedText(for word: String, mode: PromptMode) async throws -> [String]? {
-        return try await openAIRepository.fetchGeneratedText(for: word, mode: mode)
+        return try await OpenAIRepositoryImpl.fetchGeneratedText(for: word, mode: mode)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 final class OpenAIRepositoryImpl: OpenAIRepository {
-    func fetchGeneratedText(for word: String, mode: PromptMode) async throws -> [String]? {
+    static func fetchGeneratedText(for word: String, mode: PromptMode) async throws -> [String]? {
         let apiUrl = URL(string: "https://api.openai.com/v1/completions")!
 
         var request = URLRequest(url: apiUrl)

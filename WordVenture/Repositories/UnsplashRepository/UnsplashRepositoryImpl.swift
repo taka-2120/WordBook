@@ -9,7 +9,7 @@ import Foundation
 
 final class UnsplashRepositoryImpl: UnsplashRepository {
     
-    func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
+    static func fetchUnsplashImageUrls(for word: String) async throws -> [String] {
         let url = "https://api.unsplash.com/search/photos/?page=1&query=\(word)&client_id=\(ENV().unsplashAccessKey)"
         
         guard let apiUrl = URL(string: url) else {
