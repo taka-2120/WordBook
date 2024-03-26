@@ -1412,8 +1412,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/igorcferreira/GIFImage.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.0.0;
 			};
 		};
 		9AAB3B6829F8C8B900AD6F6C /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
