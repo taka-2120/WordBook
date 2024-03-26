@@ -105,8 +105,8 @@
 		9A5EA7782A2C802100AAE8C3 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7772A2C802100AAE8C3 /* ReleaseNotesView.swift */; };
 		9A5EA77A2A2C803200AAE8C3 /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7792A2C803200AAE8C3 /* UpcomingView.swift */; };
 		9A5EA77F2A2C837100AAE8C3 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9A5EA77E2A2C837100AAE8C3 /* MarkdownUI */; };
-		9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */; };
-		9A5EA7842A2C881000AAE8C3 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7832A2C881000AAE8C3 /* Urls.swift */; };
+		9A5EA7822A2C857500AAE8C3 /* SharedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7812A2C857500AAE8C3 /* SharedFile.swift */; };
+		9A5EA7842A2C881000AAE8C3 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7832A2C881000AAE8C3 /* Url.swift */; };
 		9A5EA7862A2C896900AAE8C3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7852A2C896900AAE8C3 /* AboutView.swift */; };
 		9A5EA78C2A2D896900AAE8C3 /* info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */; };
 		9A5EA78E2A2DA43A00AAE8C3 /* StoreEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */; };
@@ -269,8 +269,8 @@
 		9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundController.swift; sourceTree = "<group>"; };
 		9A5EA7772A2C802100AAE8C3 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
 		9A5EA7792A2C803200AAE8C3 /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
-		9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUrl.swift; sourceTree = "<group>"; };
-		9A5EA7832A2C881000AAE8C3 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		9A5EA7812A2C857500AAE8C3 /* SharedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFile.swift; sourceTree = "<group>"; };
+		9A5EA7832A2C881000AAE8C3 /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		9A5EA7852A2C896900AAE8C3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "info-dev.plist"; sourceTree = "<group>"; };
 		9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEnvironment.swift; sourceTree = "<group>"; };
@@ -361,11 +361,14 @@
 				9A5EA78B2A2D896900AAE8C3 /* info-dev.plist */,
 				9A24FD372A171B6400C34508 /* Assets.xcassets */,
 				9A24FD352A171B6400C34508 /* Resources */,
-				9A24FD4A2A171B6400C34508 /* Common */,
+				9A24FD4B2A171B6400C34508 /* Constants */,
+				9A24FD602A171B6400C34508 /* Components */,
+				9A24FD572A171B6400C34508 /* Extensions */,
 				9A24FDA72A171B6400C34508 /* Entities */,
 				9A24FD392A171B6400C34508 /* Repositories */,
 				9A24FDA12A171B6400C34508 /* Services */,
 				9A24FD652A171B6400C34508 /* Presentations */,
+				9A24FD622A171B6400C34508 /* Utils */,
 				9A24FD9F2A171B6400C34508 /* WordbookApp.swift */,
 				9A24FD382A171B6400C34508 /* env.swift */,
 				9AC1FDC82A31576000EE329F /* Localizable.xcstrings */,
@@ -403,34 +406,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		9A24FD4A2A171B6400C34508 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9A3DF0072BAA690B0057FAD1 /* Errors */,
-				9A24FD4B2A171B6400C34508 /* Constants */,
-				9A24FD502A171B6400C34508 /* Enums */,
-				9A24FD532A171B6400C34508 /* NavigationStacks */,
-				9A24FD572A171B6400C34508 /* Extensions */,
-				9A24FD602A171B6400C34508 /* Components */,
-				9A24FD622A171B6400C34508 /* Helpers */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		9A24FD4B2A171B6400C34508 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				9A24FD502A171B6400C34508 /* Enums */,
+				9A3DF0072BAA690B0057FAD1 /* Errors */,
+				9A35ADBE2BB2966200C7932F /* Types */,
+				9A24FD532A171B6400C34508 /* NavigationStacks */,
 				9A24FD4C2A171B6400C34508 /* SupabaseClient.swift */,
-				9A24FD4D2A171B6400C34508 /* TableName.swift */,
-				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
-				9A5EA7832A2C881000AAE8C3 /* Urls.swift */,
 				9A5EA78D2A2DA43A00AAE8C3 /* StoreEnvironment.swift */,
 				9A5EA78F2A2DA5C100AAE8C3 /* AdmobId.swift */,
 				9AC1FDCA2A33101600EE329F /* UnlimitedPlan.swift */,
 				9A6C02B32A3AEAAD00BA61DC /* PlanContents.swift */,
 				9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */,
 				9A48F9722A5E8FCF00F14D8C /* Bundle.swift */,
-				9A35ADBB2BB1767900C7932F /* ServiceTypes.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -438,12 +427,15 @@
 		9A24FD502A171B6400C34508 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				9A5EA7402A2AE1B700AAE8C3 /* PromptMode.swift */,
 				9A24FD512A171B6400C34508 /* Regex.swift */,
-				9A24FD522A171B6400C34508 /* Errors.swift */,
 				9A5EA7682A2B2B4200AAE8C3 /* Products.swift */,
-				9A5EA7812A2C857500AAE8C3 /* SharedFileUrl.swift */,
+				9A5EA7812A2C857500AAE8C3 /* SharedFile.swift */,
 				9ACA0A782A3FF4E200C76A22 /* DocKind.swift */,
 				9AD4FBB72A598C49003AB3DE /* Priority.swift */,
+				9A24FD4D2A171B6400C34508 /* TableName.swift */,
+				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
+				9A5EA7832A2C881000AAE8C3 /* Url.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -493,7 +485,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		9A24FD622A171B6400C34508 /* Helpers */ = {
+		9A24FD622A171B6400C34508 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				9A24FD632A171B6400C34508 /* WordIndex.swift */,
@@ -502,7 +494,7 @@
 				9AD7B1132A36CAED00AAA6B1 /* VersionDetection.swift */,
 				9AE82B5F2A57E34800F3A5F1 /* Haptics.swift */,
 			);
-			path = Helpers;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9A24FD652A171B6400C34508 /* Presentations */ = {
@@ -752,7 +744,6 @@
 				9A24FDA82A171B6400C34508 /* WordEntity.swift */,
 				9A24FDA92A171B6400C34508 /* WordbookEntity.swift */,
 				9A24FDAA2A171B6400C34508 /* UserDataEntity.swift */,
-				9A5EA7402A2AE1B700AAE8C3 /* PromptMode.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -764,6 +755,14 @@
 				9AD4FF2C2A24B7C900229844 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A35ADBE2BB2966200C7932F /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				9A35ADBB2BB1767900C7932F /* ServiceTypes.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		9A3DF0062BAA68140057FAD1 /* UnsplashRepository */ = {
@@ -778,6 +777,7 @@
 		9A3DF0072BAA690B0057FAD1 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				9A24FD522A171B6400C34508 /* Errors.swift */,
 				9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */,
 			);
 			path = Errors;
@@ -1060,7 +1060,7 @@
 				9A24FDCF2A171B6500C34508 /* ChangePasswordController.swift in Sources */,
 				9A24FDDD2A171B6500C34508 /* FieldItem.swift in Sources */,
 				9A24FDC72A171B6500C34508 /* Color+Custom.swift in Sources */,
-				9A5EA7822A2C857500AAE8C3 /* SharedFileUrl.swift in Sources */,
+				9A5EA7822A2C857500AAE8C3 /* SharedFile.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
 				9A5EA7672A2B275400AAE8C3 /* IAPService.swift in Sources */,
@@ -1112,7 +1112,7 @@
 				9A24FDD42A171B6500C34508 /* SettingsController.swift in Sources */,
 				9A24FDBA2A171B6500C34508 /* TableName.swift in Sources */,
 				9A24FDE12A171B6500C34508 /* AddWordbookController.swift in Sources */,
-				9A5EA7842A2C881000AAE8C3 /* Urls.swift in Sources */,
+				9A5EA7842A2C881000AAE8C3 /* Url.swift in Sources */,
 				9A24FDD52A171B6500C34508 /* SettingsItem.swift in Sources */,
 				9A24FDE52A171B6500C34508 /* CardIntroductionView.swift in Sources */,
 				9A24FDC52A171B6500C34508 /* Color+Hex.swift in Sources */,

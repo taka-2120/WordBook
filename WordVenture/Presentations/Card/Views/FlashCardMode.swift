@@ -31,11 +31,11 @@ struct FlashCardMode: View {
                       .edgesIgnoringSafeArea(.all)
                       .background(Color(.systemGroupedBackground))
                       .onAppear {
-                          let isCardModeOpened = UserDefaults.standard.bool(forKey: isCardModeOpenedKey)
+                          let isCardModeOpened = UserDefaults.standard.bool(forKey: UserDefaultsKey.isCardModeOpenedKey.rawValue)
                           
                           if !isCardModeOpened {
                               flashCardController.isCardModeShown = true
-                              UserDefaults.standard.set(true, forKey: isCardModeOpenedKey)
+                              UserDefaults.standard.set(true, forKey: UserDefaultsKey.isCardModeOpenedKey.rawValue)
                           }
                       }
             }

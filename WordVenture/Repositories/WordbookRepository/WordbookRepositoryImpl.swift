@@ -9,10 +9,9 @@ import Foundation
 import Supabase
 
 final class WordbookRepositoryImpl: WordbookRepository {
-    
     static func fetchWordbook(userId: UUID) async throws -> [Wordbook] {
-        let query = client.database
-            .from(wordbooksTable)
+        let query = await client.database
+            .from(Table.wordbooks.rawValue)
             .select()
             .eq(column: "userId", value: userId)
         
@@ -47,7 +46,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
                                         testAttempts: 0)
         
         try await client.database
-            .from(wordbooksTable)
+            .from(Table.wordbooks.rawValue)
             .insert(values: wordbook, returning: .none)
             .execute()
         
@@ -65,7 +64,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
                                         testAttempts: testAttempts)
         
         try await client.database
-            .from(wordbooksTable)
+            .from(Table.wordbooks.rawValue)
             .update(values: wordbook)
             .eq(column: "bookId", value: bookId)
             .execute()
@@ -75,7 +74,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
     
     static func removeWordbook(userId: UUID, target bookId: UUID) async throws -> [Wordbook] {
         try await client.database
-            .from(wordbooksTable)
+            .from(Table.wordbooks.rawValue)
             .delete()
             .eq(column: "bookId", value: bookId)
             .execute()
@@ -84,8 +83,8 @@ final class WordbookRepositoryImpl: WordbookRepository {
     }
     
     private static func fetchWords(userId: UUID, bookId: UUID) async throws -> [Word] {
-        let query = client.database
-            .from(wordsTable)
+        let query = await client.database
+            .from(Table.words.rawValue)
             .select()
             .eq(column: "bookId", value: bookId)
         
@@ -131,7 +130,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
                                 textGeneratedCount: word.textGeneratedCount)
         
         try await client.database
-            .from(wordsTable)
+            .from(Table.words.rawValue)
             .insert(values: word, returning: .representation)
             .execute()
     }
@@ -154,7 +153,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
                                 textGeneratedCount: word.textGeneratedCount)
         
         try await client.database
-            .from(wordsTable)
+            .from(Table.words.rawValue)
             .update(values: word)
             .eq(column: "wordId", value: word.wordId)
             .execute()
@@ -162,7 +161,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
     
     static func removeWord(userId: UUID, target wordId: UUID) async throws {
         try await client.database
-            .from(wordsTable)
+            .from(Table.words.rawValue)
             .delete()
             .eq(column: "wordId", value: wordId)
             .execute()

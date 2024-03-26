@@ -69,11 +69,11 @@ import Foundation
     func agree(for kind: DocKind) {
         switch kind {
         case .privacyPolicy:
-            UserDefaults.standard.setValue(privacyPolicyUpdatedDate, forKey: privacyPolicyUpdatedDateKey)
+            UserDefaults.standard.setValue(privacyPolicyUpdatedDate, forKey: UserDefaultsKey.privacyPolicyUpdatedDateKey.rawValue)
             isPrivacyPolicyUpdated = false
             break
         case .termsAndConditions:
-            UserDefaults.standard.setValue(termsAndConditionsUpdatedDate, forKey: termsAndConditionsUpdatedDateKey)
+            UserDefaults.standard.setValue(termsAndConditionsUpdatedDate, forKey: UserDefaultsKey.termsAndConditionsUpdatedDateKey.rawValue)
             isTermsAndConditionsUpdated = false
             break
         }
@@ -88,8 +88,8 @@ import Foundation
     private func checkFileDates() async {
         let datesJson = await fetchSharedFileDates()
         
-        let privacyPolicyDateStored = UserDefaults.standard.object(forKey: privacyPolicyUpdatedDateKey) as? Date ?? Date()
-        let termsAndConditionsDateStored = UserDefaults.standard.object(forKey: termsAndConditionsUpdatedDateKey) as? Date ?? Date()
+        let privacyPolicyDateStored = UserDefaults.standard.object(forKey: UserDefaultsKey.privacyPolicyUpdatedDateKey.rawValue) as? Date ?? Date()
+        let termsAndConditionsDateStored = UserDefaults.standard.object(forKey: UserDefaultsKey.termsAndConditionsUpdatedDateKey.rawValue) as? Date ?? Date()
         
         let privacyPolicyDate = datesJson["privacy_policy"]?.isoToDate() ?? Date()
         let termsAndConditionsDate = datesJson["terms_and_conditions"]?.isoToDate() ?? Date()
@@ -102,7 +102,7 @@ import Foundation
     }
     
     private nonisolated func fetchSharedFileDates() async -> [String: String] {
-        let datesUrl = sharedBaseUrl + "dates.json"
+        let datesUrl = Url.supabaseSharedBucket.rawValue + "dates.json"
         let url = URL(string: datesUrl)
         
         guard let url = url else {

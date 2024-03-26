@@ -10,8 +10,8 @@ import Supabase
 
 final class UserDataRepositoryImpl: UserDataRepository {
     static func fetchUserData(userId: UUID) async throws -> UserData {
-        let query = client.database
-            .from(usersTable)
+        let query = await client.database
+            .from(Table.users.rawValue)
             .select()
             .eq(column: "userId", value: userId)
             .single()
@@ -24,7 +24,7 @@ final class UserDataRepositoryImpl: UserDataRepository {
         let userdata = UserData(userId: userId, username: username, showPriority: true, showMissedCount: true)
 
         try await client.database
-                    .from(usersTable)
+                    .from(Table.users.rawValue)
                     .insert(values: userdata, returning: .representation)
                     .single()
                     .execute()
@@ -36,7 +36,7 @@ final class UserDataRepositoryImpl: UserDataRepository {
                                 showPriority: oldUserData.showPriority, 
                                 showMissedCount: oldUserData.showMissedCount)
         try await client.database
-                    .from(usersTable)
+            .from(Table.users.rawValue)
                     .update(values: userdata)
                     .eq(column: "userId", value: userId)
                     .single()
@@ -48,7 +48,7 @@ final class UserDataRepositoryImpl: UserDataRepository {
         let userdata = UserData(userId: userId, username: oldUserData.username,
                                 showPriority: showPriority, showMissedCount: showMissedCount)
         try await client.database
-                    .from(usersTable)
+                    .from(Table.users.rawValue)
                     .update(values: userdata)
                     .eq(column: "userId", value: userId)
                     .single()
@@ -57,7 +57,7 @@ final class UserDataRepositoryImpl: UserDataRepository {
     
     static func deleteUserData(userId: UUID) async throws {
         try await client.database
-            .from(usersTable)
+            .from(Table.users.rawValue)
             .delete()
             .eq(column: "userId", value: userId)
             .execute()

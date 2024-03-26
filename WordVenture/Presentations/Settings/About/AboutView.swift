@@ -29,7 +29,7 @@ struct AboutView: View {
                     }
                     .foregroundColor(Color(.secondaryLabel))
                     .onTapGesture(count: 7) {
-                        UserDefaults.standard.set(false, forKey: isCardModeOpenedKey)
+                        UserDefaults.standard.set(false, forKey: UserDefaultsKey.isCardModeOpenedKey.rawValue)
                     }
                 }
                 
@@ -89,14 +89,14 @@ struct AboutView: View {
                         
                         Spacer()
                         
-                        Link(destination: URL(string: tiwtterUrl)!) {
+                        Link(destination: URL(string: Url.twitter.rawValue)!) {
                             Image("twitter")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 40)
                         }
                         
-                        Link(destination: URL(string: githubUrl)!) {
+                        Link(destination: URL(string: Url.github.rawValue)!) {
                             Image("github")
                                 .resizable()
                                 .scaledToFit()
@@ -115,7 +115,7 @@ struct AboutView: View {
                     .cornerRadius(15)
                 }
                 
-                Link(destination: URL(string: portfolioUrl)!) {
+                Link(destination: URL(string: Url.portfolio.rawValue)!) {
                     HStack {
                         Text("portfolio")
                         Spacer()
@@ -129,7 +129,7 @@ struct AboutView: View {
                 }
                 .padding(.top)
                 
-                Link(destination: URL(string: buyMeACoffeeUrl)!) {
+                Link(destination: URL(string: Url.buyMeACoffee.rawValue)!) {
                     Image("BuyMeACoffee")
                         .resizable()
                         .scaledToFit()

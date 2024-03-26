@@ -61,8 +61,8 @@ import SwiftUI
         self.wordbookTitle = wordbook.name
         self.wordbookColor = Color(hex: wordbook.color)
         self.testAttempts = wordbook.testAttempts
-        self.isPriorityChecked = UserDefaults.standard.value(forKey: showPriorityKey) as? Bool ?? true
-        self.isMissedCountChecked = UserDefaults.standard.value(forKey: showMissedCountKey) as? Bool ?? true
+        self.isPriorityChecked = UserDefaults.standard.value(forKey: UserDefaultsKey.showPriorityKey.rawValue) as? Bool ?? true
+        self.isMissedCountChecked = UserDefaults.standard.value(forKey: UserDefaultsKey.showMissedCountKey.rawValue) as? Bool ?? true
         
         fetchVisibilities()
         
@@ -87,8 +87,8 @@ import SwiftUI
     }
     
     private func storeVisibilitiesToUserDefaults() {
-        UserDefaults.standard.setValue(isPriorityChecked, forKey: showPriorityKey)
-        UserDefaults.standard.setValue(isMissedCountChecked, forKey: showMissedCountKey)
+        UserDefaults.standard.setValue(isPriorityChecked, forKey: UserDefaultsKey.showPriorityKey.rawValue)
+        UserDefaults.standard.setValue(isMissedCountChecked, forKey: UserDefaultsKey.showMissedCountKey.rawValue)
     }
     
     func updateWordItemVisibilities() {

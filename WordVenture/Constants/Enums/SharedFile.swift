@@ -1,5 +1,5 @@
 //
-//  SharedFileUrl.swift
+//  SharedFile.swift
 //  WordVenture
 //
 //  Created by Yu Takahashi on 6/4/23.
@@ -18,14 +18,14 @@ enum SharedFile: String {
 extension SharedFile {
     var localizedUrl: String {
         if self == .licenses {
-            return sharedBaseUrl + self.rawValue + ".md"
+            return Url.supabaseSharedBucket.rawValue + self.rawValue + ".md"
         }
         
         let currentLanguage = Locale.current.language.languageCode?.identifier ?? "en"
         if currentLanguage.contains("ja") {
-            return sharedBaseUrl + self.rawValue + "_ja.md"
+            return Url.supabaseSharedBucket.rawValue + self.rawValue + "_ja.md"
         }
-        return sharedBaseUrl + self.rawValue + "_en.md"
+        return Url.supabaseSharedBucket.rawValue + self.rawValue + "_en.md"
     }
     
     func fetchFileData() async -> String {
