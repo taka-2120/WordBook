@@ -7,8 +7,9 @@
 
 import Foundation
 
-@MainActor class ForgetPasswordController: ObservableObject {
-    private let authService = AuthService()
+@MainActor
+class ForgetPasswordController: ObservableObject {
+    private let authService = AuthServiceImpl()
     
     @Published var email = ""
     @Published var isLoading = false
@@ -23,7 +24,7 @@ import Foundation
     private func fetchEmail() {
         isLoading = true
         
-        Task {
+        Task { @MainActor in
             defer {
                 isLoading = false
             }
@@ -41,7 +42,7 @@ import Foundation
     func sendResetEmail() {
         isLoading = true
         
-        Task {
+        Task { @MainActor in
             defer {
                 isLoading = false
             }

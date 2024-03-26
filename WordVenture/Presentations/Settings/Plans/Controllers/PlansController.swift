@@ -10,12 +10,11 @@ import StoreKit
 import SwiftUI
 
 @MainActor class PlansController: ObservableObject, Sendable {
-    
-    private let purchaseManager = PurchaseManager.shared
-    private let iapUseCase = IAPUseCase()
+    private let iapService = IAPServiceImpl()
     
     @Published var products = [Product]()
     @Published var currentPeriod: UnlimitedPeriod? = nil
+    @Published var hasUnlimited = false
     @Published var selectedPeriod: UnlimitedPeriod = .monthly {
         willSet {
             refreshPurchaseState(for: newValue.id)
@@ -48,24 +47,24 @@ import SwiftUI
     
     init() {
         requestProducts()
-        purchaseManager.fetchCurrentEntitlements {
-            self.reflectPurchaseState()
-            self.refreshPurchaseState(for: self.selectedPeriod.id)
+        self.reflectPurchaseState()
+        self.refreshPurchaseState(for: self.selectedPeriod.id)
+        
+        Task { @MainActor in
+            self.hasUnlimited = await iapService.hasUnlimited()
         }
     }
     
     func reflectPurchaseState() {
-        if hasUnlimited() {
-            currentPeriod = purchaseManager.isPurchased(for: UnlimitedPeriod.monthly.id) ? .monthly : .annually
-            selectedPeriod = currentPeriod!
+        if hasUnlimited {
+            Task { @MainActor in
+                currentPeriod = await iapService.isPurchased(for: UnlimitedPeriod.monthly.id) ? .monthly : .annually
+                selectedPeriod = currentPeriod!
+            }
         } else {
             currentPeriod = nil
             selectedPeriod = .monthly
         }
-    }
-    
-    func hasUnlimited() -> Bool {
-        return purchaseManager.hasUnlimited
     }
     
     func showManageSubscriptionSheet() {
@@ -97,7 +96,7 @@ import SwiftUI
     func requestProducts() {
         Task { @MainActor in
             do {
-                products = try await iapUseCase.fetchProducts()
+                products = try await iapService.fetchProducts()
             } catch {
                 print(error)
             }
@@ -123,8 +122,10 @@ import SwiftUI
             return
         }
         
-        let hasPurchased = purchaseManager.isPurchased(for: productId)
-        isAvailable = !hasPurchased
+        Task { @MainActor in
+            let hasPurchased = await iapService.isPurchased(for: productId)
+            isAvailable = !hasPurchased
+        }
     }
     
     func purchaseProduct(dismissAction: @escaping () -> Void) {
@@ -139,7 +140,7 @@ import SwiftUI
                     return
                 }
                 
-                let transaction = try await iapUseCase.purchaseProduct(for: product)
+                let transaction = try await iapService.purchaseProduct(for: product)
                 
                 if transaction != nil {
                     reflectPurchaseState()
@@ -154,7 +155,7 @@ import SwiftUI
     func restorePurchase() {
         Task { @MainActor in
             do {
-                try await iapUseCase.restorePurchase()
+                try await iapService.restorePurchase()
                 reflectPurchaseState()
             } catch {
                 print(error)

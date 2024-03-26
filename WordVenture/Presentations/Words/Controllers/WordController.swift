@@ -8,9 +8,9 @@
 import SwiftUI
 
 @MainActor class WordController: ObservableObject, Sendable {
-    let wordbookService = WordbookService()
-    private let openAIUseCase = OpenAIUseCase()
-    private let unsplashUseCase = UnsplashUseCase()
+    let wordbookService = WordbookServiceImpl()
+    private let openAIUseCase = OpenAIServiceImpl()
+    private let unsplashUseCase = UnsplashServiceImpl()
     var wordbook: Wordbook
     
     @Published var originalWord = ""

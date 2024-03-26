@@ -11,4 +11,5 @@ protocol IAPRepository: Sendable {
     static func fetchProducts() async throws -> [Product]
     static func purchaseProduct(for product: Product) async throws -> Transaction?
     static func restorePurchase() async throws
+    static func getPurchasedIds() async throws -> [String]
 }

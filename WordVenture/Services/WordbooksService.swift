@@ -7,26 +7,26 @@
 
 import Foundation
 
-class WordbookService {
-    func fetchWordbook() async throws -> [Wordbook] {
-        let user = try await AuthRepositoryImpl.fetchUser()
-        return try await WordbookRepositoryImpl.fetchWordbook(userId: user.id)
+actor WordbookService<AuthRepo: AuthRepository, WordbookRepo: WordbookRepository> {
+    nonisolated func fetchWordbook() async throws -> [Wordbook] {
+        let user = try await AuthRepo.fetchUser()
+        return try await WordbookRepo.fetchWordbook(userId: user.id)
     }
     
-    func addWordbook(name: String, color: String, original: String, translated: String) async throws -> [Wordbook] {
-        let user = try await AuthRepositoryImpl.fetchUser()
-        return try await WordbookRepositoryImpl.insertWordbook(userId: user.id, name: name, color: color, original: original, translated: translated)
+    nonisolated func addWordbook(name: String, color: String, original: String, translated: String) async throws -> [Wordbook] {
+        let user = try await AuthRepo.fetchUser()
+        return try await WordbookRepo.insertWordbook(userId: user.id, name: name, color: color, original: original, translated: translated)
     }
     
-    func updateWordbook(bookId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws -> [Wordbook] {
-        let user = try await AuthRepositoryImpl.fetchUser()
-        return try await WordbookRepositoryImpl.updateWordbook(bookId: bookId, userId: user.id, name: name, color: color,
+    nonisolated func updateWordbook(bookId: UUID, name: String, color: String, original: String?, translated: String?, testAttempts: Int) async throws -> [Wordbook] {
+        let user = try await AuthRepo.fetchUser()
+        return try await WordbookRepo.updateWordbook(bookId: bookId, userId: user.id, name: name, color: color,
                                                      original: original, translated: translated, testAttempts: testAttempts)
     }
     
-    func removeWordbook(target bookId: UUID) async throws -> [Wordbook] {
-        let user = try await AuthRepositoryImpl.fetchUser()
-        return try await WordbookRepositoryImpl.removeWordbook(userId: user.id, target: bookId)
+    nonisolated func removeWordbook(target bookId: UUID) async throws -> [Wordbook] {
+        let user = try await AuthRepo.fetchUser()
+        return try await WordbookRepo.removeWordbook(userId: user.id, target: bookId)
     }
     
     
@@ -38,7 +38,7 @@ class WordbookService {
                            original: original, translated: translated, priority: priority, missed: missed, correct: correct,
                            thumbnailUrl: thumbnailUrl, imageUrls: imageUrls, synonyms: synonyms, antonyms: antonyms, examples: examples,
                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount)
-        try await WordbookRepositoryImpl.insertWord(word: newWord)
+        try await WordbookRepo.insertWord(word: newWord)
     }
     
     func updateWord(wordId: UUID, original: String, translated: String,
@@ -51,18 +51,18 @@ class WordbookService {
                            thumbnailUrl: thumbnailUrl, imageUrls: imageUrls, synonyms: synonyms, antonyms: antonyms, examples: examples,
                            imageSearchCount: imageSearchCount, textGeneratedCount: textGeneratedCount)
         
-        try await WordbookRepositoryImpl.updateWord(word: newWord)
+        try await WordbookRepo.updateWord(word: newWord)
     }
     
     func removeWord(for wordbook: Wordbook, target wordId: UUID) async throws {
-        try await WordbookRepositoryImpl.removeWord(userId: wordbook.userId, target: wordId)
+        try await WordbookRepo.removeWord(userId: wordbook.userId, target: wordId)
     }
     
     func updateVisibilities(userId: UUID, showPriority: Bool, showMissedCount: Bool) async throws {
         try await UserDataRepositoryImpl.updateVisibilities(userId: userId, showPriority: showPriority, showMissedCount: showMissedCount)
     }
     
-    func fetchVisibilities(for userId: UUID) async throws -> UserData {
+    nonisolated func fetchVisibilities(for userId: UUID) async throws -> UserData {
         try await UserDataRepositoryImpl.fetchUserData(userId: userId)
     }
 }

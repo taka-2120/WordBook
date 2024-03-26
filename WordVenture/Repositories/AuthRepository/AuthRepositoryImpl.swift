@@ -8,7 +8,7 @@
 import Supabase
 import GoTrue
 
-final class AuthRepositoryImpl: AuthRepository {
+actor AuthRepositoryImpl: AuthRepository {
     static func signUp(email: String, password: String) async throws {
         _ = try await client.auth.signUp(email: email, password: password)
         _ = try await retrieveSession()

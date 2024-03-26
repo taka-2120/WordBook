@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor class ChangeUsernameController: ObservableObject, Sendable {
-    private let authService = AuthService()
+    private let authService = AuthServiceImpl()
     
     @Published var username = ""
     @Published var isLoading = false

@@ -9,9 +9,9 @@ import Foundation
 
 @MainActor class LoadingController: ObservableObject, Sendable {
     private var screenController = ScreenController.shared
-    private let authService = AuthService()
-    private let wordbookService = WordbookService()
-    private let purchaseManager = PurchaseManager.shared
+    private let authService = AuthServiceImpl()
+    private let wordbookService = WordbookServiceImpl()
+    private let purchaseManager = IAPServiceImpl()
     
     let launchAnimationPath = Bundle.main.path(forResource: "BookStack", ofType: "gif")!
     
@@ -106,7 +106,7 @@ import Foundation
         let url = URL(string: datesUrl)
         
         guard let url = url else {
-            print("Invailed URL: \(datesUrl)")
+            print("Invalid URL: \(datesUrl)")
             return [:]
         }
         

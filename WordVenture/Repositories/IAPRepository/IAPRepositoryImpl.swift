@@ -5,9 +5,6 @@
 //  Created by Yu Takahashi on 6/3/23.
 //
 
-// Referenced: https://adapty.io/blog/in-app-purchase-tutorial-for-ios/
-// Finished until Step 6
-
 import StoreKit
 
 final class IAPRepositoryImpl: IAPRepository {
@@ -23,11 +20,42 @@ final class IAPRepositoryImpl: IAPRepository {
         case .success(.verified(let transaction)):
             await transaction.finish()
             return transaction
-        default: return nil
+        case let .success(.unverified(_, error)):
+            // Successful purchase but transaction/receipt can't be verified
+            // Could be a jailbroken phone
+            print("Unverified purchase. Might be jailbroken. Error: \(error)")
+            return nil
+        case .pending:
+            // Transaction waiting on SCA (Strong Customer Authentication) or
+            // approval from Ask to Buy
+            return nil
+        case .userCancelled:
+            print("User Cancelled!")
+            return nil
+        @unknown default:
+            print("Failed to purchase the product!")
+            return nil
         }
     }
     
     static func restorePurchase() async throws {
         try await AppStore.sync()
+    }
+    
+    static func getPurchasedIds() async throws -> [String] {
+        var productIds = [String]()
+        
+        for await result in Transaction.currentEntitlements {
+            guard case .verified(let transaction) = result else {
+                continue
+            }
+            if transaction.revocationDate == nil {
+                productIds.append(transaction.productID)
+            } else {
+                productIds = productIds.filter { $0 != transaction.productID }
+            }
+        }
+        
+        return productIds
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 @MainActor class SettingsController: ObservableObject, Sendable {
     
     private var screenController = ScreenController.shared
-    private let authService = AuthService()
+    private let authService = AuthServiceImpl()
     
     @Published var username = ""
     @Published var email = ""

@@ -10,7 +10,7 @@ import Foundation
 @MainActor class AuthController: ObservableObject, Sendable {
     
     private var screenController = ScreenController.shared
-    private let authService = AuthService()
+    private let authService = AuthServiceImpl()
     
     @Published var username = ""
     @Published var email = ""

@@ -8,8 +8,8 @@
 import SwiftUI
 
 @MainActor class WordsController: ObservableObject, Sendable {
-    private let wordbookService = WordbookService()
-    private let purchaseManager = PurchaseManager.shared
+    private let wordbookService = WordbookServiceImpl()
+    private let iapService = IAPServiceImpl()
     
     @Published var wordbook: Wordbook
     @Published var selectedWord: Word? = nil
@@ -50,7 +50,7 @@ import SwiftUI
     @Published var isPlanViewShown = false
     @Published var isMissedCountChecked: Bool
     @Published var isPriorityChecked: Bool
-    @Published var hasUnlimited: Bool
+    @Published var hasUnlimited = false
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
@@ -64,10 +64,12 @@ import SwiftUI
         self.isPriorityChecked = UserDefaults.standard.value(forKey: showPriorityKey) as? Bool ?? true
         self.isMissedCountChecked = UserDefaults.standard.value(forKey: showMissedCountKey) as? Bool ?? true
         
-        // Plan Check
-        self.hasUnlimited = purchaseManager.hasUnlimited
-        
         fetchVisibilities()
+        
+        // Plan Check
+        Task { @MainActor in
+            self.hasUnlimited = await iapService.hasUnlimited()
+        }
     }
     
     private func fetchVisibilities() {

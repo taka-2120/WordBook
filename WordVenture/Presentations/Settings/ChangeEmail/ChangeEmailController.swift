@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor class ChangeEmailController: ObservableObject, Sendable {
-    private let authService = AuthService()
+    private let authService = AuthServiceImpl()
     
     @Published var email = ""
     @Published var newEmail = ""

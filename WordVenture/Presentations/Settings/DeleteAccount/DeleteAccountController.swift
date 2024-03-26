@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor class DeleteAccountController: ObservableObject, Sendable {
     private var screenController = ScreenController.shared
-    private let authService = AuthService()
+    private let authService = AuthServiceImpl()
     
     @Published var email = ""
     @Published var password = ""

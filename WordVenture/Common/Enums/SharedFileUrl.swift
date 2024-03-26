@@ -31,7 +31,7 @@ extension SharedFile {
     func fetchFileData() async -> String {
         let url = URL(string: self.localizedUrl)
         guard let url = url else {
-            print("Invailed URL: \(self.localizedUrl)")
+            print("Invalid URL: \(self.localizedUrl)")
             return "Not Found"
         }
         

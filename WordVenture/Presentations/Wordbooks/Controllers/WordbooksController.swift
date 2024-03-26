@@ -8,8 +8,8 @@
 import Foundation
 
 @MainActor class WordbooksController: ObservableObject, Sendable {
-    private let wordbookService = WordbookService()
-    private let purchaseManager = PurchaseManager.shared
+    private let wordbookService = WordbookServiceImpl()
+    private let iapService = IAPServiceImpl()
     @Published var wordbooks: [Wordbook] = []
     
     @Published var isAddShown = false {
@@ -22,24 +22,28 @@ import Foundation
     @Published var isSettingsShown = false {
         willSet {
             if newValue == false {
-                self.hasUnlimited = purchaseManager.hasUnlimited
+                Task { @MainActor in
+                    self.hasUnlimited = await iapService.hasUnlimited()
+                }
             }
         }
     }
     @Published var isPlanViewShown = false {
         willSet {
             if newValue == false {
-                self.hasUnlimited = purchaseManager.hasUnlimited
+                Task { @MainActor in
+                    self.hasUnlimited = await iapService.hasUnlimited()
+                }
             }
         }
     }
-    @Published var hasUnlimited: Bool
+    @Published var hasUnlimited = false
     
     init() {
-        // Plan Check
-        self.hasUnlimited = purchaseManager.hasUnlimited
-        
         self.fetchWordbooks()
+        Task { @MainActor in
+            self.hasUnlimited = await iapService.hasUnlimited()
+        }
     }
     
     func fetchWordbooks() {
@@ -54,10 +58,6 @@ import Foundation
     
     func pinWordbook() {
         
-    }
-    
-    func isAdRemoved() -> Bool {
-        return purchaseManager.hasUnlimited
     }
     
     func removeWordbook(at index: Int) {

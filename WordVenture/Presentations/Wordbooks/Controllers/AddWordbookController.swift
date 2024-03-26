@@ -1,5 +1,5 @@
 //
-//  AddWordbookService.swift
+//  AddWordbookServiceImpl.swift
 //  WordBook
 //
 //  Created by Yu Takahashi on 4/2/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor class AddWordbookController: ObservableObject, Sendable {
-    private let wordbookService = WordbookService()
+    private let wordbookService = WordbookServiceImpl()
     
     let languages = NSLocale.isoLanguageCodes.sorted()
     let currentLanguage = NSLocale.current.language.languageCode?.identifier ?? "en"
