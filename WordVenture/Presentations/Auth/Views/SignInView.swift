@@ -14,11 +14,11 @@ struct SignInView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 15) {
-                Text("welcomeBack")
+                Text(L10n.welcomeBack.rawValue)
                     .font(.title)
                     .bold()
                 
-                Image("SignIn")
+                Image(.signIn)
                     .resizable()
                     .scaledToFill()
                     .frame(height: 300)
@@ -29,7 +29,7 @@ struct SignInView: View {
                     Image(systemName: "at")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: "email", isEmail: true, text: $controller.email)
+                    CustomField("", placeHolder: L10n.email.rawValue, isEmail: true, text: $controller.email)
                         .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
@@ -38,7 +38,7 @@ struct SignInView: View {
                     Image(systemName: "key.horizontal")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: "password", isSecured: true, text: $controller.password)
+                    CustomField("", placeHolder: L10n.password.rawValue, isSecured: true, text: $controller.password)
                         .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
@@ -48,7 +48,7 @@ struct SignInView: View {
                 Button {
                     controller.signIn()
                 } label: {
-                    Text("signIn")
+                    Text(L10n.signIn.rawValue)
                         .foregroundColor(.white)
                         .font(.title3)
                         .bold()
@@ -63,8 +63,8 @@ struct SignInView: View {
         .background(Color.primaryAccent)
         .foregroundColor(.black)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("error", isPresented: $controller.isErrorShown) {
-            Text("OK")
+        .alert(L10n.error.rawValue, isPresented: $controller.isErrorShown) {
+            Text(L10n.ok.rawValue)
         } message: {
             Text(controller.errorMessage)
         }

@@ -10,7 +10,7 @@ import Supabase
 
 final class WordbookRepositoryImpl: WordbookRepository {
     static func fetchWordbook(userId: UUID) async throws -> [Wordbook] {
-        let query = await client.database
+        let query = client.database
             .from(Table.wordbooks.rawValue)
             .select()
             .eq(column: "userId", value: userId)
@@ -83,7 +83,7 @@ final class WordbookRepositoryImpl: WordbookRepository {
     }
     
     private static func fetchWords(userId: UUID, bookId: UUID) async throws -> [Word] {
-        let query = await client.database
+        let query = client.database
             .from(Table.words.rawValue)
             .select()
             .eq(column: "bookId", value: bookId)

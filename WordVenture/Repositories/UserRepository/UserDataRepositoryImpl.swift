@@ -10,7 +10,7 @@ import Supabase
 
 final class UserDataRepositoryImpl: UserDataRepository {
     static func fetchUserData(userId: UUID) async throws -> UserData {
-        let query = await client.database
+        let query = client.database
             .from(Table.users.rawValue)
             .select()
             .eq(column: "userId", value: userId)

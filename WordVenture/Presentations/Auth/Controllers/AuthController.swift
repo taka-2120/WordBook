@@ -7,7 +7,8 @@
 
 import Foundation
 
-@MainActor class AuthController: ObservableObject, Sendable {
+@MainActor
+class AuthController: ObservableObject, Sendable {
     
     private var screenController = ScreenController.shared
     private let authService = AuthServiceImpl()

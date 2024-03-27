@@ -34,7 +34,6 @@ class ForgetPasswordController: ObservableObject {
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true
-                print(error)
             }
         }
     }
@@ -52,7 +51,6 @@ class ForgetPasswordController: ObservableObject {
             } catch {
                 errorMessage = error.localizedDescription
                 isErrorShown = true
-                print(error)
             }
         }
     }

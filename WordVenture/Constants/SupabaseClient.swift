@@ -8,5 +8,4 @@
 import Foundation
 import Supabase
 
-@MainActor
-let client = SupabaseClient(supabaseURL: URL(string: ENV().databaseUrl)!, supabaseKey: ENV().supabaseApiKey)
+nonisolated(unsafe) let client = SupabaseClient(supabaseURL: URL(string: ENV().databaseUrl)!, supabaseKey: ENV().supabaseApiKey)

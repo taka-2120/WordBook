@@ -83,6 +83,9 @@
 		9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24FE012A1F8CA200C34508 /* RelatedImage.swift */; };
 		9A2F836E2A138F030093CC7B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2F836D2A138F030093CC7B /* SwiftUIPager */; };
 		9A35ADBC2BB1767900C7932F /* ServiceTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADBB2BB1767900C7932F /* ServiceTypes.swift */; };
+		9A35ADC02BB2A55600C7932F /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADBF2BB2A55600C7932F /* L10n.swift */; };
+		9A35ADC22BB313B600C7932F /* AssetUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADC12BB313B600C7932F /* AssetUrl.swift */; };
+		9A35ADC52BB39AB100C7932F /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADC42BB39AB100C7932F /* WelcomeController.swift */; };
 		9A3DF0092BAA69370057FAD1 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */; };
 		9A48F9712A5E8FB600F14D8C /* NukeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */; };
 		9A48F9732A5E8FCF00F14D8C /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F9722A5E8FCF00F14D8C /* Bundle.swift */; };
@@ -98,7 +101,6 @@
 		9A5EA7672A2B275400AAE8C3 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7662A2B275400AAE8C3 /* IAPService.swift */; };
 		9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7682A2B2B4200AAE8C3 /* Products.swift */; };
 		9A5EA76E2A2B301900AAE8C3 /* PlanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */; };
-		9A5EA7702A2B927F00AAE8C3 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA76F2A2B927F00AAE8C3 /* PurchaseManager.swift */; };
 		9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */; };
 		9A5EA7742A2C354600AAE8C3 /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7732A2C354600AAE8C3 /* RefundView.swift */; };
 		9A5EA7762A2C358E00AAE8C3 /* RefundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */; };
@@ -248,6 +250,9 @@
 		9A24FDFD2A1F2D7200C34508 /* UnsplashRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepositoryImpl.swift; sourceTree = "<group>"; };
 		9A24FE012A1F8CA200C34508 /* RelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedImage.swift; sourceTree = "<group>"; };
 		9A35ADBB2BB1767900C7932F /* ServiceTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTypes.swift; sourceTree = "<group>"; };
+		9A35ADBF2BB2A55600C7932F /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		9A35ADC12BB313B600C7932F /* AssetUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUrl.swift; sourceTree = "<group>"; };
+		9A35ADC42BB39AB100C7932F /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 		9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeConfig.swift; sourceTree = "<group>"; };
 		9A48F9722A5E8FCF00F14D8C /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -263,7 +268,6 @@
 		9A5EA7662A2B275400AAE8C3 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		9A5EA7682A2B2B4200AAE8C3 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		9A5EA76D2A2B301900AAE8C3 /* PlanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanItem.swift; sourceTree = "<group>"; };
-		9A5EA76F2A2B927F00AAE8C3 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		9A5EA7712A2C138B00AAE8C3 /* CommonWordSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWordSection.swift; sourceTree = "<group>"; };
 		9A5EA7732A2C354600AAE8C3 /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		9A5EA7752A2C358E00AAE8C3 /* RefundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundController.swift; sourceTree = "<group>"; };
@@ -436,6 +440,8 @@
 				9A24FD4D2A171B6400C34508 /* TableName.swift */,
 				9A24FD4E2A171B6400C34508 /* UserDefaultsKey.swift */,
 				9A5EA7832A2C881000AAE8C3 /* Url.swift */,
+				9A35ADC12BB313B600C7932F /* AssetUrl.swift */,
+				9A35ADBF2BB2A55600C7932F /* L10n.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 		9A24FD652A171B6400C34508 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				9A35ADC32BB39AA100C7932F /* Welcome */,
 				9AEFE5A52A469EB500C71423 /* ForgetPassword */,
 				9A24FD922A171B6400C34508 /* Loading */,
 				9A24FD952A171B6400C34508 /* Auth */,
@@ -710,7 +717,6 @@
 		9A24FD982A171B6400C34508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD992A171B6400C34508 /* WelcomeView.swift */,
 				9A24FD9A2A171B6400C34508 /* SignInView.swift */,
 				9A24FD9B2A171B6400C34508 /* SignUpView.swift */,
 			);
@@ -733,7 +739,6 @@
 				9A5EA7602A2B13E600AAE8C3 /* OpenAIService.swift */,
 				9A5EA7622A2B13EF00AAE8C3 /* UnsplashService.swift */,
 				9A5EA7662A2B275400AAE8C3 /* IAPService.swift */,
-				9A5EA76F2A2B927F00AAE8C3 /* PurchaseManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -763,6 +768,15 @@
 				9A35ADBB2BB1767900C7932F /* ServiceTypes.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		9A35ADC32BB39AA100C7932F /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				9A24FD992A171B6400C34508 /* WelcomeView.swift */,
+				9A35ADC42BB39AB100C7932F /* WelcomeController.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		9A3DF0062BAA68140057FAD1 /* UnsplashRepository */ = {
@@ -1048,18 +1062,20 @@
 				9A24FDB22A171B6500C34508 /* OpenAIRepositoryImpl.swift in Sources */,
 				9AD4FF262A22F31100229844 /* DeleteAccountController.swift in Sources */,
 				9A24FDED2A171B6500C34508 /* CustomField.swift in Sources */,
-				9A5EA7702A2B927F00AAE8C3 /* PurchaseManager.swift in Sources */,
 				9A24FDCB2A171B6500C34508 /* PriorityColor.swift in Sources */,
 				9A24FDF12A171B6500C34508 /* AuthService.swift in Sources */,
 				9A24FDDE2A171B6500C34508 /* WordItem.swift in Sources */,
 				9A6C02B42A3AEAAD00BA61DC /* PlanContents.swift in Sources */,
+				9A35ADC02BB2A55600C7932F /* L10n.swift in Sources */,
 				9A24FDBD2A171B6500C34508 /* Regex.swift in Sources */,
 				9A24FDC02A171B6500C34508 /* MainPathes.swift in Sources */,
+				9A35ADC22BB313B600C7932F /* AssetUrl.swift in Sources */,
 				9A5EA7762A2C358E00AAE8C3 /* RefundController.swift in Sources */,
 				9A24FDD12A171B6500C34508 /* ChangeEmailController.swift in Sources */,
 				9A24FDCF2A171B6500C34508 /* ChangePasswordController.swift in Sources */,
 				9A24FDDD2A171B6500C34508 /* FieldItem.swift in Sources */,
 				9A24FDC72A171B6500C34508 /* Color+Custom.swift in Sources */,
+				9A35ADC52BB39AB100C7932F /* WelcomeController.swift in Sources */,
 				9A5EA7822A2C857500AAE8C3 /* SharedFile.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
@@ -1217,6 +1233,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -1277,6 +1294,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

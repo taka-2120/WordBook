@@ -15,11 +15,11 @@ struct ForgetPasswordView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("resetNote")
+                Text(L10n.resetNote.rawValue)
                     .frame(alignment: .leading)
                 
                 Group {
-                    Text("resetEmailNote") +
+                    Text(L10n.resetEmailNote.rawValue) +
                     Text(controller.email)
                         .fontWeight(.bold)
                 }
@@ -31,7 +31,7 @@ struct ForgetPasswordView: View {
                 Button {
                     controller.sendResetEmail()
                 } label: {
-                    Text("sendEmail")
+                    Text(L10n.sendEmail.rawValue)
                         .foregroundColor(Color(.systemBackground))
                         .font(.title3)
                         .padding()
@@ -42,14 +42,14 @@ struct ForgetPasswordView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
-            .navigationTitle("forgetPassword")
+            .navigationTitle(L10n.forgetPassword.rawValue)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     DismissButton(dismiss, colorScheme)
                 }
             }
-            .alert("error", isPresented: $controller.isErrorShown) {
-                Text("OK")
+            .alert(L10n.error.rawValue, isPresented: $controller.isErrorShown) {
+                Text(L10n.ok.rawValue)
             } message: {
                 Text(controller.errorMessage)
             }

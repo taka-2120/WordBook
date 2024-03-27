@@ -9,14 +9,13 @@ import SwiftUI
 import GIFImage
 
 struct LoadingView: View, Sendable {
-    
     @StateObject private var controller = LoadingController()
     
     var body: some View {
         ZStack {
             Color.white
                 .ignoresSafeArea()
-            GIFImage(source: .local(filePath: controller.launchAnimationPath), loop: .constant(false)) { _ in
+            GIFImage(source: .local(filePath: AssetUrl.bookGif.url), loop: .constant(false)) { _ in
                 await controller.load()
             }
         }
@@ -26,8 +25,8 @@ struct LoadingView: View, Sendable {
         .fullScreenCover(isPresented: $controller.isTermsAndConditionsUpdated) {
             DocPromptView(docKind: .termsAndConditions)
         }
-        .alert("error", isPresented: $controller.isErrorShown) {
-            Text("OK")
+        .alert(L10n.error.rawValue, isPresented: $controller.isErrorShown) {
+            Text(L10n.ok.rawValue)
         } message: {
             Text(controller.errorMessage)
         }

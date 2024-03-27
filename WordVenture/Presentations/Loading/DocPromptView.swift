@@ -35,7 +35,7 @@ struct DocPromptView: View {
                         Button {
                             controller.disagree(for: docKind)
                         } label: {
-                            Text("disagree")
+                            Text(L10n.disagree.rawValue)
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(maxWidth: 250)
@@ -47,7 +47,7 @@ struct DocPromptView: View {
                         Button {
                             controller.agree(for: docKind)
                         } label: {
-                            Text("agree")
+                            Text(L10n.agree.rawValue)
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(maxWidth: 250)

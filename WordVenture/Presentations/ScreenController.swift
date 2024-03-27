@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class ScreenController: ObservableObject {
+@MainActor
+class ScreenController: ObservableObject {
     static let shared = ScreenController()
     private init() {}
     

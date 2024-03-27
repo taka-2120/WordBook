@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @State private var authPathes: [AuthMethod] = []
-    @State private var isPrivacyPolicyShown = false
-    @State private var isTermsAndConditionsShown = false
+    @StateObject var controller = WelcomeController()
     
     var body: some View {
-        NavigationStack(path: $authPathes) {
+        NavigationStack(path: $controller.authNavPaths) {
             VStack {
                 HStack {
                     Text("Welcome to")
@@ -40,23 +38,12 @@ struct WelcomeView: View {
                 .padding(.leading, 100)
                 
                 TabView {
-//                    VStack {
-//                        Image("BookStack")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .cornerRadius(30)
-//                        Text("Fooooo")
-//                            .padding(.bottom, 40)
-//                    }
-//                    .padding()
-//                    .tag(0)
-                    
                     VStack {
                         Image(.brain)
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(30)
-                        Text("apiIntro")
+                        Text(L10n.apiIntro.rawValue)
                             .padding(.vertical)
                     }
                     .padding()
@@ -67,7 +54,7 @@ struct WelcomeView: View {
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(30)
-                        Text("cardIntro")
+                        Text(L10n.cardIntro.rawValue)
                             .padding(.vertical)
                     }
                     .padding()
@@ -82,9 +69,9 @@ struct WelcomeView: View {
                 
                 HStack {
                     Button {
-                        authPathes = [.signUp]
+                        controller.navigate(to: .signUp)
                     } label: {
-                        Text("signUp")
+                        Text(L10n.signUp.rawValue)
                             .foregroundColor(.white)
                             .font(.title3)
                             .bold()
@@ -96,9 +83,9 @@ struct WelcomeView: View {
                     
                     
                     Button {
-                        authPathes = [.signIn]
+                        controller.navigate(to: .signIn)
                     } label: {
-                        Text("signIn")
+                        Text(L10n.signIn.rawValue)
                             .font(.title3)
                             .bold()
                             .padding()
@@ -111,23 +98,23 @@ struct WelcomeView: View {
                 }
                 
                 VStack(spacing: 8) {
-                    Text("usingAppNotes")
+                    Text(L10n.usingAppNotes.rawValue)
                         .multilineTextAlignment(.leading)
                         .font(.callout)
                         .foregroundStyle(Color(.secondaryLabel))
                     
                     Button {
-                        isPrivacyPolicyShown.toggle()
+                        controller.showPrivacyPolicy()
                     } label: {
-                        Text("privacyPolicy")
+                        Text(L10n.privacyPolicy.rawValue)
                             .font(.callout)
                             .underline()
                     }
                     
                     Button {
-                        isTermsAndConditionsShown.toggle()
+                        controller.showTermsAndConditions()
                     } label: {
-                        Text("termsAndConditions")
+                        Text(L10n.termsAndConditions.rawValue)
                             .font(.callout)
                             .underline()
                     }
@@ -138,8 +125,8 @@ struct WelcomeView: View {
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color.primaryAccent)
-            .sheet(isPresented: $isPrivacyPolicyShown, content: { PrivacyPolicyView(selfNavigatable: true) })
-            .sheet(isPresented: $isTermsAndConditionsShown, content: { TermsAndConditionsView(selfNavigatable: true) })
+            .sheet(isPresented: $controller.isPrivacyPolicyShown, content: { PrivacyPolicyView(selfNavigatable: true) })
+            .sheet(isPresented: $controller.isTermsANdConditionsShown, content: { TermsAndConditionsView(selfNavigatable: true) })
             .navigationDestination(for: AuthMethod.self) { method in
                 switch method {
                 case .signUp: SignUpView()

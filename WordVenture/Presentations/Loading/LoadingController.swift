@@ -10,16 +10,11 @@ import Foundation
 @MainActor class LoadingController: ObservableObject, Sendable {
     private var screenController = ScreenController.shared
     private let authService = AuthServiceImpl()
-    private let wordbookService = WordbookServiceImpl()
-    private let purchaseManager = IAPServiceImpl()
-    
-    let launchAnimationPath = Bundle.main.path(forResource: "BookStack", ofType: "gif")!
     
     @Published var isPrivacyPolicyUpdated = false
     @Published var isTermsAndConditionsUpdated = false
     @Published var privacyPolicyUpdatedDate = Date()
     @Published var termsAndConditionsUpdatedDate = Date()
-    @Published var isLoadingFinished = false
     
     @Published var isErrorShown = false
     @Published var errorMessage = ""
@@ -37,12 +32,10 @@ import Foundation
     func fetchData() async {
         do {
             try await authService.isSignedIn()
-            _ = try await wordbookService.fetchWordbook()
             screenController.state = .main
         } catch {
             errorMessage = error.localizedDescription
             isErrorShown = true
-            print(error)
             screenController.state = .auth
         }
     }
@@ -51,19 +44,6 @@ import Foundation
         isPrivacyPolicyUpdated = false
         isTermsAndConditionsUpdated = false
         signOut()
-    }
-    
-    private func signOut() {
-        Task {
-            do {
-                try await authService.signOut()
-            } catch {
-                print(error)
-                errorMessage = error.localizedDescription
-                isErrorShown = true
-            }
-            screenController.state = .auth
-        }
     }
     
     func agree(for kind: DocKind) {
@@ -82,6 +62,19 @@ import Foundation
             Task {
                 await fetchData()
             }
+        }
+    }
+    
+    private func signOut() {
+        Task {
+            do {
+                try await authService.signOut()
+            } catch {
+                print(error)
+                errorMessage = error.localizedDescription
+                isErrorShown = true
+            }
+            screenController.state = .auth
         }
     }
     
