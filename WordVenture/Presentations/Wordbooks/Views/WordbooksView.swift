@@ -22,7 +22,7 @@ struct WordbooksView: View {
                             .symbolRenderingMode(.hierarchical)
                             .font(.system(size: 64))
                             .padding()
-                        Text("noWordbooks")
+                        Text(L10n.noWordbooks.rawValue)
                             .font(.title3)
                             .bold()
                         Spacer()
@@ -45,7 +45,7 @@ struct WordbooksView: View {
                                 controller.isPlanViewShown = true
                             } label: {
                                 HStack {
-                                    Text("needUnlimitedWordbook")
+                                    Text(L10n.needUnlimitedWordbook.rawValue)
                                         .font(.headline)
                                         .foregroundColor(Color(.label))
                                 }
@@ -75,7 +75,7 @@ struct WordbooksView: View {
                 }
             }
             .background(Color(.secondarySystemBackground))
-            .navigationTitle("wordbooks")
+            .navigationTitle(L10n.wordbooks.rawValue)
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

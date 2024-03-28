@@ -15,12 +15,12 @@ struct AddWordbookView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
-                CustomField("title", text: $controller.title)
+                CustomField(L10n.title.rawValue, text: $controller.title)
                 
                 Divider()
                     .padding(8)
                 
-                ColorPicker("color", selection: $controller.color, supportsOpacity: false)
+                ColorPicker(L10n.color.rawValue, selection: $controller.color, supportsOpacity: false)
                 
 //                Divider()
 //                    .padding(8)
@@ -59,27 +59,27 @@ struct AddWordbookView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarTitle(Text("newWordbook"), displayMode: .inline)
+            .navigationBarTitle(Text(L10n.newWordbook.rawValue), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
                     } label: {
-                        Text("cancel")
+                        Text(L10n.cancel.rawValue)
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         controller.addWordbook(dismiss)
                     } label: {
-                        Text("add")
+                        Text(L10n.add.rawValue)
                             .bold()
                     }
                     .disabled(controller.title.isEmpty)
                 }
             }
-            .alert("error", isPresented: $controller.isErrorShown) {
-                Text("OK")
+            .alert(L10n.error.rawValue, isPresented: $controller.isErrorShown) {
+                Text(L10n.ok.rawValue)
             } message: {
                 Text(controller.errorMessage)
             }

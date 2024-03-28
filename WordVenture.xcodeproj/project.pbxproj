@@ -485,8 +485,6 @@
 		9A24FD602A171B6400C34508 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD612A171B6400C34508 /* CircleNavigationButton.swift */,
-				9A74065F2A4ADEEB00A500EF /* DismissButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -690,9 +688,9 @@
 		9A24FD922A171B6400C34508 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD932A171B6400C34508 /* LoadingController.swift */,
 				9A24FD942A171B6400C34508 /* LoadingView.swift */,
 				9ACA0A762A3FF4C700C76A22 /* DocPromptView.swift */,
+				9A24FD932A171B6400C34508 /* LoadingController.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -700,32 +698,18 @@
 		9A24FD952A171B6400C34508 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				9A24FD962A171B6400C34508 /* Controllers */,
-				9A24FD982A171B6400C34508 /* Views */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		9A24FD962A171B6400C34508 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9A24FD972A171B6400C34508 /* AuthController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		9A24FD982A171B6400C34508 /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				9A24FD9A2A171B6400C34508 /* SignInView.swift */,
 				9A24FD9B2A171B6400C34508 /* SignUpView.swift */,
+				9A24FD972A171B6400C34508 /* AuthController.swift */,
 			);
-			path = Views;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		9A24FD9C2A171B6400C34508 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9A24FD612A171B6400C34508 /* CircleNavigationButton.swift */,
+				9A74065F2A4ADEEB00A500EF /* DismissButton.swift */,
 				9A24FD9D2A171B6400C34508 /* CustomField.swift */,
 			);
 			path = Components;

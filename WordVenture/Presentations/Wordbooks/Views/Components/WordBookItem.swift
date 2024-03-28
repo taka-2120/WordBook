@@ -47,12 +47,6 @@ struct WordbookItem: View {
                     .strokeBorder(Color(hex: wordbook.color).opacity(0.8), lineWidth: 2)
             }
             .shadow(color: Color(hex: wordbook.color).opacity(0.3), radius: 15, y: 3)
-//        } leadingActions: { context in
-//            SwipeAction(systemImage: "pin") {
-//                controller.pinWordbook()
-//            }
-//            .background(.orange)
-//            .foregroundColor(.white)
         } trailingActions: { context in
             SwipeAction(systemImage: "trash") {
                 isDeletePromptShown.toggle()
@@ -69,17 +63,17 @@ struct WordbookItem: View {
         .swipeActionsMaskCornerRadius(15)
         .swipeEnableTriggerHaptics(true)
         .padding(.horizontal)
-        .alert("deleteWordbookWarning", isPresented: $isDeletePromptShown) {
+        .alert(L10n.deleteWordbookWarning.rawValue, isPresented: $isDeletePromptShown) {
             Button(role: .destructive) {
                 controller.removeWordbook(at: index)
                 close.send()
             } label: {
-                Text("delete")
+                Text(L10n.delete.rawValue)
             }
             Button(role: .cancel) {
                 close.send()
             } label: {
-                Text("cancel")
+                Text(L10n.cancel.rawValue)
             }
         }
     }
