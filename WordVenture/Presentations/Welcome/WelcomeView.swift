@@ -38,25 +38,11 @@ struct WelcomeView: View {
                 .padding(.leading, 100)
                 
                 TabView {
-                    VStack {
-                        Image(.brain)
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(30)
-                        Text(L10n.apiIntro.rawValue)
-                            .padding(.vertical)
-                    }
+                    IntroItem(image: .brain, description: L10n.apiIntro.rawValue)
                     .padding()
                     .tag(1)
                     
-                    VStack {
-                        Image(.cardStack)
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(30)
-                        Text(L10n.cardIntro.rawValue)
-                            .padding(.vertical)
-                    }
+                    IntroItem(image: .cardStack, description: L10n.cardIntro.rawValue)
                     .padding()
                     .tag(2)
                 }
@@ -68,32 +54,24 @@ struct WelcomeView: View {
                 .padding()
                 
                 HStack {
-                    Button {
+                    VentureButton(
+                        label: L10n.signUp.rawValue,
+                        foregroundColor: .white,
+                        backgroundColor: .black
+                    ) {
                         controller.navigate(to: .signUp)
-                    } label: {
-                        Text(L10n.signUp.rawValue)
-                            .foregroundColor(.white)
-                            .font(.title3)
-                            .bold()
-                            .padding()
                     }
-                    .frame(maxWidth: 250)
-                    .background(Color.black)
-                    .cornerRadius(10)
                     
-                    
-                    Button {
-                        controller.navigate(to: .signIn)
-                    } label: {
-                        Text(L10n.signIn.rawValue)
-                            .font(.title3)
-                            .bold()
-                            .padding()
+                    VentureButton(
+                        label: L10n.signUp.rawValue,
+                        foregroundColor: .black,
+                        backgroundColor: .clear
+                    ) {
+                        controller.navigate(to: .signUp)
                     }
-                    .frame(maxWidth: 250)
-                    .cornerRadius(10)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 2)
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.black, lineWidth: 2)
                     }
                 }
                 
