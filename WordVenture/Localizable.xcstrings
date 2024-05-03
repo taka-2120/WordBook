@@ -846,6 +846,9 @@
         }
       }
     },
+    "Enter OTP" : {
+
+    },
     "error" : {
       "localizations" : {
         "en" : {
@@ -1316,6 +1319,12 @@
         }
       }
     },
+    "New password" : {
+
+    },
+    "New password (Confirmation)" : {
+
+    },
     "newEmail" : {
       "localizations" : {
         "en" : {
@@ -1463,6 +1472,9 @@
         }
       }
     },
+    "No" : {
+
+    },
     "noAds" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1594,6 +1606,9 @@
         }
       }
     },
+    "OTP (One-time password)" : {
+
+    },
     "password" : {
       "localizations" : {
         "en" : {
@@ -1626,6 +1641,9 @@
           }
         }
       }
+    },
+    "Paste" : {
+
     },
     "plans" : {
       "comment" : "Plans",
@@ -1835,6 +1853,9 @@
           }
         }
       }
+    },
+    "Reset" : {
+
     },
     "resetEmailNote" : {
       "localizations" : {
@@ -2350,6 +2371,7 @@
       }
     },
     "username" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2565,6 +2587,9 @@
         }
       }
     },
+    "Yes" : {
+
+    },
     "yourPlan" : {
       "localizations" : {
         "en" : {
@@ -2590,6 +2615,12 @@
           }
         }
       }
+    },
+    "トークンを%@宛に送信しました。次の画面で入力してください。" : {
+
+    },
+    "メッセージ" : {
+
     }
   },
   "version" : "1.0"

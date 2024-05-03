@@ -86,6 +86,15 @@
 		9A35ADC02BB2A55600C7932F /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADBF2BB2A55600C7932F /* L10n.swift */; };
 		9A35ADC22BB313B600C7932F /* AssetUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADC12BB313B600C7932F /* AssetUrl.swift */; };
 		9A35ADC52BB39AB100C7932F /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35ADC42BB39AB100C7932F /* WelcomeController.swift */; };
+		9A3B83582BB646190063FE29 /* DialogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B83572BB646190063FE29 /* DialogManager.swift */; };
+		9A3B835A2BB64AA50063FE29 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B83592BB64AA50063FE29 /* LoadingManager.swift */; };
+		9A3B835C2BB682960063FE29 /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B835B2BB682960063FE29 /* TokenView.swift */; };
+		9A3B835E2BB684900063FE29 /* PasswordResetStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B835D2BB684900063FE29 /* PasswordResetStack.swift */; };
+		9A3B83602BB6AAF90063FE29 /* View+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B835F2BB6AAF90063FE29 /* View+Dialog.swift */; };
+		9A3B83622BB6C5C30063FE29 /* View+DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B83612BB6C5C30063FE29 /* View+DismissButton.swift */; };
+		9A3B83642BB6C96A0063FE29 /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B83632BB6C96A0063FE29 /* ClipboardManager.swift */; };
+		9A3B83662BB6CAB70063FE29 /* VentureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B83652BB6CAB70063FE29 /* VentureButton.swift */; };
+		9A3B83682BB6CDC60063FE29 /* IntroItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B83672BB6CDC60063FE29 /* IntroItem.swift */; };
 		9A3DF0092BAA69370057FAD1 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */; };
 		9A48F9712A5E8FB600F14D8C /* NukeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */; };
 		9A48F9732A5E8FCF00F14D8C /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F9722A5E8FCF00F14D8C /* Bundle.swift */; };
@@ -253,6 +262,15 @@
 		9A35ADBF2BB2A55600C7932F /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		9A35ADC12BB313B600C7932F /* AssetUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUrl.swift; sourceTree = "<group>"; };
 		9A35ADC42BB39AB100C7932F /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		9A3B83572BB646190063FE29 /* DialogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogManager.swift; sourceTree = "<group>"; };
+		9A3B83592BB64AA50063FE29 /* LoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
+		9A3B835B2BB682960063FE29 /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
+		9A3B835D2BB684900063FE29 /* PasswordResetStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetStack.swift; sourceTree = "<group>"; };
+		9A3B835F2BB6AAF90063FE29 /* View+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Dialog.swift"; sourceTree = "<group>"; };
+		9A3B83612BB6C5C30063FE29 /* View+DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DismissButton.swift"; sourceTree = "<group>"; };
+		9A3B83632BB6C96A0063FE29 /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
+		9A3B83652BB6CAB70063FE29 /* VentureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentureButton.swift; sourceTree = "<group>"; };
+		9A3B83672BB6CDC60063FE29 /* IntroItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroItem.swift; sourceTree = "<group>"; };
 		9A3DF0082BAA69370057FAD1 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 		9A48F9702A5E8FB600F14D8C /* NukeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeConfig.swift; sourceTree = "<group>"; };
 		9A48F9722A5E8FCF00F14D8C /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -366,7 +384,6 @@
 				9A24FD372A171B6400C34508 /* Assets.xcassets */,
 				9A24FD352A171B6400C34508 /* Resources */,
 				9A24FD4B2A171B6400C34508 /* Constants */,
-				9A24FD602A171B6400C34508 /* Components */,
 				9A24FD572A171B6400C34508 /* Extensions */,
 				9A24FDA72A171B6400C34508 /* Entities */,
 				9A24FD392A171B6400C34508 /* Repositories */,
@@ -452,6 +469,7 @@
 				9A24FD542A171B6400C34508 /* SettingsNavStack.swift */,
 				9A24FD552A171B6400C34508 /* MainPathes.swift */,
 				9A24FD562A171B6400C34508 /* AuthMethod.swift */,
+				9A3B835D2BB684900063FE29 /* PasswordResetStack.swift */,
 			);
 			path = NavigationStacks;
 			sourceTree = "<group>";
@@ -478,20 +496,18 @@
 				9A24FD5A2A171B6400C34508 /* View+Loading.swift */,
 				9A24FD5B2A171B6400C34508 /* View+Hidden.swift */,
 				9A6C02AF2A38791300BA61DC /* View+CornerRadius.swift */,
+				9A3B835F2BB6AAF90063FE29 /* View+Dialog.swift */,
+				9A3B83612BB6C5C30063FE29 /* View+DismissButton.swift */,
 			);
 			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		9A24FD602A171B6400C34508 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		9A24FD622A171B6400C34508 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9A3B83592BB64AA50063FE29 /* LoadingManager.swift */,
+				9A3B83572BB646190063FE29 /* DialogManager.swift */,
+				9A3B83632BB6C96A0063FE29 /* ClipboardManager.swift */,
 				9A24FD632A171B6400C34508 /* WordIndex.swift */,
 				9A24FD642A171B6400C34508 /* PriorityColor.swift */,
 				9A24FDFB2A1744EA00C34508 /* Languages.swift */,
@@ -711,6 +727,7 @@
 				9A24FD612A171B6400C34508 /* CircleNavigationButton.swift */,
 				9A74065F2A4ADEEB00A500EF /* DismissButton.swift */,
 				9A24FD9D2A171B6400C34508 /* CustomField.swift */,
+				9A3B83652BB6CAB70063FE29 /* VentureButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -757,10 +774,19 @@
 		9A35ADC32BB39AA100C7932F /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				9A3B83692BB6CDC90063FE29 /* Components */,
 				9A24FD992A171B6400C34508 /* WelcomeView.swift */,
 				9A35ADC42BB39AB100C7932F /* WelcomeController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		9A3B83692BB6CDC90063FE29 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9A3B83672BB6CDC60063FE29 /* IntroItem.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9A3DF0062BAA68140057FAD1 /* UnsplashRepository */ = {
@@ -924,6 +950,7 @@
 			children = (
 				9AEFE5A62A469EC600C71423 /* ForgetPasswordView.swift */,
 				9AEFE5A82A469F6200C71423 /* ForgetPasswordController.swift */,
+				9A3B835B2BB682960063FE29 /* TokenView.swift */,
 			);
 			path = ForgetPassword;
 			sourceTree = "<group>";
@@ -1028,7 +1055,9 @@
 				9AD4FBBA2A599828003AB3DE /* PriorityView.swift in Sources */,
 				9AE82B622A57F07000F3A5F1 /* FlashCardItem.swift in Sources */,
 				9A24FDCA2A171B6500C34508 /* WordIndex.swift in Sources */,
+				9A3B835E2BB684900063FE29 /* PasswordResetStack.swift in Sources */,
 				9A24FDD72A171B6500C34508 /* AddWordController.swift in Sources */,
+				9A3B835C2BB682960063FE29 /* TokenView.swift in Sources */,
 				9A5EA76E2A2B301900AAE8C3 /* PlanItem.swift in Sources */,
 				9A24FDE22A171B6500C34508 /* WordbooksView.swift in Sources */,
 				9A24FDCE2A171B6500C34508 /* ChangePasswordView.swift in Sources */,
@@ -1060,6 +1089,7 @@
 				9A24FDDD2A171B6500C34508 /* FieldItem.swift in Sources */,
 				9A24FDC72A171B6500C34508 /* Color+Custom.swift in Sources */,
 				9A35ADC52BB39AB100C7932F /* WelcomeController.swift in Sources */,
+				9A3B835A2BB64AA50063FE29 /* LoadingManager.swift in Sources */,
 				9A5EA7822A2C857500AAE8C3 /* SharedFile.swift in Sources */,
 				9A24FDDF2A171B6500C34508 /* WordsView.swift in Sources */,
 				9A24FDEE2A171B6500C34508 /* ScreenController.swift in Sources */,
@@ -1090,6 +1120,7 @@
 				9A24FDC92A171B6500C34508 /* CircleNavigationButton.swift in Sources */,
 				9A48F9732A5E8FCF00F14D8C /* Bundle.swift in Sources */,
 				9A24FDE02A171B6500C34508 /* WordbooksController.swift in Sources */,
+				9A3B83602BB6AAF90063FE29 /* View+Dialog.swift in Sources */,
 				9ACA0A772A3FF4C700C76A22 /* DocPromptView.swift in Sources */,
 				9A24FDD62A171B6500C34508 /* CreditsView.swift in Sources */,
 				9A35ADBC2BB1767900C7932F /* ServiceTypes.swift in Sources */,
@@ -1098,6 +1129,7 @@
 				9A24FDC32A171B6500C34508 /* View+Loading.swift in Sources */,
 				9A5EA7722A2C138B00AAE8C3 /* CommonWordSection.swift in Sources */,
 				9A24FDE92A171B6500C34508 /* AuthController.swift in Sources */,
+				9A3B83582BB646190063FE29 /* DialogManager.swift in Sources */,
 				9A5EA7462A2AE32300AAE8C3 /* IAPRepositoryImpl.swift in Sources */,
 				9A5EA7862A2C896900AAE8C3 /* AboutView.swift in Sources */,
 				9AE82B602A57E34800F3A5F1 /* Haptics.swift in Sources */,
@@ -1127,6 +1159,7 @@
 				9A24FDEF2A171B6500C34508 /* WordbookApp.swift in Sources */,
 				9AE82B5E2A57D9F900F3A5F1 /* FlashCardController.swift in Sources */,
 				9AD7B1142A36CAED00AAA6B1 /* VersionDetection.swift in Sources */,
+				9A3B83682BB6CDC60063FE29 /* IntroItem.swift in Sources */,
 				9A24FDDB2A171B6500C34508 /* DetailsView.swift in Sources */,
 				9A24FDB92A171B6500C34508 /* SupabaseClient.swift in Sources */,
 				9A24FDC62A171B6500C34508 /* NotificationCenter.swift in Sources */,
@@ -1138,14 +1171,17 @@
 				9A24FE022A1F8CA200C34508 /* RelatedImage.swift in Sources */,
 				9A24FDEA2A171B6500C34508 /* WelcomeView.swift in Sources */,
 				9A24FDE62A171B6500C34508 /* FlashCardMode.swift in Sources */,
+				9A3B83662BB6CAB70063FE29 /* VentureButton.swift in Sources */,
 				9A24FDAD2A171B6500C34508 /* env.swift in Sources */,
 				9A24FDF62A171B6500C34508 /* UserDataEntity.swift in Sources */,
 				9AD4FBB22A59427D003AB3DE /* TestCardController.swift in Sources */,
 				9A24FDD32A171B6500C34508 /* SettingsView.swift in Sources */,
+				9A3B83642BB6C96A0063FE29 /* ClipboardManager.swift in Sources */,
 				9A5EA74E2A2AEBE100AAE8C3 /* UnsplashRepository.swift in Sources */,
 				9AD4FBB62A594446003AB3DE /* TestCardItem.swift in Sources */,
 				9A5EA7692A2B2B4200AAE8C3 /* Products.swift in Sources */,
 				9A6C02B02A38791300BA61DC /* View+CornerRadius.swift in Sources */,
+				9A3B83622BB6C5C30063FE29 /* View+DismissButton.swift in Sources */,
 				9A24FDFA2A17349900C34508 /* String+Language.swift in Sources */,
 				9A24FDD82A171B6500C34508 /* WordsController.swift in Sources */,
 			);
