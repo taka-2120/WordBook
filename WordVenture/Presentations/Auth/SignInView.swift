@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SignInView: View {
-    
     @StateObject private var controller = AuthController()
     
     var body: some View {
@@ -29,7 +28,7 @@ struct SignInView: View {
                     Image(systemName: "at")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: L10n.email.rawValue, isEmail: true, text: $controller.email)
+                    CustomField("", placeHolder: L10n.email.rawValue, keyType: .email, text: $controller.email)
                         .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
@@ -38,36 +37,23 @@ struct SignInView: View {
                     Image(systemName: "key.horizontal")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: L10n.password.rawValue, isSecured: true, text: $controller.password)
+                    CustomField("", placeHolder: L10n.password.rawValue, keyType: .password, text: $controller.password)
                         .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
                 
                 Spacer()
                 
-                Button {
+                VentureButton(label: L10n.signIn.rawValue) {
                     controller.signIn()
-                } label: {
-                    Text(L10n.signIn.rawValue)
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .bold()
-                        .padding()
                 }
-                .frame(maxWidth: 250)
-                .background(Color.black)
-                .cornerRadius(10)
             }
             .padding()
         }
         .background(Color.primaryAccent)
         .foregroundColor(.black)
         .navigationBarTitleDisplayMode(.inline)
-        .alert(L10n.error.rawValue, isPresented: $controller.isErrorShown) {
-            Text(L10n.ok.rawValue)
-        } message: {
-            Text(controller.errorMessage)
-        }
+        .dialog(manager: controller.dialogManager)
         .loading($controller.isLoading)
     }
 }

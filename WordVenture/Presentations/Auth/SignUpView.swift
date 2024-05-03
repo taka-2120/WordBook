@@ -42,7 +42,7 @@ struct SignUpView: View {
                     Image(systemName: "at")
                         .font(.system(size: 18))
                         .frame(width: 30)
-                    CustomField("", placeHolder: L10n.email.rawValue, isEmail: true, text: $controller.email)
+                    CustomField("", placeHolder: L10n.email.rawValue, keyType: .email, text: $controller.email)
                         .preferredColorScheme(.light)
                 }
                 .padding(.horizontal)
@@ -53,7 +53,7 @@ struct SignUpView: View {
                         .frame(width: 30)
                     
                     VStack(alignment: .leading) {
-                        CustomField("", placeHolder: L10n.password.rawValue, isSecured: true, text: $controller.password)
+                        CustomField("", placeHolder: L10n.password.rawValue, keyType: .password, text: $controller.password)
                             .preferredColorScheme(.light)
                         Text(LocalizedStringKey(stringLiteral: RegexType.passwordRegex.notes))
                             .font(.callout)
@@ -64,29 +64,16 @@ struct SignUpView: View {
                 
                 Spacer()
                 
-                Button {
+                VentureButton(label: L10n.signUp.rawValue) {
                     controller.signUp()
-                } label: {
-                    Text(L10n.signUp.rawValue)
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .bold()
-                        .padding()
                 }
-                .frame(maxWidth: 250)
-                .background(Color.black)
-                .cornerRadius(10)
             }
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.primaryAccent)
         .foregroundColor(.black)
-        .alert(L10n.error.rawValue, isPresented: $controller.isErrorShown) {
-            Text(L10n.ok.rawValue)
-        } message: {
-            Text(controller.errorMessage)
-        }
+        .dialog(manager: controller.dialogManager)
         .loading($controller.isLoading)
     }
 }

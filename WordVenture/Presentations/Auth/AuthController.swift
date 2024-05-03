@@ -5,57 +5,38 @@
 //  Created by Yu Takahashi on 4/24/23.
 //
 
-import Foundation
+import SwiftUI
 
 @MainActor
-class AuthController: ObservableObject, Sendable {
-    private var screenController = ScreenController.shared
+class AuthController: LoadablePresenter {
+    private let screenController = ScreenController.shared
+    @StateObject var dialogManager = DialogManager()
     private let authService = AuthServiceImpl()
     
     @Published var username = ""
     @Published var email = ""
     @Published var password = ""
-    @Published var isLoading = false
-    
-    @Published var isErrorShown = false
-    @Published var errorMessage = ""
     
     func signIn() {
-        isLoading = true
-        
-        Task {
-            defer {
-                isLoading = false
-            }
-            
+        loadingTask { [self] in
             do {
                 try validate(isSignUp: false)
                 try await authService.signIn(email: email, password: password)
                 screenController.state = .main
             } catch {
-                errorMessage = error.localizedDescription
-                isErrorShown = true
-                print(error)
+                dialogManager.showErrorDialog(message: "\(error.localizedDescription)")
             }
         }
     }
     
     func signUp() {
-        isLoading = true
-        
-        Task { 
-            defer {
-                isLoading = false
-            }
-            
+        loadingTask { [self] in
             do {
                 try validate(isSignUp: true)
                 try await authService.signUp(username: username, email: email, password: password)
                 screenController.state = .main
             } catch {
-                errorMessage = error.localizedDescription
-                isErrorShown = true
-                print(error)
+                dialogManager.showErrorDialog(message: "\(error.localizedDescription)")
             }
         }
     }
