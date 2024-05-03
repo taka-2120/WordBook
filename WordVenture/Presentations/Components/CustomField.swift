@@ -7,28 +7,34 @@
 
 import SwiftUI
 
+enum KeyType {
+    case normal
+    case email
+    case password
+}
+
 struct CustomField: View {
+    @State private var isNoteShown = false
+    
     private let label: LocalizedStringKey
-    private var placeHolder: LocalizedStringKey? = nil
-    private var isSecured: Bool = false
-    private var isEmail: Bool = false
-    private var notes: LocalizedStringKey? = nil
+    private let placeHolder: LocalizedStringKey?
+    private let leadingIcon: String?
+    private let keyType: KeyType
+    private let notes: LocalizedStringKey?
     @Binding private var text: String
-    @Binding private var isNoteShown: Bool
     
     init(_ label: LocalizedStringKey,
          placeHolder: LocalizedStringKey? = nil,
-         isSecured: Bool = false,
-         isEmail: Bool = false,
+         leadingIcon: String? = nil,
+         keyType: KeyType = .normal,
          notes: LocalizedStringKey? = nil,
-         isNoteShown: Binding<Bool> = .constant(false),
-         text: Binding<String>) {
+         text: Binding<String>
+    ) {
         self.label = label
         self.placeHolder = placeHolder
-        self.isSecured = isSecured
-        self.isEmail = isEmail
+        self.leadingIcon = leadingIcon
+        self.keyType = keyType
         self.notes = notes
-        self._isNoteShown = isNoteShown
         self._text = text
     }
     
@@ -38,7 +44,7 @@ struct CustomField: View {
                 Text(label)
                 Spacer()
                 
-                if notes != nil {
+                if let notes = notes {
                     Button {
                         isNoteShown.toggle()
                     } label: {
@@ -51,21 +57,27 @@ struct CustomField: View {
             .foregroundColor(Color(.secondaryLabel))
             .padding(.horizontal)
             
-            if isSecured {
-                SecureField((placeHolder == nil) ? label : placeHolder!, text: $text)
-                    .padding(.horizontal)
-                    .padding(.vertical)
-                    .background(Color(.tertiarySystemGroupedBackground))
-                    .cornerRadius(15)
-            } else {
-                TextField((placeHolder == nil) ? label : placeHolder!, text: $text)
-                    .padding(.horizontal)
-                    .padding(.vertical)
-                    .background(Color(.tertiarySystemGroupedBackground))
-                    .cornerRadius(15)
-                    .keyboardType(isEmail ? .emailAddress : .default)
-                    .autocorrectionDisabled(isEmail)
-                    .textInputAutocapitalization(isEmail ? .never : .sentences)
+            HStack {
+                if let leadingIcon = leadingIcon {
+                    Image(systemName: leadingIcon)
+                }
+                
+                if keyType == .password {
+                    SecureField((placeHolder == nil) ? label : placeHolder!, text: $text)
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                        .background(Color(.tertiarySystemGroupedBackground))
+                        .cornerRadius(15)
+                } else {
+                    TextField((placeHolder == nil) ? label : placeHolder!, text: $text)
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                        .background(Color(.tertiarySystemGroupedBackground))
+                        .cornerRadius(15)
+                        .keyboardType(keyType == .email ? .emailAddress : .default)
+                        .autocorrectionDisabled(keyType == .email)
+                        .textInputAutocapitalization(keyType == .email ? .never : .sentences)
+                }
             }
             
             if notes != nil && isNoteShown {
@@ -83,8 +95,6 @@ struct CustomField: View {
     }
 }
 
-//struct CustomField_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomField("Field", notes: "Here is some notes.", text: .constant("Text"))
-//    }
-//}
+#Preview {
+    CustomField("", placeHolder: "", notes: "", text: .constant(""))
+}

@@ -14,9 +14,9 @@ struct ChangePasswordView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            CustomField("oldPassword", isSecured: true, text: $controller.password)
-            CustomField("newPassword", isSecured: true, text: $controller.newPassword)
-            CustomField("reNewPassword", isSecured: true, text: $controller.reNewPassword)
+            CustomField("oldPassword", keyType: .password, text: $controller.password)
+            CustomField("newPassword", keyType: .password, text: $controller.newPassword)
+            CustomField("reNewPassword", keyType: .password, text: $controller.reNewPassword)
             
             Text(LocalizedStringKey(stringLiteral: RegexType.passwordRegex.notes))
                 .font(.callout)

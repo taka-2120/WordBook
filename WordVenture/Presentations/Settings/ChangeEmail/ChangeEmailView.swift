@@ -18,9 +18,9 @@ struct ChangeEmailView: View {
             Text(controller.email)
                 .bold()
             
-            CustomField("newEmail", isEmail: true, text: $controller.newEmail)
+            CustomField("newEmail", keyType: .email, text: $controller.newEmail)
             
-            CustomField("password", isSecured: true, text: $controller.password)
+            CustomField("password", keyType: .password, text: $controller.password)
             
             Spacer()
             

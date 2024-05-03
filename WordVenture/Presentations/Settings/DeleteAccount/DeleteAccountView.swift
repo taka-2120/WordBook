@@ -19,8 +19,8 @@ struct DeleteAccountView: View {
                 .foregroundColor(Color(.secondaryLabel))
                 .multilineTextAlignment(.center)
             
-            CustomField("email", isEmail: true, text: $controller.email)
-            CustomField("password", isSecured: true, text: $controller.password)
+            CustomField("email", keyType: .password, text: $controller.email)
+            CustomField("password", keyType: .password, text: $controller.password)
             
             Spacer()
             
