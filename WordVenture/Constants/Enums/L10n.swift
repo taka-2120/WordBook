@@ -10,6 +10,8 @@ import SwiftUI
 enum L10n: LocalizedStringKey {
     case error = "error"
     case ok = "OK"
+    case yes = "Yes"
+    case no = "No"
     case delete = "delete"
     case cancel = "cancel"
     

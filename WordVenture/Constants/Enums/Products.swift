@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 enum UnlimitedPeriod: CaseIterable {
     case monthly, annually
 }

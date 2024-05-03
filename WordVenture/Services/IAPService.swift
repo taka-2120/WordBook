@@ -35,7 +35,7 @@ actor IAPService<IAPRepo: IAPRepository> {
     
     nonisolated func hasUnlimited() async -> Bool {
         do {
-            return try await IAPRepo.getPurchasedIds().isEmpty
+            return !(try await IAPRepo.getPurchasedIds().isEmpty)
         } catch {
             print("failed to retrieve purchase status")
             return false
