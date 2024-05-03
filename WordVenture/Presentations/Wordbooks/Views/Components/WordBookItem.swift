@@ -54,7 +54,7 @@ struct WordbookItem: View {
             .allowSwipeToTrigger()
             .background(.red)
             .foregroundColor(.white)
-            .onReceive(close) { _ in /// Receive the `PassthroughSubject`.
+            .onReceive(close) { _ in // Receive  `PassthroughSubject`
                 context.state.wrappedValue = .closed
             }
         }

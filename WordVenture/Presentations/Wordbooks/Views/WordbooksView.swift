@@ -10,10 +10,9 @@ import SwipeActions
 
 struct WordbooksView: View {
     @StateObject private var controller = WordbooksController()
-    @State private var wordbookPathes = NavigationPath()
     
     var body: some View {
-        NavigationStack(path: $wordbookPathes) {
+        NavigationStack {
             Group {
                 if controller.wordbooks.isEmpty {
                     VStack {
